@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Wed Mar 24 11:28:25 2010
-#      by: PyQt4 UI code generator snapshot-4.7.1-02f7e71246f9
+# Created: Sat Mar 27 11:12:28 2010
+#      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -55,3 +55,8 @@ class Ui_unidadDialog(object):
 
     def retranslateUi(self, unidadDialog):
         unidadDialog.setWindowTitle(QtGui.QApplication.translate("unidadDialog", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("unidadDialog", "Numero:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("unidadDialog", "Tipo:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("unidadDialog", "Capacidad:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("unidadDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
+

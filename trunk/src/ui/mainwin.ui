@@ -15,31 +15,8 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
+    <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QStackedWidget" name="widgets">
-        <widget class="QWidget" name="page">
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string> Bienvenido!</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="page_2"/>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QListWidget" name="options">
         <property name="maximumSize">
@@ -54,6 +31,38 @@
           <height>84</height>
          </size>
         </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="title">
+        <property name="title">
+         <string>GroupBox</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QStackedWidget" name="widgets">
+           <widget class="QWidget" name="page">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="text">
+                  <string> Bienvenido!</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_2"/>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
