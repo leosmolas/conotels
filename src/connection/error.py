@@ -2,9 +2,18 @@ import exceptions
 
 """
 Clase que modela excepciones definidas por el usuario.
-La idea es heredar de esta clase para definir excepciones especificas.
 """
 class Error(Exception):
+
+	"""
+	*Constructor de la clase.
+	*Parametros:
+		1)	msg:	string, mensaje de error de la excepcion.
+	*Excepciones: nada.
+	"""
+	def __init__(self, msg,type):
+		self.msg = msg
+		self.type = type
 	"""
 	Metodo para retornar mensaje de error de la excepcion.
 	*Parametros: nada.
@@ -13,6 +22,15 @@ class Error(Exception):
 	"""
 	def getMsg(self):
 		return self.msg
+		
+	"""
+	Metodo para retornar el tipo de la excepcion.
+	*Parametros: nada.
+	*Excepciones: nada.
+	*Retorno: nada.
+	"""
+	def getType(self):
+		return self.type
 
 	"""
 	Metodo para imprimir el mensaje de error de la excepcion.
@@ -24,18 +42,3 @@ class Error(Exception):
 	"""
 	def __str__(self):
 		print "",self.msg
-		
-	pass
-
-"""
-Clase que modela una excepcion que puede ocurrir al interactuar con una Base de Datos.
-"""
-class ConnectionError(Error):
-	"""
-	*Constructor de la clase.
-	*Parametros:
-		1)	msg:	string, mensaje de error de la excepcion.
-	*Excepciones: nada.
-	"""
-	def __init__(self, msg):
-		self.msg = msg
