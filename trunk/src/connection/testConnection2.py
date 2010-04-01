@@ -29,6 +29,7 @@ if __name__ == "__main__":
 		Dialog.show()
 		
 		#Inserto un nuevo valor en la Base de Datos
+		#Notar que si se ejecuta dos veces el programa de prueba, tira una excepcion dado que la persona ya existe en ls bd
 		conn.update("insert into persona(cuil,nombre,apellido,direccion) values (9,'Diego','Panqueque Mancovequio','Bala 535')")
 	
 		#model1=QtSql.QSqlQueryModel()
@@ -67,6 +68,8 @@ if __name__ == "__main__":
 		ui.lineEdit.setText(model4.getItem("nombre",0))
 		#Analogo, pero con el textEdit, en este caso no indico la fila, por lo que implicitamente se asume la 0
 		ui.textEdit.setText(model4.getItem("nombre"))
+		#Analogo, pero con el plainTextEdit
+		ui.plainTextEdit.setPlainText(model4.getItem("nombre"))
 		
 	
 	#Si se produce alguna excepcion, muestro el mensaje por pantalla
