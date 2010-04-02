@@ -6,6 +6,7 @@ from ui.mainwin import Ui_MainWindow
 from unidad import UnidadDialog
 from tipo import TipoDialog
 from reserva import ReservaDialog
+from huesped import HuespedDialog
 
 import icons_rc
 
@@ -28,6 +29,12 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewTypeBut.setText("Nueva reserva")
+		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
+		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+
+		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
+		self.addNewTypeBut.setText("Nuevo huesped")
 		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
@@ -55,16 +62,11 @@ class MainWindow(QtGui.QMainWindow):
 		elif selected == 2:
 			self.ui.title.setTitle("Reserva")
 			self.ui.widgets.insertWidget(1, ReservaDialog())
+		elif selected == 3:
+			self.ui.title.setTitle("Huesped")
+			self.ui.widgets.insertWidget(1, HuespedDialog())
 
 		self.ui.widgets.setCurrentIndex(1)
-
-#   @QtCore.pyqtSlot()
-#   def on_buttonBox_accepted(self):
-#      self.save()
-#   
-#   @QtCore.pyqtSlot()
-#   def on_buttonBox_rejected(self):
-#      self.close()
 
 import sys
 

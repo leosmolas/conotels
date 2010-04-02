@@ -19,9 +19,6 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
     </widget>
    </item>
    <item row="0" column="0">
@@ -44,7 +41,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="numeroLine"/>
+      <widget class="QLineEdit" name="apellidoLine"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
@@ -54,7 +51,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="numeroLine_3"/>
+      <widget class="QLineEdit" name="nombreLine"/>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_4">
@@ -64,20 +61,20 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="numeroLine_4"/>
+      <widget class="QLineEdit" name="telLine"/>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="numeroLine_2"/>
+      <widget class="QLineEdit" name="dniLine"/>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>numeroLine_2</tabstop>
-  <tabstop>numeroLine</tabstop>
-  <tabstop>numeroLine_3</tabstop>
-  <tabstop>numeroLine_4</tabstop>
+  <tabstop>dniLine</tabstop>
+  <tabstop>apellidoLine</tabstop>
+  <tabstop>nombreLine</tabstop>
+  <tabstop>telLine</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>
