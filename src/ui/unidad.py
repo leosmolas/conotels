@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Sat Mar 27 11:12:28 2010
+# Created: Sat Mar 27 11:42:09 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,7 +44,6 @@ class Ui_unidadDialog(object):
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(unidadDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
 

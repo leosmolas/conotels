@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Sat Mar 27 11:12:27 2010
+# Created: Sat Mar 27 11:42:08 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,7 +19,16 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.widgets = QtGui.QStackedWidget(self.centralwidget)
+        self.options = QtGui.QListWidget(self.centralwidget)
+        self.options.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.options.setIconSize(QtCore.QSize(96, 84))
+        self.options.setObjectName("options")
+        self.gridLayout.addWidget(self.options, 0, 0, 1, 1)
+        self.title = QtGui.QGroupBox(self.centralwidget)
+        self.title.setObjectName("title")
+        self.verticalLayout_4 = QtGui.QVBoxLayout(self.title)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.widgets = QtGui.QStackedWidget(self.title)
         self.widgets.setObjectName("widgets")
         self.page = QtGui.QWidget()
         self.page.setObjectName("page")
@@ -36,13 +45,9 @@ class Ui_MainWindow(object):
         self.page_2 = QtGui.QWidget()
         self.page_2.setObjectName("page_2")
         self.widgets.addWidget(self.page_2)
-        self.gridLayout.addWidget(self.widgets, 0, 1, 1, 1)
-        self.options = QtGui.QListWidget(self.centralwidget)
-        self.options.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.options.setIconSize(QtCore.QSize(96, 84))
-        self.options.setObjectName("options")
-        self.gridLayout.addWidget(self.options, 0, 0, 1, 1)
-        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+        self.verticalLayout_4.addWidget(self.widgets)
+        self.gridLayout.addWidget(self.title, 0, 1, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 583, 20))
@@ -57,6 +62,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
+        self.title.setTitle(QtGui.QApplication.translate("MainWindow", "GroupBox", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", " Bienvenido!", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc
