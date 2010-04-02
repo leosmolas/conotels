@@ -78,8 +78,51 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuAdministracion">
+    <property name="title">
+     <string>Administracion</string>
+    </property>
+    <addaction name="actionNueva_unidad"/>
+    <addaction name="actionNuevo_Tipo"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuAcerca_de">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionAcerca_de"/>
+    <addaction name="actionAyuda"/>
+   </widget>
+   <addaction name="menuAdministracion"/>
+   <addaction name="menuAcerca_de"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNueva_unidad">
+   <property name="text">
+    <string>Nueva unidad</string>
+   </property>
+  </action>
+  <action name="actionNuevo_Tipo">
+   <property name="text">
+    <string>Nuevo Tipo</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de...</string>
+   </property>
+  </action>
+  <action name="actionAyuda">
+   <property name="text">
+    <string>Ayuda</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../icons.qrc"/>
