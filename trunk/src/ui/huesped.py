@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'huesped.ui'
 #
-# Created: Tue Mar 30 19:16:03 2010
+# Created: Fri Apr  2 20:41:05 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!

@@ -13,7 +13,7 @@ class UnidadDialog(QtGui.QDialog):
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
-		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
+		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
 		# Llenar el comboBox de Tipo
 

@@ -5,6 +5,7 @@ from ui.mainwin import Ui_MainWindow
 
 from unidad import UnidadDialog
 from tipo import TipoDialog
+from reserva import ReservaDialog
 
 import icons_rc
 
@@ -21,6 +22,12 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewTypeBut.setText("Agregar nuevo tipo")
+		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
+		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+
+		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
+		self.addNewTypeBut.setText("Nueva reserva")
 		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
@@ -45,6 +52,9 @@ class MainWindow(QtGui.QMainWindow):
 		elif selected == 1:
 			self.ui.title.setTitle("Tipo")
 			self.ui.widgets.insertWidget(1, TipoDialog())
+		elif selected == 2:
+			self.ui.title.setTitle("Reserva")
+			self.ui.widgets.insertWidget(1, ReservaDialog())
 
 		self.ui.widgets.setCurrentIndex(1)
 
