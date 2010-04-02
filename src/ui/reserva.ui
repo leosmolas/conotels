@@ -19,9 +19,6 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
     </widget>
    </item>
    <item row="0" column="0">
@@ -44,7 +41,7 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="numeroLine"/>
+      <widget class="QLineEdit" name="huespedLine"/>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_3">
@@ -61,7 +58,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="numeroLine_2"/>
+      <widget class="QLineEdit" name="unidadLine"/>
      </item>
      <item row="7" column="0">
       <widget class="QLabel" name="label_5">
@@ -99,51 +96,51 @@
       </widget>
      </item>
      <item row="11" column="1">
-      <widget class="QComboBox" name="comboBox"/>
+      <widget class="QComboBox" name="estadoCombo"/>
      </item>
      <item row="9" column="1">
-      <widget class="QTimeEdit" name="timeEdit"/>
+      <widget class="QTimeEdit" name="inTime"/>
      </item>
      <item row="10" column="1">
-      <widget class="QTimeEdit" name="timeEdit_2"/>
+      <widget class="QTimeEdit" name="outTime"/>
      </item>
      <item row="8" column="1">
-      <widget class="QDateEdit" name="dateEdit">
+      <widget class="QDateEdit" name="finDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QDateEdit" name="dateEdit_2">
+      <widget class="QDateEdit" name="inicioDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QDateEdit" name="dateEdit_3">
+      <widget class="QDateEdit" name="inicioPreDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QDateEdit" name="dateEdit_4">
+      <widget class="QDateEdit" name="finPreDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="unidadBut">
        <property name="text">
         <string>Buscar Unidad</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="huespedBut">
        <property name="text">
         <string>Buscar Huesped</string>
        </property>
@@ -154,8 +151,8 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>numeroLine_2</tabstop>
-  <tabstop>numeroLine</tabstop>
+  <tabstop>unidadLine</tabstop>
+  <tabstop>huespedLine</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>
