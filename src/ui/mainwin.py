@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Fri Apr  2 21:03:43 2010
+# Created: Sat Apr  3 17:51:10 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,8 +20,9 @@ class Ui_MainWindow(object):
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.options = QtGui.QListWidget(self.centralwidget)
-        self.options.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.options.setIconSize(QtCore.QSize(96, 84))
+        self.options.setMaximumSize(QtCore.QSize(155, 16777215))
+        self.options.setIconSize(QtCore.QSize(150, 84))
+        self.options.setGridSize(QtCore.QSize(150, 80))
         self.options.setObjectName("options")
         self.gridLayout.addWidget(self.options, 0, 0, 1, 1)
         self.title = QtGui.QGroupBox(self.centralwidget)
@@ -52,10 +53,32 @@ class Ui_MainWindow(object):
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 583, 20))
         self.menubar.setObjectName("menubar")
+        self.menuAdministracion = QtGui.QMenu(self.menubar)
+        self.menuAdministracion.setObjectName("menuAdministracion")
+        self.menuAcerca_de = QtGui.QMenu(self.menubar)
+        self.menuAcerca_de.setObjectName("menuAcerca_de")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionNueva_unidad = QtGui.QAction(MainWindow)
+        self.actionNueva_unidad.setObjectName("actionNueva_unidad")
+        self.actionNuevo_Tipo = QtGui.QAction(MainWindow)
+        self.actionNuevo_Tipo.setObjectName("actionNuevo_Tipo")
+        self.actionSalir = QtGui.QAction(MainWindow)
+        self.actionSalir.setObjectName("actionSalir")
+        self.actionAcerca_de = QtGui.QAction(MainWindow)
+        self.actionAcerca_de.setObjectName("actionAcerca_de")
+        self.actionAyuda = QtGui.QAction(MainWindow)
+        self.actionAyuda.setObjectName("actionAyuda")
+        self.menuAdministracion.addAction(self.actionNueva_unidad)
+        self.menuAdministracion.addAction(self.actionNuevo_Tipo)
+        self.menuAdministracion.addSeparator()
+        self.menuAdministracion.addAction(self.actionSalir)
+        self.menuAcerca_de.addAction(self.actionAcerca_de)
+        self.menuAcerca_de.addAction(self.actionAyuda)
+        self.menubar.addAction(self.menuAdministracion.menuAction())
+        self.menubar.addAction(self.menuAcerca_de.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -64,5 +87,12 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         self.title.setTitle(QtGui.QApplication.translate("MainWindow", "GroupBox", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", " Bienvenido!", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuAdministracion.setTitle(QtGui.QApplication.translate("MainWindow", "Administracion", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuAcerca_de.setTitle(QtGui.QApplication.translate("MainWindow", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionNueva_unidad.setText(QtGui.QApplication.translate("MainWindow", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionNuevo_Tipo.setText(QtGui.QApplication.translate("MainWindow", "Nuevo Tipo", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionSalir.setText(QtGui.QApplication.translate("MainWindow", "Salir", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionAcerca_de.setText(QtGui.QApplication.translate("MainWindow", "Acerca de...", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionAyuda.setText(QtGui.QApplication.translate("MainWindow", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc

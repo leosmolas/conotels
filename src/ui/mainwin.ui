@@ -21,14 +21,20 @@
        <widget class="QListWidget" name="options">
         <property name="maximumSize">
          <size>
-          <width>150</width>
+          <width>155</width>
           <height>16777215</height>
          </size>
         </property>
         <property name="iconSize">
          <size>
-          <width>96</width>
+          <width>150</width>
           <height>84</height>
+         </size>
+        </property>
+        <property name="gridSize">
+         <size>
+          <width>150</width>
+          <height>80</height>
          </size>
         </property>
        </widget>
