@@ -13,7 +13,7 @@ class ReservaDialog(QtGui.QDialog):
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
-		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
+		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
 		#llenar combobox de estado
 		#hacer consultas para buscar huespedes y unidades libres para reserva?
@@ -43,15 +43,14 @@ class ReservaDialog(QtGui.QDialog):
 			print "new"
 	
 	def clear(self):
-		print "HOLAAA"
-		self.ui.unidadLine.setText("")
-		self.ui.huespedLine.setText("")
-		self.ui.inicioPreDate.setDate(QtCore.QDate.currentDate())
-		self.ui.finPreDate.setDate(QtCore.QDate.currentDate())
-		self.ui.inicioDate.setDate(QtCore.QDate.currentDate())
-		self.ui.finDate.setDate(QtCore.QDate.currentDate())
-		self.ui.inTime.setTime(QtCore.QTime.currentTime())
-		self.ui.outTime.setTime(QtCore.QTime.currentTime())
+		self.ui.unidadLine = 0
+		self.ui.huespedLine = ""
+		self.ui.inicioPreDate.setDate(QtCore.QDate.currentDate)
+		self.ui.finPreDate  = ""
+		self.ui.inicioDate = ""
+		self.ui.finDate = ""
+		self.ui.inTime = ""
+		self.ui.outTime
 		self.ui.estadoCombo.setCurrentIndex(0)
 
 	@QtCore.pyqtSlot()

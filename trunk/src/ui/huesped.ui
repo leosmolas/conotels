@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Nueva unidad</string>
   </property>
+  <property name="locale">
+   <locale language="Spanish" country="Spain"/>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
