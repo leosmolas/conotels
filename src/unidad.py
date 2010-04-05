@@ -58,10 +58,10 @@ class UnidadDialog(QtGui.QDialog):
 		if self.modif:
 			self.close()
 
-import sys
+#import sys
 
-app = QtGui.QApplication(sys.argv)
-main = unidadDialog()
-main = unidadDialog(1,1,1,1,1)
-main.show()
-sys.exit(app.exec_())
+#app = QtGui.QApplication(sys.argv)
+#main = unidadDialog()
+#main = unidadDialog(1,1,1,1,1)
+#main.show()
+#sys.exit(app.exec_())
