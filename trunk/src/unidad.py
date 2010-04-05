@@ -21,7 +21,7 @@ class UnidadDialog(QtGui.QDialog):
 	descripcion = 0, estado = 0, parent = None):
 		super(UnidadDialog, self).__init__(parent)
 
-		self.modif = (tipo == 0)
+		self.modif = (tipo != 0)
 		self.numero = numero
 		self.tipo = tipo
 		self.capacidad = capacidad
