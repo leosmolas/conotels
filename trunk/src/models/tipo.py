@@ -1,5 +1,4 @@
-from connection.model import Model
-from connection.error import Error
+from abstractmodel import AbstractModel
 
 class Tipo(AbstractModel):
 	def __init__(self):
