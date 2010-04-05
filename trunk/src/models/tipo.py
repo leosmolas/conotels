@@ -13,8 +13,15 @@ class Tipo(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self, id = -1, ...): # if id != -1: update; else: save;
+	def save(self, id=-1, nombre="", costoTemporadaAlta=0, costoTemporadaBaja=0, descripcion=""):
 		if id != -1:
-			self.conn.query("update "+self.tableName+" set ... where id="+str(id))
+			self.conn.query("update "+self.tableName+" 
+				set nombre="+nombre+", 
+					costoTemporadaAlta="+str(costoTemporadaAlta)+",
+					costoTemporadaBaja="+str(costoTemporadaBaja)+",
+					descripcion="+descripcion+"
+				where idTipo="+str(id))
 		else:
-			self.conn.query("insert into "+self.tableName+"(...) values (...)")
+			self.conn.query("insert into "+self.tableName+"
+				(nombre,costoTemporadaAlta,costoTemporadaBaja,descripcion) 
+				values ("+nombre+","+costoTemporadaAlta+","+costoTemporadaBaja+","+descripcion+")")
