@@ -22,9 +22,3 @@ class Model(QtSql.QSqlQueryModel):
 			raise Error("Error al intentar acceder a la columna de nombre '"+columnName+"'","Error de acceso a la tabla.")
 			
 		return  row.value(columnName).toString()
-	
-			
-		
-	
-
-	
