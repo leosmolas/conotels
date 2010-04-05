@@ -39,7 +39,6 @@ create table unidad (
 
 create table huesped (
 
-	#idHuesped int unsigned not null auto_increment,
 	dni varchar(45) not null,
 	apellido varchar(45) not null,
 	nombre varchar(45) not null,
@@ -55,7 +54,6 @@ create table reserva (
 
 	idReserva int unsigned not null auto_increment,
 	unidad int unsigned not null,
-	#huesped int unisgned not null,
 	huesped varchar (45) not null,
 	inicioPrereserva date not null,
 	finPrereserva date,
@@ -67,8 +65,9 @@ create table reserva (
 	
 	primary key (idReserva),
 
-	#key FK_reserva_huesped (huesped),
-	#constraint FK_reserva_huesped foreign key (huesped) references huesped (idHuesped)
+	key FK_reserva_unidad (unidad),
+	constraint FK_reserva_unidad foreign key (unidad) references unidad (idUnidad)
+	
 	
 	key FK_reserva_huesped (huesped),
 	constraint FK_reserva_huesped foreign key (huesped) references huesped (dni)
