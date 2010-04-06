@@ -1,10 +1,10 @@
 from abstractmodel import AbstractModel
 
-class Unidad(AbstractModel):
+class Gastos(AbstractModel):
 	def __init__(self):
-		super(Unidad, self).__init__()
+		super(Gastos, self).__init__()
 
-		self.tableName = "unidad"
+		self.tableName = "gastos"
 	
 #	Metodos heredados:
 #    def getModel(self)
@@ -13,8 +13,14 @@ class Unidad(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self, id = -1, ...): # if id != -1: update; else: save;
+	def save(self, id = -1, descripcion="",costo=0,reserva=0): # if id != -1: update; else: save;
 		if id != -1:
-			self.conn.query("update "+self.tableName+" set ... where id="+str(id))
+			self.conn.query("update "+self.tableName+" 
+			set descripcion="+descripcion+",
+				costo="+costo"+,
+				reserva="+reserva +" 
+			where id="+str(id))
 		else:
-			self.conn.query("insert into "+self.tableName+"(...) values (...)")
+			self.conn.query("insert into "+self.tableName+"
+			(descripcion,costo,reserva) 
+			values ("+descripcion+","+costo+","+reserva+")")
