@@ -1,8 +1,8 @@
 from abstractmodel import AbstractModel
 
-class Unidad(AbstractModel):
+class Huesped(AbstractModel):
 	def __init__(self):
-		super(Unidad, self).__init__()
+		super(Huesped, self).__init__()
 
 		self.tableName = "unidad"
 	
@@ -13,9 +13,14 @@ class Unidad(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self, id = -1, dni="", nombre="", apellido="", telefono=""):
+	def save(self, dni="", nombre="", apellido="", telefono=""):
 		if dni != "":
 			self.conn.query("update "+self.tableName+" 
-				set  where id="+str(id))
+				set nombre="+nombre+",
+					apellido="+apellido+",
+					telefono="+telefono+"
+				where dni="+str(dni))
 		else:
-			self.conn.query("insert into "+self.tableName+"(...) values (...)")
+			self.conn.query("insert into "+self.tableName+"
+				(dni, nombre, apellido, telefono) 
+				values ("+dni+","+nombre+","+apellido+","+telefono+")")
