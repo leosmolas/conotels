@@ -66,7 +66,7 @@ create table reserva (
 	primary key (idReserva),
 
 	key FK_reserva_unidad (unidad),
-	constraint FK_reserva_unidad foreign key (unidad) references unidad (idUnidad)
+	constraint FK_reserva_unidad foreign key (unidad) references unidad (idUnidad),
 	
 	
 	key FK_reserva_huesped (huesped),
