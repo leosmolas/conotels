@@ -18,6 +18,9 @@ class GastosDialog(QtGui.QDialog):
 
 		self.setup()
 
+	def __del__(self):
+		pass
+
 	def save(self):
 		# db.save
 		print "hola"

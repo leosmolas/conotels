@@ -7,37 +7,57 @@ class TipoDialog(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_tipoDialog()
 		self.ui.setupUi(self)
+		self.okBut = self.ui.buttonBox.addButton("Ok", QtGui.QDialogButtonBox.ActionRole)
+		self.cancelBut = self.ui.buttonBox.addButton("Cancel", QtGui.QDialogButtonBox.ActionRole)
+
+		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
+				self.on_okBut_clicked)
+		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
+				self.on_cancelBut_clicked)
+
+		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
 	def __init__(self,nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
 		super(TipoDialog, self).__init__(parent)
 		self.setup()
 
-		self.modif = (mod == 0)
+		self.model = Tipo()
+
+		self.modif = (mod != 0)
 		self.nombre = nombre
 		self.costoTempAlta = costoTempAlta
 		self.costoTempBaja = costoTempBaja
+
+	def __del__(self):
+		self.model.__del__()
 		
+	def clear(self):
+		self.ui.nombreLine.setText("")
+		self.ui.costoTempBajaSpin.setValue(0)
+		self.ui.costoTempAltaSpin.setValue(0)
+
 	def save(self):
 		if self.modif:
-			# db.save
 			print "modify"
-
 		else:
-			# db.addNew
 			print "new"
+			self.model.save(nombre=self.ui.nombreLine.text(),
+				costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
+				costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
 	
 	@QtCore.pyqtSlot()
-	def on_buttonBox_accepted(self):
+	def on_okBut_clicked(self):
 		self.save()
+		self.clear()
+		
+		QtGui.QMessageBox.information(self, "Guardado con exito", 
+			"Los datos se han guardado con exito!")
+
+		if self.modif:
+			self.close()
 	
 	@QtCore.pyqtSlot()
-	def on_buttonBox_rejected(self):
-		self.close()
-
-#import sys
-
-#app = QtGui.QApplication(sys.argv)
-#main = tipoDialog()
-#main = tipoDialog("a",1,1,1)
-#main.show()
-#sys.exit(app.exec_())
+	def on_cancelBut_clicked(self):
+		self.clear()
+		if self.modif:
+			self.close()

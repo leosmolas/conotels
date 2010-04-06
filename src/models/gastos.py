@@ -13,6 +13,9 @@ class Gastos(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
+	def __del__(self):
+		super(Tipo, self).__del__()
+
 	def save(self, id = -1, descripcion="",costo=0,reserva=0): # if id != -1: update; else: save;
 		if id != -1:
 			self.conn.query("update "+self.tableName+" 

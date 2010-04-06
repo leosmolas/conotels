@@ -13,6 +13,9 @@ class Unidad(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
+	def __del__(self):
+		super(Tipo, self).__del__()
+
 	def save(self, id = -1, nombre="", tipo=0, capacidad=0, descripcion="", estado="libre"):
 		if id != -1:
 			self.conn.query("update "+self.tableName+" 

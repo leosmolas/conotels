@@ -1,7 +1,6 @@
 from PyQt4 import QtCore, QtGui
 
 from ui.mainwin import Ui_MainWindow
-# from db.unidad import SARASA
 
 from unidad import UnidadDialog
 from tipo import TipoDialog
@@ -68,28 +67,31 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.ui.options.currentItemChanged.connect(self.changeView)
 		self.ui.options.setViewMode(QtGui.QListView.IconMode)
+		self.ui.options.setCurrentRow(0)
 
 	def changeToAction(self, action):
+		w = self.ui.widgets.currentWidget()
+		self.ui.widgets.removeWidget(w)
+		w.__del__()
 		if action.text() == "Nueva unidad":
-			self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 			self.ui.title.setTitle(action.text())
 			self.ui.widgets.insertWidget(1, UnidadDialog())
 		elif action.text() == "Nuevo Tipo":
-			self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 			self.ui.title.setTitle(action.text())
 			self.ui.widgets.insertWidget(1, TipoDialog())
-
-#   def changeToNewTipo(self):
-#      self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
-#      self.ui.title.setTitle("Nuevo tipo de unidad")
-#      self.ui.widgets.insertWidget(1, TipoDialog())
 
 	def changeView(self, current, previous):
 		if not current:
 			current = previous
 
 		selected = self.ui.options.row(current)
-		self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
+
+		try:
+			w = self.ui.widgets.currentWidget()
+			self.ui.widgets.removeWidget(w)
+			w.__del__()
+		except:
+			pass
 
 		if selected == 0:
 			self.ui.title.setTitle("Administrar unidades")

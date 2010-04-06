@@ -33,6 +33,9 @@ class ReservaDialog(QtGui.QDialog):
 		self.horaCheckIn = horaCheckIn
 		self.horaCheckOut = horaCheckOut
 		self.estado = estado
+
+	def __del__(self):
+		pass
 		
 	def save(self):
 		if self.modif:
