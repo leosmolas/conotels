@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Sat Apr  3 17:51:11 2010
+# Created: Mon Apr  5 23:03:19 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,15 +30,16 @@ class Ui_tipoDialog(object):
         self.nombreLine.setObjectName("nombreLine")
         self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.nombreLine)
         self.costoTempBajaSpin = QtGui.QSpinBox(tipoDialog)
+        self.costoTempBajaSpin.setMaximum(9999999)
         self.costoTempBajaSpin.setObjectName("costoTempBajaSpin")
         self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.costoTempBajaSpin)
         self.costoTempAltaSpin = QtGui.QSpinBox(tipoDialog)
+        self.costoTempAltaSpin.setMaximum(999999)
         self.costoTempAltaSpin.setObjectName("costoTempAltaSpin")
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.costoTempAltaSpin)
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(tipoDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
 

@@ -27,6 +27,9 @@ class HuespedDialog(QtGui.QDialog):
 		self.nombre = nombre
 		self.telefono = telefono
 		
+	def __del__(self):
+		pass
+
 	def save(self):
 		if self.modif:
 			# db.save

@@ -34,6 +34,9 @@ class Admin(QtGui.QDialog):
 			self.dialog = UnidadDialog
 
 		self.setup()
+	
+	def __del__(self):
+		pass
 
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):

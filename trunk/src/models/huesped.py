@@ -13,6 +13,9 @@ class Huesped(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
+	def __del__(self):
+		super(Tipo, self).__del__()
+
 	def save(self, dni="", nombre="", apellido="", telefono=""):
 		if dni != "":
 			self.conn.query("update "+self.tableName+" 

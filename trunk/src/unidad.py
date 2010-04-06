@@ -30,6 +30,9 @@ class UnidadDialog(QtGui.QDialog):
 
 		self.setup()
 
+	def __del__(self):
+		pass
+
 	def save(self):
 		if self.modif:
 			# db.save
