@@ -1,15 +1,13 @@
 from PyQt4 import QtCore, QtGui
 
 from ui.tipo import Ui_tipoDialog
-# from db.tipo import SARASA
+from models.tipo import Tipo
 
 class TipoDialog(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_tipoDialog()
 		self.ui.setupUi(self)
 		
-		# Llenar el comboBox de Tipo
-
 	def __init__(self,nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
 		super(TipoDialog, self).__init__(parent)
 		self.setup()
@@ -23,6 +21,7 @@ class TipoDialog(QtGui.QDialog):
 		if self.modif:
 			# db.save
 			print "modify"
+
 		else:
 			# db.addNew
 			print "new"
