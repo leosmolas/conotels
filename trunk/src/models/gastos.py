@@ -17,9 +17,9 @@ class Gastos(AbstractModel):
 		if id != -1:
 			self.conn.query("update "+self.tableName+" 
 			set descripcion="+descripcion+",
-				costo="+costo"+,
+				costo="+costo+",
 				reserva="+reserva +" 
-			where id="+str(id))
+			where idGasto="+str(id))
 		else:
 			self.conn.query("insert into "+self.tableName+"
 			(descripcion,costo,reserva) 
