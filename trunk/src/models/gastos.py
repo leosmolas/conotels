@@ -18,12 +18,12 @@ class Gastos(AbstractModel):
 
 	def save(self, id = -1, descripcion="",costo=0,reserva=0): # if id != -1: update; else: save;
 		if id != -1:
-			self.conn.query("update "+self.tableName+" 
+			self.conn.update("update "+self.tableName+" 
 			set descripcion='"+descripcion+"',
 				costo="+costo+",
 				reserva="+reserva +" 
 			where idGasto="+str(id))
 		else:
-			self.conn.query("insert into "+self.tableName+"
+			self.conn.update("insert into "+self.tableName+"
 			(descripcion,costo,reserva) 
 			values ('"+descripcion+"',"+costo+","+reserva+")")

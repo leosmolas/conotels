@@ -18,7 +18,8 @@ class Tipo(AbstractModel):
 
 	def save(self, id=-1, nombre="", costoTemporadaAlta=0, costoTemporadaBaja=0, descripcion=""):
 		if id != -1:
-			self.conn.query("update "+self.tableName+
+			print "update"
+			self.conn.update("update "+self.tableName+
 				"set nombre='"+nombre+"', "+
 					"costoTemporadaAlta="+str(costoTemporadaAlta)+","+
 					"costoTemporadaBaja="+str(costoTemporadaBaja)+","+
@@ -26,8 +27,8 @@ class Tipo(AbstractModel):
 				"' where idTipo="+str(id))
 				
 		else:
-			print "save"
+			print "save tipo"
 			print "insert into "+self.tableName+"(nombre,costoTemporadaAlta,costoTemporadaBaja,descripcion) "+"values ('"+nombre+"',"+str(costoTemporadaAlta)+","+str(costoTemporadaBaja)+","+descripcion+")"
-			self.conn.query("insert into "+self.tableName+
+			self.conn.update("insert into "+self.tableName+
 				"(nombre,costoTemporadaAlta,costoTemporadaBaja,descripcion) "+
 				"values ('"+nombre+"',"+str(costoTemporadaAlta)+","+str(costoTemporadaBaja)+",'"+descripcion+"')")

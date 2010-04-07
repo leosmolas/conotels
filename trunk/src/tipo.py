@@ -40,7 +40,7 @@ class TipoDialog(QtGui.QDialog):
 		if self.modif:
 			print "modify"
 		else:
-			print "new"
+			print "new tipo"
 			self.model.save(nombre=self.ui.nombreLine.text(),
 				costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
 				costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
