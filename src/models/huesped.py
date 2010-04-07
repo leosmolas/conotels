@@ -18,12 +18,12 @@ class Huesped(AbstractModel):
 
 	def save(self, dni="", nombre="", apellido="", telefono=""):
 		if dni != "":
-			self.conn.query("update "+self.tableName+" 
+			self.conn.update("update "+self.tableName+" 
 				set nombre='"+nombre+"',
 					apellido='"+apellido+"',
 					telefono='"+telefono+ "' 
 				where dni='"+str(dni)+"'")
 		else:
-			self.conn.query("insert into "+self.tableName+"
+			self.conn.update("insert into "+self.tableName+"
 				(dni, nombre, apellido, telefono) 
 				values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')")
