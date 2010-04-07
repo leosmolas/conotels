@@ -19,13 +19,13 @@ class Unidad(AbstractModel):
 	def save(self, id = -1, nombre="", tipo=0, capacidad=0, descripcion="", estado="libre"):
 		if id != -1:
 			self.conn.query("update "+self.tableName+" 
-				set nombre="+nombre+",
+				set nombre='"+nombre+"',
 					tipo="+tipo+",
 					capacidad="+capacidad+",
-					descripcion="+descripcion+",
-					estado="+estado+"
+					descripcion='"+descripcion+"',
+					estado='"+estado+"' 
 				where idUnidad="+str(id))
 		else:
 			self.conn.query("insert into "+self.tableName+"
 				(nombre, tipo, capacidad, descripcion, estado) 
-				values ("+nombre+","+tipo+","+capacidad+","+descripcion+","+estado+")")
+				values ('"+nombre+"',"+tipo+","+capacidad+",'"+descripcion+"','"+estado+"')")
