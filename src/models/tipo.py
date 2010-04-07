@@ -20,13 +20,13 @@ class Tipo(AbstractModel):
 		if id != -1:
 			print "update"
 			self.conn.query("update "+self.tableName+
-				"set nombre="+nombre+", "+
+				"set nombre='"+nombre+"', "+
 					"costoTemporadaAlta="+str(costoTemporadaAlta)+","+
 					"costoTemporadaBaja="+str(costoTemporadaBaja)+","+
-					"descripcion="+descripcion+
-				"where idTipo="+str(id))
+					"descripcion='"+descripcion+
+				"' where idTipo="+str(id))
 		else:
 			print "save"
 			self.conn.query("insert into "+self.tableName+
 				"(nombre,costoTemporadaAlta,costoTemporadaBaja,descripcion) "+
-				"values ('"+nombre+"','"+str(costoTemporadaAlta)+"','"+str(costoTemporadaBaja)+"','"+descripcion+"')")
+				"values ('"+nombre+"',"+str(costoTemporadaAlta)+","+str(costoTemporadaBaja)+","+descripcion+")")

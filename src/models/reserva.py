@@ -4,7 +4,7 @@ class Reserva(AbstractModel):
 	def __init__(self):
 		super(Reserva, self).__init__()
 
-		self.tableName = "Reserva"
+		self.tableName = "reserva"
 	
 #	Metodos heredados:
 #    def getModel(self)
@@ -20,16 +20,16 @@ class Reserva(AbstractModel):
 		if id != -1:
 			self.conn.query("update "+self.tableName+" 
 			set unidad="+unidad+",
-				huesped"+huesped+",
-				inicioPrereserva="+inicioPrereserva+",
-				finPrereserva="+finPrereserva+",
-				inicioReserva="+inicioReserva+",
-				finReserva="+finReserva+",
-				horaCheckIn="+horaCheckIn+",
-				horaCheckOut="+horaCheckOut+",
-				estado="+estado+ "
+				huesped='"+huesped+"',
+				inicioPrereserva='"+inicioPrereserva+"',
+				finPrereserva='"+finPrereserva+"',
+				inicioReserva='"+inicioReserva+"',
+				finReserva='"+finReserva+"',
+				horaCheckIn='"+horaCheckIn+"',
+				horaCheckOut='"+horaCheckOut+"',
+				estado='"+estado+"' 
 			where idReserva="+str(id))
 		else:
 			self.conn.query("insert into "+self.tableName+"
 			(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado) 
-			values ("+unidad+","+huesped+","+inicioPrereserva+","+finPrereserva+","+inicioReserva+","+finReserva+","+horaCheckIn+","+horaCheckOut+","+estado+")")
+			values ("+unidad+",'"+huesped+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
