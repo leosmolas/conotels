@@ -4,6 +4,7 @@ from PyQt4 import QtCore, QtGui
 from ui.unidad import Ui_unidadDialog
 # from db.unidad import SARASA
 from models.unidad import Unidad
+from models.tipo import Tipo
 
 class UnidadDialog(QtGui.QDialog):
 	def setup(self):
@@ -17,22 +18,40 @@ class UnidadDialog(QtGui.QDialog):
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
-		# Llenar el comboBox de Tipo
 
-	def __init__(self, numero = 0, tipo = 0, capacidad = 0, 
+		tipoModel = Tipo()
+		tipoModel.loadAll()
+
+		self.ui.tipoCombo.setModel(tipoModel.model)
+		self.ui.tipoCombo.setModelColumn(1)
+
+	def __init__(self, id = -1, numero = 0, tipo = -1, capacidad = 0, 
 	descripcion = "", estado = 0, parent = None):
 		super(UnidadDialog, self).__init__(parent)
-		self.setup()
-
-		self.model = copy
 
 		self.id = id
 
 		self.model = Unidad()
 
-		self.modif = (tipo != 0)
+		self.setup()
+
+		self.modif = (id != -1)
 		self.ui.numeroLine.setText(str(numero))
+
 		self.ui.tipoCombo.setCurrentIndex(0)
+
+		if tipo != -1:
+			comboModel = self.ui.tipoCombo.model()
+			found = False
+			i = 0
+			while not found and i<comboModel.rowCount():
+				if comboModel.data(comboModel.index(i,0)).toInt()[0] == tipo:
+					found = True
+				else:
+					i+=1
+			self.ui.tipoCombo.setCurrentIndex(i)
+
+
 		self.ui.capacidadSpin.setValue(capacidad)
 		self.ui.descripcionText.setPlainText(descripcion)
 
@@ -51,7 +70,8 @@ class UnidadDialog(QtGui.QDialog):
 		else:
 			# db.addNew
 			print "new unidad"
-			self.model.save(nombre=self.ui.numeroLine.text(),tipo=self.ui.tipoCombo.itemText(self.ui.tipoCombo.currentIndex()),
+			comboModel = self.ui.tipoCombo.model()
+			self.model.save(nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
 				capacidad=self.ui.capacidadSpin.value(),
 				descripcion=self.ui.descripcionText.toPlainText())
 	
