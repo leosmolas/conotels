@@ -21,7 +21,7 @@ class Unidad(AbstractModel):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set nombre='"+nombre+
-				"',tipo="+str(tipo)+
+				"',tipo="+tipo+
 				",capacidad="+str(capacidad)+
 				",descripcion='"+descripcion+
 				"',estado='"+estado+ 

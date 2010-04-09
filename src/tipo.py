@@ -24,7 +24,7 @@ class TipoDialog(QtGui.QDialog):
 		self.id = id
 		self.model = Tipo()
 
-		self.modif = (mod != 0)
+		self.modif = (mod != -1)
 #        self.nombre = nombre
 #        self.costoTempAlta = costoTempAlta
 #        self.costoTempBaja = costoTempBaja
@@ -42,16 +42,9 @@ class TipoDialog(QtGui.QDialog):
 #        self.ui.descripcion
 
 	def save(self):
-#        if self.modif:
-#        print "modify"
 		self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
 			costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
 			costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
-#        else:
-#            print "new tipo"
-#            self.model.save(nombre=self.ui.nombreLine.text(),
-#                costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
-#                costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
 	
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
