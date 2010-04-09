@@ -23,7 +23,7 @@ class Huesped(AbstractModel):
 				" set nombre='"+nombre+
 				"',apellido='"+apellido+
 				"',telefono='"+telefono+ 
-				 "' where dni='"+dni+"'")
+				 "' where idHuesped='"+id+"'")
 		else:
 			print "insert into "+self.tableName+" (dni, nombre, apellido, telefono) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')"
 			

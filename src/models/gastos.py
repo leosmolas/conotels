@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-1 -*-
 from abstractmodel import AbstractModel
 
 class Gastos(AbstractModel):
@@ -18,12 +19,12 @@ class Gastos(AbstractModel):
 
 	def save(self, id = -1, descripcion="",costo=0,reserva=0): # if id != -1: update; else: save;
 		if id != -1:
-			self.conn.update("update "+self.tableName+" 
-			set descripcion='"+descripcion+"',
-				costo="+costo+",
-				reserva="+reserva +" 
-			where idGasto="+str(id))
+			self.conn.update("update "+self.tableName+ 
+				" set descripcion='"+descripcion+
+				"',costo="+str(costo)+
+				",reserva="+str(reserva) + 
+			" where idGasto="+str(id))
 		else:
-			self.conn.update("insert into "+self.tableName+"
-			(descripcion,costo,reserva) 
-			values ('"+descripcion+"',"+costo+","+reserva+")")
+			self.conn.update("insert into "+self.tableName+
+			"(descripcion,costo,reserva)"+ 
+			" values ('"+descripcion+"',"+str(costo)+","+str(reserva)+")")
