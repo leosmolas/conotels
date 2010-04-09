@@ -1,7 +1,9 @@
+# -*- coding: iso-8859-1 -*-
 from PyQt4 import QtCore, QtGui
 
 from ui.huesped import Ui_huespedDialog
 # from db.tipo import SARASA
+from models.huesped import Huesped
 
 class HuespedDialog(QtGui.QDialog):
 	def setup(self):
@@ -20,7 +22,8 @@ class HuespedDialog(QtGui.QDialog):
 	def __init__(self, dni = "", apellido = "", nombre = "", telefono = "", mod = 0, parent = None):
 		super(HuespedDialog, self).__init__(parent)
 		self.setup()
-
+		
+		self.model = Huesped()
 		self.modif = (mod != 0)
 		self.dni = dni
 		self.apellido = apellido
@@ -36,7 +39,12 @@ class HuespedDialog(QtGui.QDialog):
 			print "modify"
 		else:
 			# db.addNew
-			print "new"
+			print "new Reserva"
+
+			self.model.save(dni=self.ui.dniLine.text(),
+					nombre=self.ui.nombreLine.text(),
+					apellido=self.ui.apellidoLine.text(),
+					telefono=self.ui.telLine.text())
 	
 	def clear(self):
 		self.ui.dniLine.setText("")

@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-1 -*-
 from abstractmodel import AbstractModel
 
 class Huesped(AbstractModel):
@@ -18,12 +19,12 @@ class Huesped(AbstractModel):
 
 	def save(self, dni="", nombre="", apellido="", telefono=""):
 		if dni != "":
-			self.conn.update("update "+self.tableName+" 
-				set nombre='"+nombre+"',
-					apellido='"+apellido+"',
-					telefono='"+telefono+ "' 
-				where dni='"+str(dni)+"'")
+			self.conn.update("update "+self.tableName+ 
+				" set nombre='"+nombre+
+				"',apellido='"+apellido+
+				"',telefono='"+telefono+ 
+				 "' where dni='"+dni+"'")
 		else:
-			self.conn.update("insert into "+self.tableName+"
-				(dni, nombre, apellido, telefono) 
-				values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')")
+			self.conn.update("insert into "+self.tableName+
+				"(dni, nombre, apellido, telefono) "+ 
+				"values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')")
