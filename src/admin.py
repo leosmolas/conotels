@@ -9,6 +9,7 @@ from huesped import HuespedDialog
 
 from models.tipo import Tipo
 from models.unidad import Unidad
+from models.huesped import Huesped
 
 class Admin(QtGui.QDialog):
 	def setup(self):
@@ -33,6 +34,7 @@ class Admin(QtGui.QDialog):
 
 		if nombre == "Huesped":
 			self.dialog = HuespedDialog
+			self.type = Huesped()
 		elif nombre == "Reserva":
 			self.dialog = ReservaDialog
 		elif nombre == "Tipo":
@@ -54,6 +56,13 @@ class Admin(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):
 		print "modif"
+
+		print self.ui.tableView.currentIndex()
+		if self.ui.tableView.currentIndex() == -1:
+			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de modificar",
+			QtGui.QMessageBox.Ok)
+			return
+
 		row = self.type.model.record(self.ui.tableView.currentIndex().row())
 		
 		if self.nombre == "Tipo":
@@ -72,14 +81,23 @@ class Admin(QtGui.QDialog):
 			# ESTADOOOO
 			diag = self.dialog(id,numero,tipo,capacidad,desc)
 #        elif self.nombre == "Reserva":
-#        elif self.nombre == "Huesped":
+		elif self.nombre == "Huesped":
+			id = row.field(0).value().toInt()[0]
+			dni = row.field(1).value().toString()
+			apellido = row.field(2).value().toString()
+			nombre = row.field(3).value().toString()
+			tel = row.field(4).value().toString()
+			diag = self.dialog(id,dni,apellido,nombre,tel)
 		diag.exec_()
 		self.loadAll()
 	
 	@QtCore.pyqtSlot()
 	def on_elimBut_clicked(self):
 		print "elim"
-
+		if self.ui.tableView.currentIndex() == -1:
+			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de modificar",
+			QtGui.QMessageBox.Ok)
+			return
 		ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea eliminar?",
 			QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 

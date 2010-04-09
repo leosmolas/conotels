@@ -24,7 +24,7 @@ class TipoDialog(QtGui.QDialog):
 		self.id = id
 		self.model = Tipo()
 
-		self.modif = (mod != -1)
+		self.modif = (id != -1)
 #        self.nombre = nombre
 #        self.costoTempAlta = costoTempAlta
 #        self.costoTempBaja = costoTempBaja

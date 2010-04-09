@@ -1,11 +1,14 @@
 # -*- coding: iso-8859-1 -*-
 from abstractmodel import AbstractModel
 
+from PyQt4 import QtCore
+
 class Huesped(AbstractModel):
 	def __init__(self):
 		super(Huesped, self).__init__()
 
 		self.tableName = "huesped"
+		self.id = "idHuesped"
 	
 #	Metodos heredados:
 #    def getModel(self)
@@ -14,19 +17,25 @@ class Huesped(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def __del__(self):
-		super(Tipo, self).__del__()
-
 	def save(self,id=-1, dni="", nombre="", apellido="", telefono=""):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set nombre='"+nombre+
 				"',apellido='"+apellido+
 				"',telefono='"+telefono+ 
-				 "' where idHuesped='"+id+"'")
+				"',dni='"+dni+ 
+				 "' where idHuesped="+str(id))
 		else:
 			print "insert into "+self.tableName+" (dni, nombre, apellido, telefono) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')"
 			
 			self.conn.update("insert into "+self.tableName+
 				" (dni, nombre, apellido, telefono) "+ 
 				"values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')")
+
+	def loadAll(self):
+		super(Huesped, self).loadAll()
+		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
+		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "DNI")
+		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Apellido")
+		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nombre")
+		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Telefono")
