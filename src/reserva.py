@@ -1,7 +1,9 @@
+# -*- coding: iso-8859-1 -*-
 from PyQt4 import QtCore, QtGui
 
 from ui.reserva import Ui_reservaDialog
 # from db.tipo import SARASA
+from models.reserva import Reserva
 
 class ReservaDialog(QtGui.QDialog):
 	def setup(self):
@@ -22,7 +24,8 @@ class ReservaDialog(QtGui.QDialog):
 	def __init__(self, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, parent = None):
 		super(ReservaDialog, self).__init__(parent)
 		self.setup()
-
+		
+		self.model = Reserva()
 		self.modif = (mod != 0)
 		self.unidad = unidad
 		self.huesped = huesped
@@ -44,6 +47,15 @@ class ReservaDialog(QtGui.QDialog):
 		else:
 			# db.addNew
 			print "new"
+			self.model.save(unidad=self.ui.unidadLine.text(),
+					huesped=self.ui.huespedLine.text(),
+                                        inicioPrereserva=self.ui.inicioPreDate.date().toString("YYYY-MM-DD"),
+                                        finPrereserva=self.ui.finPreDate.date().toString("YYYY-MM-DD"),
+					inicioReserva=self.ui.inicioDate.date().toString("YYYY-MM-DD"),
+					finReserva=self.ui.finDate.date().toString("YYYY-MM-DD"),
+					horaCheckIn=self.ui.inTime.time().toString("HH:MM:SS"),
+					horaCheckOut=self.ui.outTime.time().toString("HH:MM:SS"),
+					estado=self.estadoCombo.itemText(self.estadoCombo.currentIndex()))
 	
 	def clear(self):
 		self.ui.unidadLine = 0
