@@ -64,16 +64,10 @@ class UnidadDialog(QtGui.QDialog):
 #        self.estado = estado
 
 	def save(self):
-		if self.modif:
-			# db.save
-			print "hola"
-		else:
-			# db.addNew
-			print "new unidad"
-			comboModel = self.ui.tipoCombo.model()
-			self.model.save(nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
-				capacidad=self.ui.capacidadSpin.value(),
-				descripcion=self.ui.descripcionText.toPlainText())
+		comboModel = self.ui.tipoCombo.model()
+		self.model.save(id=self.id,nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
+			capacidad=self.ui.capacidadSpin.value(),
+			descripcion=self.ui.descripcionText.toPlainText())
 	
 	def clear(self):
 		self.ui.numeroLine.setText("")
