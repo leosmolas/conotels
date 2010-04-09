@@ -3,8 +3,6 @@ from connection.error import Error
 
 from connected import conn as connInstance
 
-from PyQt4 import QtCore
-
 class AbstractModel(object):
 	def __init__(self):
 		self.model = None
