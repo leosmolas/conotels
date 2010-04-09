@@ -57,14 +57,14 @@ class Admin(QtGui.QDialog):
 		row = self.type.model.record(self.ui.tableView.currentIndex().row())
 		
 		if self.nombre == "Tipo":
-			id = row.field(0).value().toString()
+			id = row.field(0).value().toInt()[0]
 			nombre = row.field(1).value().toString()
 			alta = row.field(2).value().toInt()[0]
 			baja = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
 			diag = self.dialog(id,nombre,alta,baja,desc)
 		elif self.nombre == "Unidad":
-			id = row.field(0).value().toString()
+			id = row.field(0).value().toInt()[0]
 			numero = row.field(1).value().toString()
 			tipo = row.field(2).value().toInt()[0]
 			capacidad = row.field(3).value().toInt()[0]
