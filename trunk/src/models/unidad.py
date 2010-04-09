@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-1 -*-
 from abstractmodel import AbstractModel
 
 class Unidad(AbstractModel):
@@ -18,14 +19,16 @@ class Unidad(AbstractModel):
 
 	def save(self, id = -1, nombre="", tipo=0, capacidad=0, descripcion="", estado="libre"):
 		if id != -1:
-			self.conn.update("update "+self.tableName+" 
-				set nombre='"+nombre+"',
-					tipo="+tipo+",
-					capacidad="+capacidad+",
-					descripcion='"+descripcion+"',
-					estado='"+estado+"' 
-				where idUnidad="+str(id))
+			self.conn.update("update "+self.tableName+ 
+				" set nombre='"+nombre+
+				"',tipo="+str(tipo)+
+				",capacidad="+str(capacidad)+
+				",descripcion='"+descripcion+
+				"',estado='"+estado+ 
+				"' where idUnidad="+str(id))
 		else:
-			self.conn.update("insert into "+self.tableName+"
-				(nombre, tipo, capacidad, descripcion, estado) 
-				values ('"+nombre+"',"+tipo+","+capacidad+",'"+descripcion+"','"+estado+"')")
+			print "insert into "+self.tableName+"(nombre, tipo, capacidad, descripcion, estado)"+" values ('"+nombre+"',"+str(tipo)+","+str(capacidad)+",'"+descripcion+"','"+estado+"')"
+		      
+			self.conn.update("insert into "+self.tableName+
+				"(nombre, tipo, capacidad, descripcion, estado)"+
+				" values ('"+nombre+"',"+str(tipo)+","+str(capacidad)+",'"+descripcion+"','"+estado+"')")

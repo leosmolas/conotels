@@ -1,7 +1,9 @@
+# -*- coding: iso-8859-1 -*-
 from PyQt4 import QtCore, QtGui
 
 from ui.unidad import Ui_unidadDialog
 # from db.unidad import SARASA
+from models.unidad import Unidad
 
 class UnidadDialog(QtGui.QDialog):
 	def setup(self):
@@ -21,6 +23,7 @@ class UnidadDialog(QtGui.QDialog):
 	descripcion = 0, estado = 0, parent = None):
 		super(UnidadDialog, self).__init__(parent)
 
+		self.model = Unidad()
 		self.modif = (tipo != 0)
 		self.numero = numero
 		self.tipo = tipo
@@ -39,7 +42,10 @@ class UnidadDialog(QtGui.QDialog):
 			print "hola"
 		else:
 			# db.addNew
-			print "chau"
+			print "new unidad"
+			self.model.save(nombre=self.ui.numeroLine.text(),tipo=self.ui.tipoCombo.itemText(self.ui.tipoCombo.currentIndex()),
+				capacidad=self.ui.capacidadSpin.value(),
+				descripcion=self.ui.descripcionText.toPlainText())
 	
 	def clear(self):
 		self.ui.numeroLine.setText("")
