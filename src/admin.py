@@ -57,8 +57,7 @@ class Admin(QtGui.QDialog):
 	def on_modifBut_clicked(self):
 		print "modif"
 
-		print self.ui.tableView.currentIndex()
-		if self.ui.tableView.currentIndex() == -1:
+		if self.ui.tableView.currentIndex().row() == -1:
 			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de modificar",
 			QtGui.QMessageBox.Ok)
 			return
@@ -94,8 +93,8 @@ class Admin(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def on_elimBut_clicked(self):
 		print "elim"
-		if self.ui.tableView.currentIndex() == -1:
-			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de modificar",
+		if self.ui.tableView.currentIndex().row() == -1:
+			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de eliminar",
 			QtGui.QMessageBox.Ok)
 			return
 		ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea eliminar?",
