@@ -21,51 +21,44 @@ class ReservaDialog(QtGui.QDialog):
 		#hacer consultas para buscar huespedes y unidades libres para reserva?
 		
 		#unidad, huesped, inicioprereserva, finprereserva,  inicioreserva, finreserva, horacheckin, horacheckout, estado
-	def __init__(self, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, parent = None):
+	def __init__(self, id = -1, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", parent = None):
 		super(ReservaDialog, self).__init__(parent)
 		self.setup()
 		
 		self.model = Reserva()
-		self.modif = (mod != 0)
-		self.unidad = unidad
-		self.huesped = huesped
-		self.inicioPrereserva = inicioPrereserva
-		self.finPrereserva = finPrereserva
-		self.inicioReserva = inicioReserva
-		self.finReserva = finReserva
-		self.horaCheckIn = horaCheckIn
-		self.horaCheckOut = horaCheckOut
-		self.estado = estado
-
-	def __del__(self):
-		pass
-		
-	def save(self):
+		self.modif = (id != -1)
+		self.id = id
+#        self.unidad = unidad
+#        self.huesped = huesped
+#        self.inicioPrereserva = inicioPrereserva
+#        self.finPrereserva = finPrereserva
+#        self.inicioReserva = inicioReserva
+#        self.finReserva = finReserva
+#        self.horaCheckIn = horaCheckIn
+#        self.horaCheckOut = horaCheckOut
+#        self.estado = estado
 		if self.modif:
-			# db.save
-			print "modify"
-		else:
-			# db.addNew
-			print "new"
-			self.model.save(unidad=self.ui.unidadLine.text(),
-					huesped=self.ui.huespedLine.text(),
-                                        inicioPrereserva=self.ui.inicioPreDate.date().toString("YYYY-MM-DD"),
-                                        finPrereserva=self.ui.finPreDate.date().toString("YYYY-MM-DD"),
-					inicioReserva=self.ui.inicioDate.date().toString("YYYY-MM-DD"),
-					finReserva=self.ui.finDate.date().toString("YYYY-MM-DD"),
-					horaCheckIn=self.ui.inTime.time().toString("HH:MM:SS"),
-					horaCheckOut=self.ui.outTime.time().toString("HH:MM:SS"),
-					estado=self.estadoCombo.itemText(self.estadoCombo.currentIndex()))
+
+	def save(self):
+		self.model.save(id=self.id,unidad=self.ui.unidadLine.text(),
+				huesped=self.ui.huespedLine.text(),
+									inicioPrereserva=self.ui.inicioPreDate.date().toString("YYYY-MM-DD"),
+									finPrereserva=self.ui.finPreDate.date().toString("YYYY-MM-DD"),
+				inicioReserva=self.ui.inicioDate.date().toString("YYYY-MM-DD"),
+				finReserva=self.ui.finDate.date().toString("YYYY-MM-DD"),
+				horaCheckIn=self.ui.inTime.time().toString("HH:MM:SS"),
+				horaCheckOut=self.ui.outTime.time().toString("HH:MM:SS"),
+				estado=self.estadoCombo.itemText(self.estadoCombo.currentIndex()))
 	
 	def clear(self):
-		self.ui.unidadLine = 0
-		self.ui.huespedLine = ""
+		self.ui.unidadLine.setText("")
+		self.ui.huespedLine.setText("")
 		self.ui.inicioPreDate.setDate(QtCore.QDate.currentDate)
-		self.ui.finPreDate  = ""
-		self.ui.inicioDate = ""
-		self.ui.finDate = ""
-		self.ui.inTime = ""
-		self.ui.outTime
+		self.ui.finPreDate.setDate(QtCore.QDate.currentDate)
+		self.ui.inicioDate.setDate(QtCore.QDate.currentDate)
+		self.ui.finDate.setDate(QtCore.QDate.currentDate)
+		self.ui.inTime.setDate(QtCore.QDate.currentDate)
+		self.ui.outTime.setDate(QtCore.QDate.currentDate)
 		self.ui.estadoCombo.setCurrentIndex(0)
 
 	@QtCore.pyqtSlot()
@@ -81,11 +74,3 @@ class ReservaDialog(QtGui.QDialog):
 		self.clear()
 		if self.modif:
 			self.close()
-
-#import sys
-
-#app = QtGui.QApplication(sys.argv)
-#main = reservaDialog()
-#main = reservaDialog("nroUnidad", "dnihuesped", "fechaIniPreReserva", "fechaFinPreReserva", "fechaIniReserva", "fechaFinReserva", "HoraCheckIn", "HoraCheckOut", "estado", 1)
-#main.show()
-#sys.exit(app.exec_())

@@ -14,9 +14,6 @@ class Reserva(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def __del__(self):
-		super(Tipo, self).__del__()
-
 	def save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
@@ -34,3 +31,16 @@ class Reserva(AbstractModel):
 			self.conn.update("insert into "+self.tableName+
 			"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado)"+
 			" values ("+str(unidad)+",'"+str(huesped)+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
+
+	def loadAll(self):
+		super(Tipo, self).loadAll()
+		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
+		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
+		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Huesped")
+		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Inicio de prereserva")
+		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Fin de prereserva")
+		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Inicio de reserva")
+		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Fin de reserva")
+		self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Hora de checkIn")
+		self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Hora de checkOut")
+		self.model.setHeaderData(9, QtCore.Qt.Horizontal, "Estado")
