@@ -70,9 +70,7 @@ class MainWindow(QtGui.QMainWindow):
 		self.ui.options.setCurrentRow(0)
 
 	def changeToAction(self, action):
-		w = self.ui.widgets.currentWidget()
-		self.ui.widgets.removeWidget(w)
-		w.__del__()
+		self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 		if action.text() == "Nueva unidad":
 			self.ui.title.setTitle(action.text())
 			self.ui.widgets.insertWidget(1, UnidadDialog())
@@ -87,13 +85,7 @@ class MainWindow(QtGui.QMainWindow):
 
 		selected = self.ui.options.row(current)
 
-		try:
-			w = self.ui.widgets.currentWidget()
-			self.ui.widgets.removeWidget(w)
-			w.__del__()
-		except:
-			pass
-
+		self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 		if selected == 0:
 			self.ui.title.setTitle("Administrar unidades")
 			self.ui.widgets.insertWidget(1, Admin("Unidad"))

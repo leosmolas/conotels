@@ -17,33 +17,41 @@ class TipoDialog(QtGui.QDialog):
 
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
-	def __init__(self,nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
+	def __init__(self, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
 		super(TipoDialog, self).__init__(parent)
 		self.setup()
 
+		self.id = id
 		self.model = Tipo()
 
 		self.modif = (mod != 0)
-		self.nombre = nombre
-		self.costoTempAlta = costoTempAlta
-		self.costoTempBaja = costoTempBaja
-
-	def __del__(self):
-		self.model.__del__()
+#        self.nombre = nombre
+#        self.costoTempAlta = costoTempAlta
+#        self.costoTempBaja = costoTempBaja
+		
+		if self.modif:
+			self.ui.nombreLine.setText(nombre)
+			self.ui.costoTempBajaSpin.setValue(costoTempBaja)
+			self.ui.costoTempAltaSpin.setValue(costoTempAlta)
+#            self.ui.descripcion
 		
 	def clear(self):
 		self.ui.nombreLine.setText("")
 		self.ui.costoTempBajaSpin.setValue(0)
 		self.ui.costoTempAltaSpin.setValue(0)
+#        self.ui.descripcion
 
 	def save(self):
-		if self.modif:
-			print "modify"
-		else:
-			print "new tipo"
-			self.model.save(nombre=self.ui.nombreLine.text(),
-				costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
-				costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
+#        if self.modif:
+#        print "modify"
+		self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
+			costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
+			costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
+#        else:
+#            print "new tipo"
+#            self.model.save(nombre=self.ui.nombreLine.text(),
+#                costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
+#                costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
 	
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
