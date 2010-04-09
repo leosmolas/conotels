@@ -19,32 +19,29 @@ class HuespedDialog(QtGui.QDialog):
 				self.on_cancelBut_clicked)
 
 		#dni, apellido, nombre, telefono
-	def __init__(self, dni = "", apellido = "", nombre = "", telefono = "", mod = 0, parent = None):
+	def __init__(self, id = -1, dni = "", apellido = "", nombre = "", telefono = "", parent = None):
 		super(HuespedDialog, self).__init__(parent)
 		self.setup()
 		
 		self.model = Huesped()
-		self.modif = (mod != 0)
-		self.dni = dni
-		self.apellido = apellido
-		self.nombre = nombre
-		self.telefono = telefono
+		self.modif = (id != -1)
+		self.id = id
+#        self.dni = dni
+#        self.apellido = apellido
+#        self.nombre = nombre
+#        self.telefono = telefono
 		
-	def __del__(self):
-		pass
+		if self.modif:
+			self.ui.dniLine.setText(dni)
+			self.ui.apellidoLine.setText(apellido)
+			self.ui.nombreLine.setText(nombre)
+			self.ui.telLine.setText(telefono)
 
 	def save(self):
-		if self.modif:
-			# db.save
-			print "modify"
-		else:
-			# db.addNew
-			print "new Huesped"
-
-			self.model.save(dni=self.ui.dniLine.text(),
-					nombre=self.ui.nombreLine.text(),
-					apellido=self.ui.apellidoLine.text(),
-					telefono=self.ui.telLine.text())
+		self.model.save(id=self.id,dni=self.ui.dniLine.text(),
+				nombre=self.ui.nombreLine.text(),
+				apellido=self.ui.apellidoLine.text(),
+				telefono=self.ui.telLine.text())
 	
 	def clear(self):
 		self.ui.dniLine.setText("")
