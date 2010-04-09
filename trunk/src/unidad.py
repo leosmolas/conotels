@@ -20,21 +20,29 @@ class UnidadDialog(QtGui.QDialog):
 		# Llenar el comboBox de Tipo
 
 	def __init__(self, numero = 0, tipo = 0, capacidad = 0, 
-	descripcion = 0, estado = 0, parent = None):
+	descripcion = "", estado = 0, parent = None):
 		super(UnidadDialog, self).__init__(parent)
-
-		self.model = Unidad()
-		self.modif = (tipo != 0)
-		self.numero = numero
-		self.tipo = tipo
-		self.capacidad = capacidad
-		self.descripcion = descripcion
-		self.estado = estado
-
 		self.setup()
 
-	def __del__(self):
-		pass
+		self.model = copy
+
+		self.id = id
+
+		self.model = Unidad()
+
+		self.modif = (tipo != 0)
+		self.ui.numeroLine.setText(str(numero))
+		self.ui.tipoCombo.setCurrentIndex(0)
+		self.ui.capacidadSpin.setValue(capacidad)
+		self.ui.descripcionText.setPlainText(descripcion)
+
+		# VER COMBOBOX ESTADO!!!
+
+#        self.numero = numero
+#        self.tipo = tipo
+#        self.capacidad = capacidad
+#        self.descripcion = descripcion
+#        self.estado = estado
 
 	def save(self):
 		if self.modif:
