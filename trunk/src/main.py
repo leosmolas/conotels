@@ -9,6 +9,8 @@ from huesped import HuespedDialog
 from gastos import GastosDialog
 from admin import Admin
 
+import connected
+
 import icons_rc
 
 class MainWindow(QtGui.QMainWindow):
@@ -78,6 +80,9 @@ class MainWindow(QtGui.QMainWindow):
 			self.ui.title.setTitle(action.text())
 			self.ui.widgets.insertWidget(1, TipoDialog())
 		self.ui.widgets.setCurrentIndex(1)
+
+	def __del__(self):
+		connected.closeConn()
 
 	def changeView(self, current, previous):
 		if not current:
