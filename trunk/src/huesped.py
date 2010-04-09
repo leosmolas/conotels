@@ -39,7 +39,7 @@ class HuespedDialog(QtGui.QDialog):
 			print "modify"
 		else:
 			# db.addNew
-			print "new Reserva"
+			print "new Huesped"
 
 			self.model.save(dni=self.ui.dniLine.text(),
 					nombre=self.ui.nombreLine.text(),
