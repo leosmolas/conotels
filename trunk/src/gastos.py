@@ -34,7 +34,7 @@ class GastosDialog(QtGui.QDialog):
 		# db.save
 		print "new gastos"
 		
-		self.model.save(descripcion=self.descripcionLine.text(),
+		self.model.save(descripcion=self.ui.descripcionLine.text(),
 				costo=self.ui.gastoSpin.value(),
 				reserva=self.unidadCombo.itemText(self.unidadCombo.currentIndex()))
 	
