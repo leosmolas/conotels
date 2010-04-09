@@ -79,6 +79,7 @@ class MainWindow(QtGui.QMainWindow):
 		elif action.text() == "Nuevo Tipo":
 			self.ui.title.setTitle(action.text())
 			self.ui.widgets.insertWidget(1, TipoDialog())
+		self.ui.widgets.setCurrentIndex(1)
 
 	def changeView(self, current, previous):
 		if not current:
