@@ -21,7 +21,7 @@ class Reserva(AbstractModel):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set unidad="+str(unidad)+
-				",huesped='"+huesped+
+				",huesped='"+str(huesped)+
 				"',inicioPrereserva='"+inicioPrereserva+
 				"',finPrereserva='"+finPrereserva+
 				"',inicioReserva='"+inicioReserva+
@@ -33,4 +33,4 @@ class Reserva(AbstractModel):
 		else:
 			self.conn.update("insert into "+self.tableName+
 			"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado)"+
-			" values ("+str(unidad)+",'"+huesped+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
+			" values ("+str(unidad)+",'"+str(huesped)+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")

@@ -39,13 +39,14 @@ create table unidad (
 
 create table huesped (
 
+	idHuesped int unsigned not null auto_increment,
 	dni varchar(45) not null,
 	apellido varchar(45) not null,
 	nombre varchar(45) not null,
 	
 	telefono varchar(45) not null,
 	
-	primary key (dni)
+	primary key (idHuesped)
 
 ) ENGINE=InnoDB;
 
@@ -54,7 +55,7 @@ create table reserva (
 
 	idReserva int unsigned not null auto_increment,
 	unidad int unsigned not null,
-	huesped varchar (45) not null,
+	huesped int unsigned not null,
 	inicioPrereserva date not null,
 	finPrereserva date,
 	inicioReserva date,
@@ -70,7 +71,7 @@ create table reserva (
 	
 	
 	key FK_reserva_huesped (huesped),
-	constraint FK_reserva_huesped foreign key (huesped) references huesped (dni)
+	constraint FK_reserva_huesped foreign key (huesped) references huesped (idHuesped)
 	
 ) ENGINE=InnoDB;
 
