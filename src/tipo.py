@@ -17,12 +17,14 @@ class TipoDialog(QtGui.QDialog):
 
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
-	def __init__(self, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
+	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
 		super(TipoDialog, self).__init__(parent)
 		self.setup()
 
+		self.conn = conn
+
 		self.id = id
-		self.model = Tipo()
+		self.model = Tipo(conn)
 
 		self.modif = (id != -1)
 #        self.nombre = nombre

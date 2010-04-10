@@ -19,19 +19,20 @@ class UnidadDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
 
-		tipoModel = Tipo()
+		tipoModel = Tipo(self.conn)
 		tipoModel.loadAll()
 
 		self.ui.tipoCombo.setModel(tipoModel.model)
 		self.ui.tipoCombo.setModelColumn(1)
 
-	def __init__(self, id = -1, numero = 0, tipo = -1, capacidad = 0, 
+	def __init__(self, conn, id = -1, numero = 0, tipo = -1, capacidad = 0, 
 	descripcion = "", estado = 0, parent = None):
 		super(UnidadDialog, self).__init__(parent)
 
 		self.id = id
+		self.conn = conn
 
-		self.model = Unidad()
+		self.model = Unidad(conn)
 
 		self.setup()
 

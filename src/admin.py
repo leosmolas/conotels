@@ -24,25 +24,27 @@ class Admin(QtGui.QDialog):
 		QtCore.QObject.connect(self.elimBut, QtCore.SIGNAL("clicked()"),
 				self.on_elimBut_clicked)
 
-	def __init__(self, nombre, parent=None):
+	def __init__(self, conn, nombre, parent=None):
 		super(Admin, self).__init__(parent)
 
 		self.dialog = None
 		self.type = None
 
+		self.conn = conn
+
 		self.nombre = nombre
 
 		if nombre == "Huesped":
 			self.dialog = HuespedDialog
-			self.type = Huesped()
+			self.type = Huesped(self.conn)
 		elif nombre == "Reserva":
 			self.dialog = ReservaDialog
 		elif nombre == "Tipo":
 			self.dialog = TipoDialog
-			self.type = Tipo()
+			self.type = Tipo(self.conn)
 		elif nombre == "Unidad":
 			self.dialog = UnidadDialog
-			self.type = Unidad()
+			self.type = Unidad(self.conn)
 
 		self.setup()
 		self.loadAll()
@@ -70,7 +72,7 @@ class Admin(QtGui.QDialog):
 			alta = row.field(2).value().toInt()[0]
 			baja = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
-			diag = self.dialog(id,nombre,alta,baja,desc)
+			diag = self.dialog(self.conn, id,nombre,alta,baja,desc)
 		elif self.nombre == "Unidad":
 			id = row.field(0).value().toInt()[0]
 			numero = row.field(1).value().toString()
@@ -78,7 +80,7 @@ class Admin(QtGui.QDialog):
 			capacidad = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
 			# ESTADOOOO
-			diag = self.dialog(id,numero,tipo,capacidad,desc)
+			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc)
 #        elif self.nombre == "Reserva":
 		elif self.nombre == "Huesped":
 			id = row.field(0).value().toInt()[0]
@@ -86,7 +88,7 @@ class Admin(QtGui.QDialog):
 			apellido = row.field(2).value().toString()
 			nombre = row.field(3).value().toString()
 			tel = row.field(4).value().toString()
-			diag = self.dialog(id,dni,apellido,nombre,tel)
+			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel)
 		diag.exec_()
 		self.loadAll()
 	
