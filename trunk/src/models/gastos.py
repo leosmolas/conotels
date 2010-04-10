@@ -2,8 +2,8 @@
 from abstractmodel import AbstractModel
 
 class Gastos(AbstractModel):
-	def __init__(self):
-		super(Gastos, self).__init__()
+	def __init__(self, conn):
+		super(Gastos, self).__init__(conn)
 
 		self.tableName = "gastos"
 	

@@ -1,12 +1,12 @@
 from connection.model import Model
 from connection.error import Error
 
-from connected import conn as connInstance
+from connection.connection import Connection
 
 class AbstractModel(object):
-	def __init__(self):
+	def __init__(self, conn):
 		self.model = None
-		self.conn = connInstance
+		self.conn = conn
 
 		self.tableName = ""
 		self.id = ""

@@ -4,8 +4,8 @@ from abstractmodel import AbstractModel
 from PyQt4 import QtCore
 
 class Huesped(AbstractModel):
-	def __init__(self):
-		super(Huesped, self).__init__()
+	def __init__(self, conn):
+		super(Huesped, self).__init__(conn)
 
 		self.tableName = "huesped"
 		self.id = "idHuesped"

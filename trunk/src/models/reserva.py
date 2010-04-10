@@ -2,8 +2,8 @@
 from abstractmodel import AbstractModel
 
 class Reserva(AbstractModel):
-	def __init__(self):
-		super(Reserva, self).__init__()
+	def __init__(self, conn):
+		super(Reserva, self).__init__(conn)
 
 		self.tableName = "reserva"
 	

@@ -2,7 +2,6 @@
 from PyQt4 import QtCore, QtGui
 
 from ui.gastos import Ui_GastosDialog
-# from db.unidad import SARASA
 from models.gastos import Gastos
 from models.unidad import Unidad
 
@@ -21,14 +20,13 @@ class GastosDialog(QtGui.QDialog):
 		self.ui.unidadCombo.setModel(self.unidad.model)
 		self.ui.unidadCombo.setModelColumn=1
 
-	def __init__(self, parent = None):
+	def __init__(self, conn, parent = None):
 		super(GastosDialog, self).__init__(parent)
 
 		self.setup()
-		self.model = Gastos()
+		self.conn = conn
 
-	def __del__(self):
-		pass
+		self.model = Gastos(conn)
 
 	def save(self):
 		# db.save

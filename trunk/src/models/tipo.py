@@ -3,8 +3,8 @@ from abstractmodel import AbstractModel
 from PyQt4 import QtCore
 
 class Tipo(AbstractModel):
-	def __init__(self):
-		super(Tipo, self).__init__()
+	def __init__(self, conn):
+		super(Tipo, self).__init__(conn)
 
 		self.tableName = "tipo"
 		self.id = "idTipo"

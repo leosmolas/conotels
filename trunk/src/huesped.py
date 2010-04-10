@@ -19,11 +19,12 @@ class HuespedDialog(QtGui.QDialog):
 				self.on_cancelBut_clicked)
 
 		#dni, apellido, nombre, telefono
-	def __init__(self, id = -1, dni = "", apellido = "", nombre = "", telefono = "", parent = None):
+	def __init__(self, conn, id = -1, dni = "", apellido = "", nombre = "", telefono = "", parent = None):
 		super(HuespedDialog, self).__init__(parent)
 		self.setup()
 		
-		self.model = Huesped()
+		self.conn = conn
+		self.model = Huesped(conn)
 		self.modif = (id != -1)
 		self.id = id
 #        self.dni = dni
