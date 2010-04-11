@@ -60,10 +60,15 @@ class UnidadDialog(QtGui.QDialog):
 #        self.estado = estado
 
 	def save(self):
-		comboModel = self.ui.tipoCombo.model()
-		self.model.save(id=self.id,nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
-			capacidad=self.ui.capacidadSpin.value(),
-			descripcion=self.ui.descripcionText.toPlainText())
+	
+		if self.ui.numeroLine.text() != "":
+			comboModel = self.ui.tipoCombo.model()
+			self.model.save(id=self.id,nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
+				capacidad=self.ui.capacidadSpin.value(),
+				descripcion=self.ui.descripcionText.toPlainText())
+			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+		else:
+			QtGui.QMessageBox.information(self, "Advertencia", "El campo Nombre no puede ser vacio!")
 	
 	def clear(self):
 		self.ui.numeroLine.setText("")
@@ -75,7 +80,7 @@ class UnidadDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+		#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 
 		if self.modif:
 			self.close()
