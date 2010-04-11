@@ -54,6 +54,8 @@ class Admin(QtGui.QDialog):
 	def loadAll(self):
 		self.type.loadAll()
 		self.ui.tableView.setModel(self.type.model)
+		if self.nombre == "Unidad":
+			self.ui.tableView.setColumnHidden(6,True) #Oculto el id del Tipo de la tabla Unidad
 
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):
@@ -76,7 +78,7 @@ class Admin(QtGui.QDialog):
 		elif self.nombre == "Unidad":
 			id = row.field(0).value().toInt()[0]
 			numero = row.field(1).value().toString()
-			tipo = row.field(2).value().toInt()[0]
+			tipo = row.field(6).value().toInt()[0]
 			capacidad = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
 			# ESTADOOOO
