@@ -38,11 +38,16 @@ class HuespedDialog(QtGui.QDialog):
 			self.ui.telLine.setText(telefono)
 
 	def save(self):
-		self.model.save(id=self.id,dni=self.ui.dniLine.text(),
+		if self.ui.dniLine.text() != "" and self.ui.nombre.nombreLine.text() != "" and self.ui.apellidoLine.text() != "": 
+			self.model.save(id=self.id,dni=self.ui.dniLine.text(),
 				nombre=self.ui.nombreLine.text(),
 				apellido=self.ui.apellidoLine.text(),
 				telefono=self.ui.telLine.text())
-	
+				QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+				
+		else:
+			QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI,Apellido y Nombre no pueden ser vacios!")
+		
 	def clear(self):
 		self.ui.dniLine.setText("")
 		self.ui.apellidoLine.setText("")
