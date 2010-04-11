@@ -15,7 +15,7 @@ class GastosDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 
-		self.unidad = Unidad()
+		self.unidad = Unidad(self.conn)
 		self.unidad.loadAll()
 		self.ui.unidadCombo.setModel(self.unidad.model)
 		self.ui.unidadCombo.setModelColumn=1
@@ -23,13 +23,12 @@ class GastosDialog(QtGui.QDialog):
 	def __init__(self, conn, parent = None):
 		super(GastosDialog, self).__init__(parent)
 
-		self.setup()
 		self.conn = conn
+		self.setup()
 
 		self.model = Gastos(conn)
 
 	def save(self):
-		# db.save
 		print "new gastos"
 		
 		self.model.save(descripcion=self.ui.descripcionLine.text(),
@@ -43,3 +42,5 @@ class GastosDialog(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
 		self.save()
+		self.clear()
+		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
