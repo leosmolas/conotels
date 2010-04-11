@@ -2,7 +2,6 @@
 from PyQt4 import QtCore, QtGui
 
 from ui.unidad import Ui_unidadDialog
-# from db.unidad import SARASA
 from models.unidad import Unidad
 from models.tipo import Tipo
 
@@ -31,14 +30,10 @@ class UnidadDialog(QtGui.QDialog):
 
 		self.id = id
 		self.conn = conn
-
 		self.model = Unidad(conn)
-
 		self.setup()
-
 		self.modif = (id != -1)
 		self.ui.numeroLine.setText(str(numero))
-
 		self.ui.tipoCombo.setCurrentIndex(0)
 
 		if tipo != -1:
@@ -80,6 +75,7 @@ class UnidadDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
+		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 
 		if self.modif:
 			self.close()

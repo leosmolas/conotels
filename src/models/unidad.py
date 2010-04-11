@@ -1,6 +1,5 @@
 # -*- coding: iso-8859-1 -*-
 from abstractmodel import AbstractModel
-
 from PyQt4 import QtCore
 
 class Unidad(AbstractModel):
@@ -36,6 +35,6 @@ class Unidad(AbstractModel):
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Numero")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Tipo")
-		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Descripcion")
-		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Capacidad")
-		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Estado")
+		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Descripcion")
+		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Capacidad")
+		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Estado")

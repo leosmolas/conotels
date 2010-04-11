@@ -2,7 +2,6 @@
 from PyQt4 import QtCore, QtGui
 
 from ui.huesped import Ui_huespedDialog
-# from db.tipo import SARASA
 from models.huesped import Huesped
 
 class HuespedDialog(QtGui.QDialog):
@@ -54,6 +53,7 @@ class HuespedDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
+		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 
 		if self.modif:
 			self.close()

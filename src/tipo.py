@@ -52,9 +52,7 @@ class TipoDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		
-		QtGui.QMessageBox.information(self, "Guardado con exito", 
-			"Los datos se han guardado con exito!")
+		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 
 		if self.modif:
 			self.close()
