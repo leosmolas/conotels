@@ -33,7 +33,7 @@ class GastosDialog(QtGui.QDialog):
 		
 		self.model.save(descripcion=self.ui.descripcionLine.text(),
 				costo=self.ui.gastoSpin.value(),
-				reserva=self.unidadCombo.itemText(self.unidadCombo.currentIndex()))
+				reserva=self.ui.unidadCombo.itemText(self.ui.unidadCombo.currentIndex()))
 	
 	def clear(self):
 		self.ui.gastoSpin.setValue(0)
