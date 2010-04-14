@@ -1,6 +1,8 @@
 # -*- coding: iso-8859-1 -*-
 from abstractmodel import AbstractModel
 
+from PyQt4 import QtCore
+
 class Reserva(AbstractModel):
 	def __init__(self, conn):
 		super(Reserva, self).__init__(conn)
@@ -33,7 +35,7 @@ class Reserva(AbstractModel):
 			" values ("+str(unidad)+",'"+str(huesped)+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
 
 	def loadAll(self):
-		super(Tipo, self).loadAll()
+		super(Reserva, self).loadAll()
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Huesped")
