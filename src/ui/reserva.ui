@@ -96,7 +96,33 @@
       </widget>
      </item>
      <item row="11" column="1">
-      <widget class="QComboBox" name="estadoCombo"/>
+      <widget class="QComboBox" name="estadoCombo">
+       <item>
+        <property name="text">
+         <string>preReservado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>reservado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>enCurso</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>terminada</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>cancelada</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item row="9" column="1">
       <widget class="QTimeEdit" name="inTime"/>

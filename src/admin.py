@@ -10,6 +10,7 @@ from huesped import HuespedDialog
 from models.tipo import Tipo
 from models.unidad import Unidad
 from models.huesped import Huesped
+from models.reserva import Reserva
 
 class Admin(QtGui.QDialog):
 	def setup(self):
@@ -39,6 +40,7 @@ class Admin(QtGui.QDialog):
 			self.type = Huesped(self.conn)
 		elif nombre == "Reserva":
 			self.dialog = ReservaDialog
+			self.type = Reserva(self.conn)
 		elif nombre == "Tipo":
 			self.dialog = TipoDialog
 			self.type = Tipo(self.conn)
@@ -83,7 +85,8 @@ class Admin(QtGui.QDialog):
 			desc = row.field(4).value().toString()
 			# ESTADOOOO
 			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc)
-#        elif self.nombre == "Reserva":
+		#elif self.nombre == "Reserva":
+			
 		elif self.nombre == "Huesped":
 			id = row.field(0).value().toInt()[0]
 			dni = row.field(1).value().toString()
