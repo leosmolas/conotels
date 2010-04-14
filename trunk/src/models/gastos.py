@@ -5,7 +5,7 @@ class Gastos(AbstractModel):
 	def __init__(self, conn):
 		super(Gastos, self).__init__(conn)
 
-		self.tableName = "gastos"
+		self.tableName = "gasto"
 	
 #	Metodos heredados:
 #    def getModel(self)
