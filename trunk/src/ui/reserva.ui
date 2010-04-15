@@ -133,32 +133,32 @@
       <widget class="QComboBox" name="estadoCombo">
        <item>
         <property name="text">
-         <string>preReservado</string>
+         <string>Pre Reservado</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>reservado</string>
+         <string>Reservado</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>enCurso</string>
+         <string>Reserva en curso</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>terminada</string>
+         <string>Reserva terminada</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>cancelada</string>
+         <string>Reserva cancelada</string>
         </property>
        </item>
       </widget>
      </item>
-     <item row="3" column="0" colspan="2">
+     <item row="3" column="1">
       <widget class="QTableView" name="huespedView"/>
      </item>
     </layout>

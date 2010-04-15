@@ -10,6 +10,7 @@ class AbstractModel(object):
 
 		self.tableName = ""
 		self.id = ""
+		self.params = ""
 	
 	def load(self, id):
 		self.model = self.conn.query("select * from "+self.tableName+" where id="+str(id))
@@ -27,3 +28,6 @@ class AbstractModel(object):
 	
 	def get(self, column):
 		return self.getModel().getItem(column)
+	
+	def filterModel(self, filter):
+		self.model = self.conn.query("select * from "+self.tableName+" where match "+self.params+" against ('"+filter+"*' in boolean mode)")
