@@ -27,7 +27,7 @@ create table unidad (
 	tipo int unsigned not null,
 	capacidad int unsigned not null,
 	descripcion varchar(45),
-	estado enum('libre', 'ocupada',"noDisponible") not null,
+	estado enum('Libre', 'Ocupada','No Disponible') not null,
 	
 	primary key (idUnidad),
 	
@@ -62,7 +62,7 @@ create table reserva (
 	finReserva date,
 	horaCheckIn time,
 	horaCheckOut time,
-	estado enum('preReservado', 'reservado', 'enCurso', 'terminada', 'cancelada'),
+	estado enum('Pre Reservado', 'Reservado', 'Reserva en curso', 'Reserva terminada', 'Reserva cancelada'),
 	
 	primary key (idReserva),
 

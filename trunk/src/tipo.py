@@ -35,24 +35,28 @@ class TipoDialog(QtGui.QDialog):
 			self.ui.nombreLine.setText(nombre)
 			self.ui.costoTempBajaSpin.setValue(costoTempBaja)
 			self.ui.costoTempAltaSpin.setValue(costoTempAlta)
-#            self.ui.descripcion
-		
+			self.ui.descEdit.setPlainText("")
+			
 	def clear(self):
 		self.ui.nombreLine.setText("")
 		self.ui.costoTempBajaSpin.setValue(0)
 		self.ui.costoTempAltaSpin.setValue(0)
-#        self.ui.descripcion
+		self.ui.descEdit.setPlainText("")
 
 	def save(self):
-		self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
-			costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
-			costoTemporadaBaja=self.ui.costoTempBajaSpin.value())
+		if self.ui.nombreLine.text() != "":
+			self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
+				costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
+				costoTemporadaBaja=self.ui.costoTempBajaSpin.value(),
+				descripcion=self.ui.descEdit.toPlainText())
+			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+		else:
+			QtGui.QMessageBox.information(self, "Advertencia", "El campo Nombre no puede ser vacio!")
 	
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 
 		if self.modif:
 			self.close()

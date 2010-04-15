@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Fri Apr  9 06:45:17 2010
+# Created: Thu Apr 15 16:11:39 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_tipoDialog(object):
     def setupUi(self, tipoDialog):
         tipoDialog.setObjectName("tipoDialog")
-        tipoDialog.resize(400, 136)
+        tipoDialog.resize(485, 203)
         self.gridLayout = QtGui.QGridLayout(tipoDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.formLayout = QtGui.QFormLayout()
@@ -37,6 +37,12 @@ class Ui_tipoDialog(object):
         self.costoTempAltaSpin.setMaximum(999999)
         self.costoTempAltaSpin.setObjectName("costoTempAltaSpin")
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.costoTempAltaSpin)
+        self.label_4 = QtGui.QLabel(tipoDialog)
+        self.label_4.setObjectName("label_4")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_4)
+        self.descEdit = QtGui.QPlainTextEdit(tipoDialog)
+        self.descEdit.setObjectName("descEdit")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.descEdit)
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(tipoDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -56,4 +62,5 @@ class Ui_tipoDialog(object):
         self.label.setText(QtGui.QApplication.translate("tipoDialog", "Nombre:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada baja:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada alta:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("tipoDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
 

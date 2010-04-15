@@ -67,11 +67,3 @@ class HuespedDialog(QtGui.QDialog):
 		self.clear()
 		if self.modif:
 			self.close()
-
-#import sys
-
-#app = QtGui.QApplication(sys.argv)
-#main = huespedDialog()
-#main = huespedDialog("dni","apellido","nombre","telefono",1)
-#main.show()
-#sys.exit(app.exec_())
