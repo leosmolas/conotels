@@ -28,3 +28,5 @@ class Gastos(AbstractModel):
 			self.conn.update("insert into "+self.tableName+
 			"(descripcion,costo,reserva)"+ 
 			" values ('"+descripcion+"',"+str(costo)+","+str(reserva)+")")
+	
+	

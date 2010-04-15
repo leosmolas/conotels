@@ -3,7 +3,7 @@ from PyQt4 import QtCore, QtGui
 
 from ui.gastos import Ui_GastosDialog
 from models.gastos import Gastos
-from models.unidad import Unidad
+from models.reserva import Reserva
 
 class GastosDialog(QtGui.QDialog):
 	def setup(self):
@@ -14,11 +14,14 @@ class GastosDialog(QtGui.QDialog):
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
+		
+		QtCore.QObject.connect(self.ui.buscarLineEdit, QtCore.SIGNAL("textChanged(QString)"),
+				self.buscarReserva)
 
-		self.unidad = Unidad(self.conn)
-		self.unidad.loadAll()
-		self.ui.unidadCombo.setModel(self.unidad.model)
-		self.ui.unidadCombo.setModelColumn=1
+		self.reserva = Reserva(self.conn)
+		self.reserva.loadAll()
+		self.ui.reservastableView.setModel(self.reserva.model)
+
 
 	def __init__(self, conn, parent = None):
 		super(GastosDialog, self).__init__(parent)
@@ -31,10 +34,10 @@ class GastosDialog(QtGui.QDialog):
 	def save(self):
 		print "new gastos"
 		
-		self.model.save(descripcion=self.ui.descripcionLine.text(),
+		'''self.model.save(descripcion=self.ui.descripcionLine.text(),
 				costo=self.ui.gastoSpin.value(),
 				reserva=self.ui.unidadCombo.itemText(self.ui.unidadCombo.currentIndex()))
-	
+	'''
 	def clear(self):
 		self.ui.gastoSpin.setValue(0)
 		self.ui.descripcionLine.setText("")
@@ -44,3 +47,8 @@ class GastosDialog(QtGui.QDialog):
 		self.save()
 		self.clear()
 		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+
+
+	def buscarReserva(self):
+		print "cambio el texto"
+		
