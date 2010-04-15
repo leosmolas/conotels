@@ -9,6 +9,8 @@ class Huesped(AbstractModel):
 
 		self.tableName = "huesped"
 		self.id = "idHuesped"
+
+		self.params = "(dni,nombre,apellido,telefono)"
 	
 #	Metodos heredados:
 #    def getModel(self)

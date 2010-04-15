@@ -1,7 +1,10 @@
+import re
 from PyQt4 import QtCore, QtGui
 
 from ui.reserva import Ui_reservaDialog
-# from db.tipo import SARASA
+
+from models.huesped import Huesped
+from models.unidad import Unidad
 
 class ReservaDialog(QtGui.QDialog):
 	def setup(self):
@@ -13,15 +16,30 @@ class ReservaDialog(QtGui.QDialog):
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
-		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
+		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
-		#llenar combobox de estado
 		#hacer consultas para buscar huespedes y unidades libres para reserva?
+
+		self.ui.huespedView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+
+		QtCore.QObject.connect(self.ui.huespedLine, QtCore.SIGNAL("textChanged(const QString &)"),
+			self.update)
 		
-		#unidad, huesped, inicioprereserva, finprereserva,  inicioreserva, finreserva, horacheckin, horacheckout, estado
-	def __init__(self, id = -1, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, parent = None):
+	def __init__(self, conn, id = -1, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, parent = None):
 		super(ReservaDialog, self).__init__(parent)
+
+		self.conn = conn
+
 		self.setup()
+
+		self.huesped = Huesped(self.conn)
+		self.huesped.loadAll()
+		self.ui.huespedView.setModel(self.huesped.model)
+
+		self.unidad = Unidad(self.conn)
+		self.unidad.loadAll()
+		self.ui.unidadCombo.setModel(self.unidad.model)
+		self.ui.unidadCombo.setModelColumn(1)
 
 		self.modif = (id != -1)
 #        self.unidad = unidad
@@ -34,7 +52,7 @@ class ReservaDialog(QtGui.QDialog):
 #        self.horaCheckOut = horaCheckOut
 #        self.estado = estado
 		if self.modif:
-			self.ui.unidadLine.setText("")
+			self.ui.unidadCombo.setCurrentIndex(0)
 			self.ui.huespedLine.setText("")
 			self.ui.inicioPreDate.setDate(QtCore.QDate.currentDate())
 			self.ui.finPreDate.setDate(QtCore.QDate.currentDate())
@@ -44,13 +62,25 @@ class ReservaDialog(QtGui.QDialog):
 			self.ui.outTime.setTime(QtCore.QTime.currentTime())
 			self.ui.estadoCombo.setCurrentIndex(0)
 		
+	def update(self, s):
+		filtro = re.escape(str(self.ui.huespedLine.text().replace(' ', '* ')))
+		
+		self.huesped.filterModel(filtro)
+		self.ui.huespedView.setModel(self.huesped.model)
+
 	def save(self):
-		if self.modif:
-			# db.save
-			print "modify"
+		if self.ui.numeroLine.text() != "":
+			comboModel = self.ui.tipoCombo.model()
+			estad = "Libre"
+			if self.ui.noDisponibleCheck.checkState() == QtCore.Qt.Checked:
+				estad = "No Disponible"
+			self.model.save(id=self.id,nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
+				capacidad=self.ui.capacidadSpin.value(),
+				descripcion=self.ui.descripcionText.toPlainText(),
+				estado=estad)
+			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 		else:
-			# db.addNew
-			print "new"
+			QtGui.QMessageBox.information(self, "Advertencia", "El campo Nombre no puede ser vacio!")
 	
 	def clear(self):
 		self.ui.unidadLine.setText("")

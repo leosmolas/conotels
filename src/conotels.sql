@@ -17,7 +17,7 @@ create table tipo (
 	
 	primary key (idTipo)
 
-) ENGINE=InnoDB;
+) ENGINE=MYISAM;
 
 
 create table unidad (
@@ -34,7 +34,7 @@ create table unidad (
 	key FK_unidad_tipo (tipo),
 	constraint FK_unidad_tipo foreign key (tipo) references tipo (idTipo)
 
-) ENGINE=InnoDB;
+) ENGINE=MYISAM;
 
 
 create table huesped (
@@ -48,7 +48,7 @@ create table huesped (
 	
 	primary key (idHuesped)
 
-) ENGINE=InnoDB;
+) ENGINE=MYISAM;
 
 
 create table reserva (
@@ -73,7 +73,7 @@ create table reserva (
 	key FK_reserva_huesped (huesped),
 	constraint FK_reserva_huesped foreign key (huesped) references huesped (idHuesped)
 	
-) ENGINE=InnoDB;
+) ENGINE=MYISAM;
 
 
 create table gasto (
@@ -88,4 +88,4 @@ create table gasto (
 	key FK_gasto_reserva (reserva),
 	constraint FK_gasto_reserva foreign key (reserva) references reserva (idReserva)
 
-) ENGINE=InnoDB;
+) ENGINE=MYISAM;
