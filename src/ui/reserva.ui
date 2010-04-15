@@ -33,69 +33,103 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="1" column="1">
+      <widget class="QComboBox" name="unidadCombo"/>
+     </item>
+     <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Huesped:</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="2" column="1">
       <widget class="QLineEdit" name="huespedLine"/>
      </item>
-     <item row="5" column="0">
+     <item row="4" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Inicio Prereserva:</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
+     <item row="4" column="1">
+      <widget class="QDateEdit" name="inicioPreDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Fin Prereserva:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="unidadLine"/>
+     <item row="5" column="1">
+      <widget class="QDateEdit" name="finPreDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
-     <item row="7" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>Inicio Reserva:</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
+     <item row="6" column="1">
+      <widget class="QDateEdit" name="inicioDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>Fin Reserva:</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
+     <item row="7" column="1">
+      <widget class="QDateEdit" name="finDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
         <string>Hora CheckIn:</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="0">
+     <item row="8" column="1">
+      <widget class="QTimeEdit" name="inTime"/>
+     </item>
+     <item row="9" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string>Hora CheckOut:</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
+     <item row="9" column="1">
+      <widget class="QTimeEdit" name="outTime"/>
+     </item>
+     <item row="10" column="0">
       <widget class="QLabel" name="label_9">
        <property name="text">
         <string>Estado:</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
+     <item row="10" column="1">
       <widget class="QComboBox" name="estadoCombo">
        <item>
         <property name="text">
@@ -124,60 +158,14 @@
        </item>
       </widget>
      </item>
-     <item row="9" column="1">
-      <widget class="QTimeEdit" name="inTime"/>
-     </item>
-     <item row="10" column="1">
-      <widget class="QTimeEdit" name="outTime"/>
-     </item>
-     <item row="8" column="1">
-      <widget class="QDateEdit" name="finDate">
-       <property name="calendarPopup">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QDateEdit" name="inicioDate">
-       <property name="calendarPopup">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QDateEdit" name="inicioPreDate">
-       <property name="calendarPopup">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QDateEdit" name="finPreDate">
-       <property name="calendarPopup">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="unidadBut">
-       <property name="text">
-        <string>Buscar Unidad</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QPushButton" name="huespedBut">
-       <property name="text">
-        <string>Buscar Huesped</string>
-       </property>
-      </widget>
+     <item row="3" column="0" colspan="2">
+      <widget class="QTableView" name="huespedView"/>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>unidadLine</tabstop>
   <tabstop>huespedLine</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>

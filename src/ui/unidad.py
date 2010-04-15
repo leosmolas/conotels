@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Thu Apr 15 16:11:39 2010
+# Created: Thu Apr 15 16:30:31 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
