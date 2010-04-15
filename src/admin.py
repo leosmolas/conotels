@@ -61,8 +61,6 @@ class Admin(QtGui.QDialog):
 
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):
-		print "modif"
-
 		if self.ui.tableView.currentIndex().row() == -1:
 			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de modificar",
 			QtGui.QMessageBox.Ok)

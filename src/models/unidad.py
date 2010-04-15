@@ -16,7 +16,7 @@ class Unidad(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self, id = -1, nombre="", tipo=0, capacidad=0, descripcion="", estado="libre"):
+	def save(self, id = -1, nombre="", tipo=0, capacidad=0, descripcion="", estado="Libre"):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set nombre='"+nombre+
@@ -31,7 +31,7 @@ class Unidad(AbstractModel):
 				" values ('"+nombre+"',"+str(tipo)+","+str(capacidad)+",'"+descripcion+"','"+estado+"')")
 
 	def loadAll(self):
-		super(Unidad, self).loadAll()
+		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Numero")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Tipo")

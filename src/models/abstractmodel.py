@@ -15,11 +15,7 @@ class AbstractModel(object):
 		self.model = self.conn.query("select * from "+self.tableName+" where id="+str(id))
 	
 	def loadAll(self):
-		
-		if self.tableName == "unidad":
-			self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo")
-		else:
-			self.model = self.conn.query("select * from "+self.tableName)
+		self.model = self.conn.query("select * from "+self.tableName)
 	
 	def delete(self, id):
 		self.conn.update("delete from "+self.tableName+" where "+self.id+"="+str(id))

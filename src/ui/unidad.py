@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Fri Apr  9 06:45:18 2010
+# Created: Thu Apr 15 16:11:39 2010
 #      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,19 +28,22 @@ class Ui_unidadDialog(object):
         self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.label_3)
         self.label_4 = QtGui.QLabel(unidadDialog)
         self.label_4.setObjectName("label_4")
-        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_4)
+        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_4)
         self.numeroLine = QtGui.QLineEdit(unidadDialog)
         self.numeroLine.setObjectName("numeroLine")
         self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.numeroLine)
         self.descripcionText = QtGui.QPlainTextEdit(unidadDialog)
         self.descripcionText.setObjectName("descripcionText")
-        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.descripcionText)
+        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.descripcionText)
         self.tipoCombo = QtGui.QComboBox(unidadDialog)
         self.tipoCombo.setObjectName("tipoCombo")
         self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.tipoCombo)
         self.capacidadSpin = QtGui.QSpinBox(unidadDialog)
         self.capacidadSpin.setObjectName("capacidadSpin")
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.capacidadSpin)
+        self.noDisponibleCheck = QtGui.QCheckBox(unidadDialog)
+        self.noDisponibleCheck.setObjectName("noDisponibleCheck")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.noDisponibleCheck)
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(unidadDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -58,4 +61,5 @@ class Ui_unidadDialog(object):
         self.label_2.setText(QtGui.QApplication.translate("unidadDialog", "Tipo:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("unidadDialog", "Capacidad:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("unidadDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
+        self.noDisponibleCheck.setText(QtGui.QApplication.translate("unidadDialog", "No disponible", None, QtGui.QApplication.UnicodeUTF8))
 
