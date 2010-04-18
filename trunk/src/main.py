@@ -26,7 +26,7 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.addNewUnitBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewUnitBut.setText("Administrar reservas")
-		self.addNewUnitBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewUnitBut.setIcon(QtGui.QIcon(":/diaryplain.png"))
 		self.addNewUnitBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewUnitBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
@@ -38,7 +38,7 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.addNewUnitBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewUnitBut.setText("Administrar huesped")
-		self.addNewUnitBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewUnitBut.setIcon(QtGui.QIcon(":/people.png"))
 		self.addNewUnitBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewUnitBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
@@ -56,7 +56,7 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewTypeBut.setText("Administrar gastos")
-		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewTypeBut.setIcon(QtGui.QIcon(":/purse.png"))
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 

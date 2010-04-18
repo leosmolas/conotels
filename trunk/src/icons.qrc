@@ -2,5 +2,8 @@
   <qresource>
 	<file alias="add.png">imgs/add.png</file>
 	<file alias="property.png">imgs/property.png</file>
+	<file alias="people.png">imgs/people.png</file>
+	<file alias="purse.png">imgs/purse.png</file>
+	<file alias="diaryplain.png">imgs/diaryplain.png</file>
   </qresource>
 </RCC>
