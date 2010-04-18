@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
-    <file alias="add.png">imgs/add.png</file>
+	<file alias="add.png">imgs/add.png</file>
+	<file alias="property.png">imgs/property.png</file>
   </qresource>
 </RCC>
