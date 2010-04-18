@@ -20,7 +20,7 @@ class MainWindow(QtGui.QMainWindow):
 		
 		self.addNewUnitBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewUnitBut.setText("Administrar unidades")
-		self.addNewUnitBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewUnitBut.setIcon(QtGui.QIcon(":/property.png"))
 		self.addNewUnitBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewUnitBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
