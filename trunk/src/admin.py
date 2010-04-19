@@ -83,7 +83,18 @@ class Admin(QtGui.QDialog):
 			desc = row.field(4).value().toString()
 			# ESTADOOOO
 			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc)
-		#elif self.nombre == "Reserva":
+		elif self.nombre == "Reserva":
+			id = row.field(0).value().toInt()[0]
+			unidad = row.field(1).value().toInt()[0]
+			huesped = row.field(2).value().toInt()[0]
+			inicioPreres = row.field(3).value().toString()
+			finPreres = row.field(4).value().toString()
+			inicioRes = row.field(5).value().toString()
+			finRes = row.field(6).value().toString()
+			horaCheckIn = row.field(7).value().toString()
+			horaCheckOut = row.field(8).value().toString()
+			estado = row.field(9).value().toString()			
+			diag = self.dialog(self.conn, id, unidad, huesped, inicioPreres, finPreres, inicioRes, finRes, horaCheckIn, horaCheckOut, estado)
 			
 		elif self.nombre == "Huesped":
 			id = row.field(0).value().toInt()[0]

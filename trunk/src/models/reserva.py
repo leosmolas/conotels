@@ -8,6 +8,7 @@ class Reserva(AbstractModel):
 		super(Reserva, self).__init__(conn)
 
 		self.tableName = "reserva"
+		self.id = "idReserva"
 	
 #	Metodos heredados:
 #    def getModel(self)
