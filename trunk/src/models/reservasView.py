@@ -9,6 +9,8 @@ class ReservasView(AbstractModel):
 
 		self.tableName = "reservasView"
 		self.id = "idReserva"
+		self.params = "(apellido,dni,nombre)"
+		self.campos = ["apellido","dni","nombre"]
 		
 #	Metodos heredados:
 #    def getModel(self)
@@ -31,6 +33,4 @@ class ReservasView(AbstractModel):
 		self.model.setHeaderData(9,  QtCore.Qt.Horizontal, "Hora de checkOut")
 		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "Estado")
 
-	def filterModel(self,filter,campo):
-		print "select * from "+self.tableName+" where " + campo + " like '%" + filter + "%'"
-		self.model = self.conn.query("select * from "+self.tableName+" where " + campo + " like '%" + filter + "%'")
+	
