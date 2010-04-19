@@ -42,7 +42,7 @@ class MainWindow(QtGui.QMainWindow):
 		self.addNewUnitBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewUnitBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
-		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
+		'''self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewTypeBut.setText("Nueva reserva")
 		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
@@ -52,7 +52,7 @@ class MainWindow(QtGui.QMainWindow):
 		self.addNewTypeBut.setText("Nuevo huesped")
 		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
-		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)'''
 
 		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewTypeBut.setText("Administrar gastos")
@@ -97,23 +97,17 @@ class MainWindow(QtGui.QMainWindow):
 		self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 		if selected == 0:
 			self.ui.title.setTitle("Administrar unidades")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad"))
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
 		elif selected == 1:
 			self.ui.title.setTitle("Administrar reservas")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva"))
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
 		elif selected == 2:
 			self.ui.title.setTitle("Administrar tipos")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo"))
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 		elif selected == 3:
 			self.ui.title.setTitle("Administrar huesped")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped"))
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
 		elif selected == 4:
-			self.ui.title.setTitle("Reserva")
-			self.ui.widgets.insertWidget(1, ReservaDialog(self.conn))
-		elif selected == 5:
-			self.ui.title.setTitle("Huesped")
-			self.ui.widgets.insertWidget(1, HuespedDialog(self.conn))
-		elif selected == 6:
 			self.ui.title.setTitle("Gastos")
 			self.ui.widgets.insertWidget(1, GastosDialog(self.conn))
 
