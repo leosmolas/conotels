@@ -1,11 +1,21 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 from PyQt4 import QtCore, QtGui
-
+import re
 from ui.gastos import Ui_GastosDialog
 from models.gastos import Gastos
-from models.reserva import Reserva
+from models.reservasView import ReservasView
 
 class GastosDialog(QtGui.QDialog):
+
+	def __init__(self, conn, parent = None):
+		super(GastosDialog, self).__init__(parent)
+
+		self.conn = conn
+		self.setup()
+
+		self.model = Gastos(conn)
+
+
 	def setup(self):
 		self.ui = Ui_GastosDialog()
 		self.ui.setupUi(self)
@@ -17,19 +27,13 @@ class GastosDialog(QtGui.QDialog):
 		
 		QtCore.QObject.connect(self.ui.buscarLineEdit, QtCore.SIGNAL("textChanged(QString)"),
 				self.buscarReserva)
+		QtCore.QObject.connect(self.ui.buscarporCombo, QtCore.SIGNAL("currentIndexChanged( int )"),
+				self.buscarReserva)
 
-		self.reserva = Reserva(self.conn)
-		self.reserva.loadAll()
-		self.ui.reservastableView.setModel(self.reserva.model)
+		self.reservasView = ReservasView(self.conn)
+		self.reservasView.loadAll()
+		self.ui.reservastableView.setModel(self.reservasView.model)
 
-
-	def __init__(self, conn, parent = None):
-		super(GastosDialog, self).__init__(parent)
-
-		self.conn = conn
-		self.setup()
-
-		self.model = Gastos(conn)
 
 	def save(self):
 		print "new gastos"
@@ -48,7 +52,17 @@ class GastosDialog(QtGui.QDialog):
 		self.clear()
 		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 
-
-	def buscarReserva(self):
-		print "cambio el texto"
+	@QtCore.pyqtSlot()
+	def buscarReserva(self,s):
+		
+		filtro = re.escape(str(s.replace(' ', '* ')))
+		print filtro
+		if self.ui.buscarporCombo == "Apellido":
+			campo = "apellido"
+		else:
+			#este es el nombre de la unidad
+			campo = "nombre"			
+		self.reservasView.filterModel(filtro,campo)
+		self.ui.reservastableView.setModel(self.reservasView.model)
+		
 		

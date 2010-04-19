@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 from abstractmodel import AbstractModel
 
 from PyQt4 import QtCore
@@ -9,7 +9,7 @@ class Reserva(AbstractModel):
 
 		self.tableName = "reserva"
 		self.id = "idReserva"
-	
+		
 #	Metodos heredados:
 #    def getModel(self)
 #    def get(self, column)
