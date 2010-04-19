@@ -14,11 +14,14 @@ class ReservaDialog(QtGui.QDialog):
 		
 		self.okBut = self.ui.buttonBox.addButton("Ok", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("Cancel", QtGui.QDialogButtonBox.ActionRole)
+		self.backBut = self.ui.buttonBox.addButton("Volver", QtGui.QDialogButtonBox.ActionRole)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
+		QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
+				self.on_backBut_clicked)
 		#hacer consultas para buscar huespedes y unidades libres para reserva?
 
 		self.ui.huespedView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
@@ -26,7 +29,7 @@ class ReservaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.ui.huespedLine, QtCore.SIGNAL("textChanged(const QString &)"),
 			self.update)
 		
-	def __init__(self, conn, id = -1, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, parent = None):
+	def __init__(self, conn, id = -1, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, mainWin = None, parent = None):
 		super(ReservaDialog, self).__init__(parent)
 
 		self.conn = conn
@@ -88,6 +91,8 @@ class ReservaDialog(QtGui.QDialog):
 				else:
 					i+=1
 			self.ui.estadoCombo.setCurrentIndex(i)			
+
+		self.uiMain = mainWin #modif por Jona
 	
 	def update(self, s):
 		filtro = re.escape(str(self.ui.huespedLine.text().replace(' ', '* ')))
@@ -146,3 +151,9 @@ class ReservaDialog(QtGui.QDialog):
 		self.clear()
 		if self.modif:
 			self.close()
+
+	def on_backBut_clicked(self):
+		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+		self.uiMain.title.setTitle("Administrar reservas")
+		self.uiMain.widgets.setCurrentIndex(1)
+		self.uiMain.widgets.widget(1).loadAll()

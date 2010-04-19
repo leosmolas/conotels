@@ -12,11 +12,14 @@ class UnidadDialog(QtGui.QDialog):
 
 		self.okBut = self.ui.buttonBox.addButton("Ok", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("Cancel", QtGui.QDialogButtonBox.ActionRole)
+		self.backBut = self.ui.buttonBox.addButton("Volver", QtGui.QDialogButtonBox.ActionRole)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
+		QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
+				self.on_backBut_clicked)
 
 		tipoModel = Tipo(self.conn)
 		tipoModel.loadAll()
@@ -25,7 +28,7 @@ class UnidadDialog(QtGui.QDialog):
 		self.ui.tipoCombo.setModelColumn(1)
 
 	def __init__(self, conn, id = -1, numero = 0, tipo = -1, capacidad = 0, 
-	descripcion = "", estado = 0, parent = None):
+	descripcion = "", estado = 0,mainWin = None, parent = None):
 		super(UnidadDialog, self).__init__(parent)
 
 		self.id = id
@@ -50,6 +53,8 @@ class UnidadDialog(QtGui.QDialog):
 
 		self.ui.capacidadSpin.setValue(capacidad)
 		self.ui.descripcionText.setPlainText(descripcion)
+
+		self.uiMain = mainWin #modif por Jona
 
 		# VER COMBOBOX ESTADO!!!
 
@@ -95,3 +100,9 @@ class UnidadDialog(QtGui.QDialog):
 		self.clear()
 		if self.modif:
 			self.close()
+
+	def on_backBut_clicked(self):
+		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+		self.uiMain.title.setTitle("Administrar unidades")
+		self.uiMain.widgets.setCurrentIndex(1)
+		self.uiMain.widgets.widget(1).loadAll()

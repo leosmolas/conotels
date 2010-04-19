@@ -7,17 +7,21 @@ class TipoDialog(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_tipoDialog()
 		self.ui.setupUi(self)
+		
 		self.okBut = self.ui.buttonBox.addButton("Ok", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("Cancel", QtGui.QDialogButtonBox.ActionRole)
+		self.backBut = self.ui.buttonBox.addButton("Volver", QtGui.QDialogButtonBox.ActionRole)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
+		QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
+				self.on_backBut_clicked)
 
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
-	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, parent = None):
+	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, mainWin = None,parent = None):
 		super(TipoDialog, self).__init__(parent)
 		self.setup()
 
@@ -36,7 +40,9 @@ class TipoDialog(QtGui.QDialog):
 			self.ui.costoTempBajaSpin.setValue(costoTempBaja)
 			self.ui.costoTempAltaSpin.setValue(costoTempAlta)
 			self.ui.descEdit.setPlainText("")
-			
+		
+		self.uiMain = mainWin #modif por Jona
+		
 	def clear(self):
 		self.ui.nombreLine.setText("")
 		self.ui.costoTempBajaSpin.setValue(0)
@@ -66,3 +72,9 @@ class TipoDialog(QtGui.QDialog):
 		self.clear()
 		if self.modif:
 			self.close()
+
+	def on_backBut_clicked(self):
+		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+		self.uiMain.title.setTitle("Administrar tipos")
+		self.uiMain.widgets.setCurrentIndex(1)
+		self.uiMain.widgets.widget(1).loadAll()
