@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
-    <height>609</height>
+    <width>301</width>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,22 +26,45 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="3">
-      <widget class="QLabel" name="label_5">
+     <item row="2" column="0" colspan="4">
+      <widget class="QTableView" name="reservastableView"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Gasto:</string>
+        <string>Gastos:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Total:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0" colspan="4">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
      <item row="11" column="0" colspan="2">
       <widget class="QLineEdit" name="descripcionLine"/>
      </item>
-     <item row="11" column="2">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>$</string>
+     <item row="10" column="1">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-      </widget>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item row="11" column="3">
       <widget class="QSpinBox" name="gastoSpin">
@@ -56,10 +79,10 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
+     <item row="10" column="3">
+      <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Gastos:</string>
+        <string>Gasto:</string>
        </property>
       </widget>
      </item>
@@ -77,44 +100,21 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="13" column="0" colspan="4">
-      <widget class="QDialogButtonBox" name="buttonBox"/>
-     </item>
-     <item row="7" column="0" colspan="4">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="3">
-      <widget class="QLabel" name="label_7">
+     <item row="11" column="2">
+      <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Total:</string>
+        <string>$</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="2" column="0" colspan="4">
-      <widget class="QTableView" name="reservastableView"/>
-     </item>
-     <item row="0" column="0" rowspan="13">
+     <item row="0" column="0" colspan="4">
       <widget class="QFrame" name="frame">
        <property name="minimumSize">
         <size>
-         <width>350</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -153,52 +153,28 @@
        </layout>
       </widget>
      </item>
-     <item row="0" column="1" colspan="3">
-      <widget class="QFrame" name="frame_2">
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
+     <item row="13" column="0" colspan="4">
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
        </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QFormLayout" name="formLayout_3">
-        <property name="fieldGrowthPolicy">
-         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string>Buscar por</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="buscarporCombo">
-          <item>
-           <property name="text">
-            <string>Apellido</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Unidad</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>buscarLineEdit</tabstop>
+  <tabstop>reservastableView</tabstop>
+  <tabstop>tableView</tabstop>
+  <tabstop>descripcionLine</tabstop>
+  <tabstop>gastoSpin</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -27,8 +27,7 @@ class GastosDialog(QtGui.QDialog):
 		
 		QtCore.QObject.connect(self.ui.buscarLineEdit, QtCore.SIGNAL("textChanged(QString)"),
 				self.buscarReserva)
-		QtCore.QObject.connect(self.ui.buscarporCombo, QtCore.SIGNAL("currentIndexChanged( int )"),
-				self.buscarReserva)
+
 
 		self.reservasView = ReservasView(self.conn)
 		self.reservasView.loadAll()
@@ -56,13 +55,8 @@ class GastosDialog(QtGui.QDialog):
 	def buscarReserva(self,s):
 		
 		filtro = re.escape(str(s.replace(' ', '* ')))
-		print filtro
-		if self.ui.buscarporCombo == "Apellido":
-			campo = "apellido"
-		else:
-			#este es el nombre de la unidad
-			campo = "nombre"			
-		self.reservasView.filterModel(filtro,campo)
+		#print filtro	
+		self.reservasView.filterModel2(filtro)
 		self.ui.reservastableView.setModel(self.reservasView.model)
 		
 		
