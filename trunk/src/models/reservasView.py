@@ -9,7 +9,7 @@ class ReservasView(AbstractModel):
 
 		self.tableName = "reservasView"
 		self.id = "idReserva"
-		self.params = "(apellido,dni,nombre)"
+		#self.params = "(apellido,dni,nombre)"
 		self.campos = ["apellido","dni","nombre"]
 		
 #	Metodos heredados:
@@ -21,6 +21,9 @@ class ReservasView(AbstractModel):
 
 	def loadAll(self):
 		super(ReservasView, self).loadAll()
+		self.setHeaders()
+		
+	def setHeaders(self):
 		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "Apellido")
 		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "DNI")
@@ -32,5 +35,7 @@ class ReservasView(AbstractModel):
 		self.model.setHeaderData(8,  QtCore.Qt.Horizontal, "Hora de checkIn")
 		self.model.setHeaderData(9,  QtCore.Qt.Horizontal, "Hora de checkOut")
 		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "Estado")
-
 	
+	def filterModel(self,filtro):
+		super(ReservasView,self).filterModel(filtro)
+		self.setHeaders()

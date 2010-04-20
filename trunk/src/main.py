@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from PyQt4 import QtCore, QtGui
 
 from ui.mainwin import Ui_MainWindow
@@ -110,7 +111,6 @@ class MainWindow(QtGui.QMainWindow):
 		elif selected == 4:
 			self.ui.title.setTitle("Gastos")
 			self.ui.widgets.insertWidget(1, GastosDialog(self.conn))
-
 		self.ui.widgets.setCurrentIndex(1)
 
 import sys

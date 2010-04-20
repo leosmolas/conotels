@@ -11,7 +11,7 @@ class AbstractModel(object):
 
 		self.tableName = ""
 		self.id = ""
-		self.params = ""
+		#self.params = ""
 		self.campos = []
 	
 	def load(self, id):
@@ -31,16 +31,17 @@ class AbstractModel(object):
 	def get(self, column):
 		return self.getModel().getItem(column)
 	
-	def filterModel(self, filter):
-		print "select * from "+self.tableName+" where match "+self.params+" against ('*"+filter+"*' in boolean mode)"
-		self.model = self.conn.query("select * from "+self.tableName+" where match "+self.params+" against ('*"+filter+"*' in boolean mode)")
-
+	#def filterModel(self, filter):
+		#print "select * from "+self.tableName+" where match "+self.params+" against ('*"+filter+"*' in boolean mode)"
+		#self.model = self.conn.query("select * from "+self.tableName+" where match "+self.params+" against ('*"+filter+"*' in boolean mode)")
+	
+	##
 	#este es el metodo que resuelve la busqueda con likes. Solo esta usada en este momento por gastos.
-	def filterModel2(self, filter):
+	def filterModel(self, filter):
 		s = "select * from " + self.tableName + " where "
 		for i in range(len(self.campos)):
 			s += self.campos[i] + " like '%" + filter + "%' "
 			if (i<len(self.campos)-1):
 				s += "OR "
-		print s
+		#print s
 		self.model = self.conn.query(s)

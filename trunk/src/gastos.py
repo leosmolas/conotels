@@ -32,6 +32,7 @@ class GastosDialog(QtGui.QDialog):
 		self.reservasView = ReservasView(self.conn)
 		self.reservasView.loadAll()
 		self.ui.reservastableView.setModel(self.reservasView.model)
+		self.ui.reservastableView.resizeColumnsToContents()
 
 
 	def save(self):
@@ -56,7 +57,8 @@ class GastosDialog(QtGui.QDialog):
 		
 		filtro = re.escape(str(s.replace(' ', '* ')))
 		#print filtro	
-		self.reservasView.filterModel2(filtro)
+		self.reservasView.filterModel(filtro)
 		self.ui.reservastableView.setModel(self.reservasView.model)
+		self.ui.reservastableView.resizeColumnsToContents()
 		
 		

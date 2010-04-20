@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'huesped.ui'
 #
-# Created: Thu Apr 15 16:30:29 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Tue Apr 20 00:56:44 2010
+#      by: PyQt4 UI code generator 4.6.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,6 @@ class Ui_huespedDialog(object):
     def setupUi(self, huespedDialog):
         huespedDialog.setObjectName("huespedDialog")
         huespedDialog.resize(400, 159)
-        huespedDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Spain))
         self.gridLayout = QtGui.QGridLayout(huespedDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtGui.QDialogButtonBox(huespedDialog)

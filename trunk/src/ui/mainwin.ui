@@ -21,7 +21,7 @@
        <widget class="QListWidget" name="options">
         <property name="maximumSize">
          <size>
-          <width>155</width>
+          <width>160</width>
           <height>16777215</height>
          </size>
         </property>
@@ -81,7 +81,7 @@
      <x>0</x>
      <y>0</y>
      <width>583</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAdministracion">

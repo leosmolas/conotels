@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 from abstractmodel import AbstractModel
 
 from PyQt4 import QtCore
@@ -10,7 +10,8 @@ class Huesped(AbstractModel):
 		self.tableName = "huesped"
 		self.id = "idHuesped"
 
-		self.params = "(dni,nombre,apellido,telefono)"
+		#self.params = "(dni,nombre,apellido,telefono)"
+		self.campos = ["dni","nombre","apellido","telefono"]
 	
 #	Metodos heredados:
 #    def getModel(self)
@@ -36,8 +37,15 @@ class Huesped(AbstractModel):
 
 	def loadAll(self):
 		super(Huesped, self).loadAll()
+		self.setHeaders()
+
+	def setHeaders(self):
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "DNI")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Apellido")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nombre")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Telefono")
+
+	def filterModel(self,filtro):
+		super(Huesped,self).filterModel(filtro)
+		self.setHeaders()

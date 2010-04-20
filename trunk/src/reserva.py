@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 from PyQt4 import QtCore, QtGui
 
@@ -99,6 +100,7 @@ class ReservaDialog(QtGui.QDialog):
 		
 		self.huesped.filterModel(filtro)
 		self.ui.huespedView.setModel(self.huesped.model)
+		self.ui.reservastableView.resizeColumnsToContents()
 
 	def save(self):
 		if self.ui.unidadCombo.count() > 0:
@@ -152,6 +154,7 @@ class ReservaDialog(QtGui.QDialog):
 		if self.modif:
 			self.close()
 
+	@QtCore.pyqtSlot()
 	def on_backBut_clicked(self):
 		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
 		self.uiMain.title.setTitle("Administrar reservas")

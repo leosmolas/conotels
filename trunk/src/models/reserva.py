@@ -10,6 +10,7 @@ class Reserva(AbstractModel):
 		self.tableName = "reserva"
 		self.id = "idReserva"
 		
+		
 #	Metodos heredados:
 #    def getModel(self)
 #    def get(self, column)
