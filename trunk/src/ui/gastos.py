@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Tue Apr 20 00:56:44 2010
+# Created: Tue Apr 20 11:30:08 2010
 #      by: PyQt4 UI code generator 4.6.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,10 +17,10 @@ class Ui_GastosDialog(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.tableView = QtGui.QTableView(GastosDialog)
-        self.tableView.setMinimumSize(QtCore.QSize(0, 0))
-        self.tableView.setObjectName("tableView")
-        self.gridLayout.addWidget(self.tableView, 4, 0, 1, 4)
+        self.gastosTableView = QtGui.QTableView(GastosDialog)
+        self.gastosTableView.setMinimumSize(QtCore.QSize(0, 0))
+        self.gastosTableView.setObjectName("gastosTableView")
+        self.gridLayout.addWidget(self.gastosTableView, 4, 0, 1, 4)
         self.reservastableView = QtGui.QTableView(GastosDialog)
         self.reservastableView.setObjectName("reservastableView")
         self.gridLayout.addWidget(self.reservastableView, 2, 0, 1, 4)
@@ -84,8 +84,8 @@ class Ui_GastosDialog(object):
         self.retranslateUi(GastosDialog)
         QtCore.QMetaObject.connectSlotsByName(GastosDialog)
         GastosDialog.setTabOrder(self.buscarLineEdit, self.reservastableView)
-        GastosDialog.setTabOrder(self.reservastableView, self.tableView)
-        GastosDialog.setTabOrder(self.tableView, self.descripcionLine)
+        GastosDialog.setTabOrder(self.reservastableView, self.gastosTableView)
+        GastosDialog.setTabOrder(self.gastosTableView, self.descripcionLine)
         GastosDialog.setTabOrder(self.descripcionLine, self.gastoSpin)
         GastosDialog.setTabOrder(self.gastoSpin, self.buttonBox)
 
