@@ -45,3 +45,4 @@ class AbstractModel(object):
 				s += "OR "
 		#print s
 		self.model = self.conn.query(s)
+

@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="4" column="0" colspan="4">
-      <widget class="QTableView" name="tableView">
+      <widget class="QTableView" name="gastosTableView">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -170,7 +170,7 @@
  <tabstops>
   <tabstop>buscarLineEdit</tabstop>
   <tabstop>reservastableView</tabstop>
-  <tabstop>tableView</tabstop>
+  <tabstop>gastosTableView</tabstop>
   <tabstop>descripcionLine</tabstop>
   <tabstop>gastoSpin</tabstop>
   <tabstop>buttonBox</tabstop>
