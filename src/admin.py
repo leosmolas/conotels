@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from copy import deepcopy
 from PyQt4 import QtCore, QtGui
 
@@ -64,6 +65,7 @@ class Admin(QtGui.QDialog):
 		self.ui.tableView.setModel(self.type.model)
 		if self.nombre == "Unidad":
 			self.ui.tableView.setColumnHidden(6,True) #Oculto el id del Tipo de la tabla Unidad
+		self.ui.tableView.resizeColumnsToContents()
 
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):

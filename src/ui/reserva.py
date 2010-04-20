@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/reserva.ui'
+# Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Thu Apr 15 16:37:41 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Tue Apr 20 00:56:45 2010
+#      by: PyQt4 UI code generator 4.6.1
 #
 # WARNING! All changes made in this file will be lost!
 

@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 from PyQt4 import QtCore, QtGui
 
 from ui.huesped import Ui_huespedDialog
@@ -62,8 +62,6 @@ class HuespedDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		
-
 		if self.modif:
 			self.close()
 	

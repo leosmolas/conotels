@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Mon Apr 19 15:19:40 2010
+# Created: Tue Apr 20 00:56:44 2010
 #      by: PyQt4 UI code generator 4.6.1
 #
 # WARNING! All changes made in this file will be lost!

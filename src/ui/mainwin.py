@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Thu Apr 15 16:30:29 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Tue Apr 20 00:59:47 2010
+#      by: PyQt4 UI code generator 4.6.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.options = QtGui.QListWidget(self.centralwidget)
-        self.options.setMaximumSize(QtCore.QSize(155, 16777215))
+        self.options.setMaximumSize(QtCore.QSize(160, 16777215))
         self.options.setIconSize(QtCore.QSize(150, 84))
         self.options.setGridSize(QtCore.QSize(150, 80))
         self.options.setObjectName("options")
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 583, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 583, 21))
         self.menubar.setObjectName("menubar")
         self.menuAdministracion = QtGui.QMenu(self.menubar)
         self.menuAdministracion.setObjectName("menuAdministracion")
