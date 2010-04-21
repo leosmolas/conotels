@@ -20,9 +20,9 @@ class Admin(QtGui.QDialog):
 		self.ui = Ui_Admin()
 		self.ui.setupUi(self)
 
-		self.nuevoBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
-		self.modifBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
-		self.elimBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+		self.nuevoBut = self.ui.buttonBox.addButton("Agregar", QtGui.QDialogButtonBox.ActionRole)
+		self.modifBut = self.ui.buttonBox.addButton("Modificar", QtGui.QDialogButtonBox.ActionRole)
+		self.elimBut = self.ui.buttonBox.addButton("Eliminar", QtGui.QDialogButtonBox.ActionRole)
 
 		self.nuevoBut.setIcon(QtGui.QIcon(":/add.png"))
 		self.modifBut.setIcon(QtGui.QIcon(":/edit.png"))

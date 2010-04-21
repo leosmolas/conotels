@@ -33,7 +33,7 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.addNewUnitBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewUnitBut.setText("Administrar tipo")
-		self.addNewUnitBut.setIcon(QtGui.QIcon(":/add.png"))
+		self.addNewUnitBut.setIcon(QtGui.QIcon(":/tools.png"))
 		self.addNewUnitBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewUnitBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
@@ -106,7 +106,7 @@ class MainWindow(QtGui.QMainWindow):
 			self.ui.title.setTitle("Administrar tipos")
 			self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 		elif selected == 3:
-			self.ui.title.setTitle("Administrar huesped")
+			self.ui.title.setTitle("Administrar huespedes")
 			self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
 		elif selected == 4:
 			self.ui.title.setTitle("Gastos")

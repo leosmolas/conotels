@@ -20,9 +20,9 @@ class GastosDialog(QtGui.QDialog):
 		self.ui = Ui_GastosDialog()
 		self.ui.setupUi(self)
 
-		self.okBut        = self.ui.buttonBox.addButton("Guardar", QtGui.QDialogButtonBox.ActionRole)		
+		self.okBut= self.ui.buttonBox.addButton("Guardar", QtGui.QDialogButtonBox.ActionRole)		
 		self.modificarBut = self.ui.buttonBox.addButton("Modificar", QtGui.QDialogButtonBox.ActionRole)
-		self.okBut.setEnabled       (False)
+		self.okBut.setEnabled(False)
 		self.modificarBut.setEnabled(False)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
