@@ -13,8 +13,8 @@ class ReservaDialog(QtGui.QDialog):
 		self.ui = Ui_reservaDialog()
 		self.ui.setupUi(self)
 		
-		self.okBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
-		self.cancelBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+		self.okBut = self.ui.buttonBox.addButton("Guardar", QtGui.QDialogButtonBox.ActionRole)
+		self.cancelBut = self.ui.buttonBox.addButton("Cancelar", QtGui.QDialogButtonBox.ActionRole)
 
 		self.okBut.setIcon(QtGui.QIcon(":/save.png"))
 		self.cancelBut.setIcon(QtGui.QIcon(":/cancel.png"))
@@ -25,7 +25,7 @@ class ReservaDialog(QtGui.QDialog):
 				self.on_cancelBut_clicked)
 
 		if not self.modif:
-			self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+			self.backBut = self.ui.buttonBox.addButton("Volver", QtGui.QDialogButtonBox.ActionRole)
 			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
 					self.on_backBut_clicked)

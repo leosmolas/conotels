@@ -10,5 +10,6 @@
 	<file alias="save.png">imgs/save.png</file>
 	<file alias="cancel.png">imgs/cancel.png</file>
 	<file alias="back.png">imgs/back.png</file>
+	<file alias="tools.png">imgs/tools.png</file>
   </qresource>
 </RCC>
