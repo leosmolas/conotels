@@ -11,28 +11,32 @@ class HuespedDialog(QtGui.QDialog):
 		
 		self.okBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
-		self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
 
 		self.okBut.setIcon(QtGui.QIcon(":/save.png"))
 		self.cancelBut.setIcon(QtGui.QIcon(":/cancel.png"))
-		self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
-		QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
+
+		if not self.modif:
+			self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
+			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
 				self.on_backBut_clicked)
 
 		#dni, apellido, nombre, telefono
 	def __init__(self, conn, id = -1, dni = "", apellido = "", nombre = "", telefono = "", mainWin = None, parent = None):
 		super(HuespedDialog, self).__init__(parent)
-		self.setup()
 		
 		self.conn = conn
 		self.model = Huesped(conn)
 		self.modif = (id != -1)
 		self.id = id
+
+		self.setup()
+
 #        self.dni = dni
 #        self.apellido = apellido
 #        self.nombre = nombre
