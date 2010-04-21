@@ -9,9 +9,13 @@ class HuespedDialog(QtGui.QDialog):
 		self.ui = Ui_huespedDialog()
 		self.ui.setupUi(self)
 		
-		self.okBut = self.ui.buttonBox.addButton("Ok", QtGui.QDialogButtonBox.ActionRole)
-		self.cancelBut = self.ui.buttonBox.addButton("Cancel", QtGui.QDialogButtonBox.ActionRole)
-		self.backBut = self.ui.buttonBox.addButton("Volver", QtGui.QDialogButtonBox.ActionRole)
+		self.okBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+		self.cancelBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+		self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+
+		self.okBut.setIcon(QtGui.QIcon(":/save.png"))
+		self.cancelBut.setIcon(QtGui.QIcon(":/cancel.png"))
+		self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
