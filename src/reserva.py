@@ -149,11 +149,10 @@ class ReservaDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		save = self.save()
 		if save == True:
+			self.clear()		
 			if self.modif:
 				self.close()
-			else:
-				self.clear()		
-	
+				
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
 		self.clear()
