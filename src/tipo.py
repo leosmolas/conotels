@@ -10,24 +10,25 @@ class TipoDialog(QtGui.QDialog):
 		
 		self.okBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
-		self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
 
 		self.okBut.setIcon(QtGui.QIcon(":/save.png"))
 		self.cancelBut.setIcon(QtGui.QIcon(":/cancel.png"))
-		self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
-		QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
-				self.on_backBut_clicked)
+
+		if not self.modif:
+			self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
+			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
+					self.on_backBut_clicked)
 
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
 	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, mainWin = None,parent = None):
 		super(TipoDialog, self).__init__(parent)
-		self.setup()
 
 		self.conn = conn
 
@@ -35,6 +36,9 @@ class TipoDialog(QtGui.QDialog):
 		self.model = Tipo(conn)
 
 		self.modif = (id != -1)
+
+		self.setup()
+
 #        self.nombre = nombre
 #        self.costoTempAlta = costoTempAlta
 #        self.costoTempBaja = costoTempBaja

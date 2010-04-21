@@ -15,18 +15,20 @@ class ReservaDialog(QtGui.QDialog):
 		
 		self.okBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
-		self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
 
 		self.okBut.setIcon(QtGui.QIcon(":/save.png"))
 		self.cancelBut.setIcon(QtGui.QIcon(":/cancel.png"))
-		self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
-		QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
-				self.on_backBut_clicked)
+
+		if not self.modif:
+			self.backBut = self.ui.buttonBox.addButton("", QtGui.QDialogButtonBox.ActionRole)
+			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
+			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
+					self.on_backBut_clicked)
 		#hacer consultas para buscar huespedes y unidades libres para reserva?
 
 		self.ui.huespedView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
@@ -40,6 +42,8 @@ class ReservaDialog(QtGui.QDialog):
 		self.conn = conn
 		self.id = id
 		self.model = Reserva(self.conn)
+
+		self.modif = (id != -1)
 		self.setup()
 		
 		self.huesped = Huesped(self.conn)
@@ -50,8 +54,6 @@ class ReservaDialog(QtGui.QDialog):
 		self.unidad.loadAll()
 		self.ui.unidadCombo.setModel(self.unidad.model)
 		self.ui.unidadCombo.setModelColumn(1)
-	
-		self.modif = (id != -1)
 		
 		if not self.modif:				
 			self.clear()
