@@ -83,10 +83,13 @@ class UnidadDialog(QtGui.QDialog):
 					descripcion=self.ui.descripcionText.toPlainText(),
 					estado=estad)
 				QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+				return true
 			else:
 				QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una opción del campo Tipo!")
+				return Talse
 		else:
 			QtGui.QMessageBox.information(self, "Advertencia", "El campo Nombre no puede ser vacio!")
+			return False
 	
 	def clear(self):
 		self.ui.numeroLine.setText("")
@@ -96,11 +99,12 @@ class UnidadDialog(QtGui.QDialog):
 
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
-		self.save()
-		self.clear()
-
-		if self.modif:
-			self.close()
+		save = self.save()
+		if save == True:
+			self.clear()		
+			if self.modif:
+				self.close()
+						
 	
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
