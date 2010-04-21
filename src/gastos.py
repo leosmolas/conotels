@@ -20,9 +20,9 @@ class GastosDialog(QtGui.QDialog):
 		self.ui = Ui_GastosDialog()
 		self.ui.setupUi(self)
 
-		self.okBut= self.ui.buttonBox.addButton("Guardar", QtGui.QDialogButtonBox.ActionRole)		
-		self.modificarBut = self.ui.buttonBox.addButton("Modificar", QtGui.QDialogButtonBox.ActionRole)
-		self.okBut.setEnabled(False)
+		self.okBut        = self.ui.buttonBox.addButton("Guardar Nuevo", QtGui.QDialogButtonBox.ActionRole)		
+		self.modificarBut = self.ui.buttonBox.addButton("Guardar Modificación", QtGui.QDialogButtonBox.ActionRole)
+		self.okBut.setEnabled       (False)
 		self.modificarBut.setEnabled(False)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
@@ -31,15 +31,17 @@ class GastosDialog(QtGui.QDialog):
 				self.on_okModificar_clicked)
 		QtCore.QObject.connect(self.ui.buscarLineEdit, QtCore.SIGNAL("textChanged(QString)"),
 				self.buscarReserva)
-		QtCore.QObject.connect(self.ui.reservastableView, QtCore.SIGNAL("activated(QModelIndex)"),
+		QtCore.QObject.connect(self.ui.reservastableView, QtCore.SIGNAL("clicked(QModelIndex)"),
 				self.cargarGastos)
-		QtCore.QObject.connect(self.ui.gastosTableView, QtCore.SIGNAL("activated(QModelIndex)"),
+		QtCore.QObject.connect(self.ui.gastosTableView, QtCore.SIGNAL("clicked(QModelIndex)"),
 				self.activarModificar)
 
 		self.reservasView = ReservasView(self.conn)
 		self.reservasView.loadAll()
 		self.ui.reservastableView.setModel(self.reservasView.model)
 		self.ui.reservastableView.resizeColumnsToContents()
+		self.ui.reservastableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+		self.ui.gastosTableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
 
 
 	def save(self,id = -1):
@@ -79,14 +81,13 @@ class GastosDialog(QtGui.QDialog):
 
 	@QtCore.pyqtSlot()
 	def buscarReserva(self,s):
-		
 		filtro = re.escape(str(s.replace(' ', '% ')))
 		#print filtro	
 		self.reservasView.filterModel(filtro)
 		self.ui.reservastableView.setModel(self.reservasView.model)
 		self.ui.reservastableView.resizeColumnsToContents()
 		
-		
+	@QtCore.pyqtSlot()
 	def cargarGastos(self,modelIndex):
 		index = QtCore.QVariant.toInt(self.reservasView.model.getItem(modelIndex.row(),0))
 		self.reservaActual = index[0]
@@ -99,3 +100,5 @@ class GastosDialog(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def activarModificar(self,modelIndexList):
 		self.modificarBut.setEnabled(modelIndexList!=[])
+		self.ui.gastoSpin.setValue(self.model.model.getItem(2,self.ui.gastosTableView.selectedIndexes()[0].row()).toInt()[0])
+		self.ui.descripcionLine.setText(self.model.model.getItem(1,self.ui.gastosTableView.selectedIndexes()[0].row()).toString())
