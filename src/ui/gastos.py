@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Tue Apr 20 11:30:08 2010
-#      by: PyQt4 UI code generator 4.6.1
+# Created: Fri Apr 23 16:01:53 2010
+#      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -86,8 +86,8 @@ class Ui_GastosDialog(object):
         GastosDialog.setTabOrder(self.buscarLineEdit, self.reservastableView)
         GastosDialog.setTabOrder(self.reservastableView, self.gastosTableView)
         GastosDialog.setTabOrder(self.gastosTableView, self.descripcionLine)
-        GastosDialog.setTabOrder(self.descripcionLine, self.gastoSpin)
-        GastosDialog.setTabOrder(self.gastoSpin, self.buttonBox)
+        GastosDialog.setTabOrder(self.descripcionLine, self.buttonBox)
+        GastosDialog.setTabOrder(self.buttonBox, self.gastoSpin)
 
     def retranslateUi(self, GastosDialog):
         GastosDialog.setWindowTitle(QtGui.QApplication.translate("GastosDialog", "Gastos", None, QtGui.QApplication.UnicodeUTF8))

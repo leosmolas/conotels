@@ -172,8 +172,8 @@
   <tabstop>reservastableView</tabstop>
   <tabstop>gastosTableView</tabstop>
   <tabstop>descripcionLine</tabstop>
-  <tabstop>gastoSpin</tabstop>
   <tabstop>buttonBox</tabstop>
+  <tabstop>gastoSpin</tabstop>
  </tabstops>
  <resources/>
  <connections/>

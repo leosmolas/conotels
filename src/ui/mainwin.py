@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Tue Apr 20 00:59:47 2010
-#      by: PyQt4 UI code generator 4.6.1
+# Created: Fri Apr 23 16:02:13 2010
+#      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 583, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 583, 20))
         self.menubar.setObjectName("menubar")
         self.menuAdministracion = QtGui.QMenu(self.menubar)
         self.menuAdministracion.setObjectName("menuAdministracion")
@@ -84,7 +84,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Conotels 1.0 by ConoSoft SA", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         self.title.setTitle(QtGui.QApplication.translate("MainWindow", "GroupBox", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", " Bienvenido!", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAdministracion.setTitle(QtGui.QApplication.translate("MainWindow", "Administracion", None, QtGui.QApplication.UnicodeUTF8))

@@ -166,7 +166,16 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>unidadCombo</tabstop>
   <tabstop>huespedLine</tabstop>
+  <tabstop>huespedView</tabstop>
+  <tabstop>inicioPreDate</tabstop>
+  <tabstop>finPreDate</tabstop>
+  <tabstop>inicioDate</tabstop>
+  <tabstop>finDate</tabstop>
+  <tabstop>inTime</tabstop>
+  <tabstop>outTime</tabstop>
+  <tabstop>estadoCombo</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>

@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Tue Apr 20 00:56:45 2010
-#      by: PyQt4 UI code generator 4.6.1
+# Created: Fri Apr 23 16:02:23 2010
+#      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -94,7 +94,16 @@ class Ui_reservaDialog(object):
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), reservaDialog.accept)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), reservaDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(reservaDialog)
-        reservaDialog.setTabOrder(self.huespedLine, self.buttonBox)
+        reservaDialog.setTabOrder(self.unidadCombo, self.huespedLine)
+        reservaDialog.setTabOrder(self.huespedLine, self.huespedView)
+        reservaDialog.setTabOrder(self.huespedView, self.inicioPreDate)
+        reservaDialog.setTabOrder(self.inicioPreDate, self.finPreDate)
+        reservaDialog.setTabOrder(self.finPreDate, self.inicioDate)
+        reservaDialog.setTabOrder(self.inicioDate, self.finDate)
+        reservaDialog.setTabOrder(self.finDate, self.inTime)
+        reservaDialog.setTabOrder(self.inTime, self.outTime)
+        reservaDialog.setTabOrder(self.outTime, self.estadoCombo)
+        reservaDialog.setTabOrder(self.estadoCombo, self.buttonBox)
 
     def retranslateUi(self, reservaDialog):
         reservaDialog.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))

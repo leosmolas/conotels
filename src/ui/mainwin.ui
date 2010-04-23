@@ -81,7 +81,7 @@
      <x>0</x>
      <y>0</y>
      <width>583</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAdministracion">
@@ -130,6 +130,9 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>options</tabstop>
+ </tabstops>
  <resources>
   <include location="../icons.qrc"/>
  </resources>

@@ -74,6 +74,14 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>numeroLine</tabstop>
+  <tabstop>tipoCombo</tabstop>
+  <tabstop>capacidadSpin</tabstop>
+  <tabstop>noDisponibleCheck</tabstop>
+  <tabstop>descripcionText</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

@@ -79,6 +79,7 @@
   <tabstop>nombreLine</tabstop>
   <tabstop>costoTempBajaSpin</tabstop>
   <tabstop>costoTempAltaSpin</tabstop>
+  <tabstop>descEdit</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>

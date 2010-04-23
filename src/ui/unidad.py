@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Tue Apr 20 00:56:45 2010
-#      by: PyQt4 UI code generator 4.6.1
+# Created: Fri Apr 23 16:02:31 2010
+#      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -54,6 +54,11 @@ class Ui_unidadDialog(object):
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), unidadDialog.accept)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), unidadDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(unidadDialog)
+        unidadDialog.setTabOrder(self.numeroLine, self.tipoCombo)
+        unidadDialog.setTabOrder(self.tipoCombo, self.capacidadSpin)
+        unidadDialog.setTabOrder(self.capacidadSpin, self.noDisponibleCheck)
+        unidadDialog.setTabOrder(self.noDisponibleCheck, self.descripcionText)
+        unidadDialog.setTabOrder(self.descripcionText, self.buttonBox)
 
     def retranslateUi(self, unidadDialog):
         unidadDialog.setWindowTitle(QtGui.QApplication.translate("unidadDialog", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
