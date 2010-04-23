@@ -67,7 +67,7 @@ class MainWindow(QtGui.QMainWindow):
 	def __init__(self, parent = None):
 		super(MainWindow, self).__init__(parent)
 
-		self.conn = Connection("conotels", dbUser="root", dbPass="")
+		self.conn = Connection("conotels", dbUser="userHoteles", dbPass="userHoteles")
 		self.conn.open()
 
 		self.setup()
