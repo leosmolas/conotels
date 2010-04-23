@@ -59,6 +59,7 @@ class GastosDialog(QtGui.QDialog):
 		self.save()
 		self.clear()
 		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+		# print "self.ui.reservastableView.selectedIndexes()[0]" + str(self.ui.reservastableView.selectedIndexes()[0])
 		self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		
 	@QtCore.pyqtSlot()
@@ -89,7 +90,9 @@ class GastosDialog(QtGui.QDialog):
 		
 	@QtCore.pyqtSlot()
 	def cargarGastos(self,modelIndex):
-		index = QtCore.QVariant.toInt(self.reservasView.model.getItem(modelIndex.row(),0))
+		index = QtCore.QVariant.toInt(self.reservasView.model.getItem(0,modelIndex.row()))
+		# print "modelIndex.row() "
+		# print modelIndex.row()
 		self.reservaActual = index[0]
 		self.model.buscarPorReserva(self.reservaActual)
 		self.ui.gastosTableView.setModel(self.model.model)
