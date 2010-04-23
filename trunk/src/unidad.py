@@ -83,7 +83,7 @@ class UnidadDialog(QtGui.QDialog):
 					descripcion=self.ui.descripcionText.toPlainText(),
 					estado=estad)
 				QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
-				return true
+				return True
 			else:
 				QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una opción del campo Tipo!")
 				return Talse
