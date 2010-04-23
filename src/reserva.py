@@ -106,7 +106,7 @@ class ReservaDialog(QtGui.QDialog):
 		
 		self.huesped.filterModel(filtro)
 		self.ui.huespedView.setModel(self.huesped.model)
-		self.ui.reservastableView.resizeColumnsToContents()
+		self.ui.huespedView.resizeColumnsToContents()
 
 	def save(self):
 		if self.ui.unidadCombo.count() > 0:
