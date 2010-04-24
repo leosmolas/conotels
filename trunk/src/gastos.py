@@ -82,9 +82,9 @@ class GastosDialog(QtGui.QDialog):
 
 	@QtCore.pyqtSlot()
 	def buscarReserva(self,s):
-		filtro = re.escape(str(s.replace(' ', '% ')))
+		#filtro = re.escape(str(s.replace(' ', '% ')))
 		#print filtro	
-		self.reservasView.filterModel(filtro)
+		self.reservasView.filterModel(s)
 		self.ui.reservastableView.setModel(self.reservasView.model)
 		self.ui.reservastableView.resizeColumnsToContents()
 		

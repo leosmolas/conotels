@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from connection.model import Model
 from connection.error import Error
-
+from PyQt4 import QtCore,QtSql
+import re
 from connection.connection import Connection
 
 class AbstractModel(object):
@@ -37,12 +38,21 @@ class AbstractModel(object):
 	
 	##
 	#este es el metodo que resuelve la busqueda con likes. Solo esta usada en este momento por gastos.
+	#agregué un nuevo detalle para que haga una búsqueda más parecida a la fulltext search (para que el guru no refunfuñe)
 	def filterModel(self, filter):
+		list = filter.split(' ')
+		for i in range(len(list)):
+			list[i] = re.escape(str(list[i]))
+		print list
 		s = "select * from " + self.tableName + " where "
 		for i in range(len(self.campos)):
-			s += self.campos[i] + " like '%" + filter + "%' "
-			if (i<len(self.campos)-1):
-				s += "OR "
-		#print s
+			for j in range(len(list)):
+				#esta parte es media parchosa... el split me genera strings vacios, asi que con esto los ignoro
+				if  list[j]!='':
+					s += self.campos[i] + " like '%" + list[j] + "%' "
+					s += "OR "
+		#siempre pongo un 'or ' al final, asi que con lo sig lo saco
+		s = s[0:-3]
+		print "consulta: " + s
 		self.model = self.conn.query(s)
 
