@@ -114,7 +114,10 @@ class Admin(QtGui.QDialog):
 			apellido = row.field(2).value().toString()
 			nombre = row.field(3).value().toString()
 			tel = row.field(4).value().toString()
-			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel)
+			cel = row.field(5).value().toString()
+			direccion = row.field(6).value().toString()
+			localidad = row.field(7).value().toString()
+			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel,cel,direccion,localidad)
 		diag.exec_()
 		self.loadAll()
 	
