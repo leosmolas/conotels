@@ -13,7 +13,7 @@ create table tipo (
 	nombre varchar(45) not null,
 	costoTemporadaAlta int unsigned not null,
 	costoTemporadaBaja int unsigned not null,
-	descripcion varchar(45),
+	descripcion text,
 	
 	primary key (idTipo)
 
@@ -26,7 +26,7 @@ create table unidad (
 	nombre varchar(45) not null,
 	tipo int unsigned not null,
 	capacidad int unsigned not null,
-	descripcion varchar(45),
+	descripcion text,
 	estado enum('Libre', 'Ocupada','No Disponible') not null,
 	
 	primary key (idUnidad),
@@ -41,11 +41,13 @@ create table huesped (
 
 	idHuesped int unsigned not null auto_increment,
 	dni varchar(45) not null,
-	apellido varchar(45) not null,
-	nombre varchar(45) not null,
-	
-	telefono varchar(45) not null,
-	
+	apellido varchar(45),
+	nombre varchar(45),
+	telefonoFijo varchar(45),
+	telefonoCelular varchar(45),
+	direccion varchar(45),
+	Localidad varchar(45),
+		
 	primary key (idHuesped)
 
 ) ENGINE=innoDB;
@@ -79,9 +81,10 @@ create table reserva (
 create table gasto (
 
 	idGasto int unsigned not null auto_increment,
-	descripcion varchar(45) not null,
+	descripcion text not null,
 	costo int unsigned not null,
 	reserva int unsigned not null,
+	pendiente boolean,
 	
 	primary key (idGasto),
 	
@@ -110,18 +113,3 @@ CREATE VIEW reservasView AS
 	SELECT idReserva, apellido, dni, u.nombre, inicioPrereserva,finPrereserva, inicioReserva, finReserva, horaCheckIn, horaCheckOut, r.estado
 	FROM  reserva AS r, huesped AS h, unidad AS u
 	WHERE r.huesped = idHuesped AND idUnidad = unidad;
-
-INSERT INTO tipo ( nombre        , costoTemporadaAlta , costoTemporadaBaja , descripcion ) 
-VALUES 		 ("cabaña re top", 150		      , 100		   , "asd");
-
-INSERT INTO unidad ( nombre , tipo , capacidad , descripcion    , estado ) 
-VALUES 		   ("A"     , 1    , 3         , "linda cabaña" , "Libre");
-
-INSERT INTO huesped ( dni , apellido , nombre , telefono ) 
-VALUES 		    ( 1   , "Canepa" , "Toga" , 123123   );
-
-INSERT INTO reserva ( unidad , huesped , inicioPrereserva , finPrereserva , inicioReserva , finReserva  , horaCheckIn , horaCheckOut , estado ) 
-VALUES 		    ( 1      , 1       , '2010-01-01'     , null          , '2010-01-01'  , '2010-01-02', null        , null         , 'Reserva cancelada');
-
-INSERT INTO gasto ( descripcion             , costo , reserva ) 
-VALUES 		  ( "Servicio de habitación", 50    , 1       );
