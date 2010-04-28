@@ -20,20 +20,23 @@ class Huesped(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self,id=-1, dni="", nombre="", apellido="", telefono=""):
+	def save(self,id=-1, dni="", nombre="", apellido="", telefono="",celular="",direccion="",localidad=""):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set nombre='"+nombre+
 				"',apellido='"+apellido+
-				"',telefono='"+telefono+ 
+				"',telefonoFijo='"+telefono+ 
 				"',dni='"+dni+ 
+				"',telefonoCelular='"+celular+
+				"',direccion='"+direccion+
+				"',Localidad='"+localidad+
 				 "' where idHuesped="+str(id))
 		else:
-			print "insert into "+self.tableName+" (dni, nombre, apellido, telefono) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')"
+			print "insert into "+self.tableName+" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')"
 			
 			self.conn.update("insert into "+self.tableName+
-				" (dni, nombre, apellido, telefono) "+ 
-				"values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')")
+				" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ 
+				"values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"')")
 
 	def loadAll(self):
 		super(Huesped, self).loadAll()
@@ -45,6 +48,9 @@ class Huesped(AbstractModel):
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Apellido")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nombre")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Telefono")
+		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Celular")
+		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Direccion")
+		self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Localidad")
 
 	def filterModel(self,filtro):
 		super(Huesped,self).filterModel(filtro)

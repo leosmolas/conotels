@@ -27,7 +27,7 @@ class HuespedDialog(QtGui.QDialog):
 				self.on_backBut_clicked)
 
 		#dni, apellido, nombre, telefono
-	def __init__(self, conn, id = -1, dni = "", apellido = "", nombre = "", telefono = "", mainWin = None, parent = None):
+	def __init__(self, conn, id = -1, dni = "", apellido = "", nombre = "", telefono = "",celular="",direccion="",localidad="", mainWin = None, parent = None):
 		super(HuespedDialog, self).__init__(parent)
 		
 		self.conn = conn
@@ -47,6 +47,9 @@ class HuespedDialog(QtGui.QDialog):
 			self.ui.apellidoLine.setText(apellido)
 			self.ui.nombreLine.setText(nombre)
 			self.ui.telLine.setText(telefono)
+			self.ui.celLine.setText(celular)
+			self.ui.direccionLine.setText(direccion)
+			self.ui.localidadLine.setText(localidad)
 			
 		self.uiMain = mainWin #modif por Jona
 
@@ -55,7 +58,10 @@ class HuespedDialog(QtGui.QDialog):
 			self.model.save(id=self.id,dni=self.ui.dniLine.text(),
 				nombre=self.ui.nombreLine.text(),
 				apellido=self.ui.apellidoLine.text(),
-				telefono=self.ui.telLine.text())
+				telefono=self.ui.telLine.text(),
+				celular=self.ui.celLine.text(),
+				direccion=self.ui.direccionLine.text(),
+				localidad=self.ui.localidadLine.text())
 			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 			return True
 		else:
@@ -67,12 +73,15 @@ class HuespedDialog(QtGui.QDialog):
 		self.ui.apellidoLine.setText("")
 		self.ui.nombreLine.setText("")
 		self.ui.telLine.setText("")
+		self.ui.celLine.setText("")
+		self.ui.direccionLine.setText("")
+		self.ui.localidadLine.setText("")
 
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
 		save = self.save()
 		if save == True:
-			self.clear()		
+			self.clear()
 			if self.modif:
 				self.close()
 	

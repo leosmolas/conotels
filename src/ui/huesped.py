@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'huesped.ui'
 #
-# Created: Fri Apr 23 16:02:02 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Wed Apr 28 20:31:44 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,8 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_huespedDialog(object):
     def setupUi(self, huespedDialog):
         huespedDialog.setObjectName("huespedDialog")
-        huespedDialog.resize(400, 159)
-        huespedDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Spain))
+        huespedDialog.resize(400, 188)
         self.gridLayout = QtGui.QGridLayout(huespedDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtGui.QDialogButtonBox(huespedDialog)
@@ -26,6 +25,9 @@ class Ui_huespedDialog(object):
         self.label = QtGui.QLabel(huespedDialog)
         self.label.setObjectName("label")
         self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.label)
+        self.dniLine = QtGui.QLineEdit(huespedDialog)
+        self.dniLine.setObjectName("dniLine")
+        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.dniLine)
         self.label_2 = QtGui.QLabel(huespedDialog)
         self.label_2.setObjectName("label_2")
         self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_2)
@@ -44,9 +46,24 @@ class Ui_huespedDialog(object):
         self.telLine = QtGui.QLineEdit(huespedDialog)
         self.telLine.setObjectName("telLine")
         self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.telLine)
-        self.dniLine = QtGui.QLineEdit(huespedDialog)
-        self.dniLine.setObjectName("dniLine")
-        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.dniLine)
+        self.label_5 = QtGui.QLabel(huespedDialog)
+        self.label_5.setObjectName("label_5")
+        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_5)
+        self.celLine = QtGui.QLineEdit(huespedDialog)
+        self.celLine.setObjectName("celLine")
+        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.celLine)
+        self.label_6 = QtGui.QLabel(huespedDialog)
+        self.label_6.setObjectName("label_6")
+        self.formLayout.setWidget(5, QtGui.QFormLayout.LabelRole, self.label_6)
+        self.label_7 = QtGui.QLabel(huespedDialog)
+        self.label_7.setObjectName("label_7")
+        self.formLayout.setWidget(6, QtGui.QFormLayout.LabelRole, self.label_7)
+        self.direccionLine = QtGui.QLineEdit(huespedDialog)
+        self.direccionLine.setObjectName("direccionLine")
+        self.formLayout.setWidget(5, QtGui.QFormLayout.FieldRole, self.direccionLine)
+        self.localidadLine = QtGui.QLineEdit(huespedDialog)
+        self.localidadLine.setObjectName("localidadLine")
+        self.formLayout.setWidget(6, QtGui.QFormLayout.FieldRole, self.localidadLine)
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
 
         self.retranslateUi(huespedDialog)
@@ -63,5 +80,8 @@ class Ui_huespedDialog(object):
         self.label.setText(QtGui.QApplication.translate("huespedDialog", "DNI:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("huespedDialog", "Apellido:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("huespedDialog", "Nombre:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("huespedDialog", "Telefono:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("huespedDialog", "Telefono fijo:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("huespedDialog", "Celular:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("huespedDialog", "Direccion:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("huespedDialog", "Localidad:", None, QtGui.QApplication.UnicodeUTF8))
 
