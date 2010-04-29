@@ -89,7 +89,7 @@ class Admin(QtGui.QDialog):
 			alta = row.field(2).value().toInt()[0]
 			baja = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
-			diag = self.dialog(self.conn, id,nombre,alta,baja,desc)
+			diag = self.dialog(self.conn, id,nombre,alta,baja,desc,mainWin=self.uiMain)
 		elif self.nombre == "Unidad":
 			id = row.field(0).value().toInt()[0]
 			numero = row.field(1).value().toString()
@@ -97,7 +97,7 @@ class Admin(QtGui.QDialog):
 			capacidad = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
 			# ESTADOOOO
-			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc)
+			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc,mainWin=self.uiMain)
 		elif self.nombre == "Reserva":
 			id = row.field(0).value().toInt()[0]
 			unidad = row.field(10).value().toInt()[0]
@@ -109,7 +109,7 @@ class Admin(QtGui.QDialog):
 			horaCheckIn = row.field(7).value().toString()
 			horaCheckOut = row.field(8).value().toString()
 			estado = row.field(9).value().toString()			
-			diag = self.dialog(self.conn, id, unidad, huesped, inicioPreres, finPreres, inicioRes, finRes, horaCheckIn, horaCheckOut, estado)
+			diag = self.dialog(self.conn, id, unidad, huesped, inicioPreres, finPreres, inicioRes, finRes, horaCheckIn, horaCheckOut, estado,mainWin=self.uiMain)
 			
 		elif self.nombre == "Huesped":
 			id = row.field(0).value().toInt()[0]
@@ -120,7 +120,7 @@ class Admin(QtGui.QDialog):
 			cel = row.field(5).value().toString()
 			direccion = row.field(6).value().toString()
 			localidad = row.field(7).value().toString()
-			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel,cel,direccion,localidad)
+			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel,cel,direccion,localidad,mainWin=self.uiMain)
 		diag.exec_()
 		self.loadAll()
 	
