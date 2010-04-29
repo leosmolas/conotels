@@ -22,8 +22,8 @@ class Reserva(AbstractModel):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set unidad="+str(unidad)+
-				",huesped='"+str(huesped)+
-				"',inicioPrereserva='"+inicioPrereserva+
+				",huesped="+str(huesped)+
+				",inicioPrereserva='"+inicioPrereserva+
 				"',finPrereserva='"+finPrereserva+
 				"',inicioReserva='"+inicioReserva+
 				"',finReserva='"+finReserva+
