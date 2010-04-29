@@ -62,8 +62,6 @@ class GrillaDialog(QtGui.QDialog):
 		self.model.loadMesAnio(mes,anio)
 		q = self.model.model
 
-		print q.rowCount()
-
 		date = QtCore.QDate(self.ui.anioSpin.value(),self.ui.mesCombo.currentIndex()+1,1)
 
 		# Armamos las columnas segun los dias del mes seleccionado
@@ -93,13 +91,17 @@ class GrillaDialog(QtGui.QDialog):
 			initDay = 1
 			endDay = days
 
-			est = str(q.getItem("estado").toString())
+			est = str(q.getItem("estado",i).toString())
+			print est
 
 			if est == "Reservado":
+				print "la reserva "+str(res)+" tiene estado 1"
 				estado = 1
 			elif est == "Reserva en curso":
+				print "la reserva "+str(res)+" tiene estado 3"
 				estado = 3
 			elif est == "Pre Reservado":
+				print "la reserva "+str(res)+" tiene estado 2"
 				estado = 2
 
 			if initDate.month() == endDate.month():
