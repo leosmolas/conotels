@@ -75,7 +75,7 @@ class GrillaDialog(QtGui.QDialog):
 		self.ui.tableWidget.setColumnCount(days)
 		self.ui.tableWidget.resizeColumnsToContents()
 
-		for i in range(0, q.rowCount()):
+		for i in range(0, self.cantUnidades):
 			for j in range(0, days):
 				self.ui.tableWidget.setItem(i, j, TableItem())
 
@@ -127,7 +127,7 @@ class GrillaDialog(QtGui.QDialog):
 			today = QtCore.QDate.fromString(str(self.ui.anioSpin.value())+"-"+str(self.ui.mesCombo.currentIndex()+1)+"-"+str(column+1),"yyyy-MM-dd").toString("yyyy-MM-dd")
 #            print today
 #            print str(self.ui.anioSpin.value())+"-"+str(self.ui.mesCombo.currentIndex()+1)+"-"+str(column)+1
-			diag = ReservaDialog(self.conn, inicioPrereserva=today)
+			diag = ReservaDialog(self.conn, inicioReserva=today)
 		else:
 			resMod = Reserva(self.conn)
 			resMod.load(res)
