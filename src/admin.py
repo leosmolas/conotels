@@ -128,8 +128,9 @@ class Admin(QtGui.QDialog):
 	def on_elimBut_clicked(self):
 		print "elim"
 		if self.ui.tableView.currentIndex().row() == -1:
-			QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de eliminar",
-			QtGui.QMessageBox.Ok)
+			#QtGui.QMessageBox.information(self, "Error", "Debe seleccionar una fila antes de eliminar",
+			#QtGui.QMessageBox.Ok)
+			self.uiMain.statusBar.showMessage("Debe seleccionar una fila antes de eliminar",3000)
 			return
 		ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea eliminar?",
 			QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)

@@ -58,7 +58,7 @@ class GastosDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+		self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 		# print "self.ui.reservastableView.selectedIndexes()[0]" + str(self.ui.reservastableView.selectedIndexes()[0])
 		self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		
@@ -77,7 +77,7 @@ class GastosDialog(QtGui.QDialog):
 			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 			self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		else:
-			QtGui.QMessageBox.warning(self, "Cuidado!", "No ha seleccionado ningun gasto para modificar.")
+			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para modificar.",3000)
 		
 
 	@QtCore.pyqtSlot()

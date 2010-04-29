@@ -62,10 +62,12 @@ class HuespedDialog(QtGui.QDialog):
 				celular=self.ui.celLine.text(),
 				direccion=self.ui.direccionLine.text(),
 				localidad=self.ui.localidadLine.text())
-			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+			#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+			self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 			return True
 		else:
-			QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
+			#QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
+			self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
 			return False
 		
 	def clear(self):
