@@ -18,7 +18,7 @@ class Tipo(AbstractModel):
 
 	def save(self, id=-1, nombre="", costoTemporadaAlta=0, costoTemporadaBaja=0, descripcion=""):
 		if id != -1:
-			print "update"
+			print "update "+self.tableName+" set nombre='"+nombre+"', "+"costoTemporadaAlta="+str(costoTemporadaAlta)+", "+	"costoTemporadaBaja="+str(costoTemporadaBaja)+", "+	"descripcion='"+descripcion+"' "+				" where idTipo="+str(id)
 			self.conn.update("update "+self.tableName+
 				" set nombre='"+nombre+"', "+
 					"costoTemporadaAlta="+str(costoTemporadaAlta)+", "+
@@ -34,6 +34,6 @@ class Tipo(AbstractModel):
 		super(Tipo, self).loadAll()
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Nombre")
-		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Costo en Temporada Baja")
-		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Costo en Temporada Alta")
+		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Costo en Temporada Alta")
+		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Costo en Temporada Baja")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Descripcion")
