@@ -69,6 +69,9 @@ class Admin(QtGui.QDialog):
 		self.ui.tableView.setModel(self.type.model)
 		if self.nombre == "Unidad":
 			self.ui.tableView.setColumnHidden(6,True) #Oculto el id del Tipo de la tabla Unidad
+		elif self.nombre == "Reserva":
+			self.ui.tableView.setColumnHidden(10,True)
+			self.ui.tableView.setColumnHidden(11,True)
 		self.ui.tableView.resizeColumnsToContents()
 
 	@QtCore.pyqtSlot()
@@ -97,8 +100,8 @@ class Admin(QtGui.QDialog):
 			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc)
 		elif self.nombre == "Reserva":
 			id = row.field(0).value().toInt()[0]
-			unidad = row.field(1).value().toInt()[0]
-			huesped = row.field(2).value().toInt()[0]
+			unidad = row.field(10).value().toInt()[0]
+			huesped = row.field(11).value().toInt()[0]
 			inicioPreres = row.field(3).value().toString()
 			finPreres = row.field(4).value().toString()
 			inicioRes = row.field(5).value().toString()
