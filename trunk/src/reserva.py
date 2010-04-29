@@ -83,12 +83,20 @@ class ReservaDialog(QtGui.QDialog):
 			self.ui.huespedView.selectRow(i)			
 			
 			self.ui.huespedLine.setText("")
-			self.ui.inicioPreDate.setDate(QtCore.QDate(inicioPrereserva.left(4).toInt()[0], inicioPrereserva.mid(5,2).toInt()[0], inicioPrereserva.right(2).toInt()[0]))
-			self.ui.finPreDate.setDate(QtCore.QDate(finPrereserva.left(4).toInt()[0], finPrereserva.mid(5,2).toInt()[0], finPrereserva.right(2).toInt()[0]))
-			self.ui.inicioDate.setDate(QtCore.QDate(inicioReserva.left(4).toInt()[0], inicioReserva.mid(5,2).toInt()[0], inicioReserva.right(2).toInt()[0]))
-			self.ui.finDate.setDate(QtCore.QDate(finReserva.left(4).toInt()[0], finReserva.mid(5,2).toInt()[0], finReserva.right(2).toInt()[0]))
-			self.ui.inTime.setTime(QtCore.QTime(horaCheckIn.left(2).toInt()[0], horaCheckIn.mid(3,2).toInt()[0], horaCheckIn.right(2).toInt()[0]))
-			self.ui.outTime.setTime(QtCore.QTime(horaCheckOut.left(2).toInt()[0], horaCheckOut.mid(3,2).toInt()[0], horaCheckOut.right(2).toInt()[0]))
+
+#            self.ui.inicioPreDate.setDate(QtCore.QDate(inicioPrereserva.left(4).toInt()[0], inicioPrereserva.mid(5,2).toInt()[0], inicioPrereserva.right(2).toInt()[0]))
+#            self.ui.finPreDate.setDate(QtCore.QDate(finPrereserva.left(4).toInt()[0], finPrereserva.mid(5,2).toInt()[0], finPrereserva.right(2).toInt()[0]))
+#            self.ui.inicioDate.setDate(QtCore.QDate(inicioReserva.left(4).toInt()[0], inicioReserva.mid(5,2).toInt()[0], inicioReserva.right(2).toInt()[0]))
+#            self.ui.finDate.setDate(QtCore.QDate(finReserva.left(4).toInt()[0], finReserva.mid(5,2).toInt()[0], finReserva.right(2).toInt()[0]))
+#            self.ui.inTime.setTime(QtCore.QTime(horaCheckIn.left(2).toInt()[0], horaCheckIn.mid(3,2).toInt()[0], horaCheckIn.right(2).toInt()[0]))
+#            self.ui.outTime.setTime(QtCore.QTime(horaCheckOut.left(2).toInt()[0], horaCheckOut.mid(3,2).toInt()[0], horaCheckOut.right(2).toInt()[0]))
+
+			self.ui.inicioPreDate.setDate(QtCore.QDate.fromString(inicioPrereserva, "yyyy-MM-dd"))
+			self.ui.finPreDate.setDate(QtCore.QDate.fromString(finPrereserva, "yyyy-MM-dd"))
+			self.ui.inicioDate.setDate(QtCore.QDate.fromString(inicioReserva, "yyyy-MM-dd"))
+			self.ui.finDate.setDate(QtCore.QDate.fromString(finReserva, "yyyy-MM-dd"))
+			self.ui.inTime.setTime(QtCore.QTime.fromString(horaCheckIn, "hh:mm:ss"))
+			self.ui.outTime.setTime(QtCore.QTime.fromString(horaCheckOut, "hh:mm:ss"))
 			
 			estadoComboModel = self.ui.estadoCombo.model()
 			found = False
