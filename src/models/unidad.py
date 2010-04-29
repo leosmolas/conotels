@@ -39,3 +39,7 @@ class Unidad(AbstractModel):
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Capacidad")
 		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Estado")
 		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "unidad.Tipo") #no visible en el QtTableWidget
+
+	def count(self):
+		self.loadAll()
+		return self.model.rowCount()

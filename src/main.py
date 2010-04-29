@@ -9,6 +9,7 @@ from reserva import ReservaDialog
 from huesped import HuespedDialog
 from gastos import GastosDialog
 from admin import Admin
+from grilla import GrillaDialog
 
 from connection.connection import Connection
 
@@ -61,13 +62,19 @@ class MainWindow(QtGui.QMainWindow):
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
+		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
+		self.addNewTypeBut.setText("Grilla")
+		self.addNewTypeBut.setIcon(QtGui.QIcon(":/purse.png"))
+		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
+		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+
 		QtCore.QObject.connect(self.ui.menuAdministracion, QtCore.SIGNAL("triggered(QAction *)"),
 				self.changeToAction)
 
 	def __init__(self, parent = None):
 		super(MainWindow, self).__init__(parent)
 
-		self.conn = Connection("conotels", dbUser="userHoteles", dbPass="userHoteles")
+		self.conn = Connection(dbName="conotels", dbUser="root", dbPass="")
 		self.conn.open()
 
 		self.setup()
@@ -111,6 +118,9 @@ class MainWindow(QtGui.QMainWindow):
 		elif selected == 4:
 			self.ui.title.setTitle("Gastos")
 			self.ui.widgets.insertWidget(1, GastosDialog(self.conn))
+		elif selected == 5:
+			self.ui.title.setTitle("Grilla")
+			self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
 		self.ui.widgets.setCurrentIndex(1)
 
 import sys
