@@ -32,7 +32,7 @@ class Huesped(AbstractModel):
 				"',Localidad='"+localidad+
 				 "' where idHuesped="+str(id))
 		else:
-			print "insert into "+self.tableName+" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"')"
+			#print "insert into "+self.tableName+" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"')"
 			
 			self.conn.update("insert into "+self.tableName+
 				" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ 
