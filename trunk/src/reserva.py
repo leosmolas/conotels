@@ -129,6 +129,7 @@ class ReservaDialog(QtGui.QDialog):
 				
 				#save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
 				
+#                    estado=self.ui.estadoCombo.model().data(self.ui.estadoCombo.model().index(self.ui.estadoCombo.currentIndex(),0)).toString()
 				self.model.save(id=self.id, 
 					unidad=self.ui.unidadCombo.model().data(self.ui.unidadCombo.model().index(self.ui.unidadCombo.currentIndex(),0)).toInt()[0],
 					huesped=self.huesped.model.record(self.ui.huespedView.currentIndex().row()).value(0).toInt()[0],
@@ -138,7 +139,7 @@ class ReservaDialog(QtGui.QDialog):
 					finReserva=self.ui.finDate.date().toString("yyyy-MM-dd"),
 					horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
 					horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
-					estado=self.ui.estadoCombo.model().data(self.ui.estadoCombo.model().index(self.ui.estadoCombo.currentIndex(),0)).toString()
+					estado=self.ui.estadoCombo.currentText()
 				)
 				QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 				return True
