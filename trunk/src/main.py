@@ -20,6 +20,11 @@ class MainWindow(QtGui.QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		
+		self.statusBar = QtGui.QStatusBar(self)
+		self.setStatusBar(self.statusBar)
+		#self.statusBar.showMessage("prueba",3000)
+		self.ui.statusBar = self.statusBar;
+		
 		self.addNewUnitBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewUnitBut.setText("Administrar unidades")
 		self.addNewUnitBut.setIcon(QtGui.QIcon(":/property.png"))

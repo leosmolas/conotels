@@ -82,13 +82,15 @@ class UnidadDialog(QtGui.QDialog):
 					capacidad=self.ui.capacidadSpin.value(),
 					descripcion=self.ui.descripcionText.toPlainText(),
 					estado=estad)
-				QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+				#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 				return True
 			else:
-				QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una opción del campo Tipo!")
+				#QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una opción del campo Tipo!")
+				self.uiMain.statusBar.showMessage("Debe seleccionar una opción del campo Tipo!",3000)
 				return Talse
 		else:
-			QtGui.QMessageBox.information(self, "Advertencia", "El campo Nombre no puede ser vacio!")
+			self.uiMain.statusBar.showMessage("El campo Nombre no puede ser vacio!",3000)
 			return False
 	
 	def clear(self):

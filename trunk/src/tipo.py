@@ -63,10 +63,10 @@ class TipoDialog(QtGui.QDialog):
 				costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
 				costoTemporadaBaja=self.ui.costoTempBajaSpin.value(),
 				descripcion=self.ui.descEdit.toPlainText())
-			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+			self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 			return True
 		else:
-			QtGui.QMessageBox.information(self, "Advertencia", "El campo Nombre no puede ser vacio!")
+			self.uiMain.statusBar.showMessage("El campo Nombre no puede ser vacio!",3000)
 			return False
 	
 	@QtCore.pyqtSlot()

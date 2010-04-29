@@ -141,13 +141,13 @@ class ReservaDialog(QtGui.QDialog):
 					horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
 					estado=self.ui.estadoCombo.currentText()
 				)
-				QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 				return True
 			else:
-				QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar un Huesped para realizar la reserva!")
+				self.uiMain.statusBar.showMessage( "Debe seleccionar un Huesped para realizar la reserva!",3000)
 				return False
 		else:
-			QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una Unidad para realizar la reserva!")
+			self.uiMain.statusBar.showMessage("Debe seleccionar una Unidad para realizar la reserva!",3000)
 			return False
 		
 	def clear(self):
