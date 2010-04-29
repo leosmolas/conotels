@@ -36,7 +36,7 @@ class ReservaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.ui.huespedLine, QtCore.SIGNAL("textChanged(const QString &)"),
 			self.update)
 		
-	def __init__(self, conn, id = -1, unidad = 0, huesped = "", inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, mainWin = None, parent = None):
+	def __init__(self, conn, id = -1, unidad = 0, huesped = 0, inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, mainWin = None, parent = None):
 		super(ReservaDialog, self).__init__(parent)
 
 		self.conn = conn
@@ -107,6 +107,16 @@ class ReservaDialog(QtGui.QDialog):
 				else:
 					i+=1
 			self.ui.estadoCombo.setCurrentIndex(i)			
+			self.ui.huespedView.resizeColumnsToContents()
+
+		if not self.modif and self.uiMain == None:
+			# Si se hace una reserva a traves de la grilla, se ponen datos mas puntuales
+			today = QtCore.QDate.currentDate()
+			inicio = QtCore.QDate.fromString(inicioReserva, "yyyy-MM-dd")
+			self.ui.inicioPreDate.setDate(today)
+			self.ui.finPreDate.setDate(today.addDays(7))
+			self.ui.inicioDate.setDate(inicio)
+			self.ui.finDate.setDate(inicio.addDays(7))
 	
 	def update(self, s):
 		self.huesped.filterModel(s)
@@ -155,13 +165,13 @@ class ReservaDialog(QtGui.QDialog):
 		save = self.save()
 		if save == True:
 			self.clear()		
-			if self.modif:
+			if self.uiMain == None:
 				self.close()
 				
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
 		self.clear()
-		if self.modif:
+		if self.uiMain == None:
 			self.close()
 
 	@QtCore.pyqtSlot()
