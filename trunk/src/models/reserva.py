@@ -34,7 +34,7 @@ class Reserva(AbstractModel):
 		else:
 			self.conn.update("insert into "+self.tableName+
 			"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado)"+
-			" values ("+str(unidad)+",'"+str(huesped)+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
+			" values ("+str(unidad)+","+str(huesped)+",'"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
 
 	def loadAll(self):
 		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut,reserva.estado,unidad.idUnidad,huesped.idHuesped from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
