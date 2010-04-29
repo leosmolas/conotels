@@ -16,7 +16,7 @@ class AbstractModel(object):
 		self.campos = []
 	
 	def load(self, id):
-		self.model = self.conn.query("select * from "+self.tableName+" where id="+str(id))
+		self.model = self.conn.query("select * from "+self.tableName+" where "+self.id+"="+str(id))
 	
 	def loadAll(self):
 		self.model = self.conn.query("select * from "+self.tableName)

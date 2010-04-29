@@ -37,7 +37,7 @@ class Reserva(AbstractModel):
 			" values ("+str(unidad)+",'"+str(huesped)+"','"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
 
 	def loadAll(self):
-		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
+		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut,reserva.estado,unidad.idUnidad,huesped.idHuesped from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Huesped")
@@ -48,6 +48,7 @@ class Reserva(AbstractModel):
 		self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Hora de checkIn")
 		self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Hora de checkOut")
 		self.model.setHeaderData(9, QtCore.Qt.Horizontal, "Estado")
+		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "idUnidad")
 
 	def loadMesAnio(self, mes = 1, anio = 2000):
 		self.model = self.conn.query("select * from reserva where (month(inicioPrereserva)=%(mes)d or month(finPrereserva)=%(mes)d or month(inicioReserva)=%(mes)d or month(finReserva)=%(mes)d) and (year(inicioReserva)=%(anio)d or year(finReserva)=%(anio)d or year(inicioPrereserva)=%(anio)d or year(finPrereserva)=%(anio)d) and estado!=\"Reserva cancelada\"" % {'mes': mes, 'anio': anio});

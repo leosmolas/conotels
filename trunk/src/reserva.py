@@ -24,7 +24,7 @@ class ReservaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
 
-		if not self.modif:
+		if self.uiMain != None:
 			self.backBut = self.ui.buttonBox.addButton("&Volver", QtGui.QDialogButtonBox.ActionRole)
 			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
@@ -43,6 +43,8 @@ class ReservaDialog(QtGui.QDialog):
 		self.id = id
 		self.model = Reserva(self.conn)
 
+		self.uiMain = mainWin #modif por Jona
+
 		self.modif = (id != -1)
 		self.setup()
 		
@@ -57,7 +59,6 @@ class ReservaDialog(QtGui.QDialog):
 		
 		if not self.modif:				
 			self.clear()
-		
 		else:			
 			unidadComboModel = self.ui.unidadCombo.model()			
 			found = False
@@ -98,8 +99,6 @@ class ReservaDialog(QtGui.QDialog):
 				else:
 					i+=1
 			self.ui.estadoCombo.setCurrentIndex(i)			
-
-		self.uiMain = mainWin #modif por Jona
 	
 	def update(self, s):
 		self.huesped.filterModel(s)
