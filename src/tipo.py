@@ -66,7 +66,8 @@ class TipoDialog(QtGui.QDialog):
 			self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 			return True
 		else:
-			self.uiMain.statusBar.showMessage("El campo Nombre no puede ser vacio!",3000)
+			#self.uiMain.statusBar.showMessage("El campo Nombre no puede ser vacio!",3000)
+			QtGui.QMessageBox.information(self, "Advertencia","El campo Nombre no puede ser vacio!")
 			return False
 	
 	@QtCore.pyqtSlot()

@@ -66,8 +66,8 @@ class HuespedDialog(QtGui.QDialog):
 			self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 			return True
 		else:
-			#QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
-			self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
+			QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
+			#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
 			return False
 		
 	def clear(self):

@@ -144,10 +144,12 @@ class ReservaDialog(QtGui.QDialog):
 				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 				return True
 			else:
-				self.uiMain.statusBar.showMessage( "Debe seleccionar un Huesped para realizar la reserva!",3000)
+				#self.uiMain.statusBar.showMessage("Debe seleccionar un Huesped para realizar la reserva!",3000)
+				QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar un Huesped para realizar la reserva!")
 				return False
 		else:
-			self.uiMain.statusBar.showMessage("Debe seleccionar una Unidad para realizar la reserva!",3000)
+			#self.uiMain.statusBar.showMessage("Debe seleccionar una Unidad para realizar la reserva!",3000)
+			QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar una Unidad para realizar la reserva!")
 			return False
 		
 	def clear(self):
