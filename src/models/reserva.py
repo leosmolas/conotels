@@ -19,6 +19,7 @@ class Reserva(AbstractModel):
 #    def delete(self, id)
 
 	def save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
+		
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set unidad="+str(unidad)+
