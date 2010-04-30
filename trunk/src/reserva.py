@@ -127,22 +127,33 @@ class ReservaDialog(QtGui.QDialog):
 		if self.ui.unidadCombo.count() > 0:
 			if self.ui.huespedView.currentIndex().row() != -1:
 				
-				#save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
+				# comienza la tira de insoportables controles anti-petes
+				
+				if self.ui.inicioPreDate.date().toString("yyyy-MM-dd") <= self.ui.finPreDate.date().toString("yyyy-MM-dd"):
+					if self.ui.finPreDate.date().toString("yyyy-MM-dd") <= self.ui.inicioDate.date().toString("yyyy-MM-dd"):
+						if self.ui.inicioDate.date().toString("yyyy-MM-dd") <= self.ui.finDate.date().toString("yyyy-MM-dd"):
+						#save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
 				
 #                    estado=self.ui.estadoCombo.model().data(self.ui.estadoCombo.model().index(self.ui.estadoCombo.currentIndex(),0)).toString()
-				self.model.save(id=self.id, 
-					unidad=self.ui.unidadCombo.model().data(self.ui.unidadCombo.model().index(self.ui.unidadCombo.currentIndex(),0)).toInt()[0],
-					huesped=self.huesped.model.record(self.ui.huespedView.currentIndex().row()).value(0).toInt()[0],
-					inicioPrereserva=self.ui.inicioPreDate.date().toString("yyyy-MM-dd"),
-					finPrereserva=self.ui.finPreDate.date().toString("yyyy-MM-dd"),
-					inicioReserva=self.ui.inicioDate.date().toString("yyyy-MM-dd"), 
-					finReserva=self.ui.finDate.date().toString("yyyy-MM-dd"),
-					horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
-					horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
-					estado=self.ui.estadoCombo.currentText()
-				)
-				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
-				return True
+							self.model.save(id=self.id, 
+								unidad=self.ui.unidadCombo.model().data(self.ui.unidadCombo.model().index(self.ui.unidadCombo.currentIndex(),0)).toInt()[0],
+								huesped=self.huesped.model.record(self.ui.huespedView.currentIndex().row()).value(0).toInt()[0],
+								inicioPrereserva=self.ui.inicioPreDate.date().toString("yyyy-MM-dd"),
+								finPrereserva=self.ui.finPreDate.date().toString("yyyy-MM-dd"),
+								inicioReserva=self.ui.inicioDate.date().toString("yyyy-MM-dd"), 
+								finReserva=self.ui.finDate.date().toString("yyyy-MM-dd"),
+								horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
+								horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
+								estado=self.ui.estadoCombo.currentText()
+							)
+							self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+							return True
+						else:
+							QtGui.QMessageBox.information(self, "Advertencia", "La fecha de inicio de reserva debe ser anterior a la de fin!")
+					else:
+						QtGui.QMessageBox.information(self, "Advertencia", "La fecha de fin de prereserva debe ser anterior a la de inicio de reserva!")
+				else:
+					QtGui.QMessageBox.information(self, "Advertencia", "La fecha de comienzo de prereserva debe ser anterior a la de fin!")
 			else:
 				#self.uiMain.statusBar.showMessage("Debe seleccionar un Huesped para realizar la reserva!",3000)
 				QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar un Huesped para realizar la reserva!")
