@@ -132,7 +132,7 @@ import sys
 
 app = QtGui.QApplication(sys.argv)
 #app.setStyle(QtGui.QWindowsVistaStyle())
-app.setStyle("windowsvista")
+#app.setStyle("windowsvista")
 main = MainWindow()
 main.show()
 sys.exit(app.exec_())

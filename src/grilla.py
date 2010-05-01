@@ -51,7 +51,35 @@ class GrillaDialog(QtGui.QDialog):
 				self.update)
 		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL("cellDoubleClicked(int,int)"),
 				self.doubleClicked)
+		
+		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL('customContextMenuRequested(const QPoint&)'), 
+			self.on_context_menu)
+
+		self.ui.tableWidget.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+
+        # Popup Menu
+		self.popMenu = QtGui.QMenu(self)
+		self.popMenu.addAction("Crear/Editar", self.edit)
+		self.popMenu.addSeparator()
+		self.popMenu.addAction("Eliminar", self.delete)
 	
+	@QtCore.pyqtSlot()
+	def edit(self):
+		print "edit"
+		print self.currentItem
+		self.doubleClicked(self.currentItem.row(), self.currentItem.column())
+
+	@QtCore.pyqtSlot()
+	def delete(self):
+		print "del"
+		print self.currentItem
+
+	@QtCore.pyqtSlot()
+	def on_context_menu(self, p):
+		print "context"
+		self.currentItem = self.ui.tableWidget.itemAt(p)
+		self.popMenu.exec_(self.ui.tableWidget.mapToGlobal(p))
+
 	@QtCore.pyqtSlot()
 	def update(self, index):
 		print "updating"
