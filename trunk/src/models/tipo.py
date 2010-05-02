@@ -37,3 +37,9 @@ class Tipo(AbstractModel):
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Costo en Temporada Alta")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Costo en Temporada Baja")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Descripcion")
+		
+	def checkname(self, nombre=""):
+		#print "select * from tipo where nombre = '" + nombre + "'"
+		self.model = self.conn.query("select * from tipo where nombre = '" + nombre + "'")
+		return self.model.rowCount()
+		
