@@ -39,9 +39,9 @@ class TipoDialog(QtGui.QDialog):
 
 		self.setup()
 
-#        self.nombre = nombre
-#        self.costoTempAlta = costoTempAlta
-#        self.costoTempBaja = costoTempBaja
+		#        self.nombre = nombre
+		#        self.costoTempAlta = costoTempAlta
+		#        self.costoTempBaja = costoTempBaja
 		
 		if self.modif:
 			self.ui.nombreLine.setText(nombre)
@@ -59,12 +59,16 @@ class TipoDialog(QtGui.QDialog):
 
 	def save(self):
 		if self.ui.nombreLine.text() != "":
-			self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
-				costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
-				costoTemporadaBaja=self.ui.costoTempBajaSpin.value(),
-				descripcion=self.ui.descEdit.toPlainText())
-			self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
-			return True
+			if self.model.checkname(nombre = self.ui.nombreLine.text()) == 0:
+				self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
+					costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
+					costoTemporadaBaja=self.ui.costoTempBajaSpin.value(),
+					descripcion=self.ui.descEdit.toPlainText())
+				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+				return True
+			else:
+				QtGui.QMessageBox.information(self, "Advertencia","El nombre ya existe!")
+				return False
 		else:
 			#self.uiMain.statusBar.showMessage("El campo Nombre no puede ser vacio!",3000)
 			QtGui.QMessageBox.information(self, "Advertencia","El campo Nombre no puede ser vacio!")

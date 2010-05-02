@@ -43,3 +43,7 @@ class Unidad(AbstractModel):
 	def count(self):
 		self.loadAll()
 		return self.model.rowCount()
+		
+	def checkname(self, nombre=""):
+		self.model = self.conn.query("select * from unidad where nombre = '" + nombre + "'")
+		return self.model.rowCount()

@@ -74,20 +74,24 @@ class UnidadDialog(QtGui.QDialog):
 	def save(self):
 		if self.ui.numeroLine.text() != "":
 			if self.ui.tipoCombo.count() > 0:
-				comboModel = self.ui.tipoCombo.model()
-				estad = "Libre"
-				if self.ui.noDisponibleCheck.checkState() == QtCore.Qt.Checked:
-					estad = "No Disponible"
-				self.model.save(id=self.id,nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
-					capacidad=self.ui.capacidadSpin.value(),
-					descripcion=self.ui.descripcionText.toPlainText(),
-					estado=estad)
-				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
-				return True
+				if self.model.checkname(nombre = self.ui.numeroLine.text()) == 0:
+					comboModel = self.ui.tipoCombo.model()
+					estad = "Libre"
+					if self.ui.noDisponibleCheck.checkState() == QtCore.Qt.Checked:
+						estad = "No Disponible"
+					self.model.save(id=self.id,nombre=self.ui.numeroLine.text(),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
+						capacidad=self.ui.capacidadSpin.value(),
+						descripcion=self.ui.descripcionText.toPlainText(),
+						estado=estad)
+					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+					return True
+				else:
+					QtGui.QMessageBox.information(self, "Advertencia","El numero de la Unidad ya existe!")
+					return False
 			else:
 				#self.uiMain.statusBar.showMessage("Debe seleccionar una opción del campo Tipo!",3000)
 				QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar una opción del campo Tipo!")
-				return Talse
+				return False
 		else:
 			QtGui.QMessageBox.information(self, "Advertencia","El campo Nombre no puede ser vacio!")
 			return False
