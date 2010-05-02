@@ -101,9 +101,8 @@ class HuespedDialog(QtGui.QDialog):
 		self.uiMain.widgets.widget(1).loadAll()
 
 	@QtCore.pyqtSlot()
-	def eventFilter(self, object, event):
-		if(event.type()==QtCore.QEvent.KeyPress):
-			keyEvent = QtGui.QKeyEvent(event)
-			if (keyEvent.key() == QtCore.Qt.Key_Return):
-				keyEvent = QtGui.QKeyEvent(QtCore.QEvent.KeyPress,QtCore.Qt.Key_Tab,QtCore.Qt.NoModifier)
-		return False	
+	def keyPressEvent(self, event):
+		keyEvent = QtGui.QKeyEvent(event)
+		if(event.type()==QtCore.QEvent.KeyPress) and (keyEvent.key() == QtCore.Qt.Key_Return):
+			self.focusNextChild()
+		return super(HuespedDialog, self).keyPressEvent(keyEvent)
