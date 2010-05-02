@@ -20,7 +20,18 @@ class Reserva(AbstractModel):
 
 	def save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
 		
+		self.q = "select idreserva from reserva where (((inicioReserva >= '"+inicioReserva+"') and (inicioReserva <= '"+finReserva+"')) or ((finReserva >= '"+inicioReserva+"') and (finReserva <= '"+finReserva+"'))) and (unidad="+str(unidad)+")"
+		
+		print self.q
+		
+		self.queryOverlap = self.conn.query(self.q)
+		
+		print self.queryOverlap.rowCount()
+		
+		
 		if id != -1:
+			if self.queryOverlap.rowCount() != 1:
+				raise "Ya existen reservas en ese periodo!"
 			self.conn.update("update "+self.tableName+ 
 				" set unidad="+str(unidad)+
 				",huesped="+str(huesped)+
@@ -33,9 +44,12 @@ class Reserva(AbstractModel):
 				"',estado='"+estado+ 
 				"' where idReserva="+str(id))
 		else:
-			self.conn.update("insert into "+self.tableName+
-			"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado)"+
-			" values ("+str(unidad)+","+str(huesped)+",'"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
+			if self.queryOverlap.rowCount() != 0:
+				raise "Ya existen reservas en ese periodo!"
+			else:
+				self.conn.update("insert into "+self.tableName+
+				"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado)"+
+				" values ("+str(unidad)+","+str(huesped)+",'"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
 
 	def loadAll(self):
 		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut,reserva.estado,unidad.idUnidad,huesped.idHuesped from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
