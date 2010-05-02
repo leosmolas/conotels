@@ -135,19 +135,24 @@ class ReservaDialog(QtGui.QDialog):
 						#save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
 				
 #                    estado=self.ui.estadoCombo.model().data(self.ui.estadoCombo.model().index(self.ui.estadoCombo.currentIndex(),0)).toString()
-							self.model.save(id=self.id, 
-								unidad=self.ui.unidadCombo.model().data(self.ui.unidadCombo.model().index(self.ui.unidadCombo.currentIndex(),0)).toInt()[0],
-								huesped=self.huesped.model.record(self.ui.huespedView.currentIndex().row()).value(0).toInt()[0],
-								inicioPrereserva=self.ui.inicioPreDate.date().toString("yyyy-MM-dd"),
-								finPrereserva=self.ui.finPreDate.date().toString("yyyy-MM-dd"),
-								inicioReserva=self.ui.inicioDate.date().toString("yyyy-MM-dd"), 
-								finReserva=self.ui.finDate.date().toString("yyyy-MM-dd"),
-								horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
-								horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
-								estado=self.ui.estadoCombo.currentText()
-							)
-							self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
-							return True
+
+							try:
+								self.model.save(id=self.id, 
+									unidad=self.ui.unidadCombo.model().data(self.ui.unidadCombo.model().index(self.ui.unidadCombo.currentIndex(),0)).toInt()[0],
+									huesped=self.huesped.model.record(self.ui.huespedView.currentIndex().row()).value(0).toInt()[0],
+									inicioPrereserva=self.ui.inicioPreDate.date().toString("yyyy-MM-dd"),
+									finPrereserva=self.ui.finPreDate.date().toString("yyyy-MM-dd"),
+									inicioReserva=self.ui.inicioDate.date().toString("yyyy-MM-dd"), 
+									finReserva=self.ui.finDate.date().toString("yyyy-MM-dd"),
+									horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
+									horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
+									estado=self.ui.estadoCombo.currentText()
+								)
+								self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+								return True
+							except:
+								QtGui.QMessageBox.information(self, "Advertencia", "Ya existen reservas en ese periodo para la unidad seleccionada!")
+								
 						else:
 							QtGui.QMessageBox.information(self, "Advertencia", "La fecha de inicio de reserva debe ser anterior a la de fin!")
 					else:
