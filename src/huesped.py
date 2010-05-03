@@ -33,6 +33,7 @@ class HuespedDialog(QtGui.QDialog):
 		self.conn = conn
 		self.model = Huesped(conn)
 		self.modif = (id != -1)
+		self.dni = dni
 		self.id = id
 		self.uiMain = mainWin #modif por Jona
 		
@@ -56,17 +57,22 @@ class HuespedDialog(QtGui.QDialog):
 
 	def save(self):
 		if self.ui.dniLine.text() != "" and self.ui.nombreLine.text() != "" and self.ui.apellidoLine.text() != "": 
-			self.model.save(id=self.id,dni=self.ui.dniLine.text(),
-				nombre=self.ui.nombreLine.text(),
-				apellido=self.ui.apellidoLine.text(),
-				telefono=self.ui.telLine.text(),
-				celular=self.ui.celLine.text(),
-				direccion=self.ui.direccionLine.text(),
-				localidad=self.ui.localidadLine.text())
-			#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
-			if self.uiMain != None:
-				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
-			return True
+			if (self.modif and self.ui.dniLine.text() == self.dni) or self.model.checkdni(self.ui.dniLine.text()) == 0:
+				self.model.save(id=self.id,dni=self.ui.dniLine.text(),
+					nombre=self.ui.nombreLine.text(),
+					apellido=self.ui.apellidoLine.text(),
+					telefono=self.ui.telLine.text(),
+					celular=self.ui.celLine.text(),
+					direccion=self.ui.direccionLine.text(),
+					localidad=self.ui.localidadLine.text())
+				#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+				if self.uiMain != None:
+					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+				return True
+			else:
+				QtGui.QMessageBox.information(self, "Advertencia", "El DNI Ingresado ya existe!")
+				#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
+				return False
 		else:
 			QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
 			#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
