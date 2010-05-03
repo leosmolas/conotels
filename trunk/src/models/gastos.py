@@ -41,3 +41,8 @@ class Gastos(AbstractModel):
 		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "Descripcion") #si pongo descripción sale feo
 		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "Costo")
+
+	def cancelarPendientes(self,reserva):
+		self.conn.update("update gasto set pendiente=false where reserva="+str(reserva))
+		
+	
