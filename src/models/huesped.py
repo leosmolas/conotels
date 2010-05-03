@@ -59,3 +59,7 @@ class Huesped(AbstractModel):
 	def checkdni(self, dni=""):
 		self.model = self.conn.query("select * from huesped where dni = '" + dni + "'")
 		return self.model.rowCount()
+
+	def checkelim(self, id=0):
+		self.model = self.conn.query("select * from reserva where huesped = " + str(id))
+		return self.model.rowCount()

@@ -43,3 +43,6 @@ class Tipo(AbstractModel):
 		self.model = self.conn.query("select * from tipo where nombre = '" + nombre + "'")
 		return self.model.rowCount()
 		
+	def checkelim(self, id=""):
+		self.model = self.conn.query("select * from unidad where tipo = " + str(id))
+		return self.model.rowCount()

@@ -132,16 +132,39 @@ class Admin(QtGui.QDialog):
 			QtGui.QMessageBox.Ok)
 			#self.uiMain.statusBar.showMessage("Debe seleccionar una fila antes de eliminar",3000)
 			return
-		ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea eliminar?",
-			QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
-
-		if ret == QtGui.QMessageBox.Ok:
-			print "Eliminando"
-			row = self.type.model.record(self.ui.tableView.currentIndex().row())
-			self.type.delete(row.field(0).value().toString())
-			self.loadAll()
-		else:
-			print "Chau chau"
+			
+		row = self.type.model.record(self.ui.tableView.currentIndex().row())
+			
+		elim = 0
+			
+		if self.nombre == "Tipo": 
+			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
+				QtGui.QMessageBox.information(self, "Advertencia","El Tipo esta Asociado a una Unidad!")
+			else:
+				elim = 1
+		elif self.nombre == "Unidad":
+			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
+				QtGui.QMessageBox.information(self, "Advertencia","La Unidad esta Asociada a una Reserva!")
+			else:
+				elim = 1
+		elif self.nombre == "Huesped":
+			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
+				QtGui.QMessageBox.information(self, "Advertencia","La Huesped esta Asociada a una Reserva!")
+			else:
+				elim = 1
+			
+		if elim == 1:
+			print "no estaba asociado"
+			ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea eliminar?",
+				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
+			
+			if ret == QtGui.QMessageBox.Ok:
+				print "Eliminando"
+				#row = self.type.model.record(self.ui.tableView.currentIndex().row())
+				self.type.delete(row.field(0).value().toString())
+				self.loadAll()
+			else:
+				print "Chau chau"
 
 	@QtCore.pyqtSlot()
 	def on_nuevoBut_clicked(self):
