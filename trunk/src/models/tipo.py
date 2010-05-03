@@ -44,5 +44,5 @@ class Tipo(AbstractModel):
 		return self.model.rowCount()
 		
 	def checkelim(self, id=""):
-		self.model = self.conn.query("select * from unidad where tipo = " + str(id))
-		return self.model.rowCount()
+		model = self.conn.query("select * from unidad where tipo = " + str(id))
+		return model.rowCount()

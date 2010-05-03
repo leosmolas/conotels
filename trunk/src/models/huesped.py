@@ -61,5 +61,5 @@ class Huesped(AbstractModel):
 		return self.model.rowCount()
 
 	def checkelim(self, id=0):
-		self.model = self.conn.query("select * from reserva where huesped = " + str(id))
-		return self.model.rowCount()
+		model = self.conn.query("select * from reserva where huesped = " + str(id))
+		return model.rowCount()
