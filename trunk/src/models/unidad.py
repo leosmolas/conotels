@@ -47,3 +47,7 @@ class Unidad(AbstractModel):
 	def checkname(self, nombre=""):
 		self.model = self.conn.query("select * from unidad where nombre = '" + nombre + "'")
 		return self.model.rowCount()
+
+	def checkelim(self, id=0):
+		self.model = self.conn.query("select * from reserva where unidad = " + str(id))
+		return self.model.rowCount()
