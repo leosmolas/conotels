@@ -15,11 +15,11 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout">
+    <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,0,0">
      <property name="spacing">
       <number>6</number>
      </property>
-     <item row="4" column="0" colspan="4">
+     <item row="3" column="0" colspan="5">
       <widget class="QTableView" name="gastosTableView">
        <property name="minimumSize">
         <size>
@@ -29,47 +29,27 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0" colspan="4">
+     <item row="1" column="0" colspan="5">
       <widget class="QTableView" name="reservastableView"/>
      </item>
-     <item row="3" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Gastos:</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="3">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>Total:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0" colspan="4">
+     <item row="5" column="0" colspan="5">
       <widget class="Line" name="line">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
-     <item row="13" column="0" colspan="2">
+     <item row="9" column="0" colspan="3">
       <widget class="QLineEdit" name="descripcionLine"/>
      </item>
-     <item row="11" column="1">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="13" column="3">
+     <item row="9" column="4">
       <widget class="QSpinBox" name="gastoSpin">
        <property name="minimumSize">
         <size>
@@ -82,28 +62,28 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="3">
+     <item row="8" column="4">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>Gasto:</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
+     <item row="8" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Descripcion:</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Nuevo gasto:</string>
        </property>
       </widget>
      </item>
-     <item row="13" column="2">
+     <item row="9" column="3">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>$</string>
@@ -113,7 +93,7 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="4">
+     <item row="0" column="0" colspan="5">
       <widget class="QFrame" name="frame">
        <property name="minimumSize">
         <size>
@@ -141,7 +121,7 @@
          <number>0</number>
         </property>
         <property name="rightMargin">
-         <number>0</number>
+         <number>5</number>
         </property>
         <item row="0" column="0">
          <widget class="QLabel" name="label">
@@ -156,7 +136,7 @@
        </layout>
       </widget>
      </item>
-     <item row="14" column="0" colspan="4">
+     <item row="10" column="0" colspan="5">
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="minimumSize">
         <size>
@@ -166,7 +146,7 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="0">
+     <item row="7" column="0">
       <widget class="QFrame" name="pendienteFrame">
        <property name="minimumSize">
         <size>
@@ -190,7 +170,16 @@
         <property name="verticalSpacing">
          <number>6</number>
         </property>
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>2</number>
+        </property>
+        <property name="rightMargin">
+         <number>2</number>
+        </property>
+        <property name="bottomMargin">
          <number>2</number>
         </property>
         <item row="0" column="0">
@@ -218,6 +207,51 @@
         </item>
        </layout>
       </widget>
+     </item>
+     <item row="4" column="2" colspan="3">
+      <widget class="QFrame" name="totalFrame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QFormLayout" name="formLayout_2">
+        <property name="topMargin">
+         <number>4</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="lbl">
+          <property name="text">
+           <string>Total:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="totalLabel">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <spacer name="horizontalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>

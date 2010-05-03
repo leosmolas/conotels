@@ -4,6 +4,7 @@ import re
 from ui.gastos import Ui_GastosDialog
 from models.gastos import Gastos
 from models.reservasView import ReservasView
+from connection.model import Model
 
 class GastosDialog(QtGui.QDialog):
 
@@ -22,13 +23,17 @@ class GastosDialog(QtGui.QDialog):
 
 		self.okBut        = self.ui.buttonBox.addButton("Guardar &Nuevo", QtGui.QDialogButtonBox.ActionRole)		
 		self.modificarBut = self.ui.buttonBox.addButton("Guardar &Modificación", QtGui.QDialogButtonBox.ActionRole)
+		self.cancelarPendientesBut = self.ui.buttonBox.addButton("Cancelar &Pendientes", QtGui.QDialogButtonBox.ActionRole)
 		self.okBut.setEnabled       (False)
 		self.modificarBut.setEnabled(False)
+		self.cancelarPendientesBut.setEnabled(False)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
 		QtCore.QObject.connect(self.modificarBut, QtCore.SIGNAL("clicked()"),
 				self.on_okModificar_clicked)
+		QtCore.QObject.connect(self.cancelarPendientesBut, QtCore.SIGNAL("clicked()"),
+				self.cancelarPendientes)
 		QtCore.QObject.connect(self.ui.buscarLineEdit, QtCore.SIGNAL("textChanged(QString)"),
 				self.buscarReserva)
 		QtCore.QObject.connect(self.ui.reservastableView, QtCore.SIGNAL("clicked(QModelIndex)"),
@@ -92,8 +97,6 @@ class GastosDialog(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def cargarGastos(self,modelIndex):
 		index = QtCore.QVariant.toInt(self.reservasView.model.getItem(0,modelIndex.row()))
-		# print "modelIndex.row() "
-		# print modelIndex.row()
 		self.reservaActual = index[0]
 		self.model.buscarPorReserva(self.reservaActual)
 		
@@ -118,11 +121,27 @@ class GastosDialog(QtGui.QDialog):
 		self.ui.gastosTableView.hideColumn(3)
 		self.ui.gastosTableView.resizeColumnsToContents()
 		self.okBut.setEnabled(True)
+		self.cancelarPendientesBut.setEnabled(True)
 		self.ui.pendienteCheckBox.setEnabled(True)
 		self.ui.pendienteCheckBox.setChecked(True)
+		self.calcularTotal()
+		
+	def calcularTotal(self):
+		total = 0
+		for i in range(self.model.model.rowCount()):
+			total +=  QtCore.QVariant.toInt(self.model.model.getItem(2,i))[0]
+		#esta fumanchadez se refiere a lo siguiente: el ".2" es la precisión, y la f que es un floating point decimal común
+		#igual si no se necesita la presición, se puede cambiar por una %d 
+		self.ui.totalLabel.setText("$ %.2f" % total)
 
 	@QtCore.pyqtSlot()
 	def activarModificar(self,modelIndexList):
 		self.modificarBut.setEnabled(modelIndexList!=[])
 		self.ui.gastoSpin.setValue(self.model.model.getItem(2,self.ui.gastosTableView.selectedIndexes()[0].row()).toInt()[0])
 		self.ui.descripcionLine.setText(self.model.model.getItem(1,self.ui.gastosTableView.selectedIndexes()[0].row()).toString())
+	
+	@QtCore.pyqtSlot()
+	def cancelarPendientes(self):
+		self.model.cancelarPendientes(self.reservaActual)
+		self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
+		self.uiMain.statusBar.showMessage("Se han cancelado todos los gastos de la reserva.",3000)
