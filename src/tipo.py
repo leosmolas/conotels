@@ -27,7 +27,7 @@ class TipoDialog(QtGui.QDialog):
 
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
-	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, mod = 0, mainWin = None,parent = None):
+	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, desc = 0, mainWin = None,parent = None):
 		super(TipoDialog, self).__init__(parent)
 
 		self.conn = conn
@@ -47,7 +47,7 @@ class TipoDialog(QtGui.QDialog):
 			self.ui.nombreLine.setText(nombre)
 			self.ui.costoTempBajaSpin.setValue(costoTempBaja)
 			self.ui.costoTempAltaSpin.setValue(costoTempAlta)
-			self.ui.descEdit.setPlainText("")
+			self.ui.descEdit.setPlainText(desc)
 		
 		self.uiMain = mainWin #modif por Jona
 		
@@ -59,7 +59,7 @@ class TipoDialog(QtGui.QDialog):
 
 	def save(self):
 		if self.ui.nombreLine.text() != "":
-			if self.model.checkname(nombre = self.ui.nombreLine.text()) == 0:
+			if self.modif or self.model.checkname(nombre = self.ui.nombreLine.text()) == 0:
 				self.model.save(id=self.id,nombre=self.ui.nombreLine.text(),
 					costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
 					costoTemporadaBaja=self.ui.costoTempBajaSpin.value(),
