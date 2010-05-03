@@ -32,8 +32,8 @@ class UnidadDialog(QtGui.QDialog):
 		self.ui.tipoCombo.setModel(tipoModel.model)
 		self.ui.tipoCombo.setModelColumn(1)
 
-	def __init__(self, conn, id = -1, numero = 0, tipo = -1, capacidad = 0, 
-	descripcion = "", estado = '',mainWin = None, parent = None):
+	def __init__(self, conn, id = -1, numero = "", tipo = -1, capacidad = 0, 
+	descripcion = "", estado = "",mainWin = None, parent = None):
 		super(UnidadDialog, self).__init__(parent)
 
 		self.id = id
@@ -48,6 +48,7 @@ class UnidadDialog(QtGui.QDialog):
 		self.ui.noDisponibleCheck.setChecked(estado == 'No Disponible')
 
 		if tipo != -1:
+			self.numero = numero;
 			comboModel = self.ui.tipoCombo.model()
 			found = False
 			i = 0
@@ -75,7 +76,7 @@ class UnidadDialog(QtGui.QDialog):
 	def save(self):
 		if self.ui.numeroLine.text() != "":
 			if self.ui.tipoCombo.count() > 0:
-				if self.modif or self.model.checkname(nombre = self.ui.numeroLine.text()) == 0:
+				if (self.modif and self.ui.numeroLine.text() == self.numero) or self.model.checkname(nombre = self.ui.numeroLine.text()) == 0:
 					comboModel = self.ui.tipoCombo.model()
 					estad = "Libre"
 					if self.ui.noDisponibleCheck.checkState() == QtCore.Qt.Checked:

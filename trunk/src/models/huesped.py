@@ -55,3 +55,7 @@ class Huesped(AbstractModel):
 	def filterModel(self,filtro):
 		super(Huesped,self).filterModel(filtro)
 		self.setHeaders()
+		
+	def checkdni(self, dni=""):
+		self.model = self.conn.query("select * from huesped where dni = '" + dni + "'")
+		return self.model.rowCount()

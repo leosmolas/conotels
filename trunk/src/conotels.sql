@@ -41,8 +41,8 @@ create table huesped (
 
 	idHuesped int unsigned not null auto_increment,
 	dni varchar(45) not null,
-	apellido varchar(45),
-	nombre varchar(45),
+	apellido varchar(45) not null,
+	nombre varchar(45) not null,
 	telefonoFijo varchar(45),
 	telefonoCelular varchar(45),
 	direccion varchar(45),
@@ -65,7 +65,7 @@ create table reserva (
 	horaCheckIn time,
 	horaCheckOut time,
 	estado enum('Pre Reservado', 'Reservado', 'Reserva en curso', 'Reserva terminada', 'Reserva cancelada'),
-	temporada enum('Alta', 'Baja') not null,
+	temporada enum('Alta', 'Baja'),
 	
 	primary key (idReserva),
 
