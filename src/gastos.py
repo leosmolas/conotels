@@ -9,7 +9,7 @@ class GastosDialog(QtGui.QDialog):
 
 	def __init__(self, conn, parent = None):
 		super(GastosDialog, self).__init__(parent)
-
+		self.uiMain = parent
 		self.conn = conn
 		self.setup()
 		self.reservaActual = -1
@@ -48,7 +48,8 @@ class GastosDialog(QtGui.QDialog):
 		print "new gastos"
 		self.model.save(id,descripcion=self.ui.descripcionLine.text(),
 				costo=self.ui.gastoSpin.value(),
-				reserva=self.reservaActual)
+				reserva=self.reservaActual,
+				pendiente=self.ui.pendienteCheckBox.isChecked())
 
 	def clear(self):
 		self.ui.gastoSpin.setValue(0)
@@ -95,11 +96,18 @@ class GastosDialog(QtGui.QDialog):
 		# print modelIndex.row()
 		self.reservaActual = index[0]
 		self.model.buscarPorReserva(self.reservaActual)
+		for i in range(self.model.model.rowCount()):
+			if QtCore.QVariant.toInt(self.model.model.getItem(3,i))[0] == 1:
+				self.model.model.setData(self.model.model.createIndex(i,1),QtGui.QColor(255,60,60), QtCore.Qt.BackgroundColorRole)
+			else:
+				self.model.model.setData(self.model.model.createIndex(i,1),QtGui.QColor(60,255,60), QtCore.Qt.BackgroundColorRole)
 		self.ui.gastosTableView.setModel(self.model.model)
 		self.ui.gastosTableView.hideColumn(3)
 		self.ui.gastosTableView.resizeColumnsToContents()
 		self.okBut.setEnabled(True)
-		
+		self.ui.pendienteCheckBox.setEnabled(True)
+		self.ui.pendienteCheckBox.setChecked(True)
+
 	@QtCore.pyqtSlot()
 	def activarModificar(self,modelIndexList):
 		self.modificarBut.setEnabled(modelIndexList!=[])
