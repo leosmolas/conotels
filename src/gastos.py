@@ -96,12 +96,25 @@ class GastosDialog(QtGui.QDialog):
 		# print modelIndex.row()
 		self.reservaActual = index[0]
 		self.model.buscarPorReserva(self.reservaActual)
-		for i in range(self.model.model.rowCount()):
-			if QtCore.QVariant.toInt(self.model.model.getItem(3,i))[0] == 1:
-				self.model.model.setData(self.model.model.createIndex(i,1),QtGui.QColor(255,60,60), QtCore.Qt.BackgroundColorRole)
-			else:
-				self.model.model.setData(self.model.model.createIndex(i,1),QtGui.QColor(60,255,60), QtCore.Qt.BackgroundColorRole)
+		
 		self.ui.gastosTableView.setModel(self.model.model)
+		
+# si quieren no le den bola a esto
+
+		# delegate = QtGui.QStyledItemDelegate(self.ui.gastosTableView)
+		# editorFactory = QtGui.QItemEditorFactory()
+		# delegate.setItemEditorFactory(editorFactory)
+		#delegate.createEditor(self.ui.gastosTableView,QtGui.QStyleOptionViewItem.Left
+		# self.ui.gastosTableView.setItemDelegateForColumn(2,delegate)
+		#for i in range(self.model.model.rowCount()):
+			# if QtCore.QVariant.toInt(self.model.model.getItem(3,i))[0] == 1:
+				# self.model.model.setData(self.model.model.createIndex(i,2),QtGui.QBrush(QtGui.QColor(255,60,60)), QtCore.Qt.BackgroundRole)
+				# delegate = QtGui(self.ui.gastosTableView)
+				# delegate.setItemEditorFactory()
+				# self.ui.gastosTableView.setItemDelegateForRow(i,
+			# else:
+				# self.model.model.setData(self.model.model.createIndex(i,2),QtGui.QColor(60,255,60), QtCore.Qt.BackgroundColorRole)
+		
 		self.ui.gastosTableView.hideColumn(3)
 		self.ui.gastosTableView.resizeColumnsToContents()
 		self.okBut.setEnabled(True)

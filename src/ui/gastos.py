@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Sun May 02 22:26:37 2010
+# Created: Mon May 03 12:17:49 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,11 +12,11 @@ from PyQt4 import QtCore, QtGui
 class Ui_GastosDialog(object):
     def setupUi(self, GastosDialog):
         GastosDialog.setObjectName("GastosDialog")
-        GastosDialog.resize(506, 526)
+        GastosDialog.resize(505, 526)
         self.gridLayout_2 = QtGui.QGridLayout(GastosDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtGui.QGridLayout()
-        self.gridLayout.setSpacing(0)
+        self.gridLayout.setSpacing(6)
         self.gridLayout.setObjectName("gridLayout")
         self.gastosTableView = QtGui.QTableView(GastosDialog)
         self.gastosTableView.setMinimumSize(QtCore.QSize(0, 0))
@@ -97,6 +97,8 @@ class Ui_GastosDialog(object):
         self.pendienteCheckBox = QtGui.QCheckBox(self.pendienteFrame)
         self.pendienteCheckBox.setEnabled(False)
         self.pendienteCheckBox.setText("")
+        self.pendienteCheckBox.setCheckable(True)
+        self.pendienteCheckBox.setChecked(True)
         self.pendienteCheckBox.setObjectName("pendienteCheckBox")
         self.formLayout_3.setWidget(0, QtGui.QFormLayout.FieldRole, self.pendienteCheckBox)
         self.gridLayout.addWidget(self.pendienteFrame, 10, 0, 1, 1)
