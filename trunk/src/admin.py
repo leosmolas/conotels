@@ -96,8 +96,8 @@ class Admin(QtGui.QDialog):
 			tipo = row.field(6).value().toInt()[0]
 			capacidad = row.field(3).value().toInt()[0]
 			desc = row.field(4).value().toString()
-			# ESTADOOOO
-			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc,mainWin=self.uiMain)
+			estado = row.field(5).value().toString()
+			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc,estado,mainWin=self.uiMain)
 		elif self.nombre == "Reserva":
 			id = row.field(0).value().toInt()[0]
 			unidad = row.field(11).value().toInt()[0]
@@ -154,10 +154,10 @@ class Admin(QtGui.QDialog):
 				self.uiMain.widgets.insertWidget(2, ReservaDialog(self.conn,mainWin=self.uiMain)) #modif
 		
 		elif self.nombre == "Unidad":
-				self.uiMain.title.setTitle("Nueva Reserva")
+				self.uiMain.title.setTitle("Nueva Unidad")
 				self.uiMain.widgets.insertWidget(2, UnidadDialog(self.conn,mainWin=self.uiMain)) #modif
 		
 		elif self.nombre == "Tipo":
-				self.uiMain.title.setTitle("Nueva Tipo")
+				self.uiMain.title.setTitle("Nuevo Tipo")
 				self.uiMain.widgets.insertWidget(2, TipoDialog(self.conn,mainWin=self.uiMain)) #modif
 		self.uiMain.widgets.setCurrentIndex(2)
