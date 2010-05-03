@@ -16,19 +16,20 @@ class Gastos(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self, id = -1, descripcion="",costo=0,reserva=0): # if id != -1: update; else: save;
+	def save(self, id = -1, descripcion="",costo=0,reserva=0,pendiente=True): # if id != -1: update; else: save;
 		if id != -1:
-			#print "update "+ self.tableName + " set descripcion='"+descripcion+"',costo="+str(costo)+",reserva="+str(reserva) + " where idGasto="+str(id)
+			# print "update " + self.tableName + 				" set descripcion='"+descripcion+ 				"',costo="+str(costo)+ 				",reserva="+str(reserva) + 				",pendiente="+str(pendiente) + 				" where idGasto="+str(id)
 			self.conn.update("update "+self.tableName+ 
 				" set descripcion='"+descripcion+
 				"',costo="+str(costo)+
 				",reserva="+str(reserva) + 
+				",pendiente="+str(pendiente) +
 				" where idGasto="+str(id))
 		else:
-			#print "insert into "+self.tableName+"(descripcion,costo,reserva)"+ " values ('"+descripcion+"',"+str(costo)+","+str(reserva)+")"
+			# print "insert into "+self.tableName+ 				"(descripcion,costo,reserva,pendiente)"+ 				" values ('"+descripcion+"',"+str(costo)+"," + str(reserva)+"," + str(pendiente) + ")"
 			self.conn.update("insert into "+self.tableName+
-				"(descripcion,costo,reserva)"+ 
-				" values ('"+descripcion+"',"+str(costo)+"," + str(reserva) + ")")
+				"(descripcion,costo,reserva,pendiente)"+ 
+				" values ('"+descripcion+"',"+str(costo)+"," + str(reserva)+"," + str(pendiente) + ")")
 	
 	#en vez de hacer una busqueda con likes re cacos, hace una busqueda con un where :)
 	def buscarPorReserva(self,reserva):

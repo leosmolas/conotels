@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Fri Apr 23 16:01:53 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Sun May 02 22:26:37 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,10 +12,11 @@ from PyQt4 import QtCore, QtGui
 class Ui_GastosDialog(object):
     def setupUi(self, GastosDialog):
         GastosDialog.setObjectName("GastosDialog")
-        GastosDialog.resize(301, 316)
+        GastosDialog.resize(506, 526)
         self.gridLayout_2 = QtGui.QGridLayout(GastosDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtGui.QGridLayout()
+        self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.gastosTableView = QtGui.QTableView(GastosDialog)
         self.gastosTableView.setMinimumSize(QtCore.QSize(0, 0))
@@ -37,27 +38,27 @@ class Ui_GastosDialog(object):
         self.gridLayout.addWidget(self.line, 7, 0, 1, 4)
         self.descripcionLine = QtGui.QLineEdit(GastosDialog)
         self.descripcionLine.setObjectName("descripcionLine")
-        self.gridLayout.addWidget(self.descripcionLine, 11, 0, 1, 2)
+        self.gridLayout.addWidget(self.descripcionLine, 13, 0, 1, 2)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem, 10, 1, 1, 1)
+        self.gridLayout.addItem(spacerItem, 11, 1, 1, 1)
         self.gastoSpin = QtGui.QSpinBox(GastosDialog)
         self.gastoSpin.setMinimumSize(QtCore.QSize(80, 0))
         self.gastoSpin.setMaximum(9999)
         self.gastoSpin.setObjectName("gastoSpin")
-        self.gridLayout.addWidget(self.gastoSpin, 11, 3, 1, 1)
+        self.gridLayout.addWidget(self.gastoSpin, 13, 3, 1, 1)
         self.label_5 = QtGui.QLabel(GastosDialog)
         self.label_5.setObjectName("label_5")
-        self.gridLayout.addWidget(self.label_5, 10, 3, 1, 1)
+        self.gridLayout.addWidget(self.label_5, 11, 3, 1, 1)
         self.label_4 = QtGui.QLabel(GastosDialog)
         self.label_4.setObjectName("label_4")
-        self.gridLayout.addWidget(self.label_4, 10, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_4, 11, 0, 1, 1)
         self.label_3 = QtGui.QLabel(GastosDialog)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 9, 0, 1, 1)
         self.label_6 = QtGui.QLabel(GastosDialog)
         self.label_6.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_6.setObjectName("label_6")
-        self.gridLayout.addWidget(self.label_6, 11, 2, 1, 1)
+        self.gridLayout.addWidget(self.label_6, 13, 2, 1, 1)
         self.frame = QtGui.QFrame(GastosDialog)
         self.frame.setMinimumSize(QtCore.QSize(0, 0))
         self.frame.setBaseSize(QtCore.QSize(400, 0))
@@ -78,7 +79,27 @@ class Ui_GastosDialog(object):
         self.buttonBox = QtGui.QDialogButtonBox(GastosDialog)
         self.buttonBox.setMinimumSize(QtCore.QSize(0, 0))
         self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 13, 0, 1, 4)
+        self.gridLayout.addWidget(self.buttonBox, 14, 0, 1, 4)
+        self.pendienteFrame = QtGui.QFrame(GastosDialog)
+        self.pendienteFrame.setMinimumSize(QtCore.QSize(0, 0))
+        self.pendienteFrame.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.pendienteFrame.setFrameShadow(QtGui.QFrame.Raised)
+        self.pendienteFrame.setObjectName("pendienteFrame")
+        self.formLayout_3 = QtGui.QFormLayout(self.pendienteFrame)
+        self.formLayout_3.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
+        self.formLayout_3.setMargin(2)
+        self.formLayout_3.setHorizontalSpacing(8)
+        self.formLayout_3.setVerticalSpacing(6)
+        self.formLayout_3.setObjectName("formLayout_3")
+        self.pendienteLabel = QtGui.QLabel(self.pendienteFrame)
+        self.pendienteLabel.setObjectName("pendienteLabel")
+        self.formLayout_3.setWidget(0, QtGui.QFormLayout.LabelRole, self.pendienteLabel)
+        self.pendienteCheckBox = QtGui.QCheckBox(self.pendienteFrame)
+        self.pendienteCheckBox.setEnabled(False)
+        self.pendienteCheckBox.setText("")
+        self.pendienteCheckBox.setObjectName("pendienteCheckBox")
+        self.formLayout_3.setWidget(0, QtGui.QFormLayout.FieldRole, self.pendienteCheckBox)
+        self.gridLayout.addWidget(self.pendienteFrame, 10, 0, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
 
         self.retranslateUi(GastosDialog)
@@ -98,4 +119,5 @@ class Ui_GastosDialog(object):
         self.label_3.setText(QtGui.QApplication.translate("GastosDialog", "Nuevo gasto:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("GastosDialog", "$", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("GastosDialog", "Buscar", None, QtGui.QApplication.UnicodeUTF8))
+        self.pendienteLabel.setText(QtGui.QApplication.translate("GastosDialog", "Pendiente", None, QtGui.QApplication.UnicodeUTF8))
 
