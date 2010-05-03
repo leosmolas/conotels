@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from abstractmodel import AbstractModel
 
 from PyQt4 import QtCore
@@ -18,7 +18,7 @@ class Reserva(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado=""): # if id != -1: update; else: save;
+	def save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado="", temporada=""): # if id != -1: update; else: save;
 		
 		self.q = "select idreserva from reserva where (((inicioReserva >= '"+inicioReserva+"') and (inicioReserva <= '"+finReserva+"')) or ((finReserva >= '"+inicioReserva+"') and (finReserva <= '"+finReserva+"'))) and (unidad="+str(unidad)+")"
 		
@@ -42,17 +42,19 @@ class Reserva(AbstractModel):
 				"',horaCheckIn='"+horaCheckIn+
 				"',horaCheckOut='"+horaCheckOut+
 				"',estado='"+estado+ 
+				"',temporada='"+temporada+ 
 				"' where idReserva="+str(id))
 		else:
 			if self.queryOverlap.rowCount() != 0:
 				raise "Ya existen reservas en ese periodo!"
 			else:
+				print "entre"
 				self.conn.update("insert into "+self.tableName+
-				"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado)"+
-				" values ("+str(unidad)+","+str(huesped)+",'"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"')")
+				"(unidad,huesped,inicioPrereserva,finPrereserva,inicioReserva,finReserva,horaCheckIn,horaCheckOut,estado,temporada)"+
+				" values ("+str(unidad)+","+str(huesped)+",'"+inicioPrereserva+"','"+finPrereserva+"','"+inicioReserva+"','"+finReserva+"','"+horaCheckIn+"','"+horaCheckOut+"','"+estado+"','"+temporada+"')")
 
 	def loadAll(self):
-		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut,reserva.estado,unidad.idUnidad,huesped.idHuesped from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
+		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut,reserva.estado,reserva.temporada,unidad.idUnidad,huesped.idHuesped from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Huesped")
@@ -63,7 +65,9 @@ class Reserva(AbstractModel):
 		self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Hora de checkIn")
 		self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Hora de checkOut")
 		self.model.setHeaderData(9, QtCore.Qt.Horizontal, "Estado")
-		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "idUnidad")
+		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "Temporada")
+		self.model.setHeaderData(11, QtCore.Qt.Horizontal, "idUnidad")
+		self.model.setHeaderData(12, QtCore.Qt.Horizontal, "idHuesped")
 
 	def loadMesAnio(self, mes = 1, anio = 2000):
 		self.model = self.conn.query("select * from reserva where (month(inicioPrereserva)=%(mes)d or month(finPrereserva)=%(mes)d or month(inicioReserva)=%(mes)d or month(finReserva)=%(mes)d) and (year(inicioReserva)=%(anio)d or year(finReserva)=%(anio)d or year(inicioPrereserva)=%(anio)d or year(finPrereserva)=%(anio)d) and estado!=\"Reserva cancelada\"" % {'mes': mes, 'anio': anio});

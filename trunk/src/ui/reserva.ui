@@ -6,45 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>375</height>
+    <width>439</width>
+    <height>389</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Nueva unidad</string>
+   <string>Nueva reserva</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0">
-    <layout class="QFormLayout" name="formLayout">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-     </property>
-     <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>Unidad:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
+     <item row="0" column="1">
       <widget class="QComboBox" name="unidadCombo"/>
      </item>
-     <item row="2" column="0">
+     <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Huesped:</string>
+        <string>Filtrar huespedes:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="1" column="1" colspan="2">
       <widget class="QLineEdit" name="huespedLine"/>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <widget class="QTableView" name="huespedView"/>
      </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_3">
@@ -158,10 +151,65 @@
        </item>
       </widget>
      </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Temporada:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QComboBox" name="temporadaCombo">
+       <item>
+        <property name="text">
+         <string>Alta</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Baja</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Huesped:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="1">
-      <widget class="QTableView" name="huespedView"/>
+      <widget class="QPushButton" name="nuevoBut">
+       <property name="text">
+        <string>Crear nuevo huesped</string>
+       </property>
+      </widget>
      </item>
     </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
@@ -169,13 +217,13 @@
   <tabstop>unidadCombo</tabstop>
   <tabstop>huespedLine</tabstop>
   <tabstop>huespedView</tabstop>
-  <tabstop>inicioPreDate</tabstop>
   <tabstop>finPreDate</tabstop>
   <tabstop>inicioDate</tabstop>
   <tabstop>finDate</tabstop>
   <tabstop>inTime</tabstop>
   <tabstop>outTime</tabstop>
   <tabstop>estadoCombo</tabstop>
+  <tabstop>temporadaCombo</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>

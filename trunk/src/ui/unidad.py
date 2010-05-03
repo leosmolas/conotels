@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Fri Apr 23 16:02:31 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Mon May 03 10:15:26 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -15,36 +15,38 @@ class Ui_unidadDialog(object):
         unidadDialog.resize(400, 300)
         self.gridLayout = QtGui.QGridLayout(unidadDialog)
         self.gridLayout.setObjectName("gridLayout")
-        self.formLayout = QtGui.QFormLayout()
-        self.formLayout.setObjectName("formLayout")
+        self.gridLayout_2 = QtGui.QGridLayout()
+        self.gridLayout_2.setObjectName("gridLayout_2")
         self.label = QtGui.QLabel(unidadDialog)
         self.label.setObjectName("label")
-        self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.label)
-        self.label_2 = QtGui.QLabel(unidadDialog)
-        self.label_2.setObjectName("label_2")
-        self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_2)
-        self.label_3 = QtGui.QLabel(unidadDialog)
-        self.label_3.setObjectName("label_3")
-        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.label_3)
-        self.label_4 = QtGui.QLabel(unidadDialog)
-        self.label_4.setObjectName("label_4")
-        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_4)
+        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
         self.numeroLine = QtGui.QLineEdit(unidadDialog)
         self.numeroLine.setObjectName("numeroLine")
-        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.numeroLine)
-        self.descripcionText = QtGui.QPlainTextEdit(unidadDialog)
-        self.descripcionText.setObjectName("descripcionText")
-        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.descripcionText)
+        self.gridLayout_2.addWidget(self.numeroLine, 0, 1, 1, 2)
+        self.label_2 = QtGui.QLabel(unidadDialog)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_2.addWidget(self.label_2, 1, 0, 1, 1)
         self.tipoCombo = QtGui.QComboBox(unidadDialog)
         self.tipoCombo.setObjectName("tipoCombo")
-        self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.tipoCombo)
+        self.gridLayout_2.addWidget(self.tipoCombo, 1, 1, 1, 1)
+        self.label_3 = QtGui.QLabel(unidadDialog)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_2.addWidget(self.label_3, 2, 0, 1, 1)
         self.capacidadSpin = QtGui.QSpinBox(unidadDialog)
         self.capacidadSpin.setObjectName("capacidadSpin")
-        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.capacidadSpin)
+        self.gridLayout_2.addWidget(self.capacidadSpin, 2, 1, 1, 1)
         self.noDisponibleCheck = QtGui.QCheckBox(unidadDialog)
         self.noDisponibleCheck.setObjectName("noDisponibleCheck")
-        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.noDisponibleCheck)
-        self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.noDisponibleCheck, 3, 1, 1, 1)
+        self.label_4 = QtGui.QLabel(unidadDialog)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_2.addWidget(self.label_4, 4, 0, 1, 1)
+        self.descripcionText = QtGui.QPlainTextEdit(unidadDialog)
+        self.descripcionText.setObjectName("descripcionText")
+        self.gridLayout_2.addWidget(self.descripcionText, 4, 1, 1, 2)
+        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem, 1, 2, 1, 1)
+        self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(unidadDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setObjectName("buttonBox")
@@ -65,6 +67,6 @@ class Ui_unidadDialog(object):
         self.label.setText(QtGui.QApplication.translate("unidadDialog", "Numero:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("unidadDialog", "Tipo:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("unidadDialog", "Capacidad:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("unidadDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
         self.noDisponibleCheck.setText(QtGui.QApplication.translate("unidadDialog", "No disponible", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("unidadDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
 
