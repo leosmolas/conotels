@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>583</width>
-    <height>562</height>
+    <width>1024</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,34 +17,49 @@
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QListWidget" name="options">
-        <property name="maximumSize">
-         <size>
-          <width>160</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>150</width>
-          <height>84</height>
-         </size>
-        </property>
-        <property name="gridSize">
-         <size>
-          <width>150</width>
-          <height>80</height>
-         </size>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="1">
        <widget class="QGroupBox" name="title">
         <property name="title">
          <string>GroupBox</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QListWidget" name="options">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>150</width>
+             <height>84</height>
+            </size>
+           </property>
+           <property name="flow">
+            <enum>QListView::LeftToRight</enum>
+           </property>
+           <property name="gridSize">
+            <size>
+             <width>150</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="viewMode">
+            <enum>QListView::IconMode</enum>
+           </property>
+           <property name="modelColumn">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QStackedWidget" name="widgets">
            <widget class="QWidget" name="page">
@@ -75,34 +90,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>583</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuAdministracion">
-    <property name="title">
-     <string>Administracion</string>
-    </property>
-    <addaction name="actionNueva_unidad"/>
-    <addaction name="actionNuevo_Tipo"/>
-    <addaction name="separator"/>
-    <addaction name="actionSalir"/>
-   </widget>
-   <widget class="QMenu" name="menuAcerca_de">
-    <property name="title">
-     <string>Ayuda</string>
-    </property>
-    <addaction name="actionAcerca_de"/>
-    <addaction name="actionAyuda"/>
-   </widget>
-   <addaction name="menuAdministracion"/>
-   <addaction name="menuAcerca_de"/>
-  </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNueva_unidad">
    <property name="text">
@@ -130,9 +117,6 @@
    </property>
   </action>
  </widget>
- <tabstops>
-  <tabstop>options</tabstop>
- </tabstops>
  <resources>
   <include location="../icons.qrc"/>
  </resources>

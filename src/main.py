@@ -73,8 +73,8 @@ class MainWindow(QtGui.QMainWindow):
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
-		QtCore.QObject.connect(self.ui.menuAdministracion, QtCore.SIGNAL("triggered(QAction *)"),
-				self.changeToAction)
+		#QtCore.QObject.connect(self.ui.menuAdministracion, QtCore.SIGNAL("triggered(QAction *)"),
+		#		self.changeToAction)
 
 	def __init__(self, parent = None):
 		super(MainWindow, self).__init__(parent)
