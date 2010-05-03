@@ -20,7 +20,7 @@ class HuespedDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
 
-		if not self.modif:
+		if self.uiMain != None:
 			self.backBut = self.ui.buttonBox.addButton("&Volver", QtGui.QDialogButtonBox.ActionRole)
 			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
@@ -34,7 +34,8 @@ class HuespedDialog(QtGui.QDialog):
 		self.model = Huesped(conn)
 		self.modif = (id != -1)
 		self.id = id
-
+		self.uiMain = mainWin #modif por Jona
+		
 		self.setup()
 
 #        self.dni = dni
@@ -49,9 +50,8 @@ class HuespedDialog(QtGui.QDialog):
 			self.ui.telLine.setText(telefono)
 			self.ui.celLine.setText(celular)
 			self.ui.direccionLine.setText(direccion)
-			self.ui.localidadLine.setText(localidad)
-			
-		self.uiMain = mainWin #modif por Jona
+			self.ui.localidadLine.setText(localidad)			
+		
 		self.installEventFilter(self)
 
 	def save(self):
@@ -64,7 +64,8 @@ class HuespedDialog(QtGui.QDialog):
 				direccion=self.ui.direccionLine.text(),
 				localidad=self.ui.localidadLine.text())
 			#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
-			self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+			if self.uiMain != None:
+				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 			return True
 		else:
 			QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
@@ -85,13 +86,13 @@ class HuespedDialog(QtGui.QDialog):
 		save = self.save()
 		if save == True:
 			self.clear()
-			if self.modif:
+			if self.modif or self.uiMain == None:
 				self.close()
 	
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
 		self.clear()
-		if self.modif:
+		if self.modif or self.uiMain == None:
 			self.close()
 
 	def on_backBut_clicked(self):
@@ -103,6 +104,6 @@ class HuespedDialog(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def keyPressEvent(self, event):
 		keyEvent = QtGui.QKeyEvent(event)
-		if(event.type()==QtCore.QEvent.KeyPress) and (keyEvent.key() == QtCore.Qt.Key_Return):
+		if(event.type()==QtCore.QEvent.KeyPress) and (keyEvent.key() == QtCore.Qt.Key_Return) and (keyEvent.key() == QtCore.Qt.Key_Enter):
 			self.focusNextChild()
 		return super(HuespedDialog, self).keyPressEvent(keyEvent)

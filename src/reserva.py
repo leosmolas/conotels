@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import re
 from PyQt4 import QtCore, QtGui
 
 from ui.reserva import Ui_reservaDialog
+from huesped import HuespedDialog
 
 from models.huesped import Huesped
 from models.unidad import Unidad
@@ -24,7 +25,7 @@ class ReservaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.cancelBut, QtCore.SIGNAL("clicked()"),
 				self.on_cancelBut_clicked)
 
-		if self.uiMain != None:
+		if not self.modif and self.uiMain != None:
 			self.backBut = self.ui.buttonBox.addButton("&Volver", QtGui.QDialogButtonBox.ActionRole)
 			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
@@ -36,7 +37,7 @@ class ReservaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.ui.huespedLine, QtCore.SIGNAL("textChanged(const QString &)"),
 			self.update)
 		
-	def __init__(self, conn, id = -1, unidad = 0, huesped = 0, inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", mod = 0, mainWin = None, parent = None):
+	def __init__(self, conn, id = -1, unidad = 0, huesped = 0, inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", temporada = "", mod = 0, mainWin = None, parent = None):
 		super(ReservaDialog, self).__init__(parent)
 
 		self.conn = conn
@@ -60,7 +61,9 @@ class ReservaDialog(QtGui.QDialog):
 		if not self.modif:				
 			self.clear()
 		else:			
-			unidadComboModel = self.ui.unidadCombo.model()			
+			unidadComboModel = self.ui.unidadCombo.model()	
+			print unidadComboModel.rowCount()
+			print unidad
 			found = False
 			i = 0
 			while not found and i<unidadComboModel.rowCount():
@@ -69,7 +72,7 @@ class ReservaDialog(QtGui.QDialog):
 				else:
 					i+=1
 			self.ui.unidadCombo.setCurrentIndex(i)
-			
+			print "unidad: "+str(i)
 			self.ui.huespedLine.setText("")			
 			
 			huespedViewModel = self.ui.huespedView.model()			
@@ -106,7 +109,18 @@ class ReservaDialog(QtGui.QDialog):
 					found = True
 				else:
 					i+=1
-			self.ui.estadoCombo.setCurrentIndex(i)			
+			self.ui.estadoCombo.setCurrentIndex(i)						
+			
+			tempComboModel = self.ui.temporadaCombo.model()
+			found = False
+			i = 0
+			while not found and i<tempComboModel.rowCount():
+				if tempComboModel.data(tempComboModel.index(i,0)) == temporada:
+					found = True
+				else:
+					i+=1
+			self.ui.temporadaCombo.setCurrentIndex(i)	
+			
 			self.ui.huespedView.resizeColumnsToContents()
 
 		if not self.modif and self.uiMain == None:
@@ -146,7 +160,8 @@ class ReservaDialog(QtGui.QDialog):
 									finReserva=self.ui.finDate.date().toString("yyyy-MM-dd"),
 									horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
 									horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
-									estado=self.ui.estadoCombo.currentText()
+									estado=self.ui.estadoCombo.currentText(),
+									temporada=self.ui.temporadaCombo.currentText()
 								)
 								self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 								return True
@@ -175,23 +190,35 @@ class ReservaDialog(QtGui.QDialog):
 		self.ui.finPreDate.setDate(QtCore.QDate.currentDate())
 		self.ui.inicioDate.setDate(QtCore.QDate.currentDate())
 		self.ui.finDate.setDate(QtCore.QDate.currentDate())
-		self.ui.inTime.setTime(QtCore.QTime.currentTime())
-		self.ui.outTime.setTime(QtCore.QTime.currentTime())
+		self.ui.inTime.setTime(QtCore.QTime(14,0))
+		self.ui.outTime.setTime(QtCore.QTime(10,0))
 		self.ui.estadoCombo.setCurrentIndex(0)
+		self.ui.temporadaCombo.setCurrentIndex(0)
 
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
 		save = self.save()
 		if save == True:
 			self.clear()		
-			if self.uiMain == None:
+			if self.modif or self.uiMain == None:
 				self.close()
 				
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
 		self.clear()
-		if self.uiMain == None:
+		if self.modif or self.uiMain == None:
 			self.close()
+
+#	self.uiMain.title.setTitle("Nuevo Huesped")
+#	self.uiMain.widgets.insertWidget(3, HuespedDialog(self.conn,mainWin=self.uiMain))
+	
+	@QtCore.pyqtSlot()
+	def on_nuevoBut_clicked(self):
+		diag = HuespedDialog(self.conn)
+		diag.exec_()
+		self.huesped.loadAll()
+		self.ui.huespedView.setModel(self.huesped.model)
+		self.ui.huespedView.selectRow(self.huesped.model.rowCount()-1)
 
 	@QtCore.pyqtSlot()
 	def on_backBut_clicked(self):

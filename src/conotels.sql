@@ -65,7 +65,7 @@ create table reserva (
 	horaCheckIn time,
 	horaCheckOut time,
 	estado enum('Pre Reservado', 'Reservado', 'Reserva en curso', 'Reserva terminada', 'Reserva cancelada'),
-	temporada enum('Alta', 'Baja'),
+	temporada enum('Alta', 'Baja') not null,
 	
 	primary key (idReserva),
 
