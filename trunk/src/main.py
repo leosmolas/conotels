@@ -25,6 +25,12 @@ class MainWindow(QtGui.QMainWindow):
 		#self.statusBar.showMessage("prueba",3000)
 		self.ui.statusBar = self.statusBar;
 		
+		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
+		self.addNewTypeBut.setText("Grilla")
+		self.addNewTypeBut.setIcon(QtGui.QIcon(":/calendar.png"))
+		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
+		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+		
 		self.addNewUnitBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewUnitBut.setText("Administrar unidades")
 		self.addNewUnitBut.setIcon(QtGui.QIcon(":/property.png"))
@@ -49,29 +55,12 @@ class MainWindow(QtGui.QMainWindow):
 		self.addNewUnitBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewUnitBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
-		'''self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
-		self.addNewTypeBut.setText("Nueva reserva")
-		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
-		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
-		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
-
-		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
-		self.addNewTypeBut.setText("Nuevo huesped")
-		self.addNewTypeBut.setIcon(QtGui.QIcon(":/add.png"))
-		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
-		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)'''
-
 		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
 		self.addNewTypeBut.setText("Administrar gastos")
 		self.addNewTypeBut.setIcon(QtGui.QIcon(":/purse.png"))
 		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
 		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
-		self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
-		self.addNewTypeBut.setText("Grilla")
-		self.addNewTypeBut.setIcon(QtGui.QIcon(":/purse.png"))
-		self.addNewTypeBut.setTextAlignment(QtCore.Qt.AlignHCenter)
-		self.addNewTypeBut.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
 
 		#QtCore.QObject.connect(self.ui.menuAdministracion, QtCore.SIGNAL("triggered(QAction *)"),
 		#		self.changeToAction)
@@ -109,8 +98,8 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 		if selected == 0:
-			self.ui.title.setTitle("Administrar unidades")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
+			self.ui.title.setTitle("Grilla")
+			self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
 		elif selected == 1:
 			self.ui.title.setTitle("Administrar reservas")
 			self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
@@ -124,8 +113,8 @@ class MainWindow(QtGui.QMainWindow):
 			self.ui.title.setTitle("Gastos")
 			self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
 		elif selected == 5:
-			self.ui.title.setTitle("Grilla")
-			self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
+			self.ui.title.setTitle("Administrar unidades")
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
 		self.ui.widgets.setCurrentIndex(1)
 
 import sys
