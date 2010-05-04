@@ -1,10 +1,11 @@
 <RCC>
   <qresource>
-	<file alias="add.png">imgs/add.png</file>
-	<file alias="property.png">imgs/property.png</file>
-	<file alias="people.png">imgs/people.png</file>
-	<file alias="purse.png">imgs/purse.png</file>
-	<file alias="diaryplain.png">imgs/diaryplain.png</file>
-	<file alias="calendar.png">imgs/calendar.png</file>
+	<file alias="add.png">imgs/add2.png</file>
+	<file alias="property.png">imgs/property2.png</file>
+	<file alias="people.png">imgs/people2.png</file>
+	<file alias="purse.png">imgs/purse2.png</file>
+	<file alias="diaryplain.png">imgs/diaryplain2.png</file>
+	<file alias="calendar.png">imgs/calendar2.png</file>
+	<file alias="tools.png">imgs/tools2.png</file>
   </qresource>
 </RCC>
