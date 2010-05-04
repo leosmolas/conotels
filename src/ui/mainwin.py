@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Mon May 03 19:30:50 2010
+# Created: Tue May 04 19:57:05 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1024, 800)
+        MainWindow.resize(589, 771)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtGui.QGridLayout(self.centralwidget)
@@ -21,19 +21,9 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName("gridLayout")
         self.title = QtGui.QGroupBox(self.centralwidget)
         self.title.setObjectName("title")
-        self.verticalLayout_4 = QtGui.QVBoxLayout(self.title)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.options = QtGui.QListWidget(self.title)
-        self.options.setMaximumSize(QtCore.QSize(16777215, 100))
-        self.options.setFrameShape(QtGui.QFrame.NoFrame)
-        self.options.setFrameShadow(QtGui.QFrame.Sunken)
-        self.options.setIconSize(QtCore.QSize(150, 84))
-        self.options.setFlow(QtGui.QListView.LeftToRight)
-        self.options.setGridSize(QtCore.QSize(150, 80))
-        self.options.setViewMode(QtGui.QListView.IconMode)
-        self.options.setModelColumn(0)
-        self.options.setObjectName("options")
-        self.verticalLayout_4.addWidget(self.options)
+        self.gridLayout_3 = QtGui.QGridLayout(self.title)
+        self.gridLayout_3.setVerticalSpacing(2)
+        self.gridLayout_3.setObjectName("gridLayout_3")
         self.widgets = QtGui.QStackedWidget(self.title)
         self.widgets.setObjectName("widgets")
         self.page = QtGui.QWidget()
@@ -51,7 +41,30 @@ class Ui_MainWindow(object):
         self.page_2 = QtGui.QWidget()
         self.page_2.setObjectName("page_2")
         self.widgets.addWidget(self.page_2)
-        self.verticalLayout_4.addWidget(self.widgets)
+        self.gridLayout_3.addWidget(self.widgets, 2, 0, 1, 5)
+        spacerItem = QtGui.QSpacerItem(0, 0, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem, 1, 3, 1, 2)
+        spacerItem1 = QtGui.QSpacerItem(0, 0, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem1, 1, 0, 1, 2)
+        self.options = QtGui.QListWidget(self.title)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.MinimumExpanding, QtGui.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.options.sizePolicy().hasHeightForWidth())
+        self.options.setSizePolicy(sizePolicy)
+        self.options.setMaximumSize(QtCore.QSize(440, 105))
+        self.options.setFrameShape(QtGui.QFrame.NoFrame)
+        self.options.setFrameShadow(QtGui.QFrame.Sunken)
+        self.options.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.options.setIconSize(QtCore.QSize(60, 60))
+        self.options.setMovement(QtGui.QListView.Static)
+        self.options.setFlow(QtGui.QListView.LeftToRight)
+        self.options.setSpacing(10)
+        self.options.setViewMode(QtGui.QListView.IconMode)
+        self.options.setUniformItemSizes(True)
+        self.options.setWordWrap(True)
+        self.options.setObjectName("options")
+        self.gridLayout_3.addWidget(self.options, 1, 2, 1, 1)
         self.gridLayout.addWidget(self.title, 0, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -70,6 +83,7 @@ class Ui_MainWindow(object):
         self.actionAyuda.setObjectName("actionAyuda")
 
         self.retranslateUi(MainWindow)
+        self.widgets.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
