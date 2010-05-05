@@ -101,20 +101,21 @@ class MainWindow(QtGui.QMainWindow):
 			self.ui.title.setTitle("Grilla")
 			self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
 		elif selected == 1:
-			self.ui.title.setTitle("Administrar reservas")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
-		elif selected == 2:
-			self.ui.title.setTitle("Administrar tipos")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
-		elif selected == 3:
-			self.ui.title.setTitle("Administrar huespedes")
-			self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
-		elif selected == 4:
-			self.ui.title.setTitle("Gastos")
-			self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
-		elif selected == 5:
 			self.ui.title.setTitle("Administrar unidades")
 			self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
+		elif selected == 2:
+			self.ui.title.setTitle("Administrar reservas")
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
+		elif selected == 3:
+			self.ui.title.setTitle("Administrar tipos")
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
+		elif selected == 4:
+			self.ui.title.setTitle("Administrar huespedes")
+			self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
+		elif selected == 5:
+			self.ui.title.setTitle("Gastos")
+			self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
+
 		self.ui.widgets.setCurrentIndex(1)
 
 import sys
