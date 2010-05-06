@@ -159,8 +159,8 @@ class MainWindow(QtGui.QMainWindow):
 	def __del__(self):
 		self.conn.close()
 
-	def butClicked(self, selected):
-		if selected == self.buttonGroup.checkedId():
+	def butClicked(self, selected,shortcut=False):
+		if (selected == self.buttonGroup.checkedId() or shortcut):
 			
 			if selected != 7:
 				self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
@@ -188,7 +188,26 @@ class MainWindow(QtGui.QMainWindow):
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 				if ret == QtGui.QMessageBox.Ok:
 					sys.exit(app.exec_())
-			
+	
+	@QtCore.pyqtSlot()
+	def keyPressEvent(self, event):
+		keyEvent = QtGui.QKeyEvent(event)
+		if(event.type()==QtCore.QEvent.KeyPress):
+			if keyEvent.key() == QtCore.Qt.Key_F2:
+				self.buttonGroup.button(1).click()
+			elif keyEvent.key() == QtCore.Qt.Key_F3:
+				self.buttonGroup.button(2).click()
+			elif keyEvent.key() == QtCore.Qt.Key_F4:
+				self.buttonGroup.button(3).click()
+			elif keyEvent.key() == QtCore.Qt.Key_F5:
+				self.buttonGroup.button(4).click()
+			elif keyEvent.key() == QtCore.Qt.Key_F6:
+				self.buttonGroup.button(5).click()
+			elif keyEvent.key() == QtCore.Qt.Key_F7:
+				self.buttonGroup.button(6).click()
+			elif keyEvent.key() == QtCore.Qt.Key_F8:
+				self.buttonGroup.button(7).click()
+		return super(MainWindow, self).keyPressEvent(event)
 
 import sys
 
