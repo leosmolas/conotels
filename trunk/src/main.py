@@ -79,6 +79,14 @@ class MainWindow(QtGui.QMainWindow):
 		self.buttonGroup.addButton(button,6)
 		self.ui.buttonsLayout.addWidget(button)
 		
+		button = QtGui.QToolButton(self.ui.buttonsFrame)
+		button.setIcon(QtGui.QIcon(":/exit.png"))
+		button.setText("Salir")
+		button.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
+		button.setCheckable(True)
+		self.buttonGroup.addButton(button,7)
+		self.ui.buttonsLayout.addWidget(button)
+		
 		spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
 		self.ui.buttonsLayout.addItem(spacerItem)
 		
@@ -153,26 +161,34 @@ class MainWindow(QtGui.QMainWindow):
 
 	def butClicked(self, selected):
 		if selected == self.buttonGroup.checkedId():
-			self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
-			if selected == 1:
-				self.ui.title.setTitle("Grilla")
-				self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
-			elif selected == 2:
-				self.ui.title.setTitle("Reservas")
-				self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
-			elif selected == 3:
-				self.ui.title.setTitle("Gastos")
-				self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
-			elif selected == 4:
-				self.ui.title.setTitle("Huespedes")
-				self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
-			elif selected == 5:
-				self.ui.title.setTitle("Unidades")
-				self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
-			elif selected == 6:
-				self.ui.title.setTitle("Tipos de Unidad")
-				self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
-			self.ui.widgets.setCurrentIndex(1)
+			
+			if selected != 7:
+				self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
+				if selected == 1:
+					self.ui.title.setTitle("Grilla")
+					self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
+				elif selected == 2:
+					self.ui.title.setTitle("Reservas")
+					self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
+				elif selected == 3:
+					self.ui.title.setTitle("Gastos")
+					self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
+				elif selected == 4:
+					self.ui.title.setTitle("Huespedes")
+					self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
+				elif selected == 5:
+					self.ui.title.setTitle("Unidades")
+					self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
+				elif selected == 6:
+					self.ui.title.setTitle("Tipos de Unidad")
+					self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
+				self.ui.widgets.setCurrentIndex(1)
+			else:	
+				ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea salir?",
+				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
+				if ret == QtGui.QMessageBox.Ok:
+					sys.exit(app.exec_())
+			
 
 import sys
 

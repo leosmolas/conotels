@@ -12,5 +12,6 @@
 	<file alias="delete.png">imgs/delete.png</file>
 	<file alias="edit.png">imgs/edit.png</file>
 	<file alias="save.png">imgs/save.png</file>
+	<file alias="exit.png">imgs/exit.png</file>
   </qresource>
 </RCC>
