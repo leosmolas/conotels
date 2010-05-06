@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/mainwin.ui'
+# Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Wed May  5 16:19:56 2010
-#      by: PyQt4 UI code generator 4.6.1
+# Created: Thu May 06 13:42:49 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,8 +12,12 @@ from PyQt4 import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(566, 822)
+        MainWindow.resize(570, 650)
         self.centralwidget = QtGui.QWidget(MainWindow)
+        self.centralwidget.setStyleSheet("QFrame#buttonsFrame{\n"
+"    background-color: rgb(200, 200, 200);\n"
+"    border-radius: 5px;\n"
+"};")
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -23,11 +27,6 @@ class Ui_MainWindow(object):
         self.title.setObjectName("title")
         self.verticalLayout_3 = QtGui.QVBoxLayout(self.title)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.buttonsFrame = QtGui.QFrame(self.title)
-        self.buttonsFrame.setObjectName("buttonsFrame")
-        self.buttonsLayout = QtGui.QHBoxLayout(self.buttonsFrame)
-        self.buttonsLayout.setObjectName("buttonsLayout")
-        self.verticalLayout_3.addWidget(self.buttonsFrame)
         self.widgets = QtGui.QStackedWidget(self.title)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.MinimumExpanding, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -53,6 +52,27 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.widgets)
         self.gridLayout.addWidget(self.title, 0, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
+        self.buttonsFrame = QtGui.QFrame(self.centralwidget)
+        self.buttonsFrame.setStyleSheet("QToolButton{\n"
+"    border: 2px;\n"
+"    border-radius: 3px;    \n"
+"    icon-size:64px ;\n"
+"    text-align:center;\n"
+"}\n"
+"\n"
+"QToolButton:hover{\n"
+"    background-color: rgb(225, 225, 225);\n"
+"}\n"
+"\n"
+"QToolButton:checked{\n"
+"    background-color: rgba(110, 110, 110, 100);\n"
+"}\n"
+"\n"
+"")
+        self.buttonsFrame.setObjectName("buttonsFrame")
+        self.buttonsLayout = QtGui.QHBoxLayout(self.buttonsFrame)
+        self.buttonsLayout.setObjectName("buttonsLayout")
+        self.gridLayout_2.addWidget(self.buttonsFrame, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -75,18 +95,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         self.title.setTitle(QtGui.QApplication.translate("MainWindow", "GroupBox", None, QtGui.QApplication.UnicodeUTF8))
-        self.buttonsFrame.setStyleSheet(QtGui.QApplication.translate("MainWindow", "QToolButton{\n"
-"    border: 0px;    \n"
-"    icon-size:64px ;\n"
-"    text-align:center;\n"
-"}\n"
-"\n"
-"QToolButton:checked{\n"
-"    border-radius: 2px;\n"
-"    background-color: rgba(125, 125, 125, 100);\n"
-"}\n"
-"\n"
-"", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", " Bienvenido!", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNueva_unidad.setText(QtGui.QApplication.translate("MainWindow", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNuevo_Tipo.setText(QtGui.QApplication.translate("MainWindow", "Nuevo Tipo", None, QtGui.QApplication.UnicodeUTF8))
