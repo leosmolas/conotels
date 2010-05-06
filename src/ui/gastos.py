@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Mon May 03 16:23:28 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Thu May 06 20:45:01 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -91,7 +91,6 @@ class Ui_GastosDialog(object):
         self.formLayout_3.setWidget(0, QtGui.QFormLayout.LabelRole, self.pendienteLabel)
         self.pendienteCheckBox = QtGui.QCheckBox(self.pendienteFrame)
         self.pendienteCheckBox.setEnabled(False)
-        self.pendienteCheckBox.setText("")
         self.pendienteCheckBox.setCheckable(True)
         self.pendienteCheckBox.setChecked(True)
         self.pendienteCheckBox.setObjectName("pendienteCheckBox")
@@ -108,7 +107,6 @@ class Ui_GastosDialog(object):
         self.lbl.setObjectName("lbl")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.LabelRole, self.lbl)
         self.totalLabel = QtGui.QLabel(self.totalFrame)
-        self.totalLabel.setText("")
         self.totalLabel.setObjectName("totalLabel")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.FieldRole, self.totalLabel)
         self.gridLayout.addWidget(self.totalFrame, 4, 2, 1, 3)
@@ -120,7 +118,8 @@ class Ui_GastosDialog(object):
         QtCore.QMetaObject.connectSlotsByName(GastosDialog)
         GastosDialog.setTabOrder(self.buscarLineEdit, self.reservastableView)
         GastosDialog.setTabOrder(self.reservastableView, self.gastosTableView)
-        GastosDialog.setTabOrder(self.gastosTableView, self.descripcionLine)
+        GastosDialog.setTabOrder(self.gastosTableView, self.pendienteCheckBox)
+        GastosDialog.setTabOrder(self.pendienteCheckBox, self.descripcionLine)
         GastosDialog.setTabOrder(self.descripcionLine, self.buttonBox)
         GastosDialog.setTabOrder(self.buttonBox, self.gastoSpin)
 
