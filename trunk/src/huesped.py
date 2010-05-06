@@ -110,6 +110,6 @@ class HuespedDialog(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def keyPressEvent(self, event):
 		keyEvent = QtGui.QKeyEvent(event)
-		if(event.type()==QtCore.QEvent.KeyPress) and (keyEvent.key() == QtCore.Qt.Key_Return) and (keyEvent.key() == QtCore.Qt.Key_Enter):
+		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
 		return super(HuespedDialog, self).keyPressEvent(keyEvent)
