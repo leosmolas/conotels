@@ -6,14 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>439</width>
-    <height>389</height>
+    <width>436</width>
+    <height>469</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Nueva reserva</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
@@ -36,93 +43,93 @@
      <item row="1" column="1" colspan="2">
       <widget class="QLineEdit" name="huespedLine"/>
      </item>
-     <item row="2" column="1" colspan="2">
+     <item row="2" column="1" rowspan="3" colspan="2">
       <widget class="QTableView" name="huespedView"/>
      </item>
-     <item row="4" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Inicio Prereserva:</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="6" column="1">
       <widget class="QDateEdit" name="inicioPreDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
+     <item row="7" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Fin Prereserva:</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
+     <item row="7" column="1">
       <widget class="QDateEdit" name="finPreDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
+     <item row="8" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>Inicio Reserva:</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
+     <item row="8" column="1">
       <widget class="QDateEdit" name="inicioDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="7" column="0">
+     <item row="9" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>Fin Reserva:</string>
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
+     <item row="9" column="1">
       <widget class="QDateEdit" name="finDate">
        <property name="calendarPopup">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
+     <item row="10" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
         <string>Hora CheckIn:</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
+     <item row="10" column="1">
       <widget class="QTimeEdit" name="inTime"/>
      </item>
-     <item row="9" column="0">
+     <item row="11" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string>Hora CheckOut:</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="1">
+     <item row="11" column="1">
       <widget class="QTimeEdit" name="outTime"/>
      </item>
-     <item row="10" column="0">
+     <item row="12" column="0">
       <widget class="QLabel" name="label_9">
        <property name="text">
         <string>Estado:</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
+     <item row="12" column="1">
       <widget class="QComboBox" name="estadoCombo">
        <item>
         <property name="text">
@@ -151,14 +158,14 @@
        </item>
       </widget>
      </item>
-     <item row="11" column="0">
+     <item row="13" column="0">
       <widget class="QLabel" name="label_10">
        <property name="text">
         <string>Temporada:</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
+     <item row="13" column="1">
       <widget class="QComboBox" name="temporadaCombo">
        <item>
         <property name="text">
@@ -172,7 +179,7 @@
        </item>
       </widget>
      </item>
-     <item row="4" column="2">
+     <item row="6" column="2">
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -195,21 +202,27 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="5" column="1">
       <widget class="QPushButton" name="nuevoBut">
        <property name="text">
         <string>Crear nuevo huesped</string>
        </property>
       </widget>
      </item>
+     <item row="3" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
-   </item>
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>

@@ -7,5 +7,10 @@
 	<file alias="diaryplain.png">imgs/diaryplain2.png</file>
 	<file alias="calendar.png">imgs/calendar2.png</file>
 	<file alias="tools.png">imgs/tools2.png</file>
+	<file alias="back.png">imgs/back.png</file>
+	<file alias="cancel.png">imgs/cancel.png</file>
+	<file alias="delete.png">imgs/delete.png</file>
+	<file alias="edit.png">imgs/edit.png</file>
+	<file alias="save.png">imgs/save.png</file>
   </qresource>
 </RCC>
