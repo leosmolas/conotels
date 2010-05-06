@@ -6,14 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>566</width>
-    <height>822</height>
+    <width>570</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QFrame#buttonsFrame{
+	background-color: rgb(200, 200, 200);
+	border-radius: 5px;
+};</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
@@ -23,25 +29,6 @@
          <string>GroupBox</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QFrame" name="buttonsFrame">
-           <property name="styleSheet">
-            <string>QToolButton{
-	border: 0px;	
-	icon-size:64px ;
-	text-align:center;
-}
-
-QToolButton:checked{
-	border-radius: 2px;
-	background-color: rgba(125, 125, 125, 100);
-}
-
-</string>
-           </property>
-           <layout class="QHBoxLayout" name="buttonsLayout"/>
-          </widget>
-         </item>
          <item>
           <widget class="QStackedWidget" name="widgets">
            <property name="sizePolicy">
@@ -78,6 +65,29 @@ QToolButton:checked{
        </widget>
       </item>
      </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="buttonsFrame">
+      <property name="styleSheet">
+       <string notr="true">QToolButton{
+	border: 2px;
+	border-radius: 3px;	
+	icon-size:64px ;
+	text-align:center;
+}
+
+QToolButton:hover{
+	background-color: rgb(225, 225, 225);
+}
+
+QToolButton:checked{
+	background-color: rgba(110, 110, 110, 100);
+}
+
+</string>
+      </property>
+      <layout class="QHBoxLayout" name="buttonsLayout"/>
+     </widget>
     </item>
    </layout>
   </widget>

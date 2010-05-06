@@ -73,7 +73,7 @@ class MainWindow(QtGui.QMainWindow):
 		
 		button = QtGui.QToolButton(self.ui.buttonsFrame)
 		button.setIcon(QtGui.QIcon(":/tools.png"))
-		button.setText("Tipo")
+		button.setText("Tipos de Unidad")
 		button.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
 		button.setCheckable(True)
 		self.buttonGroup.addButton(button,6)
@@ -170,7 +170,7 @@ class MainWindow(QtGui.QMainWindow):
 				self.ui.title.setTitle("Unidades")
 				self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
 			elif selected == 6:
-				self.ui.title.setTitle("Tipos")
+				self.ui.title.setTitle("Tipos de Unidad")
 				self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 			self.ui.widgets.setCurrentIndex(1)
 
