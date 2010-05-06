@@ -207,7 +207,7 @@ class MainWindow(QtGui.QMainWindow):
 				self.buttonGroup.button(6).click()
 			elif keyEvent.key() == QtCore.Qt.Key_F8:
 				self.buttonGroup.button(7).click()
-		return super(MainWindow, self).keyPressEvent(event)
+		return super(MainWindow, self).keyPressEvent(keyEvent)
 
 import sys
 

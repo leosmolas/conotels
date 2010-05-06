@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Thu May 06 11:29:45 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Thu May 06 20:43:08 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -114,7 +114,9 @@ class Ui_reservaDialog(object):
         QtCore.QMetaObject.connectSlotsByName(reservaDialog)
         reservaDialog.setTabOrder(self.unidadCombo, self.huespedLine)
         reservaDialog.setTabOrder(self.huespedLine, self.huespedView)
-        reservaDialog.setTabOrder(self.huespedView, self.finPreDate)
+        reservaDialog.setTabOrder(self.huespedView, self.nuevoBut)
+        reservaDialog.setTabOrder(self.nuevoBut, self.inicioPreDate)
+        reservaDialog.setTabOrder(self.inicioPreDate, self.finPreDate)
         reservaDialog.setTabOrder(self.finPreDate, self.inicioDate)
         reservaDialog.setTabOrder(self.inicioDate, self.finDate)
         reservaDialog.setTabOrder(self.finDate, self.inTime)

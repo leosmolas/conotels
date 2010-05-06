@@ -226,3 +226,10 @@ class ReservaDialog(QtGui.QDialog):
 		self.uiMain.title.setTitle("Administrar reservas")
 		self.uiMain.widgets.setCurrentIndex(1)
 		self.uiMain.widgets.widget(1).loadAll()
+		
+	@QtCore.pyqtSlot()
+	def keyPressEvent(self, event):
+		keyEvent = QtGui.QKeyEvent(event)
+		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
+			self.focusNextChild()
+		return super(ReservaDialog, self).keyPressEvent(keyEvent)

@@ -261,6 +261,7 @@
   <tabstop>buscarLineEdit</tabstop>
   <tabstop>reservastableView</tabstop>
   <tabstop>gastosTableView</tabstop>
+  <tabstop>pendienteCheckBox</tabstop>
   <tabstop>descripcionLine</tabstop>
   <tabstop>buttonBox</tabstop>
   <tabstop>gastoSpin</tabstop>

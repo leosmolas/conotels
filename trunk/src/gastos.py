@@ -145,3 +145,10 @@ class GastosDialog(QtGui.QDialog):
 		self.model.cancelarPendientes(self.reservaActual)
 		self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		self.uiMain.statusBar.showMessage("Se han cancelado todos los gastos de la reserva.",3000)
+		
+	@QtCore.pyqtSlot()
+	def keyPressEvent(self, event):
+		keyEvent = QtGui.QKeyEvent(event)
+		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
+			self.focusNextChild()
+		return super(GastosDialog, self).keyPressEvent(keyEvent)
