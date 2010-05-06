@@ -101,6 +101,7 @@ class GrillaDialog(QtGui.QDialog):
 		while date.month() == mes:
 			days+=1
 			date = date.addDays(1)
+			print date.longDayName(date.dayOfWeek())
 
 		self.ui.tableWidget.setColumnCount(days)
 		self.ui.tableWidget.resizeColumnsToContents()
