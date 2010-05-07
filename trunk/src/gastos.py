@@ -51,7 +51,7 @@ class GastosDialog(QtGui.QDialog):
 
 	def save(self,id = -1):
 		print "new gastos"
-		self.model.save(id,descripcion=re.escape(self.ui.descripcionLine.text()),
+		self.model.save(id,descripcion=re.escape(str(self.ui.descripcionLine.text())),
 				costo=self.ui.gastoSpin.value(),
 				reserva=self.reservaActual,
 				pendiente=self.ui.pendienteCheckBox.isChecked())
@@ -139,6 +139,7 @@ class GastosDialog(QtGui.QDialog):
 		self.modificarBut.setEnabled(modelIndexList!=[])
 		self.ui.gastoSpin.setValue(self.model.model.getItem(2,self.ui.gastosTableView.selectedIndexes()[0].row()).toInt()[0])
 		self.ui.descripcionLine.setText(self.model.model.getItem(1,self.ui.gastosTableView.selectedIndexes()[0].row()).toString())
+		self.ui.pendienteCheckBox.setChecked((QtCore.QVariant.toInt(self.model.model.getItem(4,self.ui.gastosTableView.selectedIndexes()[0].row()))[0])==1)
 	
 	@QtCore.pyqtSlot()
 	def cancelarPendientes(self):
