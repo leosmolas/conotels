@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-1 -*-
 from PyQt4 import QtCore,QtGui
 from ui.grilla import Ui_Grilla
 
@@ -102,7 +103,7 @@ class GrillaDialog(QtGui.QDialog):
 		while date.month() == mes:
 			days+=1
 			date = date.addDays(1)
-			nameDays.append(unicode(str(date.shortDayName(date.dayOfWeek()))).encode("iso8859-1")+" "+str(days))
+			nameDays.append(str(unicode(date.shortDayName(date.dayOfWeek())).encode("latin-1"))+" "+str(days))
 
 		self.ui.tableWidget.setColumnCount(days)
 		self.ui.tableWidget.setHorizontalHeaderLabels(nameDays)
