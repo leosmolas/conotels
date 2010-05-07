@@ -152,10 +152,12 @@ class Admin(QtGui.QDialog):
 				QtGui.QMessageBox.information(self, "Advertencia","La Huesped esta Asociada a una Reserva!")
 			else:
 				elim = 1
-			
+		elif self.nombre == "Reserva":
+			elim = 1
+		
 		if elim == 1:
 			print "no estaba asociado"
-			ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea eliminar?",
+			ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea realizar la eliminación?",
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 			
 			if ret == QtGui.QMessageBox.Ok:
