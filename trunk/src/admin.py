@@ -149,11 +149,14 @@ class Admin(QtGui.QDialog):
 				elim = 1
 		elif self.nombre == "Huesped":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Advertencia","La Huesped esta Asociada a una Reserva!")
+				QtGui.QMessageBox.information(self, "Advertencia","El Huesped esta Asociado a una Reserva!")
 			else:
 				elim = 1
 		elif self.nombre == "Reserva":
-			elim = 1
+			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
+				QtGui.QMessageBox.information(self, "Advertencia","La Reserva esta Asociada a un Gasto!")
+			else:
+				elim = 1
 		
 		if elim == 1:
 			print "no estaba asociado"
