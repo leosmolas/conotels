@@ -6,8 +6,11 @@ from PyQt4 import QtCore,QtGui
 # 3 - Reserva en curso
 
 class TableItem(QtGui.QTableWidgetItem):
-	def __init__(self, reserva = -1, tipo = 0):
+	def __init__(self, reserva = -1, tipo = 0, init = False):
 		super(TableItem, self).__init__()
+
+		if init:
+			self.setText("*")
 
 		self.reserva = reserva
 		self.tipo = tipo
