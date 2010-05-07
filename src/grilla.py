@@ -98,12 +98,14 @@ class GrillaDialog(QtGui.QDialog):
 
 		# Armamos las columnas segun los dias del mes seleccionado
 		days = 0
+		nameDays = QtCore.QStringList()
 		while date.month() == mes:
 			days+=1
 			date = date.addDays(1)
-			print date.shortDayName(date.dayOfWeek())
+			nameDays.append(str(date.shortDayName(date.dayOfWeek()))+" "+str(days))
 
 		self.ui.tableWidget.setColumnCount(days)
+		self.ui.tableWidget.setHorizontalHeaderLabels(nameDays)
 		self.ui.tableWidget.resizeColumnsToContents()
 
 		for i in range(0, self.cantUnidades):
@@ -149,7 +151,7 @@ class GrillaDialog(QtGui.QDialog):
 			print "endDay: %d" % endDay
 
 			for i in range(initDay-1, endDay):
-				self.ui.tableWidget.setItem(self.uDict[unidad], i, TableItem(reserva=res, tipo=estado))
+				self.ui.tableWidget.setItem(self.uDict[unidad], i, TableItem(reserva=res, tipo=estado,init=(i==(initDay-1))))
 
 
 	@QtCore.pyqtSlot()
