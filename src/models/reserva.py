@@ -71,3 +71,7 @@ class Reserva(AbstractModel):
 
 	def loadMesAnio(self, mes = 1, anio = 2000):
 		self.model = self.conn.query("select * from reserva where (month(inicioPrereserva)=%(mes)d or month(finPrereserva)=%(mes)d or month(inicioReserva)=%(mes)d or month(finReserva)=%(mes)d) and (year(inicioReserva)=%(anio)d or year(finReserva)=%(anio)d or year(inicioPrereserva)=%(anio)d or year(finPrereserva)=%(anio)d) and estado!=\"Reserva cancelada\"" % {'mes': mes, 'anio': anio});
+
+	def checkelim(self, id=""):
+		model = self.conn.query("select * from gasto where reserva = " + str(id))
+		return model.rowCount()
