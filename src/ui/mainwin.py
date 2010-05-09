@@ -1,8 +1,8 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Thu May 06 13:42:49 2010
+# Created: Sat May 08 21:58:38 2010
 #      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
@@ -77,6 +77,12 @@ class Ui_MainWindow(object):
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.menuBar = QtGui.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 18))
+        self.menuBar.setObjectName("menuBar")
+        self.menuAyuda = QtGui.QMenu(self.menuBar)
+        self.menuAyuda.setObjectName("menuAyuda")
+        MainWindow.setMenuBar(self.menuBar)
         self.actionNueva_unidad = QtGui.QAction(MainWindow)
         self.actionNueva_unidad.setObjectName("actionNueva_unidad")
         self.actionNuevo_Tipo = QtGui.QAction(MainWindow)
@@ -87,19 +93,30 @@ class Ui_MainWindow(object):
         self.actionAcerca_de.setObjectName("actionAcerca_de")
         self.actionAyuda = QtGui.QAction(MainWindow)
         self.actionAyuda.setObjectName("actionAyuda")
+        self.menuAyuda_2 = QtGui.QAction(MainWindow)
+        self.menuAyuda_2.setObjectName("menuAyuda_2")
+        self.menuAcercade = QtGui.QAction(MainWindow)
+        self.menuAcercade.setObjectName("menuAcercade")
+        self.menuAyuda.addAction(self.menuAyuda_2)
+        self.menuAyuda.addSeparator()
+        self.menuAyuda.addAction(self.menuAcercade)
+        self.menuBar.addAction(self.menuAyuda.menuAction())
 
         self.retranslateUi(MainWindow)
         self.widgets.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Conotels 1.0.0", None, QtGui.QApplication.UnicodeUTF8))
         self.title.setTitle(QtGui.QApplication.translate("MainWindow", "GroupBox", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", " Bienvenido!", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuAyuda.setTitle(QtGui.QApplication.translate("MainWindow", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNueva_unidad.setText(QtGui.QApplication.translate("MainWindow", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNuevo_Tipo.setText(QtGui.QApplication.translate("MainWindow", "Nuevo Tipo", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSalir.setText(QtGui.QApplication.translate("MainWindow", "Salir", None, QtGui.QApplication.UnicodeUTF8))
         self.actionAcerca_de.setText(QtGui.QApplication.translate("MainWindow", "Acerca de...", None, QtGui.QApplication.UnicodeUTF8))
         self.actionAyuda.setText(QtGui.QApplication.translate("MainWindow", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuAyuda_2.setText(QtGui.QApplication.translate("MainWindow", "Ayuda Conotels", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuAcercade.setText(QtGui.QApplication.translate("MainWindow", "Acerca de", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc

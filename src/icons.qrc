@@ -13,5 +13,9 @@
 	<file alias="edit.png">imgs/edit.png</file>
 	<file alias="save.png">imgs/save.png</file>
 	<file alias="exit.png">imgs/exit.png</file>
+	<file alias="windows-logo.png">imgs/windows-logo.png</file>
+	<file alias="linux-logo.png">imgs/linux-logo.png</file>
+	<file alias="apple-logo.png">imgs/apple-logo.png</file>
+	<file alias="conosoft-logo.png">imgs/conosoft-logo.png</file>
   </qresource>
 </RCC>
