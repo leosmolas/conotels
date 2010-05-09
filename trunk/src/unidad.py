@@ -86,7 +86,7 @@ class UnidadDialog(QtGui.QDialog):
 						capacidad=self.ui.capacidadSpin.value(),
 						descripcion=re.escape(str(self.ui.descripcionText.toPlainText())),
 						estado=estad)
-					self.uiMain.statusBar.showMessage(u "Los datos se han guardado con éxito!",3000)
+					self.uiMain.statusBar.showMessage(u"Los datos se han guardado con éxito!",3000)
 					return True
 				else:
 					QtGui.QMessageBox.information(self, "Error", u"El número de la unidad ya existe!")
