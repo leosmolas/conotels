@@ -166,7 +166,7 @@ class ReservaDialog(QtGui.QDialog):
 								self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 								return True
 							except:
-								QtGui.QMessageBox.information(self, "Advertencia", "Ya existen reservas en ese periodo para la unidad seleccionada!")
+								QtGui.QMessageBox.information(self, "Advertencia", u"Ya existen reservas en ese período para la unidad seleccionada!")
 								
 						else:
 							QtGui.QMessageBox.information(self, "Advertencia", "La fecha de inicio de reserva debe ser anterior a la de fin!")
@@ -176,11 +176,11 @@ class ReservaDialog(QtGui.QDialog):
 					QtGui.QMessageBox.information(self, "Advertencia", "La fecha de comienzo de prereserva debe ser anterior a la de fin!")
 			else:
 				#self.uiMain.statusBar.showMessage("Debe seleccionar un Huesped para realizar la reserva!",3000)
-				QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar un Huesped para realizar la reserva!")
+				QtGui.QMessageBox.information(self, "Advertencia", u"Debe seleccionar un huésped para realizar la reserva!")
 				return False
 		else:
 			#self.uiMain.statusBar.showMessage("Debe seleccionar una Unidad para realizar la reserva!",3000)
-			QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar una Unidad para realizar la reserva!")
+			QtGui.QMessageBox.information(self, "Advertencia", u"Debe seleccionar una unidad para realizar la reserva!")
 			return False
 		
 	def clear(self):
