@@ -177,7 +177,7 @@ class MainWindow(QtGui.QMainWindow):
 					self.ui.title.setTitle("Gastos")
 					self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
 				elif selected == 4:
-					self.ui.title.setTitle("Huépedes")
+					self.ui.title.setTitle(u"Huépedes")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
 				elif selected == 5:
 					self.ui.title.setTitle("Unidades")
