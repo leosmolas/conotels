@@ -58,7 +58,7 @@ class MainWindow(QtGui.QMainWindow):
 		
 		button = QtGui.QToolButton(self.ui.buttonsFrame)
 		button.setIcon(QtGui.QIcon(":/people.png"))
-		button.setText("Huésped")
+		button.setText(u"Huésped")
 		button.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
 		button.setCheckable(True)
 		self.buttonGroup.addButton(button,4)
@@ -177,7 +177,7 @@ class MainWindow(QtGui.QMainWindow):
 					self.ui.title.setTitle("Gastos")
 					self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
 				elif selected == 4:
-					self.ui.title.setTitle("Huespedes")
+					self.ui.title.setTitle("Huépedes")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
 				elif selected == 5:
 					self.ui.title.setTitle("Unidades")
