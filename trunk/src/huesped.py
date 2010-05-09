@@ -71,11 +71,11 @@ class HuespedDialog(QtGui.QDialog):
 					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 				return True
 			else:
-				QtGui.QMessageBox.information(self, "Advertencia", "El DNI Ingresado ya existe!")
+				QtGui.QMessageBox.information(self, "Error", "El DNI ingresado ya existe!")
 				#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
 				return False
 		else:
-			QtGui.QMessageBox.information(self, "Advertencia", "Los campos DNI, Apellido y Nombre no pueden ser vacios!")
+			QtGui.QMessageBox.information(self, "Error", u"Los campos DNI, Apellido y Nombre no pueden ser vacíos!")
 			#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
 			return False
 		
@@ -104,7 +104,7 @@ class HuespedDialog(QtGui.QDialog):
 
 	def on_backBut_clicked(self):
 		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
-		self.uiMain.title.setTitle("Administrar huesped")
+		self.uiMain.title.setTitle(u"Administrar huésped")
 		self.uiMain.widgets.setCurrentIndex(1)
 		self.uiMain.widgets.widget(1).loadAll()
 
