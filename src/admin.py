@@ -77,7 +77,7 @@ class Admin(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):
 		if self.ui.tableView.currentIndex().row() == -1:
-			QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una fila para poder modificar",
+			QtGui.QMessageBox.information(self, "Error", unicode("Debe seleccionar una fila para poder modificar!"),
 			QtGui.QMessageBox.Ok)
 			return
 
@@ -128,7 +128,7 @@ class Admin(QtGui.QDialog):
 	def on_elimBut_clicked(self):
 		print "elim"
 		if self.ui.tableView.currentIndex().row() == -1:
-			QtGui.QMessageBox.information(self, "Advertencia", "Debe seleccionar una fila para poder eliminar",
+			QtGui.QMessageBox.information(self, "Error", unicode("Debe seleccionar una fila para poder eliminar!"),
 			QtGui.QMessageBox.Ok)
 			#self.uiMain.statusBar.showMessage("Debe seleccionar una fila antes de eliminar",3000)
 			return
@@ -139,28 +139,28 @@ class Admin(QtGui.QDialog):
 			
 		if self.nombre == "Tipo": 
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Advertencia","El Tipo esta Asociado a una Unidad!")
+				QtGui.QMessageBox.information(self, "Error",unicode("El tipo está asociado a una unidad!"))
 			else:
 				elim = 1
 		elif self.nombre == "Unidad":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Advertencia","La Unidad esta Asociada a una Reserva!")
+				QtGui.QMessageBox.information(self, "Error",unicode("La unidad está asociada a una reserva!"))
 			else:
 				elim = 1
 		elif self.nombre == "Huesped":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Advertencia","El Huesped esta Asociado a una Reserva!")
+				QtGui.QMessageBox.information(self, "Error",unicode("El huésped está asociado a una reserva!"))
 			else:
 				elim = 1
 		elif self.nombre == "Reserva":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Advertencia","La Reserva esta Asociada a un Gasto!")
+				QtGui.QMessageBox.information(self, "Error",unicode("La reserva está asociada a un gasto!"))
 			else:
 				elim = 1
 		
 		if elim == 1:
 			print "no estaba asociado"
-			ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea realizar la eliminación?",
+			ret = QtGui.QMessageBox.question(self, "Advertencia", unicode("Está seguro de que desea realizar la eliminación?"),
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 			
 			if ret == QtGui.QMessageBox.Ok:
