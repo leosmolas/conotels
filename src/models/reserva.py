@@ -20,7 +20,7 @@ class Reserva(AbstractModel):
 
 	def save(self, id = -1, unidad="",huesped="",inicioPrereserva="",finPrereserva="",inicioReserva="",finReserva="",horaCheckIn="",horaCheckOut="",estado="", temporada=""): # if id != -1: update; else: save;
 		
-		self.q = "select idreserva from reserva where (((inicioReserva >= '"+inicioReserva+"') and (inicioReserva <= '"+finReserva+"')) or ((finReserva >= '"+inicioReserva+"') and (finReserva <= '"+finReserva+"'))) and (unidad="+str(unidad)+")"
+		self.q = "select distinct idreserva from reserva where (((inicioReserva >= '"+inicioReserva+"') and (inicioReserva <= '"+finReserva+"')) or ((finReserva >= '"+inicioReserva+"') and (finReserva <= '"+finReserva+"'))) and (unidad="+str(unidad)+")"
 		
 		print self.q
 		
@@ -29,8 +29,9 @@ class Reserva(AbstractModel):
 		print self.queryOverlap.rowCount()
 		
 		
-		if id != -1:
-			if self.queryOverlap.rowCount() != 1:
+		if id != -1: #Es una modificación
+			# not(No se solapa o se solapa sólo con si misma) -> Error
+			if not (self.queryOverlap.rowCount() == 0 or ((self.queryOverlap.rowCount() == 1) and (self.queryOverlap.getItem("idreserva") == id))):
 				raise "Ya existen reservas en ese periodo!"
 			self.conn.update("update "+self.tableName+ 
 				" set unidad="+str(unidad)+
