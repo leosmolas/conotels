@@ -187,7 +187,7 @@ class MainWindow(QtGui.QMainWindow):
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 				self.ui.widgets.setCurrentIndex(1)
 			else:	
-				ret = QtGui.QMessageBox.question(self, "Esta seguro?", "Esta seguro que desea salir?",
+				ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea salir?",
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 				if ret == QtGui.QMessageBox.Ok:
 					sys.exit(app.exec_())
