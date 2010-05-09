@@ -82,9 +82,9 @@ class UnidadDialog(QtGui.QDialog):
 					estad = "Libre"
 					if self.ui.noDisponibleCheck.checkState() == QtCore.Qt.Checked:
 						estad = "No Disponible"
-					self.model.save(id=self.id,nombre=re.escape(self.ui.numeroLine.text()),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
+					self.model.save(id=self.id,nombre=re.escape(str(self.ui.numeroLine.text())),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
 						capacidad=self.ui.capacidadSpin.value(),
-						descripcion=re.escape(self.ui.descripcionText.toPlainText()),
+						descripcion=re.escape(str(self.ui.descripcionText.toPlainText())),
 						estado=estad)
 					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 					return True

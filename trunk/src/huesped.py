@@ -59,13 +59,13 @@ class HuespedDialog(QtGui.QDialog):
 	def save(self):
 		if self.ui.dniLine.text() != "" and self.ui.nombreLine.text() != "" and self.ui.apellidoLine.text() != "": 
 			if (self.modif and self.ui.dniLine.text() == self.dni) or self.model.checkdni(self.ui.dniLine.text()) == 0:
-				self.model.save(id=self.id,dni=re.escape(self.ui.dniLine.text()),
-					nombre=re.escape(self.ui.nombreLine.text()),
-					apellido=re.escape(self.ui.apellidoLine.text()),
-					telefono=re.escape(self.ui.telLine.text()),
-					celular=re.escape(self.ui.celLine.text()),
-					direccion=re.escape(self.ui.direccionLine.text()),
-					localidad=re.escape(self.ui.localidadLine.text()))
+				self.model.save(id=self.id,dni=re.escape(str(self.ui.dniLine.text())),
+					nombre=re.escape(str(self.ui.nombreLine.text())),
+					apellido=re.escape(str(self.ui.apellidoLine.text())),
+					telefono=re.escape(str(self.ui.telLine.text())),
+					celular=re.escape(str(self.ui.celLine.text())),
+					direccion=re.escape(str(self.ui.direccionLine.text())),
+					localidad=re.escape(str(self.ui.localidadLine.text())))
 				#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 				if self.uiMain != None:
 					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
