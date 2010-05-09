@@ -86,17 +86,17 @@ class UnidadDialog(QtGui.QDialog):
 						capacidad=self.ui.capacidadSpin.value(),
 						descripcion=re.escape(str(self.ui.descripcionText.toPlainText())),
 						estado=estad)
-					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+					self.uiMain.statusBar.showMessage(u "Los datos se han guardado con éxito!",3000)
 					return True
 				else:
-					QtGui.QMessageBox.information(self, "Advertencia","El numero de la Unidad ya existe!")
+					QtGui.QMessageBox.information(self, "Error", u"El número de la unidad ya existe!")
 					return False
 			else:
 				#self.uiMain.statusBar.showMessage("Debe seleccionar una opción del campo Tipo!",3000)
-				QtGui.QMessageBox.information(self, "Advertencia","Debe seleccionar una opción del campo Tipo!")
+				QtGui.QMessageBox.information(self, "Error", u"Debe seleccionar una opción del campo Tipo!")
 				return False
 		else:
-			QtGui.QMessageBox.information(self, "Advertencia","El campo Nombre no puede ser vacio!")
+			QtGui.QMessageBox.information(self, "Error", u"El campo Nombre no puede ser vacío!")
 			return False
 	
 	def clear(self):
