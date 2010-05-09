@@ -1,5 +1,7 @@
 from PyQt4 import QtCore, QtGui
 
+import re
+
 from ui.tipo import Ui_tipoDialog
 from models.tipo import Tipo
 
