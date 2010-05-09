@@ -10,6 +10,8 @@ from huesped import HuespedDialog
 from gastos import GastosDialog
 from admin import Admin
 from grilla import GrillaDialog
+from about import AboutDialog
+
 
 from connection.connection import Connection
 
@@ -22,7 +24,6 @@ class MainWindow(QtGui.QMainWindow):
 		#self.setStyleSheet("QListView {background-color: transparent;}") #el qt lee css chaboonnnnnnnnnnnnnnnnnnnn es un WIN :D
 		self.statusBar = QtGui.QStatusBar(self)
 		self.setStatusBar(self.statusBar)
-		#self.statusBar.showMessage("prueba",3000)
 		self.ui.statusBar = self.statusBar;
 		
 		self.buttonGroup = QtGui.QButtonGroup(self)
@@ -92,6 +93,8 @@ class MainWindow(QtGui.QMainWindow):
 		
 		QtCore.QObject.connect(self.buttonGroup, QtCore.SIGNAL("buttonClicked(int)"),
 				self.butClicked)
+				
+		QtCore.QObject.connect(self.ui.menuAcercade,QtCore.SIGNAL("activated()"),self.abrirAcercade)
 		self.butClicked(1)
 		
 		#self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
@@ -208,6 +211,13 @@ class MainWindow(QtGui.QMainWindow):
 			elif keyEvent.key() == QtCore.Qt.Key_F8:
 				self.buttonGroup.button(7).click()
 		return super(MainWindow, self).keyPressEvent(keyEvent)
+	
+	def abrirAcercade(self):
+		print "hola"
+		diag = AboutDialog()
+		diag.setWindowFlags(QtCore.Qt.Tool|QtCore.Qt.MSWindowsFixedSizeDialogHint)
+		#diag.setWindowFlags(QtCore.Qt.MSWindowsFixedSizeDialogHint)
+		diag.exec_()
 
 import sys
 
