@@ -22,7 +22,7 @@ class GastosDialog(QtGui.QDialog):
 		self.ui.setupUi(self)
 
 		self.okBut        = self.ui.buttonBox.addButton("Guardar &Nuevo", QtGui.QDialogButtonBox.ActionRole)		
-		self.modificarBut = self.ui.buttonBox.addButton("Guardar &Modificación", QtGui.QDialogButtonBox.ActionRole)
+		self.modificarBut = self.ui.buttonBox.addButton(u"Guardar &Modificación", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelarPendientesBut = self.ui.buttonBox.addButton("Cancelar &Pendientes", QtGui.QDialogButtonBox.ActionRole)
 		self.okBut.setEnabled       (False)
 		self.modificarBut.setEnabled(False)
@@ -64,7 +64,7 @@ class GastosDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+		self.uiMain.statusBar.showMessage(unicode("Los datos se han guardado con éxito!"),3000)
 		# print "self.ui.reservastableView.selectedIndexes()[0]" + str(self.ui.reservastableView.selectedIndexes()[0])
 		self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		
@@ -80,7 +80,7 @@ class GastosDialog(QtGui.QDialog):
 			
 			self.save(QtCore.QVariant.toInt(self.model.model.getItem(0,self.ui.gastosTableView.selectedIndexes()[0].row()))[0])
 			self.clear()
-			QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
+			QtGui.QMessageBox.information(self, unicode("Guardado con éxito"), unicode("Los datos se han guardado con éxito!"))
 			self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		else:
 			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para modificar.",3000)
