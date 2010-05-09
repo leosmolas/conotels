@@ -21,6 +21,8 @@ class MainWindow(QtGui.QMainWindow):
 	def setup(self):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
+		
+		self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(":/house.png")))
 		#self.setStyleSheet("QListView {background-color: transparent;}") #el qt lee css chaboonnnnnnnnnnnnnnnnnnnn es un WIN :D
 		self.statusBar = QtGui.QStatusBar(self)
 		self.setStatusBar(self.statusBar)
