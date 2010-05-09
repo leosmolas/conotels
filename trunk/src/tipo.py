@@ -10,6 +10,8 @@ class TipoDialog(QtGui.QDialog):
 		self.ui = Ui_tipoDialog()
 		self.ui.setupUi(self)
 		
+		self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(":/house.png")))
+		
 		self.okBut = self.ui.buttonBox.addButton("&Guardar", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelBut = self.ui.buttonBox.addButton("&Cancelar", QtGui.QDialogButtonBox.ActionRole)
 

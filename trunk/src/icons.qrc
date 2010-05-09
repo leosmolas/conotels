@@ -17,5 +17,6 @@
 	<file alias="linux-logo.png">imgs/linux-logo.png</file>
 	<file alias="apple-logo.png">imgs/apple-logo.png</file>
 	<file alias="conosoft-logo.png">imgs/conosoft-logo.png</file>
+	<file alias="house.png">imgs/house.png</file>
   </qresource>
 </RCC>
