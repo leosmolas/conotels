@@ -1,0 +1,20 @@
+1) Bajar e instalar py2exe: http://www.py2exe.org/ (tiene que ser para la version exacta de python, es decir 2.5,2,6, etc)
+
+3) Copiar setup.py al directorio donde este el main.py. En este archivo de detalla que librerías se deberían incluir en el ejecutable. 
+	También se establece si se quiere ejecutar por consola o en un 	ventana. Por defecto esta par que ejecute en ventana, si se quiere por 	consola solo hay que cambiar la palabra windows por console.
+
+2) Anrir una terminal en el directorio donde este el main.py 
+
+3) Ejecutar python setup.py install
+
+4) Ejecutar python setup.py py2exe. Esto crea un directorio dist donde se encuentra el ejecutable junto con las librerías necesarias. Falta copiar una dll a mano para que funcione bien QMYSQL
+
+5) Crear el directorio sqldrivers en dist
+
+6) Copiar el plugin qsqlmysql4.dll que esta en el directorio de Python
+En windows, generalmente en:
+C:\Python26\Lib\site-packages\PyQt4\plugins\sqldrivers
+
+7) Pegarlo en dist/sqldrivers 
+
+Ejecutando el main.exe dentro de dist debería funcionar sin problemas.
