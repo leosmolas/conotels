@@ -15,12 +15,14 @@ from models.unidad import Unidad
 # 2 - Reserva en curso
 
 class GrillaDialog(QtGui.QDialog):
-	def __init__(self, conn, parent = None):
+	def __init__(self, conn, parent = None, mainWin = None):
 		super(GrillaDialog, self).__init__(parent)
 
 		self.ui = Ui_Grilla()
 		self.ui.setupUi(self)
 
+		self.uiMain = mainWin
+		
 		self.conn = conn
 
 		self.ui.anioSpin.setValue(QtCore.QDate.currentDate().year())
@@ -163,9 +165,11 @@ class GrillaDialog(QtGui.QDialog):
 
 		if res == -1:
 			today = QtCore.QDate.fromString(str(self.ui.anioSpin.value())+"-"+str(self.ui.mesCombo.currentIndex()+1)+"-"+str(column+1),"yyyy-MM-dd").toString("yyyy-MM-dd")
-#            print today
-#            print str(self.ui.anioSpin.value())+"-"+str(self.ui.mesCombo.currentIndex()+1)+"-"+str(column)+1
-			diag = ReservaDialog(self.conn, inicioReserva=today)
+
+			endReservaDefault = QtCore.QDate.currentDate().addDays(7).toString("yyyy-MM-dd")
+
+			diag = ReservaDialog(self.conn, inicioReserva=today, finReserva=endReservaDefault)
+			
 		else:
 			resMod = Reserva(self.conn)
 			resMod.load(res)
@@ -175,7 +179,7 @@ class GrillaDialog(QtGui.QDialog):
 				huesped=m.getItem("huesped").toInt()[0], inicioPrereserva=str(m.getItem("inicioPrereserva").toString()), 
 				finPrereserva=str(m.getItem("finPrereserva").toString()), inicioReserva=str(m.getItem("inicioReserva").toString()), 
 				finReserva=str(m.getItem("finReserva").toString()), horaCheckIn=str(m.getItem("horaCheckIn").toString()), 
-				horaCheckOut=str(m.getItem("horaCheckOut").toString()), estado=str(m.getItem("estado").toString()), mainWin = None, parent = self)
+				horaCheckOut=str(m.getItem("horaCheckOut").toString()), estado=str(m.getItem("estado").toString()), mainWin = uiMain, parent = self)
 
 		diag.exec_()
 		self.update(0)
