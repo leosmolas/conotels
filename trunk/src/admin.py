@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
 from copy import deepcopy
 from PyQt4 import QtCore, QtGui
 
@@ -139,29 +139,29 @@ class Admin(QtGui.QDialog):
 			
 		if self.nombre == "Tipo": 
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Error",unicode("El tipo está asociado a una unidad!"))
+				QtGui.QMessageBox.information(self, "Error",u"El tipo está asociado a una unidad!")
 			else:
 				elim = 1
 		elif self.nombre == "Unidad":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Error",unicode("La unidad está asociada a una reserva!"))
+				QtGui.QMessageBox.information(self, "Error",u"La unidad está asociada a una reserva!")
 			else:
 				elim = 1
 		elif self.nombre == "Huesped":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Error",unicode("El huésped está asociado a una reserva!"))
+				QtGui.QMessageBox.information(self, "Error",u"El huésped está asociado a una reserva!")
 			else:
 				elim = 1
 		elif self.nombre == "Reserva":
 			if not self.type.checkelim(row.field(0).value().toInt()[0]) == 0:
-				QtGui.QMessageBox.information(self, "Error",unicode("La reserva está asociada a un gasto!"))
+				QtGui.QMessageBox.information(self, u"Error", u"La reserva está asociada a un gasto!")
 			else:
 				elim = 1
 		
 		if elim == 1:
 			print "no estaba asociado"
-			ret = QtGui.QMessageBox.question(self, "Advertencia", unicode("Está seguro de que desea realizar la eliminación?"),
-				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
+			ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea realizar la eliminación?",
+			QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 			
 			if ret == QtGui.QMessageBox.Ok:
 				print "Eliminando"
