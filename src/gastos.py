@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
 from PyQt4 import QtCore, QtGui
 import re
 from ui.gastos import Ui_GastosDialog
@@ -64,7 +64,7 @@ class GastosDialog(QtGui.QDialog):
 	def on_okBut_clicked(self):
 		self.save()
 		self.clear()
-		self.uiMain.statusBar.showMessage(unicode("Los datos se han guardado con éxito!"),3000)
+		self.uiMain.statusBar.showMessage(u"Los datos se han guardado con éxito!",3000)
 		# print "self.ui.reservastableView.selectedIndexes()[0]" + str(self.ui.reservastableView.selectedIndexes()[0])
 		self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		
@@ -80,7 +80,7 @@ class GastosDialog(QtGui.QDialog):
 			
 			self.save(QtCore.QVariant.toInt(self.model.model.getItem(0,self.ui.gastosTableView.selectedIndexes()[0].row()))[0])
 			self.clear()
-			QtGui.QMessageBox.information(self, unicode("Guardado con éxito"), unicode("Los datos se han guardado con éxito!"))
+			QtGui.QMessageBox.information(self, u"Guardado con éxito", u"Los datos se han guardado con éxito!")
 			self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		else:
 			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para modificar.",3000)

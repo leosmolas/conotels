@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
 from PyQt4 import QtCore, QtGui
 import re
 
@@ -70,14 +70,14 @@ class HuespedDialog(QtGui.QDialog):
 					localidad=re.escape(str(self.ui.localidadLine.text())))
 				#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 				if self.uiMain != None:
-					self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+					self.uiMain.statusBar.showMessage(u"Los datos se han guardado con éxito!",3000)
 				return True
 			else:
 				QtGui.QMessageBox.information(self, "Error", "El DNI ingresado ya existe!")
 				#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
 				return False
 		else:
-			QtGui.QMessageBox.information(self, "Error", unicode("Los campos DNI, Apellido y Nombre no pueden ser vacíos!"))
+			QtGui.QMessageBox.information(self, "Error", u"Los campos DNI, Apellido y Nombre no pueden estar vacíos!")
 			#self.uiMain.statusBar.showMessage("Los campos DNI, Apellido y Nombre no pueden ser vacios!",3000)
 			return False
 		
