@@ -165,24 +165,26 @@ class ReservaDialog(QtGui.QDialog):
 									estado=self.ui.estadoCombo.currentText(),
 									temporada=self.ui.temporadaCombo.currentText()
 								)
-								self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
+								
+								if self.uiMain != None:
+									self.uiMain.statusBar.showMessage(u"Los datos fueron guardados con éxito!")
 								return True
-							except:
-								QtGui.QMessageBox.information(self, "Advertencia", u"Ya existen reservas en ese período para la unidad seleccionada!")
+							except Exception as inst:
+								print inst.args
+								QtGui.QMessageBox.information(self, "Error", u"Ya existen reservas en ese período para la unidad seleccionada!")
 								
 						else:
-							QtGui.QMessageBox.information(self, "Advertencia", "La fecha de inicio de reserva debe ser anterior a la de fin!")
+							QtGui.QMessageBox.information(self, "Error", "La fecha de inicio de reserva debe ser anterior a la de fin!")
 					else:
-						QtGui.QMessageBox.information(self, "Advertencia", "La fecha de fin de prereserva debe ser anterior a la de inicio de reserva!")
+						QtGui.QMessageBox.information(self, "Error", "La fecha de fin de prereserva debe ser anterior a la de inicio de reserva!")
 				else:
-					QtGui.QMessageBox.information(self, "Advertencia", "La fecha de comienzo de prereserva debe ser anterior a la de fin!")
+					QtGui.QMessageBox.information(self, "Error", "La fecha de comienzo de prereserva debe ser anterior a la de fin!")
 			else:
-				#self.uiMain.statusBar.showMessage("Debe seleccionar un Huesped para realizar la reserva!",3000)
-				QtGui.QMessageBox.information(self, "Advertencia", u"Debe seleccionar un huésped para realizar la reserva!")
+				QtGui.QMessageBox.information(self, "Error", u"Debe seleccionar un huésped para realizar la reserva!")
 				return False
 		else:
 			#self.uiMain.statusBar.showMessage("Debe seleccionar una Unidad para realizar la reserva!",3000)
-			QtGui.QMessageBox.information(self, "Advertencia", u"Debe seleccionar una unidad para realizar la reserva!")
+			QtGui.QMessageBox.information(self, "Error", u"Debe seleccionar una unidad para realizar la reserva!")
 			return False
 		
 	def clear(self):

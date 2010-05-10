@@ -3,6 +3,33 @@ from abstractmodel import AbstractModel
 
 from PyQt4 import QtCore
 
+import exceptions
+
+class ReservaOverlapError(Exception):
+
+	def __init__(self, msg,type):
+		self.msg = msg
+		self.type = type
+
+	def getMsg(self):
+		return self.msg
+		
+	def getType(self):
+		return self.type
+
+	"""
+	Metodo para imprimir el mensaje de error de la excepcion.
+	Se ejecuta automaticamante cuando la excepcion no es capturada, 
+	antes de interrumpir la ejecucion del programa.
+	*Parametros: nada.
+	*Excepciones: nada.
+	*Retorno: nada.
+	"""
+	def __str__(self):
+		print "",self.msg
+
+		
+
 class Reserva(AbstractModel):
 	def __init__(self, conn):
 		super(Reserva, self).__init__(conn)
@@ -32,7 +59,8 @@ class Reserva(AbstractModel):
 		if id != -1: #Es una modificación
 			# not(No se solapa o se solapa sólo con si misma) -> Error
 			if not (self.queryOverlap.rowCount() == 0 or ((self.queryOverlap.rowCount() == 1) and (self.queryOverlap.getItem("idreserva") == id))):
-				raise "Ya existen reservas en ese periodo!"
+				print "Pete aca"
+				raise ReservaOverlapError("Ya existen reservas en ese periodo!", "Error al modificar la reserva")
 			self.conn.update("update "+self.tableName+ 
 				" set unidad="+str(unidad)+
 				",huesped="+str(huesped)+
@@ -47,7 +75,8 @@ class Reserva(AbstractModel):
 				"' where idReserva="+str(id))
 		else:
 			if self.queryOverlap.rowCount() != 0:
-				raise "Ya existen reservas en ese periodo!"
+				print "Pete alla"
+				raise ReservaOverlapError("Ya existen reservas en ese periodo!", "Error al insertar la reserva")
 			else:
 				print "entre"
 				self.conn.update("insert into "+self.tableName+

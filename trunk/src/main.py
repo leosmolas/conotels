@@ -171,7 +171,7 @@ class MainWindow(QtGui.QMainWindow):
 				self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 				if selected == 1:
 					self.ui.title.setTitle("Grilla")
-					self.ui.widgets.insertWidget(1, GrillaDialog(self.conn))
+					self.ui.widgets.insertWidget(1, GrillaDialog(self.conn, mainWin = self.ui))
 				elif selected == 2:
 					self.ui.title.setTitle("Reservas")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))

@@ -80,7 +80,7 @@ class GastosDialog(QtGui.QDialog):
 			
 			self.save(QtCore.QVariant.toInt(self.model.model.getItem(0,self.ui.gastosTableView.selectedIndexes()[0].row()))[0])
 			self.clear()
-			QtGui.QMessageBox.information(self, u"Guardado con éxito", u"Los datos se han guardado con éxito!")
+			self.uiMain.statusBar.showMessage(u"Los datos se han guardado con éxito!",3000)
 			self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
 		else:
 			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para modificar.",3000)
