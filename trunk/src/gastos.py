@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 from PyQt4 import QtCore, QtGui
 import re
 from ui.gastos import Ui_GastosDialog
@@ -22,7 +22,7 @@ class GastosDialog(QtGui.QDialog):
 		self.ui.setupUi(self)
 
 		self.okBut        = self.ui.buttonBox.addButton("Guardar &Nuevo", QtGui.QDialogButtonBox.ActionRole)		
-		self.modificarBut = self.ui.buttonBox.addButton(u"Guardar &Modificación", QtGui.QDialogButtonBox.ActionRole)
+		self.modificarBut = self.ui.buttonBox.addButton( u"Guardar &Modificación", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelarPendientesBut = self.ui.buttonBox.addButton("Cancelar &Pendientes", QtGui.QDialogButtonBox.ActionRole)
 		self.okBut.setEnabled       (False)
 		self.modificarBut.setEnabled(False)
