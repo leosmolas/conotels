@@ -11,7 +11,7 @@ class Huesped(AbstractModel):
 		self.id = "idHuesped"
 
 		#self.params = "(dni,nombre,apellido,telefono)"
-		self.campos = ["dni","nombre","apellido","telefono"]
+		self.campos = ["dni","nombre","apellido","telefonoFijo","telefonoCelular","direccion","Localidad"]
 	
 #	Metodos heredados:
 #    def getModel(self)
