@@ -88,7 +88,9 @@ class GrillaDialog(QtGui.QDialog):
 	def delete(self):
 		print "del"
 		print self.currentItem
-		self.clicked(self.currentItem.row(), self.currentItem.column())
+		#self.clicked(self.currentItem.row(), self.currentItem.column())
+		self.elimReserva()
+
 
 	@QtCore.pyqtSlot()
 	def on_context_menu(self, p):
