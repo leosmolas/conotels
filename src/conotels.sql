@@ -83,7 +83,7 @@ create table gasto (
 
 	idGasto int unsigned not null auto_increment,
 	descripcion text not null,
-	costo int unsigned not null,
+	costo float unsigned not null,
 	reserva int unsigned not null,
 	pendiente boolean,
 	

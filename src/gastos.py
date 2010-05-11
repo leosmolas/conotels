@@ -129,7 +129,7 @@ class GastosDialog(QtGui.QDialog):
 	def calcularTotal(self):
 		total = 0
 		for i in range(self.model.model.rowCount()):
-			total +=  QtCore.QVariant.toInt(self.model.model.getItem(2,i))[0]
+			total +=  QtCore.QVariant.toDouble(self.model.model.getItem(2,i))[0]
 		#esta fumanchadez se refiere a lo siguiente: el ".2" es la precisión, y la f que es un floating point decimal común
 		#igual si no se necesita la presición, se puede cambiar por una %d 
 		self.ui.totalLabel.setText("$ %.2f" % total)

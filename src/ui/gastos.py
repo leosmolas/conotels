@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Thu May 06 20:45:01 2010
+# Created: Tue May 11 19:58:19 2010
 #      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
@@ -36,11 +36,6 @@ class Ui_GastosDialog(object):
         self.descripcionLine = QtGui.QLineEdit(GastosDialog)
         self.descripcionLine.setObjectName("descripcionLine")
         self.gridLayout.addWidget(self.descripcionLine, 9, 0, 1, 3)
-        self.gastoSpin = QtGui.QSpinBox(GastosDialog)
-        self.gastoSpin.setMinimumSize(QtCore.QSize(80, 0))
-        self.gastoSpin.setMaximum(9999)
-        self.gastoSpin.setObjectName("gastoSpin")
-        self.gridLayout.addWidget(self.gastoSpin, 9, 4, 1, 1)
         self.label_5 = QtGui.QLabel(GastosDialog)
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 8, 4, 1, 1)
@@ -112,6 +107,10 @@ class Ui_GastosDialog(object):
         self.gridLayout.addWidget(self.totalFrame, 4, 2, 1, 3)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 8, 1, 1, 1)
+        self.gastoSpin = QtGui.QDoubleSpinBox(GastosDialog)
+        self.gastoSpin.setMinimumSize(QtCore.QSize(80, 0))
+        self.gastoSpin.setObjectName("gastoSpin")
+        self.gridLayout.addWidget(self.gastoSpin, 9, 4, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
 
         self.retranslateUi(GastosDialog)
