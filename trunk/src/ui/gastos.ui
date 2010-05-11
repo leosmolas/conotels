@@ -49,19 +49,6 @@
      <item row="9" column="0" colspan="3">
       <widget class="QLineEdit" name="descripcionLine"/>
      </item>
-     <item row="9" column="4">
-      <widget class="QSpinBox" name="gastoSpin">
-       <property name="minimumSize">
-        <size>
-         <width>80</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximum">
-        <number>9999</number>
-       </property>
-      </widget>
-     </item>
      <item row="8" column="4">
       <widget class="QLabel" name="label_5">
        <property name="text">
@@ -252,6 +239,16 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="9" column="4">
+      <widget class="QDoubleSpinBox" name="gastoSpin">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
