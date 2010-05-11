@@ -20,7 +20,7 @@ class GrillaDialog(QtGui.QDialog):
 
 		self.ui = Ui_Grilla()
 		self.ui.setupUi(self)
-
+		
 		self.uiMain = mainWin
 		
 		self.conn = conn
@@ -59,6 +59,9 @@ class GrillaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL("cellDoubleClicked(int,int)"),
 				self.doubleClicked)
 		
+		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL("cellClicked(int,int)"),
+				self.clicked)
+		
 		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL('customContextMenuRequested(const QPoint&)'), 
 			self.on_context_menu)
 
@@ -70,6 +73,11 @@ class GrillaDialog(QtGui.QDialog):
 		self.popMenu.addSeparator()
 		self.popMenu.addAction("Eliminar", self.delete)
 	
+		#-Agregado para hacer la eliminacion de reservas-#
+		self.idReservaActual = -1 #Sirve para mantener el id de la reserva que esta seleccionada.
+		#self.reserva = Reserva(self.conn)
+		#---------------------------#
+		
 	@QtCore.pyqtSlot()
 	def edit(self):
 		print "edit"
@@ -80,6 +88,7 @@ class GrillaDialog(QtGui.QDialog):
 	def delete(self):
 		print "del"
 		print self.currentItem
+		self.clicked(self.currentItem.row(), self.currentItem.column())
 
 	@QtCore.pyqtSlot()
 	def on_context_menu(self, p):
@@ -162,7 +171,9 @@ class GrillaDialog(QtGui.QDialog):
 		print "double!"
 
 		res = self.ui.tableWidget.item(row,column).reserva
-
+		self.idReservaActual = res #Mantengo en una variable global el id de la reserva seleccionada
+		
+		print "double clic" + str(res)
 		if res == -1:
 			today = QtCore.QDate.fromString(str(self.ui.anioSpin.value())+"-"+str(self.ui.mesCombo.currentIndex()+1)+"-"+str(column+1),"yyyy-MM-dd").toString("yyyy-MM-dd")
 
@@ -183,3 +194,28 @@ class GrillaDialog(QtGui.QDialog):
 
 		diag.exec_()
 		self.update(0)
+
+	@QtCore.pyqtSlot()
+	def clicked(self, row, column):
+		self.idReservaActual = self.ui.tableWidget.item(row,column).reserva
+		print "un click " + str(self.idReservaActual)
+	
+	@QtCore.pyqtSlot()
+	def keyPressEvent(self, event):
+		keyEvent = QtGui.QKeyEvent(event)
+		if(event.type()==QtCore.QEvent.KeyPress) and (keyEvent.key() == QtCore.Qt.Key_Delete):
+			self.elimReserva()
+		return super(GrillaDialog, self).keyPressEvent(keyEvent)
+		
+	def elimReserva(self):
+		if (self.idReservaActual != -1):
+			if (not self.model.checkelim(str(self.idReservaActual)) == 0):
+				QtGui.QMessageBox.information(self, u"Error", u"La reserva está asociada a un gasto!")
+			else:
+				ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea realizar la eliminación?",
+				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
+				if ret == QtGui.QMessageBox.Ok:
+					print "Eliminando"
+					self.model.delete(str(self.idReservaActual))
+					self.update(0)
+					self.idReservaActual = -1 #por las dudas que quede con un valor de id valido y se provoque un error
