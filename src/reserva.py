@@ -133,6 +133,15 @@ class ReservaDialog(QtGui.QDialog):
 			self.ui.finPreDate.setDate(today.addDays(7))
 			self.ui.inicioDate.setDate(inicio)
 			self.ui.finDate.setDate(inicio.addDays(7))
+			unidadComboModel = self.ui.unidadCombo.model()	
+			found = False
+			i = 0
+			while not found and i<unidadComboModel.rowCount():
+				if unidadComboModel.data(unidadComboModel.index(i,0)).toInt()[0] == unidad:
+					found = True
+				else:
+					i+=1
+			self.ui.unidadCombo.setCurrentIndex(i)
 	
 	def update(self, s):
 		self.huesped.filterModel(s)

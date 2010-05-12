@@ -177,14 +177,13 @@ class GrillaDialog(QtGui.QDialog):
 		
 		print "double clic" + str(res)
 		if res == -1:
+
+			idunidad = [k for k, v in self.uDict.iteritems() if v == row][0]
 			today = QtCore.QDate.fromString("%d-%02d-%02d" % (self.ui.anioSpin.value(),self.ui.mesCombo.currentIndex()+1,column+1),"yyyy-MM-dd").toString("yyyy-MM-dd")
 
 			endReservaDefault = QtCore.QDate.currentDate().addDays(7).toString("yyyy-MM-dd")
-			print str(self.ui.anioSpin.value())+"-"+str(self.ui.mesCombo.currentIndex()+1)+"-"+str(column+1)
-			print today
-			print endReservaDefault
 
-			diag = ReservaDialog(self.conn, inicioReserva=today, finReserva=endReservaDefault)
+			diag = ReservaDialog(self.conn, inicioReserva=today, finReserva=endReservaDefault, unidad=idunidad)
 			
 		else:
 			resMod = Reserva(self.conn)
