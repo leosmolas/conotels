@@ -140,7 +140,7 @@ class GrillaDialog(QtGui.QDialog):
 			initDay = 1
 			endDay = days
 
-			est = str(q.getItem("estado",i).toString())
+			est = unicode(q.getItem("estado",i).toString())
 			print est
 
 			if est == "Reservado":
@@ -191,10 +191,10 @@ class GrillaDialog(QtGui.QDialog):
 			m = resMod.model
 			print m.getItem("unidad").toInt()[0]
 			diag = ReservaDialog(self.conn, id=res, unidad=m.getItem("unidad").toInt()[0], 
-				huesped=m.getItem("huesped").toInt()[0], inicioPrereserva=str(m.getItem("inicioPrereserva").toString()), 
-				finPrereserva=str(m.getItem("finPrereserva").toString()), inicioReserva=str(m.getItem("inicioReserva").toString()), 
-				finReserva=str(m.getItem("finReserva").toString()), horaCheckIn=str(m.getItem("horaCheckIn").toString()), 
-				horaCheckOut=str(m.getItem("horaCheckOut").toString()), estado=str(m.getItem("estado").toString()), mainWin = uiMain, parent = self)
+				huesped=m.getItem("huesped").toInt()[0], inicioPrereserva=unicode(m.getItem("inicioPrereserva").toString()), 
+				finPrereserva=unicode(m.getItem("finPrereserva").toString()), inicioReserva=unicode(m.getItem("inicioReserva").toString()), 
+				finReserva=unicode(m.getItem("finReserva").toString()), horaCheckIn=unicode(m.getItem("horaCheckIn").toString()), 
+				horaCheckOut=unicode(m.getItem("horaCheckOut").toString()), estado=unicode(m.getItem("estado").toString()), mainWin = uiMain, parent = self)
 
 		diag.exec_()
 		self.update(0)
@@ -213,13 +213,13 @@ class GrillaDialog(QtGui.QDialog):
 		
 	def elimReserva(self):
 		if (self.idReservaActual != -1):
-			if (not self.model.checkelim(str(self.idReservaActual)) == 0):
+			if (not self.model.checkelim(unicode(self.idReservaActual)) == 0):
 				QtGui.QMessageBox.information(self, u"Error", u"La reserva está asociada a un gasto!")
 			else:
 				ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea realizar la eliminación?",
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 				if ret == QtGui.QMessageBox.Ok:
 					print "Eliminando"
-					self.model.delete(str(self.idReservaActual))
+					self.model.delete(unicode(self.idReservaActual))
 					self.update(0)
 					self.idReservaActual = -1 #por las dudas que quede con un valor de id valido y se provoque un error

@@ -16,13 +16,13 @@ class AbstractModel(object):
 		self.campos = []
 	
 	def load(self, id):
-		self.model = self.conn.query("select * from "+self.tableName+" where "+self.id+"="+str(id))
+		self.model = self.conn.query("select * from "+self.tableName+" where "+self.id+"="+unicode(id))
 	
 	def loadAll(self):
 		self.model = self.conn.query("select * from "+self.tableName)
 	
 	def delete(self, id):
-		self.conn.update("delete from "+self.tableName+" where "+self.id+"="+str(id))
+		self.conn.update("delete from "+self.tableName+" where "+self.id+"="+unicode(id))
 	
 	def getModel(self):
 		if self.model == None:
@@ -42,7 +42,7 @@ class AbstractModel(object):
 	def filterModel(self, filter):
 		list = filter.split(' ')
 		for i in range(len(list)):
-			list[i] = re.escape(str(list[i]))
+			list[i] = re.escape(unicode(list[i]))
 		print list
 		s = "select * from " + self.tableName + " where "
 		for i in range(len(self.campos)):

@@ -30,7 +30,7 @@ class Huesped(AbstractModel):
 				"',telefonoCelular='"+celular+
 				"',direccion='"+direccion+
 				"',Localidad='"+localidad+
-				 "' where idHuesped="+str(id))
+				 "' where idHuesped="+unicode(id))
 		else:
 			#print "insert into "+self.tableName+" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"')"
 			
@@ -61,5 +61,5 @@ class Huesped(AbstractModel):
 		return self.model.rowCount()
 
 	def checkelim(self, id=0):
-		model = self.conn.query("select * from reserva where huesped = " + str(id))
+		model = self.conn.query("select * from reserva where huesped = " + unicode(id))
 		return model.rowCount()
