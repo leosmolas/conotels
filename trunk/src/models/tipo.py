@@ -18,17 +18,17 @@ class Tipo(AbstractModel):
 
 	def save(self, id=-1, nombre="", costoTemporadaAlta=0, costoTemporadaBaja=0, descripcion=""):
 		if id != -1:
-			print "update "+self.tableName+" set nombre='"+nombre+"', "+"costoTemporadaAlta="+str(costoTemporadaAlta)+", "+	"costoTemporadaBaja="+str(costoTemporadaBaja)+", "+	"descripcion='"+descripcion+"' "+				" where idTipo="+str(id)
+			print "update "+self.tableName+" set nombre='"+nombre+"', "+"costoTemporadaAlta="+unicode(costoTemporadaAlta)+", "+	"costoTemporadaBaja="+unicode(costoTemporadaBaja)+", "+	"descripcion='"+descripcion+"' "+				" where idTipo="+unicode(id)
 			self.conn.update("update "+self.tableName+
 				" set nombre='"+nombre+"', "+
-					"costoTemporadaAlta="+str(costoTemporadaAlta)+", "+
-					"costoTemporadaBaja="+str(costoTemporadaBaja)+", "+
+					"costoTemporadaAlta="+unicode(costoTemporadaAlta)+", "+
+					"costoTemporadaBaja="+unicode(costoTemporadaBaja)+", "+
 					"descripcion='"+descripcion+"' "+
-				" where idTipo="+str(id))
+				" where idTipo="+unicode(id))
 		else:
 			self.conn.update("insert into "+self.tableName+
 				"(nombre,costoTemporadaAlta,costoTemporadaBaja,descripcion) "+
-				"values ('"+nombre+"',"+str(costoTemporadaAlta)+","+str(costoTemporadaBaja)+",'"+descripcion+"')")
+				"values ('"+nombre+"',"+unicode(costoTemporadaAlta)+","+unicode(costoTemporadaBaja)+",'"+descripcion+"')")
 
 	def loadAll(self):
 		super(Tipo, self).loadAll()
@@ -44,5 +44,5 @@ class Tipo(AbstractModel):
 		return self.model.rowCount()
 		
 	def checkelim(self, id=""):
-		model = self.conn.query("select * from unidad where tipo = " + str(id))
+		model = self.conn.query("select * from unidad where tipo = " + unicode(id))
 		return model.rowCount()

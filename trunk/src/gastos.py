@@ -51,7 +51,7 @@ class GastosDialog(QtGui.QDialog):
 
 	def save(self,id = -1):
 		print "new gastos"
-		self.model.save(id,descripcion=re.escape(str(self.ui.descripcionLine.text())),
+		self.model.save(id,descripcion=re.escape(unicode(self.ui.descripcionLine.text())),
 				costo=self.ui.gastoSpin.value(),
 				reserva=self.reservaActual,
 				pendiente=self.ui.pendienteCheckBox.isChecked())

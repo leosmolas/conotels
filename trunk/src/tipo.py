@@ -64,10 +64,10 @@ class TipoDialog(QtGui.QDialog):
 	def save(self):
 		if self.ui.nombreLine.text() != "":
 			if (self.modif and self.ui.nombreLine.text() == self.nombre) or self.model.checkname(nombre = self.ui.nombreLine.text()) == 0:
-				self.model.save(id=self.id,nombre=re.escape(str(self.ui.nombreLine.text())),
+				self.model.save(id=self.id,nombre=re.escape(unicode(self.ui.nombreLine.text())),
 					costoTemporadaAlta=self.ui.costoTempAltaSpin.value(),
 					costoTemporadaBaja=self.ui.costoTempBajaSpin.value(),
-					descripcion=re.escape(str(self.ui.descEdit.toPlainText())))
+					descripcion=re.escape(unicode(self.ui.descEdit.toPlainText())))
 				self.uiMain.statusBar.showMessage("Los datos se han guardado con exito!",3000)
 				return True
 			else:

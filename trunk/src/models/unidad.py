@@ -20,15 +20,15 @@ class Unidad(AbstractModel):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set nombre='"+nombre+
-				"',tipo="+str(tipo)+
-				",capacidad="+str(capacidad)+
+				"',tipo="+unicode(tipo)+
+				",capacidad="+unicode(capacidad)+
 				",descripcion='"+descripcion+
 				"',estado='"+estado+ 
-				"' where idUnidad="+str(id))
+				"' where idUnidad="+unicode(id))
 		else:
 			self.conn.update("insert into "+self.tableName+
 				"(nombre, tipo, capacidad, descripcion, estado)"+
-				" values ('"+nombre+"',"+str(tipo)+","+str(capacidad)+",'"+descripcion+"','"+estado+"')")
+				" values ('"+nombre+"',"+unicode(tipo)+","+unicode(capacidad)+",'"+descripcion+"','"+estado+"')")
 
 	def loadAll(self):
 		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo")
@@ -49,5 +49,5 @@ class Unidad(AbstractModel):
 		return self.model.rowCount()
 
 	def checkelim(self, id=0):
-		model = self.conn.query("select * from reserva where unidad = " + str(id))
+		model = self.conn.query("select * from reserva where unidad = " + unicode(id))
 		return model.rowCount()

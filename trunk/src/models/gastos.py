@@ -21,20 +21,20 @@ class Gastos(AbstractModel):
 			# print "update " + self.tableName + 				" set descripcion='"+descripcion+ 				"',costo="+str(costo)+ 				",reserva="+str(reserva) + 				",pendiente="+str(pendiente) + 				" where idGasto="+str(id)
 			self.conn.update("update "+self.tableName+ 
 				" set descripcion='"+descripcion+
-				"',costo="+str(costo)+
-				",reserva="+str(reserva) + 
-				",pendiente="+str(pendiente) +
-				" where idGasto="+str(id))
+				"',costo="+unicode(costo)+
+				",reserva="+unicode(reserva) + 
+				",pendiente="+unicode(pendiente) +
+				" where idGasto="+unicode(id))
 		else:
 			# print "insert into "+self.tableName+ 				"(descripcion,costo,reserva,pendiente)"+ 				" values ('"+descripcion+"',"+str(costo)+"," + str(reserva)+"," + str(pendiente) + ")"
 			self.conn.update("insert into "+self.tableName+
 				"(descripcion,costo,reserva,pendiente)"+ 
-				" values ('"+descripcion+"',"+str(costo)+"," + str(reserva)+"," + str(pendiente) + ")")
+				" values ('"+descripcion+"',"+unicode(costo)+"," + unicode(reserva)+"," + unicode(pendiente) + ")")
 	
 	#en vez de hacer una busqueda con likes re cacos, hace una busqueda con un where :)
 	def buscarPorReserva(self,reserva):
 		#print "select * from " + self.tableName + " where reserva = " + str(reserva)
-		self.model = self.conn.query("select * from " + self.tableName + " where reserva = " +str(reserva))
+		self.model = self.conn.query("select * from " + self.tableName + " where reserva = " +unicode(reserva))
 		self.setHeaders()
 
 	def setHeaders(self):
@@ -43,6 +43,6 @@ class Gastos(AbstractModel):
 		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "Costo")
 
 	def cancelarPendientes(self,reserva):
-		self.conn.update("update gasto set pendiente=false where reserva="+str(reserva))
+		self.conn.update("update gasto set pendiente=false where reserva="+unicode(reserva))
 		
 	
