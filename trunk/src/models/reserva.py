@@ -105,3 +105,8 @@ class Reserva(AbstractModel):
 	def checkelim(self, id=""):
 		model = self.conn.query("select * from gasto where reserva = " + unicode(id))
 		return model.rowCount()
+		
+	def loadPreExpiradas(self):
+		today = QtCore.QDate.currentDate().toString("yyyy-MM-dd")
+		self.model = self.conn.query("SELECT reserva.idReserva, unidad.nombre, huesped.apellido, reserva.inicioPrereserva, reserva.finPrereserva, reserva.inicioReserva, reserva.finReserva, reserva.horaCheckIn, reserva.horaCheckOut, reserva.estado, reserva.temporada, unidad.idUnidad, huesped.idHuesped FROM reserva, unidad, huesped WHERE reserva.estado = \'Pre reservado\' AND reserva.finPrereserva < \'" + today + "\' AND unidad.idUnidad = reserva.unidad AND huesped.idHuesped = reserva.huesped")
+		

@@ -11,7 +11,7 @@ from gastos import GastosDialog
 from admin import Admin
 from grilla import GrillaDialog
 from about import AboutDialog
-
+from models.reserva import Reserva
 
 from connection.connection import Connection
 
@@ -93,10 +93,12 @@ class MainWindow(QtGui.QMainWindow):
 		spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
 		self.ui.buttonsLayout.addItem(spacerItem)
 		
-		QtCore.QObject.connect(self.buttonGroup, QtCore.SIGNAL("buttonClicked(int)"),
-				self.butClicked)
+		QtCore.QObject.connect(self.buttonGroup, QtCore.SIGNAL("buttonClicked(int)"), self.butClicked)
 				
 		QtCore.QObject.connect(self.ui.menuAcercade,QtCore.SIGNAL("activated()"),self.abrirAcercade)
+		
+		QtCore.QObject.connect(self.ui.actionPrereservas,QtCore.SIGNAL("activated()"),self.checkPrereservas)
+		
 		self.butClicked(1)
 		
 		#self.addNewTypeBut = QtGui.QListWidgetItem(self.ui.options)
@@ -164,7 +166,7 @@ class MainWindow(QtGui.QMainWindow):
 	def __del__(self):
 		self.conn.close()
 
-	def butClicked(self, selected,shortcut=False):
+	def butClicked(self, selected, shortcut=False):
 		if (selected == self.buttonGroup.checkedId() or shortcut):
 			
 			if selected != 7:
@@ -188,6 +190,7 @@ class MainWindow(QtGui.QMainWindow):
 					self.ui.title.setTitle("Tipos de Unidad")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 				self.ui.widgets.setCurrentIndex(1)
+				self.lastButtonClicked = selected #Para volver a llamar después de Prereservas expiradas
 			else:	
 				ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea salir?",
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
@@ -220,6 +223,11 @@ class MainWindow(QtGui.QMainWindow):
 		diag.setWindowFlags(QtCore.Qt.Tool|QtCore.Qt.MSWindowsFixedSizeDialogHint)
 		#diag.setWindowFlags(QtCore.Qt.MSWindowsFixedSizeDialogHint)
 		diag.exec_()
+		
+	def checkPrereservas(self):
+		preExpDialog = Admin(self.conn, "PreExpiradas", self.ui)
+		preExpDialog.exec_()
+		self.butClicked(self.lastButtonClicked) #Para hacer reload y mantener consistencia con los cambios que hubo
 
 import sys
 
