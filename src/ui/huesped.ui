@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>188</height>
+    <height>202</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Telefono fijo:</string>
+        <string>Teléfono fijo:</string>
        </property>
       </widget>
      </item>
@@ -82,7 +82,7 @@
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Direccion:</string>
+        <string>Dirección:</string>
        </property>
       </widget>
      </item>

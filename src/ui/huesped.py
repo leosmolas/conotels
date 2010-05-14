@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'huesped.ui'
 #
-# Created: Wed Apr 28 20:31:44 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Fri May 14 14:49:24 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,8 @@ from PyQt4 import QtCore, QtGui
 class Ui_huespedDialog(object):
     def setupUi(self, huespedDialog):
         huespedDialog.setObjectName("huespedDialog")
-        huespedDialog.resize(400, 188)
+        huespedDialog.resize(400, 202)
+        huespedDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Spain))
         self.gridLayout = QtGui.QGridLayout(huespedDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtGui.QDialogButtonBox(huespedDialog)
@@ -80,8 +81,8 @@ class Ui_huespedDialog(object):
         self.label.setText(QtGui.QApplication.translate("huespedDialog", "DNI:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("huespedDialog", "Apellido:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("huespedDialog", "Nombre:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("huespedDialog", "Telefono fijo:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("huespedDialog", "Teléfono fijo:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("huespedDialog", "Celular:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("huespedDialog", "Direccion:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("huespedDialog", "Dirección:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("huespedDialog", "Localidad:", None, QtGui.QApplication.UnicodeUTF8))
 

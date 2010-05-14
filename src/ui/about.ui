@@ -6,15 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>341</width>
-    <height>166</height>
+    <width>340</width>
+    <height>176</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Acerca de Conotels</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true"/>
   </property>
   <widget class="Line" name="line">
    <property name="geometry">
@@ -76,36 +79,26 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="conotels/trunk/src/icons.qrc">:/conosoft-logo.png</pixmap>
+    <pixmap resource="../icons.qrc">:/conosoft-logo.png</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>201</width>
-     <height>51</height>
+     <x>20</x>
+     <y>30</y>
+     <width>231</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font-size: 48px;</string>
    </property>
-   <property name="text">
-    <string>ConoSoft</string>
+   <property name="pixmap">
+    <pixmap resource="../icons.qrc">:/conosoft</pixmap>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>208</x>
-     <y>41</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>®</string>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -143,7 +136,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="conotels/trunk/src/icons.qrc">:/windows-logo.png</pixmap>
+    <pixmap resource="../icons.qrc">:/windows-logo.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -162,7 +155,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="conotels/trunk/src/icons.qrc">:/apple-logo.png</pixmap>
+    <pixmap resource="../icons.qrc">:/apple-logo.png</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">
@@ -178,11 +171,12 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="conotels/trunk/src/icons.qrc">:/linux-logo.png</pixmap>
+    <pixmap resource="../icons.qrc">:/linux-logo.png</pixmap>
    </property>
   </widget>
  </widget>
  <resources>
+  <include location="../icons.qrc"/>
   <include location="conotels/trunk/src/icons.qrc"/>
  </resources>
  <connections>

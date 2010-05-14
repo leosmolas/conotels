@@ -1,9 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'unidad.ui'
 #
-# Created: Mon May 03 10:15:26 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Fri May 14 14:49:55 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -43,9 +43,11 @@ class Ui_unidadDialog(object):
         self.gridLayout_2.addWidget(self.label_4, 4, 0, 1, 1)
         self.descripcionText = QtGui.QPlainTextEdit(unidadDialog)
         self.descripcionText.setObjectName("descripcionText")
-        self.gridLayout_2.addWidget(self.descripcionText, 4, 1, 1, 2)
+        self.gridLayout_2.addWidget(self.descripcionText, 4, 1, 2, 2)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 1, 2, 1, 1)
+        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem1, 5, 0, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(unidadDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -64,9 +66,9 @@ class Ui_unidadDialog(object):
 
     def retranslateUi(self, unidadDialog):
         unidadDialog.setWindowTitle(QtGui.QApplication.translate("unidadDialog", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("unidadDialog", "Numero:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("unidadDialog", "Número:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("unidadDialog", "Tipo:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("unidadDialog", "Capacidad:", None, QtGui.QApplication.UnicodeUTF8))
         self.noDisponibleCheck.setText(QtGui.QApplication.translate("unidadDialog", "No disponible", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("unidadDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("unidadDialog", "Descripción:", None, QtGui.QApplication.UnicodeUTF8))
 

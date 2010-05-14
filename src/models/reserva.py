@@ -87,7 +87,7 @@ class Reserva(AbstractModel):
 		self.model = self.conn.query("select reserva.idReserva,unidad.nombre,huesped.apellido,reserva.inicioPrereserva,reserva.finPrereserva,reserva.inicioReserva,reserva.finReserva,reserva.horaCheckIn,reserva.horaCheckOut,reserva.estado,reserva.temporada,unidad.idUnidad,huesped.idHuesped from reserva,unidad,huesped where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
-		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Huesped")
+		self.model.setHeaderData(2, QtCore.Qt.Horizontal, u"Huésped")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Inicio de prereserva")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Fin de prereserva")
 		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Inicio de reserva")

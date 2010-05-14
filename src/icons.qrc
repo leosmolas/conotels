@@ -1,22 +1,23 @@
 <RCC>
   <qresource>
-	<file alias="add.png">imgs/add2.png</file>
-	<file alias="property.png">imgs/property2.png</file>
-	<file alias="people.png">imgs/people2.png</file>
-	<file alias="purse.png">imgs/purse2.png</file>
-	<file alias="diaryplain.png">imgs/diaryplain2.png</file>
-	<file alias="calendar.png">imgs/calendar2.png</file>
-	<file alias="tools.png">imgs/tools2.png</file>
-	<file alias="back.png">imgs/back.png</file>
-	<file alias="cancel.png">imgs/cancel.png</file>
-	<file alias="delete.png">imgs/delete.png</file>
-	<file alias="edit.png">imgs/edit.png</file>
-	<file alias="save.png">imgs/save.png</file>
-	<file alias="exit.png">imgs/exit.png</file>
-	<file alias="windows-logo.png">imgs/windows-logo.png</file>
-	<file alias="linux-logo.png">imgs/linux-logo.png</file>
-	<file alias="apple-logo.png">imgs/apple-logo.png</file>
-	<file alias="conosoft-logo.png">imgs/conosoft-logo.png</file>
-	<file alias="house.png">imgs/house.png</file>
+    <file alias="add.png">imgs/add2.png</file>
+    <file alias="property.png">imgs/property2.png</file>
+    <file alias="people.png">imgs/people2.png</file>
+    <file alias="purse.png">imgs/purse2.png</file>
+    <file alias="diaryplain.png">imgs/diaryplain2.png</file>
+    <file alias="calendar.png">imgs/calendar2.png</file>
+    <file alias="conosoft">imgs/conosoft.png</file>
+    <file alias="tools.png">imgs/tools2.png</file>
+    <file alias="back.png">imgs/back.png</file>
+    <file alias="cancel.png">imgs/cancel.png</file>
+    <file alias="delete.png">imgs/delete.png</file>
+    <file alias="edit.png">imgs/edit.png</file>
+    <file alias="save.png">imgs/save.png</file>
+    <file alias="exit.png">imgs/exit.png</file>
+    <file alias="windows-logo.png">imgs/windows-logo.png</file>
+    <file alias="linux-logo.png">imgs/linux-logo.png</file>
+    <file alias="apple-logo.png">imgs/apple-logo.png</file>
+    <file alias="conosoft-logo.png">imgs/conosoft-logo.png</file>
+    <file alias="house.png">imgs/house.png</file>
   </qresource>
 </RCC>

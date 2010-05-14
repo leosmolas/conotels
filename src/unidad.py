@@ -98,7 +98,7 @@ class UnidadDialog(QtGui.QDialog):
 				QtGui.QMessageBox.information(self, "Error", u"Debe seleccionar una opción del campo Tipo!")
 				return False
 		else:
-			QtGui.QMessageBox.information(self, "Error", u"El campo Nombre no puede ser vacío!")
+			QtGui.QMessageBox.information(self, "Error", u"El campo Número no puede ser vacío!")
 			return False
 	
 	def clear(self):
