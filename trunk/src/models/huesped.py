@@ -47,9 +47,9 @@ class Huesped(AbstractModel):
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "DNI")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Apellido")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nombre")
-		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Telefono")
+		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Teléfono")
 		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Celular")
-		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Direccion")
+		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Dirección")
 		self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Localidad")
 
 	def filterModel(self,filtro):

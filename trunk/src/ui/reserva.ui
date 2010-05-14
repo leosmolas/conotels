@@ -36,7 +36,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Filtrar huespedes:</string>
+        <string>Filtrar huéspedes:</string>
        </property>
       </widget>
      </item>
@@ -195,7 +195,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label_11">
        <property name="text">
-        <string>Huesped:</string>
+        <string>Huésped:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -205,7 +205,7 @@
      <item row="5" column="1">
       <widget class="QPushButton" name="nuevoBut">
        <property name="text">
-        <string>Crear nuevo huesped</string>
+        <string>Crear nuevo huésped</string>
        </property>
       </widget>
      </item>

@@ -33,9 +33,9 @@ class Unidad(AbstractModel):
 	def loadAll(self):
 		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Numero")
+		self.model.setHeaderData(1, QtCore.Qt.Horizontal, u"Número")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Tipo")
-		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Descripcion")
+		self.model.setHeaderData(4, QtCore.Qt.Horizontal, u"Descripción")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Capacidad")
 		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Estado")
 		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "unidad.Tipo") #no visible en el QtTableWidget

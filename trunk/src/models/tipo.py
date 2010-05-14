@@ -1,3 +1,4 @@
+﻿# -*- coding: utf-8 -*-
 from abstractmodel import AbstractModel
 
 from PyQt4 import QtCore
@@ -32,11 +33,11 @@ class Tipo(AbstractModel):
 
 	def loadAll(self):
 		super(Tipo, self).loadAll()
-		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Nombre")
-		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Costo en Temporada Alta")
-		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Costo en Temporada Baja")
-		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Descripcion")
+		self.model.setHeaderData(0, QtCore.Qt.Horizontal, u"ID")
+		self.model.setHeaderData(1, QtCore.Qt.Horizontal, u"Nombre")
+		self.model.setHeaderData(2, QtCore.Qt.Horizontal, u"Costo en Temporada Alta")
+		self.model.setHeaderData(3, QtCore.Qt.Horizontal, u"Costo en Temporada Baja")
+		self.model.setHeaderData(4, QtCore.Qt.Horizontal, u"Descripción")
 		
 	def checkname(self, nombre=""):
 		#print "select * from tipo where nombre = '" + nombre + "'"

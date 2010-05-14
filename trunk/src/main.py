@@ -23,7 +23,6 @@ class MainWindow(QtGui.QMainWindow):
 		self.ui.setupUi(self)
 		
 		self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(":/house.png")))
-		#self.setStyleSheet("QListView {background-color: transparent;}") #el qt lee css chaboonnnnnnnnnnnnnnnnnnnn es un WIN :D
 		self.statusBar = QtGui.QStatusBar(self)
 		self.setStatusBar(self.statusBar)
 		self.ui.statusBar = self.statusBar;
@@ -175,30 +174,32 @@ class MainWindow(QtGui.QMainWindow):
 			if selected != 7:
 				self.ui.widgets.removeWidget(self.ui.widgets.currentWidget())
 				if selected == 1:
-					self.ui.title.setTitle("Grilla")
+					self.ui.title.setTitle(u"Grilla")
 					self.ui.widgets.insertWidget(1, GrillaDialog(self.conn, mainWin = self.ui))
 				elif selected == 2:
-					self.ui.title.setTitle("Reservas")
+					self.ui.title.setTitle(u"Reservas")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Reserva",self.ui))
 				elif selected == 3:
-					self.ui.title.setTitle("Gastos")
+					self.ui.title.setTitle(u"Gastos")
 					self.ui.widgets.insertWidget(1, GastosDialog(self.conn,self))
 				elif selected == 4:
 					self.ui.title.setTitle(u"Huéspedes")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
 				elif selected == 5:
-					self.ui.title.setTitle("Unidades")
+					self.ui.title.setTitle(u"Unidades")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
 				elif selected == 6:
-					self.ui.title.setTitle("Tipos de Unidad")
+					self.ui.title.setTitle(u"Tipos de Unidad")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 				self.ui.widgets.setCurrentIndex(1)
 				self.lastButtonClicked = selected #Para volver a llamar después de Prereservas expiradas
 			else:	
-				ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea salir?",
+				ret = QtGui.QMessageBox.question(self, "Advertencia", u"¿Está seguro que desea salir?",
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
 				if ret == QtGui.QMessageBox.Ok:
 					sys.exit(app.exec_())
+				else:
+					self.buttonGroup.button(self.lastButtonClicked).toggle()
 	
 	@QtCore.pyqtSlot()
 	def keyPressEvent(self, event):

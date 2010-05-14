@@ -1,9 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Mon May 03 10:14:07 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Fri May 14 14:49:47 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -15,6 +15,10 @@ class Ui_tipoDialog(object):
         tipoDialog.resize(485, 203)
         self.gridLayout = QtGui.QGridLayout(tipoDialog)
         self.gridLayout.setObjectName("gridLayout")
+        self.buttonBox = QtGui.QDialogButtonBox(tipoDialog)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setObjectName("buttonBox")
+        self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
         self.gridLayout_2 = QtGui.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.label = QtGui.QLabel(tipoDialog)
@@ -42,14 +46,12 @@ class Ui_tipoDialog(object):
         self.gridLayout_2.addWidget(self.label_4, 3, 0, 1, 1)
         self.descEdit = QtGui.QPlainTextEdit(tipoDialog)
         self.descEdit.setObjectName("descEdit")
-        self.gridLayout_2.addWidget(self.descEdit, 3, 1, 1, 2)
+        self.gridLayout_2.addWidget(self.descEdit, 3, 1, 2, 2)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 1, 2, 1, 1)
+        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem1, 4, 0, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
-        self.buttonBox = QtGui.QDialogButtonBox(tipoDialog)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
 
         self.retranslateUi(tipoDialog)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), tipoDialog.accept)
@@ -65,5 +67,5 @@ class Ui_tipoDialog(object):
         self.label.setText(QtGui.QApplication.translate("tipoDialog", "Nombre:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada baja:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada alta:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("tipoDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("tipoDialog", "Descripción:", None, QtGui.QApplication.UnicodeUTF8))
 

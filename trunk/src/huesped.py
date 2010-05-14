@@ -106,7 +106,7 @@ class HuespedDialog(QtGui.QDialog):
 
 	def on_backBut_clicked(self):
 		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
-		self.uiMain.title.setTitle(unicode("Administrar huésped"))
+		self.uiMain.title.setTitle(u"Huéspedes")
 		self.uiMain.widgets.setCurrentIndex(1)
 		self.uiMain.widgets.widget(1).loadAll()
 

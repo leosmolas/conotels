@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Thu May 06 20:43:08 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Fri May 14 14:49:35 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -128,7 +128,7 @@ class Ui_reservaDialog(object):
     def retranslateUi(self, reservaDialog):
         reservaDialog.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Nueva reserva", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("reservaDialog", "Unidad:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("reservaDialog", "Filtrar huespedes:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("reservaDialog", "Filtrar huéspedes:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("reservaDialog", "Fin Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Reserva:", None, QtGui.QApplication.UnicodeUTF8))
@@ -144,6 +144,6 @@ class Ui_reservaDialog(object):
         self.label_10.setText(QtGui.QApplication.translate("reservaDialog", "Temporada:", None, QtGui.QApplication.UnicodeUTF8))
         self.temporadaCombo.setItemText(0, QtGui.QApplication.translate("reservaDialog", "Alta", None, QtGui.QApplication.UnicodeUTF8))
         self.temporadaCombo.setItemText(1, QtGui.QApplication.translate("reservaDialog", "Baja", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_11.setText(QtGui.QApplication.translate("reservaDialog", "Huesped:", None, QtGui.QApplication.UnicodeUTF8))
-        self.nuevoBut.setText(QtGui.QApplication.translate("reservaDialog", "Crear nuevo huesped", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("reservaDialog", "Huésped:", None, QtGui.QApplication.UnicodeUTF8))
+        self.nuevoBut.setText(QtGui.QApplication.translate("reservaDialog", "Crear nuevo huésped", None, QtGui.QApplication.UnicodeUTF8))
 
