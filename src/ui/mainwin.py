@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Sat May 08 21:58:38 2010
+# Created: Thu May 13 20:35:26 2010
 #      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.title, 0, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
         self.buttonsFrame = QtGui.QFrame(self.centralwidget)
-        self.buttonsFrame.setStyleSheet("QToolButton{\n"
+        self.buttonsFrame.setStyleSheet("QToolButton{    \n"
 "    border: 2px;\n"
 "    border-radius: 3px;    \n"
 "    icon-size:64px ;\n"
@@ -61,11 +61,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QToolButton:hover{\n"
-"    background-color: rgb(225, 225, 225);\n"
+"    background-color: rgb(220, 220, 220);\n"
+"\n"
 "}\n"
 "\n"
 "QToolButton:checked{\n"
-"    background-color: rgba(110, 110, 110, 100);\n"
+"    background-color: rgba(130, 130, 130, 100);\n"
 "}\n"
 "\n"
 "")
@@ -78,10 +79,12 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QtGui.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 18))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 21))
         self.menuBar.setObjectName("menuBar")
         self.menuAyuda = QtGui.QMenu(self.menuBar)
         self.menuAyuda.setObjectName("menuAyuda")
+        self.menuHerramientas = QtGui.QMenu(self.menuBar)
+        self.menuHerramientas.setObjectName("menuHerramientas")
         MainWindow.setMenuBar(self.menuBar)
         self.actionNueva_unidad = QtGui.QAction(MainWindow)
         self.actionNueva_unidad.setObjectName("actionNueva_unidad")
@@ -97,10 +100,14 @@ class Ui_MainWindow(object):
         self.menuAyuda_2.setObjectName("menuAyuda_2")
         self.menuAcercade = QtGui.QAction(MainWindow)
         self.menuAcercade.setObjectName("menuAcercade")
+        self.actionPrereservas = QtGui.QAction(MainWindow)
+        self.actionPrereservas.setObjectName("actionPrereservas")
         self.menuAyuda.addAction(self.menuAyuda_2)
         self.menuAyuda.addSeparator()
         self.menuAyuda.addAction(self.menuAcercade)
+        self.menuHerramientas.addAction(self.actionPrereservas)
         self.menuBar.addAction(self.menuAyuda.menuAction())
+        self.menuBar.addAction(self.menuHerramientas.menuAction())
 
         self.retranslateUi(MainWindow)
         self.widgets.setCurrentIndex(1)
@@ -111,6 +118,7 @@ class Ui_MainWindow(object):
         self.title.setTitle(QtGui.QApplication.translate("MainWindow", "GroupBox", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", " Bienvenido!", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAyuda.setTitle(QtGui.QApplication.translate("MainWindow", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuHerramientas.setTitle(QtGui.QApplication.translate("MainWindow", "Herramientas", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNueva_unidad.setText(QtGui.QApplication.translate("MainWindow", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNuevo_Tipo.setText(QtGui.QApplication.translate("MainWindow", "Nuevo Tipo", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSalir.setText(QtGui.QApplication.translate("MainWindow", "Salir", None, QtGui.QApplication.UnicodeUTF8))
@@ -118,5 +126,6 @@ class Ui_MainWindow(object):
         self.actionAyuda.setText(QtGui.QApplication.translate("MainWindow", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAyuda_2.setText(QtGui.QApplication.translate("MainWindow", "Ayuda Conotels", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAcercade.setText(QtGui.QApplication.translate("MainWindow", "Acerca de", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionPrereservas.setText(QtGui.QApplication.translate("MainWindow", "Prereservas expiradas", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc

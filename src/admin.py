@@ -35,7 +35,16 @@ class Admin(QtGui.QDialog):
 		QtCore.QObject.connect(self.nuevoBut, QtCore.SIGNAL("clicked()"),
 				self.on_nuevoBut_clicked)
 
-	def __init__(self, conn, nombre,mainWin, parent=None):
+		#Si se usa Admin para mostrar prereservas expiradas
+		if self.preExpiradas:
+			self.setWindowTitle(QtGui.QApplication.translate("Admin", "Prereservas expiradas", None, QtGui.QApplication.UnicodeUTF8))
+			self.backBut = self.ui.buttonBox.addButton("&Volver", QtGui.QDialogButtonBox.ActionRole)
+			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
+			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"), self.on_backBut_clicked)
+			self.nuevoBut.hide() #No tiene sentido porque esta administrando prereservas expiradas.
+			
+				
+	def __init__(self, conn, nombre, mainWin, parent=None):
 		super(Admin, self).__init__(parent)
 
 		self.dialog = None
@@ -45,34 +54,43 @@ class Admin(QtGui.QDialog):
 
 		self.nombre = nombre
 		self.uiMain = mainWin #agregado por Jona
-
-		if nombre == "Huesped":
+				
+		#Feo, pero bue...
+		self.preExpiradas = False
+		if nombre == "PreExpiradas":
+			self.preExpiradas = True
+			self.nombre = "Reserva"			
+		
+		if self.nombre == "Huesped":
 			self.dialog = HuespedDialog
 			self.type = Huesped(self.conn)
-		elif nombre == "Reserva":
+		elif self.nombre == "Reserva":
 			self.dialog = ReservaDialog
 			self.type = Reserva(self.conn)
-		elif nombre == "Tipo":
+		elif self.nombre == "Tipo":
 			self.dialog = TipoDialog
 			self.type = Tipo(self.conn)
-		elif nombre == "Unidad":
+		elif self.nombre == "Unidad":
 			self.dialog = UnidadDialog
 			self.type = Unidad(self.conn)
 
 		self.setup()
 		self.loadAll()
 
-		self.ui.tableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+		self.ui.tableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)		
 	
 	def loadAll(self):
-		self.type.loadAll()
+		if self.preExpiradas:
+			self.type.loadPreExpiradas()			
+		else:
+			self.type.loadAll()
 		self.ui.tableView.setModel(self.type.model)
 		if self.nombre == "Unidad":
 			self.ui.tableView.setColumnHidden(6,True) #Oculto el id del Tipo de la tabla Unidad
 		elif self.nombre == "Reserva":
 			self.ui.tableView.setColumnHidden(11,True)
 			self.ui.tableView.setColumnHidden(12,True)
-		self.ui.tableView.resizeColumnsToContents()
+		self.ui.tableView.resizeColumnsToContents()		
 
 	@QtCore.pyqtSlot()
 	def on_modifBut_clicked(self):
@@ -188,4 +206,7 @@ class Admin(QtGui.QDialog):
 		elif self.nombre == "Tipo":
 				self.uiMain.title.setTitle("Nuevo Tipo")
 				self.uiMain.widgets.insertWidget(2, TipoDialog(self.conn,mainWin=self.uiMain)) #modif
-		self.uiMain.widgets.setCurrentIndex(2)
+		self.uiMain.widgets.setCurrentIndex(2)	
+		
+	def on_backBut_clicked(self):
+		self.close()

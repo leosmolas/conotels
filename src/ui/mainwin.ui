@@ -69,7 +69,7 @@
     <item row="0" column="0">
      <widget class="QFrame" name="buttonsFrame">
       <property name="styleSheet">
-       <string notr="true">QToolButton{
+       <string notr="true">QToolButton{	
 	border: 2px;
 	border-radius: 3px;	
 	icon-size:64px ;
@@ -77,11 +77,12 @@
 }
 
 QToolButton:hover{
-	background-color: rgb(225, 225, 225);
+	background-color: rgb(220, 220, 220);
+
 }
 
 QToolButton:checked{
-	background-color: rgba(110, 110, 110, 100);
+	background-color: rgba(130, 130, 130, 100);
 }
 
 </string>
@@ -98,7 +99,7 @@ QToolButton:checked{
      <x>0</x>
      <y>0</y>
      <width>570</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAyuda">
@@ -109,7 +110,14 @@ QToolButton:checked{
     <addaction name="separator"/>
     <addaction name="menuAcercade"/>
    </widget>
+   <widget class="QMenu" name="menuHerramientas">
+    <property name="title">
+     <string>Herramientas</string>
+    </property>
+    <addaction name="actionPrereservas"/>
+   </widget>
    <addaction name="menuAyuda"/>
+   <addaction name="menuHerramientas"/>
   </widget>
   <action name="actionNueva_unidad">
    <property name="text">
@@ -144,6 +152,11 @@ QToolButton:checked{
   <action name="menuAcercade">
    <property name="text">
     <string>Acerca de</string>
+   </property>
+  </action>
+  <action name="actionPrereservas">
+   <property name="text">
+    <string>Prereservas expiradas</string>
    </property>
   </action>
  </widget>
