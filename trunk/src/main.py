@@ -144,7 +144,10 @@ class MainWindow(QtGui.QMainWindow):
 	def __init__(self, parent = None):
 		super(MainWindow, self).__init__(parent)
 
-		self.conn = Connection(dbName="conotels", dbUser="root", dbPass="")
+		file = open("conf.dat")
+		user = file.readline()
+		password = file.readline()
+		self.conn = Connection(dbName="conotels", dbUser=user.replace('\n', ''), dbPass=password.replace('\n', ''))
 		self.conn.open()
 
 		self.setup()
