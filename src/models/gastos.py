@@ -34,12 +34,16 @@ class Gastos(AbstractModel):
 	#en vez de hacer una busqueda con likes re cacos, hace una busqueda con un where :)
 	def buscarPorReserva(self,reserva):
 		#print "select * from " + self.tableName + " where reserva = " + str(reserva)
-		self.model = self.conn.query("select * from " + self.tableName + " where reserva = " +unicode(reserva))
+		self.model = self.conn.query("select * from gasto where reserva = " +unicode(reserva))
 		self.setHeaders()
+		
+	def getRestaPagar(self,reserva):
+		model = self.conn.query("select SUM(costo) from gasto where reserva = " +str(reserva) + " and pendiente;")
+		return QtCore.QVariant.toFloat(model.record(0).field(0).value())[0]
 
 	def setHeaders(self):
 		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "Descripcion") #si pongo descripción sale feo
+		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "Descripción")
 		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "Costo")
 
 	def cancelarPendientes(self,reserva):

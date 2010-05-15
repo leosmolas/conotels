@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Tue May 11 19:58:19 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Sat May 15 13:35:42 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -57,7 +57,7 @@ class Ui_GastosDialog(object):
         self.frame.setObjectName("frame")
         self.formLayout = QtGui.QFormLayout(self.frame)
         self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
-        self.formLayout.setContentsMargins(0, -1, 5, -1)
+        self.formLayout.setContentsMargins(0, 6, 0, 6)
         self.formLayout.setObjectName("formLayout")
         self.label = QtGui.QLabel(self.frame)
         self.label.setObjectName("label")
@@ -86,6 +86,7 @@ class Ui_GastosDialog(object):
         self.formLayout_3.setWidget(0, QtGui.QFormLayout.LabelRole, self.pendienteLabel)
         self.pendienteCheckBox = QtGui.QCheckBox(self.pendienteFrame)
         self.pendienteCheckBox.setEnabled(False)
+        self.pendienteCheckBox.setText("")
         self.pendienteCheckBox.setCheckable(True)
         self.pendienteCheckBox.setChecked(True)
         self.pendienteCheckBox.setObjectName("pendienteCheckBox")
@@ -102,8 +103,16 @@ class Ui_GastosDialog(object):
         self.lbl.setObjectName("lbl")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.LabelRole, self.lbl)
         self.totalLabel = QtGui.QLabel(self.totalFrame)
+        self.totalLabel.setText("")
         self.totalLabel.setObjectName("totalLabel")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.FieldRole, self.totalLabel)
+        self.label_7 = QtGui.QLabel(self.totalFrame)
+        self.label_7.setObjectName("label_7")
+        self.formLayout_2.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_7)
+        self.restaLabel = QtGui.QLabel(self.totalFrame)
+        self.restaLabel.setText("")
+        self.restaLabel.setObjectName("restaLabel")
+        self.formLayout_2.setWidget(1, QtGui.QFormLayout.FieldRole, self.restaLabel)
         self.gridLayout.addWidget(self.totalFrame, 4, 2, 1, 3)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 8, 1, 1, 1)
@@ -132,4 +141,5 @@ class Ui_GastosDialog(object):
         self.label.setText(QtGui.QApplication.translate("GastosDialog", "Buscar", None, QtGui.QApplication.UnicodeUTF8))
         self.pendienteLabel.setText(QtGui.QApplication.translate("GastosDialog", "Pendiente", None, QtGui.QApplication.UnicodeUTF8))
         self.lbl.setText(QtGui.QApplication.translate("GastosDialog", "Total:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("GastosDialog", "Resta Pagar:", None, QtGui.QApplication.UnicodeUTF8))
 
