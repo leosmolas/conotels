@@ -48,5 +48,7 @@ class Gastos(AbstractModel):
 
 	def cancelarPendientes(self,reserva):
 		self.conn.update("update gasto set pendiente=false where reserva="+unicode(reserva))
-		
 	
+	def eliminar(self, id):
+		print "gasto id -->",id
+		self.conn.update("delete from gasto where idGasto = " + str(id))
