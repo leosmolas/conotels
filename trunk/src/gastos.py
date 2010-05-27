@@ -24,9 +24,11 @@ class GastosDialog(QtGui.QDialog):
 		self.okBut        = self.ui.buttonBox.addButton("Guardar &Nuevo", QtGui.QDialogButtonBox.ActionRole)		
 		self.modificarBut = self.ui.buttonBox.addButton( u"Guardar &Modificación", QtGui.QDialogButtonBox.ActionRole)
 		self.cancelarPendientesBut = self.ui.buttonBox.addButton("Cancelar &Pendientes", QtGui.QDialogButtonBox.ActionRole)
+		self.eliminarBut = self.ui.buttonBox.addButton("&Eliminar", QtGui.QDialogButtonBox.ActionRole)
 		self.okBut.setEnabled       (False)
 		self.modificarBut.setEnabled(False)
 		self.cancelarPendientesBut.setEnabled(False)
+		self.eliminarBut.setEnabled(False)
 
 		QtCore.QObject.connect(self.okBut, QtCore.SIGNAL("clicked()"),
 				self.on_okBut_clicked)
@@ -34,6 +36,8 @@ class GastosDialog(QtGui.QDialog):
 				self.on_okModificar_clicked)
 		QtCore.QObject.connect(self.cancelarPendientesBut, QtCore.SIGNAL("clicked()"),
 				self.cancelarPendientes)
+		QtCore.QObject.connect(self.eliminarBut, QtCore.SIGNAL("clicked()"),
+				self.eliminarGasto)
 		QtCore.QObject.connect(self.ui.buscarLineEdit, QtCore.SIGNAL("textChanged(QString)"),
 				self.buscarReserva)
 		QtCore.QObject.connect(self.ui.reservastableView, QtCore.SIGNAL("clicked(QModelIndex)"),
@@ -138,7 +142,9 @@ class GastosDialog(QtGui.QDialog):
 
 	@QtCore.pyqtSlot()
 	def activarModificar(self,modelIndexList):
-		self.modificarBut.setEnabled(modelIndexList!=[])
+		activar = modelIndexList!=[]
+		self.modificarBut.setEnabled(activar)
+		self.eliminarBut.setEnabled(activar)
 		self.ui.gastoSpin.setValue(self.model.model.getItem(2,self.ui.gastosTableView.selectedIndexes()[0].row()).toInt()[0])
 		self.ui.descripcionLine.setText(self.model.model.getItem(1,self.ui.gastosTableView.selectedIndexes()[0].row()).toString())
 		#llamada media troska... le tengo que pasar un booleano a setChecked.
@@ -158,3 +164,17 @@ class GastosDialog(QtGui.QDialog):
 		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
 		return super(GastosDialog, self).keyPressEvent(keyEvent)
+	
+	@QtCore.pyqtSlot()
+	def eliminarGasto(self):
+		if self.ui.gastosTableView.selectedIndexes()!=[]:
+			ret = QtGui.QMessageBox.question(self, "Advertencia", u"Está seguro de que desea realizar la eliminación?",
+				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
+			
+			if ret == QtGui.QMessageBox.Ok:
+				self.model.eliminar(QtCore.QVariant.toInt(self.model.model.getItem(0,self.ui.gastosTableView.selectedIndexes()[0].row()))[0])
+				self.clear()
+				self.cargarGastos(self.ui.reservastableView.selectedIndexes()[0])
+				self.uiMain.statusBar.showMessage("El gasto ha sido eliminado exitosamente.",3000)
+		else:
+			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para ser eliminado.",3000)
