@@ -48,7 +48,7 @@ class Connection:
 		if not self.db.open():
 			msg="Error al intentar abrir la Base de Datos: "+self.db.lastError().text()
 			raise Error(msg, "Error de conexion.")
-			
+		self.update("set wait_timeout=31536000")
 	"""
 	Metodo para cerrar la conexion.	
 	*Parametros: nada.
