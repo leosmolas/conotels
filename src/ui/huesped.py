@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'huesped.ui'
 #
-# Created: Fri May 14 14:49:24 2010
+# Created: Tue Jun 01 15:53:45 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_huespedDialog(object):
     def setupUi(self, huespedDialog):
         huespedDialog.setObjectName("huespedDialog")
-        huespedDialog.resize(400, 202)
+        huespedDialog.resize(400, 306)
         huespedDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Spain))
         self.gridLayout = QtGui.QGridLayout(huespedDialog)
         self.gridLayout.setObjectName("gridLayout")
@@ -65,6 +65,30 @@ class Ui_huespedDialog(object):
         self.localidadLine = QtGui.QLineEdit(huespedDialog)
         self.localidadLine.setObjectName("localidadLine")
         self.formLayout.setWidget(6, QtGui.QFormLayout.FieldRole, self.localidadLine)
+        self.label_8 = QtGui.QLabel(huespedDialog)
+        self.label_8.setObjectName("label_8")
+        self.formLayout.setWidget(7, QtGui.QFormLayout.LabelRole, self.label_8)
+        self.label_9 = QtGui.QLabel(huespedDialog)
+        self.label_9.setObjectName("label_9")
+        self.formLayout.setWidget(8, QtGui.QFormLayout.LabelRole, self.label_9)
+        self.label_10 = QtGui.QLabel(huespedDialog)
+        self.label_10.setObjectName("label_10")
+        self.formLayout.setWidget(9, QtGui.QFormLayout.LabelRole, self.label_10)
+        self.label_11 = QtGui.QLabel(huespedDialog)
+        self.label_11.setObjectName("label_11")
+        self.formLayout.setWidget(10, QtGui.QFormLayout.LabelRole, self.label_11)
+        self.emailLine = QtGui.QLineEdit(huespedDialog)
+        self.emailLine.setObjectName("emailLine")
+        self.formLayout.setWidget(7, QtGui.QFormLayout.FieldRole, self.emailLine)
+        self.patenteLine = QtGui.QLineEdit(huespedDialog)
+        self.patenteLine.setObjectName("patenteLine")
+        self.formLayout.setWidget(8, QtGui.QFormLayout.FieldRole, self.patenteLine)
+        self.modeloLine = QtGui.QLineEdit(huespedDialog)
+        self.modeloLine.setObjectName("modeloLine")
+        self.formLayout.setWidget(9, QtGui.QFormLayout.FieldRole, self.modeloLine)
+        self.colorLine = QtGui.QLineEdit(huespedDialog)
+        self.colorLine.setObjectName("colorLine")
+        self.formLayout.setWidget(10, QtGui.QFormLayout.FieldRole, self.colorLine)
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
 
         self.retranslateUi(huespedDialog)
@@ -85,4 +109,8 @@ class Ui_huespedDialog(object):
         self.label_5.setText(QtGui.QApplication.translate("huespedDialog", "Celular:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("huespedDialog", "Dirección:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("huespedDialog", "Localidad:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(QtGui.QApplication.translate("huespedDialog", "e-mail:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("huespedDialog", "Patente del Auto:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(QtGui.QApplication.translate("huespedDialog", "Modelo del Auto:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("huespedDialog", "Color del Auto:", None, QtGui.QApplication.UnicodeUTF8))
 

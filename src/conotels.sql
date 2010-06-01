@@ -47,6 +47,10 @@ create table huesped (
 	telefonoCelular varchar(45),
 	direccion varchar(45),
 	Localidad varchar(45),
+	email varchar(45),
+	autoPatente varchar(20),
+	autoModelo varchar(45),
+	autoColor varchar(45),
 		
 	primary key (idHuesped)
 

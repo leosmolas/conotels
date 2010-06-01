@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>202</height>
+    <height>306</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -98,6 +98,46 @@
      </item>
      <item row="6" column="1">
       <widget class="QLineEdit" name="localidadLine"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>e-mail:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Patente del Auto:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Modelo del Auto:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Color del Auto:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="emailLine"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="patenteLine"/>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="modeloLine"/>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="colorLine"/>
      </item>
     </layout>
    </item>
