@@ -11,7 +11,7 @@ class Huesped(AbstractModel):
 		self.id = "idHuesped"
 
 		#self.params = "(dni,nombre,apellido,telefono)"
-		self.campos = ["dni","nombre","apellido","telefonoFijo","telefonoCelular","direccion","Localidad"]
+		self.campos = ["dni","nombre","apellido","telefonoFijo","telefonoCelular","direccion","Localidad","email","autoPatente","autoModelo","autoColor"]
 	
 #	Metodos heredados:
 #    def getModel(self)
@@ -43,14 +43,19 @@ class Huesped(AbstractModel):
 		self.setHeaders()
 
 	def setHeaders(self):
-		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "DNI")
-		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Apellido")
-		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nombre")
-		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Teléfono")
-		self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Celular")
-		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Dirección")
-		self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Localidad")
+		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, "ID")
+		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "DNI")
+		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "Apellido")
+		self.model.setHeaderData(3,  QtCore.Qt.Horizontal, "Nombre")
+		self.model.setHeaderData(4,  QtCore.Qt.Horizontal, "Teléfono")
+		self.model.setHeaderData(5,  QtCore.Qt.Horizontal, "Celular")
+		self.model.setHeaderData(6,  QtCore.Qt.Horizontal, "Dirección")
+		self.model.setHeaderData(7,  QtCore.Qt.Horizontal, "Localidad")
+		self.model.setHeaderData(8,  QtCore.Qt.Horizontal, "e-mail")
+		self.model.setHeaderData(9,  QtCore.Qt.Horizontal, "Patente del Auto")
+		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "Modelo del Auto")
+		self.model.setHeaderData(11, QtCore.Qt.Horizontal, "Color del Auto")
+		
 
 	def filterModel(self,filtro):
 		super(Huesped,self).filterModel(filtro)
