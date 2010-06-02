@@ -102,8 +102,6 @@ create table gasto (
 use conotels;
 
 
------------------------------------------------------------- TRIGGERS ------------------------------------------------------------
-
 delimiter //
 create trigger update_unidad before update on reserva
 	for each row begin
@@ -167,8 +165,6 @@ create trigger delete_gasto after delete on gasto
 	end//
 delimiter ;
 
-
------------------------------------------------------------- VIEWS ------------------------------------------------------------
 -- una vista para la tabla de reservas en Gastos
 CREATE VIEW reservasView AS 
 	SELECT idReserva, apellido, dni, u.nombre, inicioPrereserva,finPrereserva, inicioReserva, finReserva, horaCheckIn, horaCheckOut, r.estado
