@@ -45,7 +45,7 @@ create table huesped (
 	nombre varchar(45) not null,
 	telefonoFijo varchar(45),
 	telefonoCelular varchar(45),
-	direccion varchar(45),
+	direccion varchar(100),
 	Localidad varchar(45),
 	email varchar(45),
 	autoPatente varchar(20),

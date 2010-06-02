@@ -61,13 +61,18 @@ class HuespedDialog(QtGui.QDialog):
 	def save(self):
 		if self.ui.dniLine.text() != "" and self.ui.nombreLine.text() != "" and self.ui.apellidoLine.text() != "": 
 			if (self.modif and self.ui.dniLine.text() == self.dni) or self.model.checkdni(self.ui.dniLine.text()) == 0:
-				self.model.save(id=self.id,dni=re.escape(str(self.ui.dniLine.text())),
-					nombre=re.escape(unicode(self.ui.nombreLine.text())),
-					apellido=re.escape(unicode(self.ui.apellidoLine.text())),
-					telefono=re.escape(str(self.ui.telLine.text())),
-					celular=re.escape(str(self.ui.celLine.text())),
-					direccion=re.escape(unicode(self.ui.direccionLine.text())),
-					localidad=re.escape(unicode(self.ui.localidadLine.text())))
+				self.model.save(id=self.id,dni=re.escape(unicode(self.ui.dniLine.text())),
+					nombre      = re.escape(unicode(self.ui.nombreLine.text())),
+					apellido    = re.escape(unicode(self.ui.apellidoLine.text())),
+					telefono    = re.escape(unicode(self.ui.telLine.text())),
+					celular     = re.escape(unicode(self.ui.celLine.text())),
+					direccion   = re.escape(unicode(self.ui.direccionLine.text())),
+					localidad   = re.escape(unicode(self.ui.localidadLine.text())),
+					email       = re.escape(unicode(self.ui.emailLine.text())),
+					autoPatente = re.escape(unicode(self.ui.patenteLine.text())),
+					autoModelo  = re.escape(unicode(self.ui.modeloLine.text())),
+					autoColor   = re.escape(unicode(self.ui.colorLine.text()))
+					)
 				#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 				if self.uiMain != None:
 					self.uiMain.statusBar.showMessage(u"Los datos se han guardado con éxito!",3000)
@@ -89,6 +94,10 @@ class HuespedDialog(QtGui.QDialog):
 		self.ui.celLine.setText("")
 		self.ui.direccionLine.setText("")
 		self.ui.localidadLine.setText("")
+		self.ui.emailLice.setText("")
+		self.ui.patenteLice.setText("")
+		self.ui.modeloLice.setText("")
+		self.ui.colorLice.setText("")
 
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):
