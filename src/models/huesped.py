@@ -20,7 +20,7 @@ class Huesped(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
-	def save(self,id=-1, dni="", nombre="", apellido="", telefono="",celular="",direccion="",localidad=""):
+	def save(self,id=-1, dni="", nombre="", apellido="", telefono="",celular="",direccion="",localidad="",email="",autoPatente="",autoModelo="",autoColor=""):
 		if id != -1:
 			self.conn.update("update "+self.tableName+ 
 				" set nombre='"+nombre+
@@ -30,13 +30,16 @@ class Huesped(AbstractModel):
 				"',telefonoCelular='"+celular+
 				"',direccion='"+direccion+
 				"',Localidad='"+localidad+
+				"',email='"+email+
+				"',autoPatente='="+autoPatente+
+				"',autoColor'="+autoColor+
 				 "' where idHuesped="+unicode(id))
 		else:
 			#print "insert into "+self.tableName+" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"')"
 			
 			self.conn.update("insert into "+self.tableName+
-				" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ 
-				"values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"')")
+				" (dni, nombre, apellido, telefonoFijo, telefonoCelular, direccion, Localidad, email, autoPatente, autoModelo, autoColor) "+ 
+				"values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"','"+email+"','"+autoPatente+"','"+autoModelo+"','"+autoColor+"')")
 
 	def loadAll(self):
 		super(Huesped, self).loadAll()
