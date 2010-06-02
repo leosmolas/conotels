@@ -2,7 +2,7 @@ use conotels
 
 alter table reserva add gastos float unsigned default 0;
 
-update reserva set gastos = 0;
+update reserva set gastos = 0 where gastos is null;
 
 delimiter //
 create trigger insert_gasto after insert on gasto
