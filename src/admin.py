@@ -88,8 +88,8 @@ class Admin(QtGui.QDialog):
 		if self.nombre == "Unidad":
 			self.ui.tableView.setColumnHidden(6,True) #Oculto el id del Tipo de la tabla Unidad
 		elif self.nombre == "Reserva":
-			self.ui.tableView.setColumnHidden(11,True)
 			self.ui.tableView.setColumnHidden(12,True)
+			self.ui.tableView.setColumnHidden(13,True)
 		self.ui.tableView.resizeColumnsToContents()		
 
 	@QtCore.pyqtSlot()

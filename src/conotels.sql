@@ -12,7 +12,7 @@ create table tipo (
 	idTipo int unsigned not null auto_increment,
 	nombre varchar(45) not null,
 	costoTemporadaAlta decimal(10,2) default 0,
-	costoTemporadaBaja decimal(10,2) default 0	,
+	costoTemporadaBaja decimal(10,2) default 0,
 	descripcion text,
 	
 	primary key (idTipo)
@@ -70,7 +70,7 @@ create table reserva (
 	horaCheckOut time,
 	estado enum('Pre Reservado', 'Reservado', 'Reserva en curso', 'Reserva terminada', 'Reserva cancelada'),
 	temporada enum('Alta', 'Baja'),
-	seña decimal(10,2) default 0,
+	senia decimal(10,2) default 0,
 	gastos decimal(10,2) default 0,
 	
 	primary key (idReserva),
