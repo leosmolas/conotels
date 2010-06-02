@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Fri May 28 22:49:03 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Wed Jun 02 17:29:25 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -16,7 +16,7 @@ class Ui_GastosDialog(object):
         self.gridLayout_2 = QtGui.QGridLayout(GastosDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtGui.QGridLayout()
-        self.gridLayout.setSpacing(6)
+        self.gridLayout.setSpacing(3)
         self.gridLayout.setObjectName("gridLayout")
         self.gastosTableView = QtGui.QTableView(GastosDialog)
         self.gastosTableView.setMinimumSize(QtCore.QSize(0, 0))
@@ -57,7 +57,7 @@ class Ui_GastosDialog(object):
         self.frame.setObjectName("frame")
         self.formLayout = QtGui.QFormLayout(self.frame)
         self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
-        self.formLayout.setContentsMargins(0, 6, 0, 6)
+        self.formLayout.setMargin(0)
         self.formLayout.setObjectName("formLayout")
         self.label = QtGui.QLabel(self.frame)
         self.label.setObjectName("label")
@@ -86,6 +86,7 @@ class Ui_GastosDialog(object):
         self.formLayout_3.setWidget(0, QtGui.QFormLayout.LabelRole, self.pendienteLabel)
         self.pendienteCheckBox = QtGui.QCheckBox(self.pendienteFrame)
         self.pendienteCheckBox.setEnabled(False)
+        self.pendienteCheckBox.setText("")
         self.pendienteCheckBox.setCheckable(True)
         self.pendienteCheckBox.setChecked(True)
         self.pendienteCheckBox.setObjectName("pendienteCheckBox")
@@ -102,12 +103,14 @@ class Ui_GastosDialog(object):
         self.lbl.setObjectName("lbl")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.LabelRole, self.lbl)
         self.totalLabel = QtGui.QLabel(self.totalFrame)
+        self.totalLabel.setText("")
         self.totalLabel.setObjectName("totalLabel")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.FieldRole, self.totalLabel)
         self.label_7 = QtGui.QLabel(self.totalFrame)
         self.label_7.setObjectName("label_7")
         self.formLayout_2.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_7)
         self.restaLabel = QtGui.QLabel(self.totalFrame)
+        self.restaLabel.setText("")
         self.restaLabel.setObjectName("restaLabel")
         self.formLayout_2.setWidget(1, QtGui.QFormLayout.FieldRole, self.restaLabel)
         self.gridLayout.addWidget(self.totalFrame, 4, 2, 1, 3)

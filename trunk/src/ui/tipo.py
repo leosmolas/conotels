@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Fri May 14 14:49:47 2010
+# Created: Wed Jun 02 17:26:46 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,17 +30,9 @@ class Ui_tipoDialog(object):
         self.label_2 = QtGui.QLabel(tipoDialog)
         self.label_2.setObjectName("label_2")
         self.gridLayout_2.addWidget(self.label_2, 1, 0, 1, 1)
-        self.costoTempBajaSpin = QtGui.QSpinBox(tipoDialog)
-        self.costoTempBajaSpin.setMaximum(9999999)
-        self.costoTempBajaSpin.setObjectName("costoTempBajaSpin")
-        self.gridLayout_2.addWidget(self.costoTempBajaSpin, 1, 1, 1, 1)
         self.label_3 = QtGui.QLabel(tipoDialog)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 2, 0, 1, 1)
-        self.costoTempAltaSpin = QtGui.QSpinBox(tipoDialog)
-        self.costoTempAltaSpin.setMaximum(999999)
-        self.costoTempAltaSpin.setObjectName("costoTempAltaSpin")
-        self.gridLayout_2.addWidget(self.costoTempAltaSpin, 2, 1, 1, 1)
         self.label_4 = QtGui.QLabel(tipoDialog)
         self.label_4.setObjectName("label_4")
         self.gridLayout_2.addWidget(self.label_4, 3, 0, 1, 1)
@@ -51,6 +43,13 @@ class Ui_tipoDialog(object):
         self.gridLayout_2.addItem(spacerItem, 1, 2, 1, 1)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem1, 4, 0, 1, 1)
+        self.costoTempBajaSpin = QtGui.QDoubleSpinBox(tipoDialog)
+        self.costoTempBajaSpin.setObjectName("costoTempBajaSpin")
+        self.gridLayout_2.addWidget(self.costoTempBajaSpin, 1, 1, 1, 1)
+        self.costoTempAltaSpin = QtGui.QDoubleSpinBox(tipoDialog)
+        self.costoTempAltaSpin.setMinimumSize(QtCore.QSize(70, 0))
+        self.costoTempAltaSpin.setObjectName("costoTempAltaSpin")
+        self.gridLayout_2.addWidget(self.costoTempAltaSpin, 2, 1, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
 
         self.retranslateUi(tipoDialog)
@@ -68,4 +67,6 @@ class Ui_tipoDialog(object):
         self.label_2.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada baja:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada alta:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("tipoDialog", "Descripción:", None, QtGui.QApplication.UnicodeUTF8))
+        self.costoTempBajaSpin.setPrefix(QtGui.QApplication.translate("tipoDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
+        self.costoTempAltaSpin.setPrefix(QtGui.QApplication.translate("tipoDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -1,9 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Thu May 13 20:35:26 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Wed Jun 02 17:35:59 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -50,8 +50,10 @@ class Ui_MainWindow(object):
         self.page_2.setObjectName("page_2")
         self.widgets.addWidget(self.page_2)
         self.verticalLayout_3.addWidget(self.widgets)
-        self.gridLayout.addWidget(self.title, 0, 1, 1, 1)
-        self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.title, 0, 0, 1, 2)
+        self.gridLayout_2.addLayout(self.gridLayout, 1, 0, 1, 4)
+        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem, 0, 0, 1, 1)
         self.buttonsFrame = QtGui.QFrame(self.centralwidget)
         self.buttonsFrame.setStyleSheet("QToolButton{    \n"
 "    border: 2px;\n"
@@ -73,13 +75,15 @@ class Ui_MainWindow(object):
         self.buttonsFrame.setObjectName("buttonsFrame")
         self.buttonsLayout = QtGui.QHBoxLayout(self.buttonsFrame)
         self.buttonsLayout.setObjectName("buttonsLayout")
-        self.gridLayout_2.addWidget(self.buttonsFrame, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.buttonsFrame, 0, 2, 1, 1)
+        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem1, 0, 3, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QtGui.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 21))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 20))
         self.menuBar.setObjectName("menuBar")
         self.menuAyuda = QtGui.QMenu(self.menuBar)
         self.menuAyuda.setObjectName("menuAyuda")
