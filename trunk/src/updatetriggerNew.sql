@@ -41,3 +41,12 @@ create trigger update_gasto before update on gasto
 		end if;
 	end//
 delimiter ;
+
+delimiter //
+create trigger delete_gasto after delete on gasto
+	for each row begin
+		if old.pendiente = 1 then
+			update reserva set gastos = gastos - old.costo;
+		end if;
+	end//
+delimiter ;
