@@ -42,9 +42,9 @@ class Gastos(AbstractModel):
 		return QtCore.QVariant.toFloat(model.record(0).field(0).value())[0]
 
 	def setHeaders(self):
-		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "Descripción")
-		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "Costo")
+		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, u"ID")
+		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, u"Descripción")
+		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, u"Costo")
 
 	def cancelarPendientes(self,reserva):
 		self.conn.update("update gasto set pendiente=false where reserva="+unicode(reserva))
