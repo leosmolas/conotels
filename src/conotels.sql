@@ -70,6 +70,7 @@ create table reserva (
 	horaCheckOut time,
 	estado enum('Pre Reservado', 'Reservado', 'Reserva en curso', 'Reserva terminada', 'Reserva cancelada'),
 	temporada enum('Alta', 'Baja'),
+	gastos float unsigned default 0,
 	
 	primary key (idReserva),
 
@@ -110,6 +111,24 @@ create trigger update_unidad before update on reserva
 		elseif old.estado = 'Reserva en curso' and new.estado <> 'Reserva en curso' then
 			update unidad set estado = 'Libre' where unidad.idUnidad = uni;
 		end if;
+	end//
+delimiter ;
+
+delimiter //
+create trigger insert_gasto before insert on gasto
+	for each row begin
+		declare valor float;
+		set valor = new.costo;
+		update reserva set gastos = gastos + valor where idReserva = new.reserva;
+	end//
+delimiter ;
+
+delimiter //
+create trigger update_gasto before update on gasto
+	for each row begin
+		declare valor float;
+		set valor = new.costo - old.costo;
+		update reserva set gastos = gastos + valor where idReserva = new.reserva;
 	end//
 delimiter ;
 
