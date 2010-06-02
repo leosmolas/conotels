@@ -172,7 +172,8 @@ class ReservaDialog(QtGui.QDialog):
 									horaCheckIn=self.ui.inTime.time().toString("HH:mm:ss"),
 									horaCheckOut=self.ui.outTime.time().toString("HH:mm:ss"), 
 									estado=self.ui.estadoCombo.currentText(),
-									temporada=self.ui.temporadaCombo.currentText()
+									temporada=self.ui.temporadaCombo.currentText(),
+									senia=self.ui.seniaSpin.value()
 								)
 								
 								if self.uiMain != None:

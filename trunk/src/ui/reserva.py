@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Fri May 14 14:49:35 2010
+# Created: Wed Jun 02 18:28:01 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_reservaDialog(object):
     def setupUi(self, reservaDialog):
         reservaDialog.setObjectName("reservaDialog")
-        reservaDialog.resize(436, 469)
+        reservaDialog.resize(369, 469)
         self.gridLayout = QtGui.QGridLayout(reservaDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtGui.QDialogButtonBox(reservaDialog)
@@ -106,6 +106,13 @@ class Ui_reservaDialog(object):
         self.gridLayout_2.addWidget(self.nuevoBut, 5, 1, 1, 1)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem1, 3, 0, 1, 1)
+        self.label_12 = QtGui.QLabel(reservaDialog)
+        self.label_12.setObjectName("label_12")
+        self.gridLayout_2.addWidget(self.label_12, 14, 0, 1, 1)
+        self.seniaSpin = QtGui.QDoubleSpinBox(reservaDialog)
+        self.seniaSpin.setMaximum(9999.99)
+        self.seniaSpin.setObjectName("seniaSpin")
+        self.gridLayout_2.addWidget(self.seniaSpin, 14, 1, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
 
         self.retranslateUi(reservaDialog)
@@ -146,4 +153,6 @@ class Ui_reservaDialog(object):
         self.temporadaCombo.setItemText(1, QtGui.QApplication.translate("reservaDialog", "Baja", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("reservaDialog", "Huésped:", None, QtGui.QApplication.UnicodeUTF8))
         self.nuevoBut.setText(QtGui.QApplication.translate("reservaDialog", "Crear nuevo huésped", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_12.setText(QtGui.QApplication.translate("reservaDialog", "Seña:", None, QtGui.QApplication.UnicodeUTF8))
+        self.seniaSpin.setPrefix(QtGui.QApplication.translate("reservaDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
 
