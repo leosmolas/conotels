@@ -40,24 +40,10 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QSpinBox" name="costoTempBajaSpin">
-       <property name="maximum">
-        <number>9999999</number>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Costo en temporada alta:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QSpinBox" name="costoTempAltaSpin">
-       <property name="maximum">
-        <number>999999</number>
        </property>
       </widget>
      </item>
@@ -96,6 +82,26 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="1" column="1">
+      <widget class="QDoubleSpinBox" name="costoTempBajaSpin">
+       <property name="prefix">
+        <string>$ </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDoubleSpinBox" name="costoTempAltaSpin">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="prefix">
+        <string>$ </string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

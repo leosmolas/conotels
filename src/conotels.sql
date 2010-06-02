@@ -11,8 +11,8 @@ create table tipo (
 
 	idTipo int unsigned not null auto_increment,
 	nombre varchar(45) not null,
-	costoTemporadaAlta int unsigned not null,
-	costoTemporadaBaja int unsigned not null,
+	costoTemporadaAlta decimal(10,2) default 0,
+	costoTemporadaBaja decimal(10,2) default 0	,
 	descripcion text,
 	
 	primary key (idTipo)
@@ -70,7 +70,8 @@ create table reserva (
 	horaCheckOut time,
 	estado enum('Pre Reservado', 'Reservado', 'Reserva en curso', 'Reserva terminada', 'Reserva cancelada'),
 	temporada enum('Alta', 'Baja'),
-	gastos float unsigned default 0,
+	seña decimal(10,2) default 0,
+	gastos decimal(10,2) default 0,
 	
 	primary key (idReserva),
 
@@ -88,7 +89,7 @@ create table gasto (
 
 	idGasto int unsigned not null auto_increment,
 	descripcion text not null,
-	costo float unsigned not null,
+	costo decimal(10,2) default 0,
 	reserva int unsigned not null,
 	pendiente boolean,
 	
