@@ -138,7 +138,12 @@ class Admin(QtGui.QDialog):
 			cel = row.field(5).value().toString()
 			direccion = row.field(6).value().toString()
 			localidad = row.field(7).value().toString()
-			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel,cel,direccion,localidad,mainWin=self.uiMain)
+			email = row.field(8).value().toString()
+			patente = row.field(9).value().toString()
+			modelo = row.field(10).value().toString()
+			color = row.field(11).value().toString()
+			
+			diag = self.dialog(self.conn, id,dni,apellido,nombre,tel,cel,direccion,localidad,email,patente,modelo,color,mainWin=self.uiMain)
 		diag.exec_()
 		self.loadAll()
 	
