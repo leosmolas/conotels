@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+ # -*- coding: latin-1 -*-
 from PyQt4 import QtCore, QtGui
 import re
 
@@ -29,8 +29,18 @@ class HuespedDialog(QtGui.QDialog):
 			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"),
 				self.on_backBut_clicked)
 
-		#dni, apellido, nombre, telefono
-	def __init__(self, conn, id = -1, dni = "", apellido = "", nombre = "", telefono = "",celular="",direccion="",localidad="", mainWin = None, parent = None):
+		#dni varchar(45) not null,
+		#apellido varchar(45) not null,
+		#nombre varchar(45) not null,
+		#telefonoFijo varchar(45),
+		#telefonoCelular varchar(45),
+		#direccion varchar(100),
+		#localidad varchar(45),
+		#email varchar(45),
+		#autoPatente varchar(20),
+		#autoModelo varchar(45),
+		#autoColor varchar(45),
+	def __init__(self, conn, id = -1, dni = "", apellido = "", nombre = "", telefono = "",celular="",direccion="",localidad="", email="", patente="", modelo="", color="", mainWin = None, parent = None):
 		super(HuespedDialog, self).__init__(parent)
 		
 		self.conn = conn
@@ -41,11 +51,6 @@ class HuespedDialog(QtGui.QDialog):
 		self.uiMain = mainWin #modif por Jona
 		
 		self.setup()
-
-#        self.dni = dni
-#        self.apellido = apellido
-#        self.nombre = nombre
-#        self.telefono = telefono
 		
 		if self.modif:
 			self.ui.dniLine.setText(dni)
@@ -54,7 +59,11 @@ class HuespedDialog(QtGui.QDialog):
 			self.ui.telLine.setText(telefono)
 			self.ui.celLine.setText(celular)
 			self.ui.direccionLine.setText(direccion)
-			self.ui.localidadLine.setText(localidad)			
+			self.ui.localidadLine.setText(localidad)	
+			self.ui.emailLine.setText(email)
+			self.ui.patenteLine.setText(patente)
+			self.ui.modeloLine.setText(modelo)
+			self.ui.colorLine.setText(color)
 		
 		self.installEventFilter(self)
 
@@ -94,10 +103,10 @@ class HuespedDialog(QtGui.QDialog):
 		self.ui.celLine.setText("")
 		self.ui.direccionLine.setText("")
 		self.ui.localidadLine.setText("")
-		self.ui.emailLice.setText("")
-		self.ui.patenteLice.setText("")
-		self.ui.modeloLice.setText("")
-		self.ui.colorLice.setText("")
+		self.ui.emailLine.setText("")
+		self.ui.patenteLine.setText("")
+		self.ui.modeloLine.setText("")
+		self.ui.colorLine.setText("")
 
 	@QtCore.pyqtSlot()
 	def on_okBut_clicked(self):

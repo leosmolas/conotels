@@ -31,9 +31,10 @@ class Huesped(AbstractModel):
 				"',direccion='"+direccion+
 				"',Localidad='"+localidad+
 				"',email='"+email+
-				"',autoPatente='="+autoPatente+
-				"',autoColor'="+autoColor+
-				 "' where idHuesped="+unicode(id))
+				"',autoPatente='"+autoPatente+
+				"',autoModelo='"+autoModelo+
+				"',autoColor='"+autoColor+
+				"' where idHuesped="+unicode(id))
 		else:
 			#print "insert into "+self.tableName+" (dni, nombre, apellido, telefonoFijo,telefonoCelular,direccion,Localidad) "+ "values ('"+dni+"','"+nombre+"','"+apellido+"','"+telefono+"','"+celular+"','"+direccion+"','"+localidad+"')"
 			
