@@ -88,6 +88,9 @@
        <property name="prefix">
         <string>$ </string>
        </property>
+       <property name="maximum">
+        <double>9999.989999999999782</double>
+       </property>
       </widget>
      </item>
      <item row="2" column="1">
@@ -100,6 +103,9 @@
        </property>
        <property name="prefix">
         <string>$ </string>
+       </property>
+       <property name="maximum">
+        <double>9999.989999999999782</double>
        </property>
       </widget>
      </item>

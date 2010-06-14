@@ -31,7 +31,7 @@ class TipoDialog(QtGui.QDialog):
 
 		self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 		
-	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0, costoTempBaja = 0, desc = "", mainWin = None,parent = None):
+	def __init__(self, conn, id = -1, nombre = "", costoTempAlta = 0.00, costoTempBaja = 0.00, desc = "", mainWin = None,parent = None):
 		super(TipoDialog, self).__init__(parent)
 
 		self.conn = conn
