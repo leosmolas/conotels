@@ -104,8 +104,10 @@ class Admin(QtGui.QDialog):
 		if self.nombre == "Tipo":
 			id = row.field(0).value().toInt()[0]
 			nombre = row.field(1).value().toString()
-			alta = row.field(2).value().toInt()[0]
-			baja = row.field(3).value().toInt()[0]
+			#alta = row.field(2).value().toInt()[0]
+			#baja = row.field(3).value().toInt()[0]
+			alta = float(row.field(2).value().toString())
+			baja = float(row.field(3).value().toString())
 			desc = row.field(4).value().toString()
 			diag = self.dialog(self.conn, id,nombre,alta,baja,desc,mainWin=self.uiMain)
 		elif self.nombre == "Unidad":

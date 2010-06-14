@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Wed Jun 02 17:26:46 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Mon Jun 14 18:46:06 2010
+#      by: PyQt4 UI code generator 4.7.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -44,10 +44,12 @@ class Ui_tipoDialog(object):
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem1, 4, 0, 1, 1)
         self.costoTempBajaSpin = QtGui.QDoubleSpinBox(tipoDialog)
+        self.costoTempBajaSpin.setMaximum(9999.99)
         self.costoTempBajaSpin.setObjectName("costoTempBajaSpin")
         self.gridLayout_2.addWidget(self.costoTempBajaSpin, 1, 1, 1, 1)
         self.costoTempAltaSpin = QtGui.QDoubleSpinBox(tipoDialog)
         self.costoTempAltaSpin.setMinimumSize(QtCore.QSize(70, 0))
+        self.costoTempAltaSpin.setMaximum(9999.99)
         self.costoTempAltaSpin.setObjectName("costoTempAltaSpin")
         self.gridLayout_2.addWidget(self.costoTempAltaSpin, 2, 1, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
