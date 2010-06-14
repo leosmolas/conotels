@@ -118,15 +118,28 @@ class HuespedDialog(QtGui.QDialog):
 	
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
-		self.clear()
+		#self.clear()
+		#if self.modif or self.uiMain == None:
+		#	self.close()
 		if self.modif or self.uiMain == None:
 			self.close()
+		else:
+			self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+			self.uiMain.title.setTitle(u"Huéspedes")
+			self.uiMain.widgets.setCurrentIndex(1)
+			self.uiMain.widgets.widget(1).loadAll()
 
 	def on_backBut_clicked(self):
-		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
-		self.uiMain.title.setTitle(u"Huéspedes")
-		self.uiMain.widgets.setCurrentIndex(1)
-		self.uiMain.widgets.widget(1).loadAll()
+		if self.modif or self.uiMain == None:
+			self.close()
+		else:
+			self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+			self.uiMain.title.setTitle(u"Huéspedes")
+			self.uiMain.widgets.setCurrentIndex(1)
+			self.uiMain.widgets.widget(1).loadAll()
+		#self.clear()
+		#if self.modif or self.uiMain == None:
+		#	self.close()
 
 	@QtCore.pyqtSlot()
 	def keyPressEvent(self, event):
