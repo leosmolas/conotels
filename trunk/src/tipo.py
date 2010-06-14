@@ -88,15 +88,27 @@ class TipoDialog(QtGui.QDialog):
 	
 	@QtCore.pyqtSlot()
 	def on_cancelBut_clicked(self):
+		#self.clear()
+		#if self.modif:
+		#	self.close()
 		self.clear()
 		if self.modif:
 			self.close()
+		else:
+			self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+			self.uiMain.title.setTitle("Administrar tipos")
+			self.uiMain.widgets.setCurrentIndex(1)
+			self.uiMain.widgets.widget(1).loadAll()
 
 	def on_backBut_clicked(self):
-		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
-		self.uiMain.title.setTitle("Administrar tipos")
-		self.uiMain.widgets.setCurrentIndex(1)
-		self.uiMain.widgets.widget(1).loadAll()
+		self.clear()
+		if self.modif:
+			self.close()
+		else:
+			self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
+			self.uiMain.title.setTitle("Administrar tipos")
+			self.uiMain.widgets.setCurrentIndex(1)
+			self.uiMain.widgets.widget(1).loadAll()
 
 	@QtCore.pyqtSlot()
 	def keyPressEvent(self, event):
