@@ -1,68 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+<ui version="4.0" >
  <class>tipoDialog</class>
- <widget class="QDialog" name="tipoDialog">
-  <property name="geometry">
+ <widget class="QDialog" name="tipoDialog" >
+  <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
     <width>485</width>
-    <height>203</height>
+    <height>232</height>
    </rect>
   </property>
-  <property name="windowTitle">
+  <property name="windowTitle" >
    <string>Agregando nuevo tipo de unidad</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
+  <layout class="QGridLayout" name="gridLayout" >
+   <item row="1" column="0" >
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="orientation" >
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Nombre:</string>
+   <item row="0" column="0" >
+    <layout class="QGridLayout" name="gridLayout_2" >
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>* Nombre:</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1" colspan="2">
-      <widget class="QLineEdit" name="nombreLine"/>
+     <item row="0" column="1" colspan="2" >
+      <widget class="QLineEdit" name="nombreLine" />
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
         <string>Costo en temporada baja:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
+     <item row="2" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
         <string>Costo en temporada alta:</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
+     <item row="3" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="text" >
         <string>Descripción:</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1" rowspan="2" colspan="2">
-      <widget class="QPlainTextEdit" name="descEdit"/>
+     <item rowspan="2" row="3" column="1" colspan="2" >
+      <widget class="QPlainTextEdit" name="descEdit" />
      </item>
-     <item row="1" column="2">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
+     <item row="1" column="2" >
+      <spacer name="horizontalSpacer" >
+       <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0">
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>40</width>
          <height>20</height>
@@ -70,12 +69,12 @@
        </property>
       </spacer>
      </item>
-     <item row="4" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
+     <item row="4" column="0" >
+      <spacer name="verticalSpacer" >
+       <property name="orientation" >
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeHint" stdset="0">
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>20</width>
          <height>40</height>
@@ -83,28 +82,28 @@
        </property>
       </spacer>
      </item>
-     <item row="1" column="1">
-      <widget class="QDoubleSpinBox" name="costoTempBajaSpin">
-       <property name="prefix">
+     <item row="1" column="1" >
+      <widget class="QDoubleSpinBox" name="costoTempBajaSpin" >
+       <property name="prefix" >
         <string>$ </string>
        </property>
-       <property name="maximum">
+       <property name="maximum" >
         <double>9999.989999999999782</double>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QDoubleSpinBox" name="costoTempAltaSpin">
-       <property name="minimumSize">
+     <item row="2" column="1" >
+      <widget class="QDoubleSpinBox" name="costoTempAltaSpin" >
+       <property name="minimumSize" >
         <size>
          <width>70</width>
          <height>0</height>
         </size>
        </property>
-       <property name="prefix">
+       <property name="prefix" >
         <string>$ </string>
        </property>
-       <property name="maximum">
+       <property name="maximum" >
         <double>9999.989999999999782</double>
        </property>
       </widget>
@@ -128,11 +127,11 @@
    <receiver>tipoDialog</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel">
+    <hint type="sourcelabel" >
      <x>257</x>
      <y>126</y>
     </hint>
-    <hint type="destinationlabel">
+    <hint type="destinationlabel" >
      <x>157</x>
      <y>274</y>
     </hint>
@@ -144,11 +143,11 @@
    <receiver>tipoDialog</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel">
+    <hint type="sourcelabel" >
      <x>325</x>
      <y>126</y>
     </hint>
-    <hint type="destinationlabel">
+    <hint type="destinationlabel" >
      <x>286</x>
      <y>274</y>
     </hint>

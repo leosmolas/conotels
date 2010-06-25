@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+<ui version="4.0" >
  <class>unidadDialog</class>
- <widget class="QDialog" name="unidadDialog">
-  <property name="geometry">
+ <widget class="QDialog" name="unidadDialog" >
+  <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
@@ -10,65 +9,65 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle">
+  <property name="windowTitle" >
    <string>Nueva unidad</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Número:</string>
+  <layout class="QGridLayout" name="gridLayout" >
+   <item row="0" column="0" >
+    <layout class="QGridLayout" name="gridLayout_2" >
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>*  Número:</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1" colspan="2">
-      <widget class="QLineEdit" name="numeroLine"/>
+     <item row="0" column="1" colspan="2" >
+      <widget class="QLineEdit" name="numeroLine" />
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
         <string>Tipo:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QComboBox" name="tipoCombo"/>
+     <item row="1" column="1" >
+      <widget class="QComboBox" name="tipoCombo" />
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
+     <item row="2" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
         <string>Capacidad:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QSpinBox" name="capacidadSpin"/>
+     <item row="2" column="1" >
+      <widget class="QSpinBox" name="capacidadSpin" />
      </item>
-     <item row="3" column="1">
-      <widget class="QCheckBox" name="noDisponibleCheck">
-       <property name="text">
+     <item row="3" column="1" >
+      <widget class="QCheckBox" name="noDisponibleCheck" >
+       <property name="text" >
         <string>No disponible</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
+     <item row="4" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="text" >
         <string>Descripción:</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1" rowspan="2" colspan="2">
-      <widget class="QPlainTextEdit" name="descripcionText"/>
+     <item rowspan="2" row="4" column="1" colspan="2" >
+      <widget class="QPlainTextEdit" name="descripcionText" />
      </item>
-     <item row="1" column="2">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
+     <item row="1" column="2" >
+      <spacer name="horizontalSpacer" >
+       <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0">
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>40</width>
          <height>20</height>
@@ -76,12 +75,12 @@
        </property>
       </spacer>
      </item>
-     <item row="5" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
+     <item row="5" column="0" >
+      <spacer name="verticalSpacer" >
+       <property name="orientation" >
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeHint" stdset="0">
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>20</width>
          <height>40</height>
@@ -91,9 +90,9 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
+   <item row="1" column="0" >
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="orientation" >
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
@@ -116,11 +115,11 @@
    <receiver>unidadDialog</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel">
+    <hint type="sourcelabel" >
      <x>248</x>
      <y>254</y>
     </hint>
-    <hint type="destinationlabel">
+    <hint type="destinationlabel" >
      <x>157</x>
      <y>274</y>
     </hint>
@@ -132,11 +131,11 @@
    <receiver>unidadDialog</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel">
+    <hint type="sourcelabel" >
      <x>316</x>
      <y>260</y>
     </hint>
-    <hint type="destinationlabel">
+    <hint type="destinationlabel" >
      <x>286</x>
      <y>274</y>
     </hint>
