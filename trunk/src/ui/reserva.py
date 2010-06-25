@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Fri Jun 25 18:13:36 2010
+# Created: Fri Jun 25 18:55:37 2010
 #      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
@@ -15,10 +15,6 @@ class Ui_reservaDialog(object):
         reservaDialog.resize(1280, 701)
         self.gridLayout = QtGui.QGridLayout(reservaDialog)
         self.gridLayout.setObjectName("gridLayout")
-        self.buttonBox = QtGui.QDialogButtonBox(reservaDialog)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
         self.gridLayout_2 = QtGui.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.label = QtGui.QLabel(reservaDialog)
@@ -113,17 +109,18 @@ class Ui_reservaDialog(object):
         self.inicioDate.setCalendarPopup(True)
         self.inicioDate.setObjectName("inicioDate")
         self.gridLayout_2.addWidget(self.inicioDate, 8, 4, 1, 1)
-        self.gridLayout.addLayout(self.gridLayout_2, 2, 0, 1, 1)
+        self.gridLayout.addLayout(self.gridLayout_2, 1, 0, 1, 1)
+        self.buttonBox = QtGui.QDialogButtonBox(reservaDialog)
+        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.NoButton)
+        self.buttonBox.setObjectName("buttonBox")
+        self.gridLayout.addWidget(self.buttonBox, 2, 0, 1, 1)
 
         self.retranslateUi(reservaDialog)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), reservaDialog.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), reservaDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(reservaDialog)
         reservaDialog.setTabOrder(self.unidadCombo, self.huespedLine)
         reservaDialog.setTabOrder(self.huespedLine, self.huespedView)
         reservaDialog.setTabOrder(self.huespedView, self.nuevoBut)
         reservaDialog.setTabOrder(self.nuevoBut, self.inicioPreDate)
-        reservaDialog.setTabOrder(self.inicioPreDate, self.buttonBox)
 
     def retranslateUi(self, reservaDialog):
         reservaDialog.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Nueva reserva", None, QtGui.QApplication.UnicodeUTF8))
