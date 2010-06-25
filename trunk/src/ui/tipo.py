@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Mon Jun 14 18:46:06 2010
-#      by: PyQt4 UI code generator 4.7.2
+# Created: Fri Jun 25 16:42:56 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_tipoDialog(object):
     def setupUi(self, tipoDialog):
         tipoDialog.setObjectName("tipoDialog")
-        tipoDialog.resize(485, 203)
+        tipoDialog.resize(485, 232)
         self.gridLayout = QtGui.QGridLayout(tipoDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtGui.QDialogButtonBox(tipoDialog)
@@ -65,10 +65,6 @@ class Ui_tipoDialog(object):
 
     def retranslateUi(self, tipoDialog):
         tipoDialog.setWindowTitle(QtGui.QApplication.translate("tipoDialog", "Agregando nuevo tipo de unidad", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("tipoDialog", "Nombre:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("tipoDialog", "* Nombre:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada baja:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada alta:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("tipoDialog", "Descripción:", None, QtGui.QApplication.UnicodeUTF8))
-        self.costoTempBajaSpin.setPrefix(QtGui.QApplication.translate("tipoDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
-        self.costoTempAltaSpin.setPrefix(QtGui.QApplication.translate("tipoDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
-

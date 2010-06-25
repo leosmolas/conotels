@@ -79,7 +79,7 @@
      <item row="5" column="1" colspan="3">
       <widget class="QPushButton" name="nuevoBut">
        <property name="text">
-        <string>Crear nuevo huésped</string>
+        <string>Crear nuevo huesped</string>
        </property>
       </widget>
      </item>
@@ -99,7 +99,7 @@
      <item row="20" column="0">
       <widget class="QLabel" name="label_12">
        <property name="text">
-        <string>Seña:</string>
+        <string>Sena:</string>
        </property>
       </widget>
      </item>

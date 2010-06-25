@@ -143,6 +143,8 @@ class GrillaDialog(QtGui.QDialog):
 			est = unicode(q.getItem("estado",i).toString())
 			print est
 
+			estado = 2
+
 			if est == "Reservado":
 				print "la reserva "+str(res)+" tiene estado 1"
 				estado = 1
