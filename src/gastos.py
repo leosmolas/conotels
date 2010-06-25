@@ -107,6 +107,7 @@ class GastosDialog(QtGui.QDialog):
 		self.model.buscarPorReserva(self.reservaActual)
 		
 		self.ui.gastosTableView.setModel(self.model.model)
+		self.ui.gastisTableView.setColumnHidden(0,True)
 		
 # si quieren no le den bola a esto
 

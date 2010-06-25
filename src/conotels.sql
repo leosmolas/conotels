@@ -1,7 +1,6 @@
 create database conotels;
-create user 'userHoteles' identified by 'userHoteles';
-grant super on *.* to 'userHoteles';
-grant all privileges on *.* to 'userHoteles' with grant option;
+
+create user userHoteles;grant all privileges on conotels.* to 'userHoteles'@'localhost' identified by 'userHoteles' with grant option;flush privileges;
 
 
 USE conotels;

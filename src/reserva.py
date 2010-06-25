@@ -54,6 +54,7 @@ class ReservaDialog(QtGui.QDialog):
 		self.huesped = Huesped(self.conn)
 		self.huesped.loadAll()
 		self.ui.huespedView.setModel(self.huesped.model)
+		self.ui.huespedView.setColumnHidden(0,True)
 
 		self.unidad = Unidad(self.conn)
 		self.unidad.loadAll()
@@ -147,6 +148,7 @@ class ReservaDialog(QtGui.QDialog):
 		self.huesped.filterModel(s)
 		self.ui.huespedView.setModel(self.huesped.model)
 		self.ui.huespedView.resizeColumnsToContents()
+		self.ui.huespedView.setColumnHidden(0,True)
 
 	def save(self):
 		if self.ui.unidadCombo.count() > 0:
@@ -232,6 +234,7 @@ class ReservaDialog(QtGui.QDialog):
 		diag.exec_()
 		self.huesped.loadAll()
 		self.ui.huespedView.setModel(self.huesped.model)
+		self.ui.huespedView.setColumnHidden(0,True)
 		self.ui.huespedView.selectRow(self.huesped.model.rowCount()-1)
 
 	@QtCore.pyqtSlot()
