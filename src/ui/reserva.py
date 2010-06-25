@@ -1,9 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Fri Jun 25 18:55:37 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Fri Jun 25 16:42:56 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -125,24 +125,3 @@ class Ui_reservaDialog(object):
     def retranslateUi(self, reservaDialog):
         reservaDialog.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Nueva reserva", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("reservaDialog", "Unidad:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("reservaDialog", "Filtrar hu├®spedes:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_11.setText(QtGui.QApplication.translate("reservaDialog", "Hu├®sped:", None, QtGui.QApplication.UnicodeUTF8))
-        self.nuevoBut.setText(QtGui.QApplication.translate("reservaDialog", "Crear nuevo hu├®sped", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_12.setText(QtGui.QApplication.translate("reservaDialog", "Se├▒a:", None, QtGui.QApplication.UnicodeUTF8))
-        self.seniaSpin.setPrefix(QtGui.QApplication.translate("reservaDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("reservaDialog", "Fin Reserva:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_7.setText(QtGui.QApplication.translate("reservaDialog", "Hora CheckIn:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_8.setText(QtGui.QApplication.translate("reservaDialog", "Hora CheckOut:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_9.setText(QtGui.QApplication.translate("reservaDialog", "Estado:", None, QtGui.QApplication.UnicodeUTF8))
-        self.estadoCombo.setItemText(0, QtGui.QApplication.translate("reservaDialog", "Pre Reservado", None, QtGui.QApplication.UnicodeUTF8))
-        self.estadoCombo.setItemText(1, QtGui.QApplication.translate("reservaDialog", "Reservado", None, QtGui.QApplication.UnicodeUTF8))
-        self.estadoCombo.setItemText(2, QtGui.QApplication.translate("reservaDialog", "Reserva en curso", None, QtGui.QApplication.UnicodeUTF8))
-        self.estadoCombo.setItemText(3, QtGui.QApplication.translate("reservaDialog", "Reserva terminada", None, QtGui.QApplication.UnicodeUTF8))
-        self.estadoCombo.setItemText(4, QtGui.QApplication.translate("reservaDialog", "Reserva cancelada", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_10.setText(QtGui.QApplication.translate("reservaDialog", "Temporada:", None, QtGui.QApplication.UnicodeUTF8))
-        self.temporadaCombo.setItemText(0, QtGui.QApplication.translate("reservaDialog", "Alta", None, QtGui.QApplication.UnicodeUTF8))
-        self.temporadaCombo.setItemText(1, QtGui.QApplication.translate("reservaDialog", "Baja", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("reservaDialog", "Fin Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Reserva:", None, QtGui.QApplication.UnicodeUTF8))
-

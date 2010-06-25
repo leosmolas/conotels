@@ -1,10 +1,9 @@
 create database conotels;
-
-create user userHoteles;grant all privileges on conotels.* to 'userHoteles'@'localhost' identified by 'userHoteles' with grant option;flush privileges;
-
+create user userHoteles;
+grant all privileges on conotels.* to 'userHoteles'@'localhost' identified by 'userHoteles' with grant option;
+flush privileges;
 
 USE conotels;
-
 
 create table tipo (
 
@@ -115,20 +114,6 @@ create trigger update_unidad before update on reserva
 	end//
 delimiter ;
 
-
-delimiter //
-create trigger insert_gasto after insert on gasto
-	for each row begin
-		declare valor float;
-		
-		if new.pendiente = 1 then
-			set valor = new.costo;
-			update reserva set gastos = gastos + valor where idReserva = new.reserva;
-		end if;
-	end//
-delimiter ;
-
-
 delimiter //
 create trigger update_gasto before update on gasto
 	for each row begin
@@ -162,6 +147,45 @@ create trigger delete_gasto after delete on gasto
 		if old.pendiente = 1 then
 			update reserva set gastos = gastos - old.costo;
 		end if;
+	end//
+delimiter ;
+
+delimiter //
+create trigger insert_reserva_bf before insert on reserva
+	for each row begin
+
+		if new.temporada = 'Alta' then
+			set @costoTemporada = (select costoTemporadaAlta from unidad join tipo where tipo = idTipo and idUnidad = new.unidad limit 1);
+		else
+			set @costoTemporada = (select costoTemporadaBaja from unidad join tipo where tipo = idTipo and idUnidad = new.unidad limit 1);
+		end if;
+
+		set @totalcosto = @costoTemporada * datediff(new.finReserva, new.inicioReserva) - new.senia;
+
+		set new.gastos = @totalcosto;
+	end//
+delimiter ;
+
+
+delimiter //
+create trigger insert_reserva after insert on reserva
+	for each row begin
+		set @viene_del_trigger = true;
+		insert into gasto (descripcion,costo,reserva,pendiente) values ('Costo de Reserva', @totalcosto, new.idReserva, true);
+
+	end//
+delimiter ;
+
+delimiter //
+create trigger insert_gasto after insert on gasto
+	for each row begin
+		declare valor float;
+
+		if @viene_del_trigger = false and new.pendiente = 1 then
+			set valor = new.costo;
+			update reserva set gastos = gastos + valor where idReserva = new.reserva;
+		end if;
+		set @viene_del_trigger = false;
 	end//
 delimiter ;
 
