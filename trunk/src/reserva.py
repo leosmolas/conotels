@@ -130,7 +130,7 @@ class ReservaDialog(QtGui.QDialog):
 			today = QtCore.QDate.currentDate()
 			inicio = QtCore.QDate.fromString(inicioReserva, "yyyy-MM-dd")
 			self.ui.inicioPreDate.setDate(today)
-			self.ui.finPreDate.setDate(today.addDays(7))
+			self.ui.finPreDate.setDate(today.addDays(4))
 			self.ui.inicioDate.setDate(inicio)
 			self.ui.finDate.setDate(inicio.addDays(7))
 			unidadComboModel = self.ui.unidadCombo.model()	
