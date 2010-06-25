@@ -85,6 +85,7 @@ class Admin(QtGui.QDialog):
 		else:
 			self.type.loadAll()
 		self.ui.tableView.setModel(self.type.model)
+		self.ui.tableView.setColumnHidden(0,True)
 		if self.nombre == "Unidad":
 			self.ui.tableView.setColumnHidden(6,True) #Oculto el id del Tipo de la tabla Unidad
 		elif self.nombre == "Reserva":
