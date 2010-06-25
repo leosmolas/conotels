@@ -152,7 +152,7 @@ class GastosDialog(QtGui.QDialog):
 		#llamada media troska... le tengo que pasar un booleano a setChecked.
 		# Lo consigo comparando el valor de pendiente con 1. Si da igual, es que tengo que activar el checkBox pendiente.
 		# La llamada es como siempre, pido los indices seleccionados. Supongo que es uno y pido el primero. Le pido el row. Obtengo el valor con la operación que tenemos getItem. Esto es un Qvariant, asi que lo convierto a int. Como esa operación devuelve un vector con dos elementos, le pido el que me interesa
-		self.ui.pendienteCheckBox.setChecked((QtCore.QVariant.toInt(self.model.model.getItem(4,self.ui.gastosTableView.selectedIndexes()[0].row()))[0])==1)
+		self.ui.pendienteCheckBox.setChecked(QtCore.QVariant.toString(self.model.model.getItem(4,self.ui.gastosTableView.selectedIndexes()[0].row()))==QtCore.QString("Si"))
 		
 	@QtCore.pyqtSlot()
 	def cancelarPendientes(self):

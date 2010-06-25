@@ -16,6 +16,8 @@ class Gastos(AbstractModel):
 #    def loadAll(self)
 #    def delete(self, id)
 
+	
+
 	def save(self, id = -1, descripcion="",costo=0,reserva=0,pendiente=True): # if id != -1: update; else: save;
 		if id != -1:
 			# print "update " + self.tableName + 				" set descripcion='"+descripcion+ 				"',costo="+str(costo)+ 				",reserva="+str(reserva) + 				",pendiente="+str(pendiente) + 				" where idGasto="+str(id)
@@ -34,7 +36,7 @@ class Gastos(AbstractModel):
 	#en vez de hacer una busqueda con likes re cacos, hace una busqueda con un where :)
 	def buscarPorReserva(self,reserva):
 		#print "select * from " + self.tableName + " where reserva = " + str(reserva)
-		self.model = self.conn.query("select * from gasto where reserva = " +unicode(reserva))
+		self.model = self.conn.query("select idGasto, descripcion, costo, reserva, replace(replace(pendiente, '0', 'No'), '1', 'Si') as pendiente from gasto where reserva = " +unicode(reserva))
 		self.setHeaders()
 		
 	def getRestaPagar(self,reserva):
@@ -45,6 +47,7 @@ class Gastos(AbstractModel):
 		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, u"ID")
 		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, u"Descripción")
 		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, u"Costo")
+		self.model.setHeaderData(4,  QtCore.Qt.Horizontal, u"Pendiente")
 
 	def cancelarPendientes(self,reserva):
 		self.conn.update("update gasto set pendiente=false where reserva="+unicode(reserva))
