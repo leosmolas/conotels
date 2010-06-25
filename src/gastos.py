@@ -47,7 +47,9 @@ class GastosDialog(QtGui.QDialog):
 
 		self.reservasView = ReservasView(self.conn)
 		self.reservasView.loadAll()
+		
 		self.ui.reservastableView.setModel(self.reservasView.model)
+		self.ui.reservastableView.setColumnHidden(0,True)
 		self.ui.reservastableView.resizeColumnsToContents()
 		self.ui.reservastableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
 		self.ui.gastosTableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
