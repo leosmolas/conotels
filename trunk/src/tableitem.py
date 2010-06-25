@@ -1,8 +1,10 @@
+﻿# -*- coding: utf-8 -*-
+
 from PyQt4 import QtCore,QtGui
 
 # 0 - Libre
-# 1 - Pre Reservado
-# 2 - Reserva confirmada
+# 1 - Reserva confirmada
+# 2 - Pre Reservado
 # 3 - Reserva en curso
 
 class TableItem(QtGui.QTableWidgetItem):
@@ -20,10 +22,10 @@ class TableItem(QtGui.QTableWidgetItem):
 		if tipo == 0:
 			color = QtGui.QColor(255,255,255)
 		elif tipo == 1:
-			color = QtGui.QColor(190,190,210)
+			color = QtGui.QColor(255, 207, 14)
 		elif tipo == 2:
-			color = QtGui.QColor(96,187,34)
+			color = QtGui.QColor(111, 183, 231)		
 		elif tipo == 3:
-			color = QtGui.QColor(59,107,156)
+			color = QtGui.QColor(34, 227, 99)
 
 		self.setBackground(QtGui.QBrush(color))

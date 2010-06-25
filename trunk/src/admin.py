@@ -121,8 +121,8 @@ class Admin(QtGui.QDialog):
 			diag = self.dialog(self.conn, id,numero,tipo,capacidad,desc,estado,mainWin=self.uiMain)
 		elif self.nombre == "Reserva":
 			id = row.field(0).value().toInt()[0]
-			unidad = row.field(11).value().toInt()[0]
-			huesped = row.field(12).value().toInt()[0]
+			unidad = row.field(12).value().toInt()[0]
+			huesped = row.field(13).value().toInt()[0]
 			inicioPreres = row.field(3).value().toString()
 			finPreres = row.field(4).value().toString()
 			inicioRes = row.field(5).value().toString()
