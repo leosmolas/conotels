@@ -125,14 +125,13 @@ QToolButton:checked{
      <x>0</x>
      <y>0</y>
      <width>570</width>
-     <height>20</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAyuda">
     <property name="title">
      <string>Ayuda</string>
     </property>
-    <addaction name="menuAyuda_2"/>
     <addaction name="separator"/>
     <addaction name="menuAcercade"/>
    </widget>
