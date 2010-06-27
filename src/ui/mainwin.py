@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Fri Jun 25 16:42:56 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Sun Jun 27 20:49:32 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QtGui.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 20))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 570, 18))
         self.menuBar.setObjectName("menuBar")
         self.menuAyuda = QtGui.QMenu(self.menuBar)
         self.menuAyuda.setObjectName("menuAyuda")
@@ -106,7 +106,6 @@ class Ui_MainWindow(object):
         self.menuAcercade.setObjectName("menuAcercade")
         self.actionPrereservas = QtGui.QAction(MainWindow)
         self.actionPrereservas.setObjectName("actionPrereservas")
-        self.menuAyuda.addAction(self.menuAyuda_2)
         self.menuAyuda.addSeparator()
         self.menuAyuda.addAction(self.menuAcercade)
         self.menuHerramientas.addAction(self.actionPrereservas)
