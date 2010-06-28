@@ -118,7 +118,7 @@ where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped""
 		self.model.setHeaderData(13, QtCore.Qt.Horizontal, "idHuesped")
 
 	def loadMesAnio(self, mes = 1, anio = 2000):
-		self.model = self.conn.query("select * from reserva where (month(inicioPrereserva)=%(mes)d or month(finPrereserva)=%(mes)d or month(inicioReserva)=%(mes)d or month(finReserva)=%(mes)d) and (year(inicioReserva)=%(anio)d or year(finReserva)=%(anio)d or year(inicioPrereserva)=%(anio)d or year(finPrereserva)=%(anio)d) and estado!=\"Reserva cancelada\"" % {'mes': mes, 'anio': anio});
+		self.model = self.conn.query("select * from reserva where (month(inicioReserva)=%(mes)d or month(finReserva)=%(mes)d) and (year(inicioReserva)=%(anio)d or year(finReserva)=%(anio)d) and estado!=\"Reserva cancelada\"" % {'mes': mes, 'anio': anio});
 
 	def checkelim(self, id=""):
 		model = self.conn.query("select * from gasto where reserva = " + unicode(id))
