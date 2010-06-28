@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'tipo.ui'
 #
-# Created: Fri Jun 25 16:42:56 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Mon Jun 28 10:35:48 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -68,3 +68,7 @@ class Ui_tipoDialog(object):
         self.label.setText(QtGui.QApplication.translate("tipoDialog", "* Nombre:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada baja:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("tipoDialog", "Costo en temporada alta:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("tipoDialog", "Descripción:", None, QtGui.QApplication.UnicodeUTF8))
+        self.costoTempBajaSpin.setPrefix(QtGui.QApplication.translate("tipoDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
+        self.costoTempAltaSpin.setPrefix(QtGui.QApplication.translate("tipoDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
+
