@@ -148,7 +148,7 @@ class GastosDialog(QtGui.QDialog):
 		activar = modelIndexList!=[]
 		self.modificarBut.setEnabled(activar)
 		self.eliminarBut.setEnabled(activar)
-		self.ui.gastoSpin.setValue(self.model.model.getItem(2,self.ui.gastosTableView.selectedIndexes()[0].row()).toInt()[0])
+		self.ui.gastoSpin.setValue(self.model.model.getItem(2,self.ui.gastosTableView.selectedIndexes()[0].row()).toFloat()[0]) #aca se hacia toInt, pero era un pete.
 		self.ui.descripcionLine.setText(self.model.model.getItem(1,self.ui.gastosTableView.selectedIndexes()[0].row()).toString())
 		#llamada media troska... le tengo que pasar un booleano a setChecked.
 		# Lo consigo comparando el valor de pendiente con 1. Si da igual, es que tengo que activar el checkBox pendiente.
