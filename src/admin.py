@@ -77,7 +77,8 @@ class Admin(QtGui.QDialog):
 		self.setup()
 		self.loadAll()
 
-		self.ui.tableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)		
+		self.ui.tableView.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+		self.ui.tableView.resizeRowsToContents()
 	
 	def loadAll(self):
 		if self.preExpiradas:
