@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'admin.ui'
 #
-# Created: Fri Jun 25 16:42:56 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Mon Jun 28 10:33:46 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 

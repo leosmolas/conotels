@@ -1,9 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'grilla.ui'
 #
-# Created: Fri Jun 25 16:42:56 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Mon Jun 28 10:34:13 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -70,7 +70,6 @@ class Ui_Grilla(object):
         self.label_5.setMinimumSize(QtCore.QSize(15, 15))
         self.label_5.setMaximumSize(QtCore.QSize(15, 15))
         self.label_5.setStyleSheet("background-color: rgb(111, 183, 231);")
-        self.label_5.setText("")
         self.label_5.setObjectName("label_5")
         self.horizontalLayout.addWidget(self.label_5)
         self.label_10 = QtGui.QLabel(self.frame)
@@ -85,7 +84,6 @@ class Ui_Grilla(object):
         self.label_4.setMinimumSize(QtCore.QSize(15, 15))
         self.label_4.setMaximumSize(QtCore.QSize(15, 15))
         self.label_4.setStyleSheet("background-color: rgb(255, 207, 14);")
-        self.label_4.setText("")
         self.label_4.setObjectName("label_4")
         self.horizontalLayout.addWidget(self.label_4)
         self.label_9 = QtGui.QLabel(self.frame)
@@ -100,7 +98,6 @@ class Ui_Grilla(object):
         self.label_8.setMinimumSize(QtCore.QSize(15, 15))
         self.label_8.setMaximumSize(QtCore.QSize(15, 15))
         self.label_8.setStyleSheet("background-color: rgb(34, 227, 99);")
-        self.label_8.setText("")
         self.label_8.setObjectName("label_8")
         self.horizontalLayout.addWidget(self.label_8)
         self.label_7 = QtGui.QLabel(self.frame)
@@ -143,3 +140,14 @@ class Ui_Grilla(object):
         self.mesCombo.setItemText(10, QtGui.QApplication.translate("Grilla", "Noviembre", None, QtGui.QApplication.UnicodeUTF8))
         self.mesCombo.setItemText(11, QtGui.QApplication.translate("Grilla", "Diciembre", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("Grilla", "Mes:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("Grilla", "Año:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(QtGui.QApplication.translate("Grilla", "Pre-reservado", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("Grilla", "Reserva confirmada", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("Grilla", "Reserva en curso", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("Grilla", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">*</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("Grilla", "Inicio de reserva", None, QtGui.QApplication.UnicodeUTF8))
+

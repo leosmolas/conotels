@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'huesped.ui'
 #
-# Created: Fri Jun 25 16:42:56 2010
-#      by: PyQt4 UI code generator 4.7.3
+# Created: Mon Jun 28 10:35:10 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,6 @@ class Ui_huespedDialog(object):
     def setupUi(self, huespedDialog):
         huespedDialog.setObjectName("huespedDialog")
         huespedDialog.resize(400, 388)
-        huespedDialog.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Spain))
         self.gridLayout = QtGui.QGridLayout(huespedDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.buttonBox = QtGui.QDialogButtonBox(huespedDialog)
@@ -105,3 +104,12 @@ class Ui_huespedDialog(object):
         self.label.setText(QtGui.QApplication.translate("huespedDialog", "* DNI:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("huespedDialog", "* Apellido:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("huespedDialog", "* Nombre:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("huespedDialog", "Teléfono fijo:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("huespedDialog", "Celular:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("huespedDialog", "Dirección:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("huespedDialog", "Localidad:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(QtGui.QApplication.translate("huespedDialog", "e-mail:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("huespedDialog", "Patente del Auto:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(QtGui.QApplication.translate("huespedDialog", "Modelo del Auto:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("huespedDialog", "Color del Auto:", None, QtGui.QApplication.UnicodeUTF8))
+
