@@ -115,8 +115,9 @@ class GrillaDialog(QtGui.QDialog):
 		nameDays = QtCore.QStringList()
 		while date.month() == mes:
 			days+=1
-			date = date.addDays(1)
+			
 			nameDays.append(str(unicode(date.shortDayName(date.dayOfWeek())).encode("latin-1"))+" "+str(days))
+			date = date.addDays(1)
 
 		self.ui.tableWidget.setColumnCount(days)
 		self.ui.tableWidget.setHorizontalHeaderLabels(nameDays)
