@@ -40,15 +40,17 @@ class GrillaDialog(QtGui.QWidget):
 		# Armamos las filas segun las unidades
 		for i in range(0, self.cantUnidades):
 			# Armo un dict porque no siempre los ids son seguidos
-			self.uDict.update({self.unidades.model.getItem("idUnidad", i).toInt()[0]: i})
-			self.names.append(self.unidades.model.getItem("nombre",i).toString())
-			self.ui.tableWidget.insertRow(i)
+			print self.unidades.model.getItem("estado", i).toString()
+			if self.unidades.model.getItem("estado", i).toString() != "No Disponible":
+				self.uDict.update({self.unidades.model.getItem("idUnidad", i).toInt()[0]: i})
+				print self.unidades.model.getItem("nombre",i).toString()
+				self.names.append(self.unidades.model.getItem("nombre",i).toString())
+				self.ui.tableWidget.insertRow(i)
 
 		print self.uDict
 
+		self.ui.tableWidget.setRowCount(i)
 		self.ui.tableWidget.setVerticalHeaderLabels(self.names)
-
-		self.ui.tableWidget.setRowCount(self.cantUnidades)
 
 		self.update(0)
 
