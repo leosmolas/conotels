@@ -19,17 +19,16 @@ class Tipo(AbstractModel):
 
 	def save(self, id=-1, nombre="", costoTemporadaAlta=0, costoTemporadaBaja=0, descripcion=""):
 		if id != -1:
-			print "update "+self.tableName+" set nombre='"+nombre+"', "+"costoTemporadaAlta="+unicode(costoTemporadaAlta)+", "+	"costoTemporadaBaja="+unicode(costoTemporadaBaja)+", "+	"descripcion='"+descripcion+"' "+				" where idTipo="+unicode(id)
 			self.conn.update("update "+self.tableName+
-				" set nombre='"+nombre+"', "+
+				" set nombre='"+unicode(nombre)+"', "+
 					"costoTemporadaAlta="+unicode(costoTemporadaAlta)+", "+
 					"costoTemporadaBaja="+unicode(costoTemporadaBaja)+", "+
-					"descripcion='"+descripcion+"' "+
+					"descripcion='"+unicode(descripcion)+"' "+
 				" where idTipo="+unicode(id))
 		else:
 			self.conn.update("insert into "+self.tableName+
 				"(nombre,costoTemporadaAlta,costoTemporadaBaja,descripcion) "+
-				"values ('"+nombre+"',"+unicode(costoTemporadaAlta)+","+unicode(costoTemporadaBaja)+",'"+descripcion+"')")
+				"values ('"+unicode(nombre)+"',"+unicode(costoTemporadaAlta)+","+unicode(costoTemporadaBaja)+",'"+unicode(descripcion)+"')")
 
 	def loadAll(self):
 		super(Tipo, self).loadAll()
