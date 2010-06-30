@@ -9,7 +9,7 @@ from models.huesped import Huesped
 from models.unidad import Unidad
 from models.reserva import Reserva
 
-class ReservaDialog(QtGui.QWidget):
+class ReservaDialog(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_reservaDialog()
 		self.ui.setupUi(self)
@@ -249,4 +249,9 @@ class ReservaDialog(QtGui.QWidget):
 		keyEvent = QtGui.QKeyEvent(event)
 		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
+		elif keyEvent.key() == QtCore.Qt.Key_Escape:
+			print "ESC!!!!"
+			keyEvent.accept()
+			return
 		return super(ReservaDialog, self).keyPressEvent(keyEvent)
+	

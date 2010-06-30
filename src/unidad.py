@@ -6,7 +6,7 @@ from ui.unidad import Ui_unidadDialog
 from models.unidad import Unidad
 from models.tipo import Tipo
 
-class UnidadDialog(QtGui.QWidget):
+class UnidadDialog(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_unidadDialog()
 		self.ui.setupUi(self)
@@ -145,4 +145,8 @@ class UnidadDialog(QtGui.QWidget):
 		keyEvent = QtGui.QKeyEvent(event)
 		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
+		elif keyEvent.key() == QtCore.Qt.Key_Escape:
+			print "ESC!!!!"
+			keyEvent.accept()
+			return
 		return super(UnidadDialog, self).keyPressEvent(keyEvent)
