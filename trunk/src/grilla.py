@@ -125,7 +125,7 @@ class GrillaDialog(QtGui.QWidget):
 
 		for i in range(0, self.cantUnidades):
 			for j in range(0, days):
-				self.ui.tableWidget.setItem(i, j, TableItem())
+				self.ui.tableWidget.setItem(i, j, TableItem(self.conn))
 
 		# Aca empieza la magia
 		for i in range(0,q.rowCount()):
@@ -168,7 +168,7 @@ class GrillaDialog(QtGui.QWidget):
 			print "endDay: %d" % endDay
 
 			for i in range(initDay-1, endDay):
-				self.ui.tableWidget.setItem(self.uDict[unidad], i, TableItem(reserva=res, tipo=estado,init=(i==(initDay-1))))
+				self.ui.tableWidget.setItem(self.uDict[unidad], i, TableItem(self.conn, reserva=res, tipo=estado,init=(i==(initDay-1))))
 
 
 	@QtCore.pyqtSlot()
