@@ -14,7 +14,7 @@ from models.unidad import Unidad
 # 1 - Reserva confirmada
 # 2 - Reserva en curso
 
-class GrillaDialog(QtGui.QDialog):
+class GrillaDialog(QtGui.QWidget):
 	def __init__(self, conn, parent = None, mainWin = None):
 		super(GrillaDialog, self).__init__(parent)
 

@@ -15,7 +15,7 @@ from models.unidad import Unidad
 from models.huesped import Huesped
 from models.reserva import Reserva
 
-class Admin(QtGui.QDialog):
+class Admin(QtGui.QWidget):
 	def setup(self):
 		self.ui = Ui_Admin()
 		self.ui.setupUi(self)
