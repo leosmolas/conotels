@@ -57,7 +57,7 @@ class ReservaDialog(QtGui.QDialog):
 		self.ui.huespedView.setColumnHidden(0,True)
 
 		self.unidad = Unidad(self.conn)
-		self.unidad.loadAll()
+		self.unidad.loadDisponibles()
 		self.ui.unidadCombo.setModel(self.unidad.model)
 		self.ui.unidadCombo.setModelColumn(1)
 		
@@ -249,6 +249,7 @@ class ReservaDialog(QtGui.QDialog):
 		keyEvent = QtGui.QKeyEvent(event)
 		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
+			return
 		elif keyEvent.key() == QtCore.Qt.Key_Escape:
 			print "ESC!!!!"
 			keyEvent.accept()
