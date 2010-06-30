@@ -46,7 +46,7 @@ class UnidadDialog(QtGui.QDialog):
 
 		self.setup()
 
-		self.ui.numeroLine.setText(str(numero))
+		self.ui.numeroLine.setText(unicode(numero))
 		self.ui.tipoCombo.setCurrentIndex(0)
 		self.ui.noDisponibleCheck.setChecked(estado == 'No Disponible')
 
