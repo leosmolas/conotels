@@ -55,7 +55,7 @@ class Huesped(AbstractModel):
 		self.model.setHeaderData(5,  QtCore.Qt.Horizontal, "Celular")
 		self.model.setHeaderData(6,  QtCore.Qt.Horizontal, "Dirección")
 		self.model.setHeaderData(7,  QtCore.Qt.Horizontal, "Localidad")
-		self.model.setHeaderData(8,  QtCore.Qt.Horizontal, "e-mail")
+		self.model.setHeaderData(8,  QtCore.Qt.Horizontal, "E-mail")
 		self.model.setHeaderData(9,  QtCore.Qt.Horizontal, "Patente del Auto")
 		self.model.setHeaderData(10, QtCore.Qt.Horizontal, "Modelo del Auto")
 		self.model.setHeaderData(11, QtCore.Qt.Horizontal, "Color del Auto")
