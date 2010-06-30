@@ -5,7 +5,7 @@ import re
 from ui.tipo import Ui_tipoDialog
 from models.tipo import Tipo
 
-class TipoDialog(QtGui.QWidget):
+class TipoDialog(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_tipoDialog()
 		self.ui.setupUi(self)
@@ -115,4 +115,8 @@ class TipoDialog(QtGui.QWidget):
 		keyEvent = QtGui.QKeyEvent(event)
 		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
+		elif keyEvent.key() == QtCore.Qt.Key_Escape:
+			print "ESC!!!!"
+			keyEvent.accept()
+			return
 		return super(TipoDialog, self).keyPressEvent(keyEvent)

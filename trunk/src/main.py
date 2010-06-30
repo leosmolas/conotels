@@ -220,7 +220,8 @@ class MainWindow(QtGui.QMainWindow):
 			elif keyEvent.key() == QtCore.Qt.Key_F8:
 				self.buttonGroup.button(7).click()
 			elif keyEvent.key() == QtCore.Qt.Key_Escape:
-				return False
+				event.accept()
+				return
 		return super(MainWindow, self).keyPressEvent(keyEvent)
 	
 	def abrirAcercade(self):
