@@ -114,12 +114,17 @@ class ReservaDialog(QtGui.QDialog):
 					i+=1
 			self.ui.estadoCombo.setCurrentIndex(i)						
 			
+			print "temporadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+			print temporada
 			tempComboModel = self.ui.temporadaCombo.model()
 			found = False
 			i = 0
 			while not found and i<tempComboModel.rowCount():
+				print tempComboModel.data(tempComboModel.index(i,0)).toString()
 				if tempComboModel.data(tempComboModel.index(i,0)) == temporada:
 					found = True
+					print "ENCONTRADO"
+					print i
 				else:
 					i+=1
 			self.ui.temporadaCombo.setCurrentIndex(i)	
