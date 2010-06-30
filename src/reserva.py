@@ -9,7 +9,7 @@ from models.huesped import Huesped
 from models.unidad import Unidad
 from models.reserva import Reserva
 
-class ReservaDialog(QtGui.QDialog):
+class ReservaDialog(QtGui.QWidget):
 	def setup(self):
 		self.ui = Ui_reservaDialog()
 		self.ui.setupUi(self)

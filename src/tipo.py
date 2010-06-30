@@ -5,7 +5,7 @@ import re
 from ui.tipo import Ui_tipoDialog
 from models.tipo import Tipo
 
-class TipoDialog(QtGui.QDialog):
+class TipoDialog(QtGui.QWidget):
 	def setup(self):
 		self.ui = Ui_tipoDialog()
 		self.ui.setupUi(self)

@@ -6,7 +6,7 @@ from models.gastos import Gastos
 from models.reservasView import ReservasView
 from connection.model import Model
 
-class GastosDialog(QtGui.QDialog):
+class GastosDialog(QtGui.QWidget):
 
 	def __init__(self, conn, parent = None):
 		super(GastosDialog, self).__init__(parent)

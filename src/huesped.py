@@ -5,7 +5,7 @@ import re
 from ui.huesped import Ui_huespedDialog
 from models.huesped import Huesped
 
-class HuespedDialog(QtGui.QDialog):
+class HuespedDialog(QtGui.QWidget):
 	def setup(self):
 		self.ui = Ui_huespedDialog()
 		self.ui.setupUi(self)

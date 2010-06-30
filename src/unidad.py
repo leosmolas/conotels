@@ -6,7 +6,7 @@ from ui.unidad import Ui_unidadDialog
 from models.unidad import Unidad
 from models.tipo import Tipo
 
-class UnidadDialog(QtGui.QDialog):
+class UnidadDialog(QtGui.QWidget):
 	def setup(self):
 		self.ui = Ui_unidadDialog()
 		self.ui.setupUi(self)
