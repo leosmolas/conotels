@@ -15,7 +15,7 @@ from models.unidad import Unidad
 from models.huesped import Huesped
 from models.reserva import Reserva
 
-class Admin(QtGui.QWidget):
+class Admin(QtGui.QDialog):
 	def setup(self):
 		self.ui = Ui_Admin()
 		self.ui.setupUi(self)
@@ -219,3 +219,12 @@ class Admin(QtGui.QWidget):
 		
 	def on_backBut_clicked(self):
 		self.close()
+
+	@QtCore.pyqtSlot()
+	def keyPressEvent(self, event):
+		keyEvent = QtGui.QKeyEvent(event)
+		if keyEvent.key() == QtCore.Qt.Key_Escape:
+			print "ESC!!!!"
+			keyEvent.accept()
+			return
+		return super(HuespedDialog, self).keyPressEvent(keyEvent)
