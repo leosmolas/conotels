@@ -72,7 +72,7 @@ class Reserva(AbstractModel):
 				"',horaCheckOut='"+horaCheckOut+
 				"',estado='"+estado+ 
 				"',temporada='"+temporada+ 
-				"',senia="+senia+
+				"',senia="+unicode(senia)+
 				" where idReserva="+unicode(id))
 		else:
 			if self.queryOverlap.rowCount() != 0:
