@@ -115,6 +115,7 @@ class TipoDialog(QtGui.QDialog):
 		keyEvent = QtGui.QKeyEvent(event)
 		if(event.type()==QtCore.QEvent.KeyPress) and ((keyEvent.key() == QtCore.Qt.Key_Return) or (keyEvent.key() == QtCore.Qt.Key_Enter)):
 			self.focusNextChild()
+			return
 		elif keyEvent.key() == QtCore.Qt.Key_Escape:
 			print "ESC!!!!"
 			keyEvent.accept()
