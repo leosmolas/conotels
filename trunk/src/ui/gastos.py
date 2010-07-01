@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Mon Jun 28 10:33:59 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Thu Jul 01 16:24:29 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -86,6 +86,7 @@ class Ui_GastosDialog(object):
         self.formLayout_3.setWidget(0, QtGui.QFormLayout.LabelRole, self.pendienteLabel)
         self.pendienteCheckBox = QtGui.QCheckBox(self.pendienteFrame)
         self.pendienteCheckBox.setEnabled(False)
+        self.pendienteCheckBox.setText("")
         self.pendienteCheckBox.setCheckable(True)
         self.pendienteCheckBox.setChecked(True)
         self.pendienteCheckBox.setObjectName("pendienteCheckBox")
@@ -102,12 +103,14 @@ class Ui_GastosDialog(object):
         self.lbl.setObjectName("lbl")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.LabelRole, self.lbl)
         self.totalLabel = QtGui.QLabel(self.totalFrame)
+        self.totalLabel.setText("")
         self.totalLabel.setObjectName("totalLabel")
         self.formLayout_2.setWidget(0, QtGui.QFormLayout.FieldRole, self.totalLabel)
         self.label_7 = QtGui.QLabel(self.totalFrame)
         self.label_7.setObjectName("label_7")
         self.formLayout_2.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_7)
         self.restaLabel = QtGui.QLabel(self.totalFrame)
+        self.restaLabel.setText("")
         self.restaLabel.setObjectName("restaLabel")
         self.formLayout_2.setWidget(1, QtGui.QFormLayout.FieldRole, self.restaLabel)
         self.gridLayout.addWidget(self.totalFrame, 4, 2, 1, 3)
@@ -115,6 +118,7 @@ class Ui_GastosDialog(object):
         self.gridLayout.addItem(spacerItem, 8, 1, 1, 1)
         self.gastoSpin = QtGui.QDoubleSpinBox(GastosDialog)
         self.gastoSpin.setMinimumSize(QtCore.QSize(80, 0))
+        self.gastoSpin.setMinimum(-9999.99)
         self.gastoSpin.setMaximum(9999.99)
         self.gastoSpin.setObjectName("gastoSpin")
         self.gridLayout.addWidget(self.gastoSpin, 9, 4, 1, 1)
