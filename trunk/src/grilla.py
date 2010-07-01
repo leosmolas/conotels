@@ -38,16 +38,18 @@ class GrillaDialog(QtGui.QWidget):
 		self.names = QtCore.QStringList()
 		
 		# Armamos las filas segun las unidades
+		j = 0
 		for i in range(0, self.cantUnidades):
 			# Armo un dict porque no siempre los ids son seguidos
 			self.uDict.update({self.unidades.model.getItem("idUnidad", i).toInt()[0]: i})
 			print self.unidades.model.getItem("nombre",i).toString()
 			self.names.append(self.unidades.model.getItem("nombre",i).toString())
 			self.ui.tableWidget.insertRow(i)
+			j = i
 
 		print self.uDict
 
-		self.ui.tableWidget.setRowCount(i)
+		self.ui.tableWidget.setRowCount(j)
 		self.ui.tableWidget.setVerticalHeaderLabels(self.names)
 
 		self.update(0)
