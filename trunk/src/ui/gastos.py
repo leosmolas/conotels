@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gastos.ui'
 #
-# Created: Thu Jul 01 16:24:29 2010
+# Created: Thu Jul 01 19:02:49 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -137,7 +137,7 @@ class Ui_GastosDialog(object):
         GastosDialog.setWindowTitle(QtGui.QApplication.translate("GastosDialog", "Gastos", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("GastosDialog", "Gastos:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("GastosDialog", "Gasto:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("GastosDialog", "Descripcion:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("GastosDialog", "Descripción:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("GastosDialog", "Nuevo gasto:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("GastosDialog", "$", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("GastosDialog", "Buscar", None, QtGui.QApplication.UnicodeUTF8))

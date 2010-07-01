@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'test.ui'
 #
-# Created: Fri Jun 25 16:42:56 2010
+# Created: Thu Jul 01 19:06:59 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -98,7 +98,7 @@ class Ui_reservaDialog(object):
     def retranslateUi(self, reservaDialog):
         reservaDialog.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Nueva unidad", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("reservaDialog", "Unidad:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("reservaDialog", "Huesped:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("reservaDialog", "Huésped:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("reservaDialog", "Fin Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Reserva:", None, QtGui.QApplication.UnicodeUTF8))
@@ -107,6 +107,6 @@ class Ui_reservaDialog(object):
         self.label_8.setText(QtGui.QApplication.translate("reservaDialog", "Hora CheckOut:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_9.setText(QtGui.QApplication.translate("reservaDialog", "Estado:", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton.setText(QtGui.QApplication.translate("reservaDialog", "Buscar Unidad", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton_2.setText(QtGui.QApplication.translate("reservaDialog", "Buscar Huesped", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_2.setText(QtGui.QApplication.translate("reservaDialog", "Buscar Huésped", None, QtGui.QApplication.UnicodeUTF8))
         self.checkBox.setText(QtGui.QApplication.translate("reservaDialog", "CheckBox", None, QtGui.QApplication.UnicodeUTF8))
 
