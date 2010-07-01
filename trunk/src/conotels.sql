@@ -125,7 +125,7 @@ create trigger update_gasto before update on gasto
 					
 			-- Si cambio el estado y se paso a pendiente tengo que agregar el valor del gasto total al total en la reserva
 			if new.pendiente = 1 and old.pendiente = 0 then
-				update reserva set gastos = gastos + new.costo;
+				update reserva set gastos = gastos + new.costo where idReserva = new.reserva;
 			
 			-- Si cambio el estado y se paso a no pendiente (pago) tengo que restar el valor del gasto al total en la reserva. (Si el costo del gasto no cambio valor = 0)
 			elseif new.pendiente = 0 and old.pendiente = 1 then
@@ -145,7 +145,7 @@ delimiter //
 create trigger delete_gasto after delete on gasto
 	for each row begin
 		if old.pendiente = 1 then
-			update reserva set gastos = gastos - old.costo;
+			update reserva set gastos = gastos - old.costo where old.reserva = idReserva;
 		end if;
 	end//
 delimiter ;
