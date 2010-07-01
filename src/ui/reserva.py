@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'reserva.ui'
 #
-# Created: Mon Jun 28 10:25:02 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Thu Jul 01 19:06:36 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -129,7 +129,7 @@ class Ui_reservaDialog(object):
         self.label_3.setText(QtGui.QApplication.translate("reservaDialog", "Inicio Prereserva:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("reservaDialog", "Huésped:", None, QtGui.QApplication.UnicodeUTF8))
         self.nuevoBut.setText(QtGui.QApplication.translate("reservaDialog", "Crear nuevo huesped", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_12.setText(QtGui.QApplication.translate("reservaDialog", "Sena:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_12.setText(QtGui.QApplication.translate("reservaDialog", "Seña:", None, QtGui.QApplication.UnicodeUTF8))
         self.seniaSpin.setPrefix(QtGui.QApplication.translate("reservaDialog", "$ ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("reservaDialog", "Fin Reserva:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("reservaDialog", "Hora CheckIn:", None, QtGui.QApplication.UnicodeUTF8))
