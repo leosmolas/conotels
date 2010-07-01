@@ -45,7 +45,7 @@ class GrillaDialog(QtGui.QWidget):
 			print self.unidades.model.getItem("nombre",i).toString()
 			self.names.append(self.unidades.model.getItem("nombre",i).toString())
 			self.ui.tableWidget.insertRow(i)
-			j = i
+			j += 1
 
 		print self.uDict
 
