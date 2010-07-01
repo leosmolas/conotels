@@ -132,7 +132,8 @@ class Admin(QtGui.QDialog):
 			horaCheckOut = row.field(8).value().toString()
 			estado = row.field(9).value().toString()	
 			temporada = row.field(10).value().toString()	
-			diag = self.dialog(self.conn, id, unidad, huesped, inicioPreres, finPreres, inicioRes, finRes, horaCheckIn, horaCheckOut, estado, temporada, mainWin=self.uiMain)
+			senia = row.field(11).value().toFloat()[0]
+			diag = self.dialog(self.conn, id, unidad, huesped, inicioPreres, finPreres, inicioRes, finRes, horaCheckIn, horaCheckOut, estado, temporada, senia, mainWin=self.uiMain)
 		elif self.nombre == "Huesped":
 			id = row.field(0).value().toInt()[0]
 			dni = row.field(1).value().toString()

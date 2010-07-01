@@ -39,7 +39,7 @@ class ReservaDialog(QtGui.QDialog):
 		QtCore.QObject.connect(self.ui.huespedLine, QtCore.SIGNAL("textChanged(const QString &)"),
 			self.update)
 		
-	def __init__(self, conn, id = -1, unidad = 0, huesped = 0, inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", temporada = "", mod = 0, mainWin = None, parent = None):
+	def __init__(self, conn, id = -1, unidad = 0, huesped = 0, inicioPrereserva = "", finPrereserva = "", inicioReserva = "", finReserva = "", horaCheckIn = "", horaCheckOut = "", estado = "", temporada = "", senia = 0, mod = 0, mainWin = None, parent = None):
 		super(ReservaDialog, self).__init__(parent)
 
 		self.conn = conn
@@ -128,6 +128,7 @@ class ReservaDialog(QtGui.QDialog):
 				else:
 					i+=1
 			self.ui.temporadaCombo.setCurrentIndex(i)	
+			self.ui.seniaSpin.setValue(senia)
 			
 			self.ui.huespedView.resizeColumnsToContents()
 
