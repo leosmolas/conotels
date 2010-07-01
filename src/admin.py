@@ -227,4 +227,4 @@ class Admin(QtGui.QDialog):
 			print "ESC!!!!"
 			keyEvent.accept()
 			return
-		return super(HuespedDialog, self).keyPressEvent(keyEvent)
+		return super(HuespedDialog, self).keyPressEvent(event)
