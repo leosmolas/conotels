@@ -153,14 +153,15 @@ delimiter ;
 delimiter //
 create trigger insert_reserva_bf before insert on reserva
 	for each row begin
-
+		declare dif int
+		
 		if new.temporada = 'Alta' then
 			set @costoTemporada = (select costoTemporadaAlta from unidad join tipo where tipo = idTipo and idUnidad = new.unidad limit 1);
 		else
 			set @costoTemporada = (select costoTemporadaBaja from unidad join tipo where tipo = idTipo and idUnidad = new.unidad limit 1);
 		end if;
-
-		set @totalcosto = @costoTemporada * adddate(datediff(new.finReserva, new.inicioReserva),1) - new.senia;
+		set dif =
+		set @totalcosto = @costoTemporada * ( datediff(new.finReserva, new.inicioReserva) + 1 ) - new.senia;
 
 		set new.gastos = @totalcosto;
 	end//
