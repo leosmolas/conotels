@@ -259,6 +259,9 @@
          <height>0</height>
         </size>
        </property>
+       <property name="minimum">
+        <double>-9999.989999999999782</double>
+       </property>
        <property name="maximum">
         <double>9999.989999999999782</double>
        </property>
