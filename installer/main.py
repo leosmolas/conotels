@@ -7,8 +7,8 @@ from path_ui import Ui_PathWidget
 from oldroot_ui import Ui_OldRootWidget
 
 class InstallPathPage(QtGui.QWizardPage):
-	def __init__(self):
-		super(InstallPathPage, self).__init__()
+	def __init__(self, parent):
+		super(InstallPathPage, self).__init__(parent)
 		self.setTitle(u"Ubicacion")
 		self.setSubTitle(u"Por favor elija la ubicacion en donde se instalara "
 			"Conotels.")
@@ -22,17 +22,10 @@ class InstallPathPage(QtGui.QWizardPage):
 	
 	def fileBut_clicked(self):
 		self.ui.pathLine.setText(QtGui.QFileDialog.getExistingDirectory(self, "Examinar", "C:\\Archivos de Programa\\"))
+		self.emit(QtCore.SIGNAL("completeChanged()"))
 	
-	def nextId(self):
-		##################
-		# Aca se corrobora si ya existe MySQL
-		exists = False
-		#################
-
-		if exists:
-			return 2
-		else:
-			return 4
+	def isComplete(self):
+		return QtCore.QDir().exists(self.ui.pathLine.text())
 
 class ProgressBarPage(QtGui.QWizardPage):
 	def __init__(self):
@@ -50,118 +43,132 @@ class ProgressBarPage(QtGui.QWizardPage):
 		self.ui.progressBar.setValue(val)
 
 class OldRootPage(QtGui.QWizardPage):
-	def __init__(self, exists = False, error = False):
-		super(OldRootPage, self).__init__()
+	def __init__(self, parent):
+		super(OldRootPage, self).__init__(parent)
+		self.wiz = parent
 		self.setTitle(u"MySQL")
 		self.setSubTitle(u"Datos del motor MySQL de base de datos")
 		
 		self.ui = Ui_OldRootWidget()
 		self.ui.setupUi(self)
 
-		self.ui.errorLabel.setVisible(error)
-		self.ui.existsLabel.setVisible(exists)
-		self.ui.basicLabel.setVisible(not exists and not error)
-
-		if exists and not error:
-			self.registerField("pass1", self.ui.passLine)
-		elif exists and error:
-			self.registerField("pass2", self.ui.passLine)
-		else:
-			self.registerField("pass3", self.ui.passLine)
+		self.exists = self.existsMysql()
 	
-	def nextId(self):
-		################
-		# Aca se corrobora que le password
-		# este bien
-		error = True
-		################
-		if error:
-			return 3
+		self.ui.errorLabel.setVisible(False)
+		self.ui.existsLabel.setVisible(self.exists)
+		self.ui.basicLabel.setVisible(not self.exists)
+
+		self.registerField("oldpass", self.ui.passLine)
+		self.registerField("pass", self.ui.passLine)
+	
+	def validatePage(self):
+		ret = False
+		# si existe otro mysql:
+		if self.exists:
+			##############################
+			# aca se corrobora si el password esta bien
+			correct = (self.ui.passLine.text() == "hola!!")
+			##############################
+			if correct:
+				ret = True
+			else:
+				self.ui.errorLabel.setVisible(True)
+				self.ui.passLine.setText("")
+				ret = False
+
+		if ret:
+			self.wiz.genConf()
+		return ret
+	
+	def existsMysql(self):
+		############################
+		# aca se corrobora si existe una instalacion de mysql
+		############################
+		return True
+
+class Wizard(QtGui.QWizard):
+	def __init__(self):
+		super(Wizard, self).__init__()
+
+		self.path = self.createInstallPathPage()
+		self.password= self.createOldRootPage()
+		self.progress = self.createProgressBarPage()
+
+		self.addPage(self.createIntroPage())
+		self.addPage(self.path)
+		self.addPage(self.password)
+		self.addPage(self.progress)
+		self.addPage(self.createConclusionPage())
+
+		self.setWindowTitle("Instalador de Conotels")
+		self.show()
+
+	def createIntroPage(self):
+		page = QtGui.QWizardPage()
+		page.setTitle("Bienvenido")
+
+		label = QtGui.QLabel("Bienvenido al instalador de Conotels!")
+		label.setWordWrap(True)
+
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(label)
+		page.setLayout(layout)
+
+		return page
+
+	def createProgressBarPage(self):
+		page = ProgressBarPage()
+
+		return page
+
+	def createInstallPathPage(self):
+		page = InstallPathPage(self)
+
+		return page
+
+	def createOldRootPage(self):
+		page = OldRootPage(self)
+
+		return page
+
+	def createConclusionPage(self):
+		page = QtGui.QWizardPage()
+		page.setTitle("Felicitaciones")
+
+		label = QtGui.QLabel("El software se ha instalado de forma correcta.")
+		label.setWordWrap(True)
+
+		layout = QtGui.QVBoxLayout()
+		layout.addWidget(label)
+		page.setLayout(layout)
+
+		return page
+
+	def genConf(self):
+		data = "dirMysql=C:\\Archivos de programa\\MySQL\\;\n"
+		data += "dirApp="+self.path.field("path").toString()+";\n"
+
+		if self.password.exists:
+			oldpass = self.password.field("oldpass").toString()
+			passw = ""
 		else:
-			return 5
-
-def createIntroPage():
-	page = QtGui.QWizardPage()
-	page.setTitle("Bienvenido")
-
-	label = QtGui.QLabel("Bienvenido al instalador de Conotels!")
-	label.setWordWrap(True)
-
-	layout = QtGui.QVBoxLayout()
-	layout.addWidget(label)
-	page.setLayout(layout)
-
-	return page
-
-def createProgressBarPage():
-	page = ProgressBarPage()
-
-	return page
-
-def createInstallPathPage():
-	page = InstallPathPage()
-
-	return page
-
-def createOldRootPage(exists, error):
-	page = OldRootPage(exists, error)
-
-	return page
-
-def createConclusionPage():
-    page = QtGui.QWizardPage()
-    page.setTitle("Felicitaciones")
-
-    label = QtGui.QLabel("El software se ha instalado de forma correcta.")
-    label.setWordWrap(True)
-
-    layout = QtGui.QVBoxLayout()
-    layout.addWidget(label)
-    page.setLayout(layout)
-
-    return page
-
-def getPassword(p1, p2, p3):
-	str1 = p1.field("pass1").toString()
-	str2 = p2.field("pass2").toString()
-	str3 = p3.field("pass3").toString()
-	if str1.size() != 0:
-		return str1
-	if str2.size() != 0:
-		return str2
-	if str3.size() != 0:
-		return str3
+			oldpass = ""
+			passw = self.passwordBasic.field("pass").toString()
+		data += "oldRootPass="+oldpass+";\n"
+		data += "newRootPass="+passw+";\n"
+		data += "defaultDatabase=mysql;\n"
+		data += "applicationDatabase=conotels;\n"
+		data += "inputScript=conotels.sql;\n"
+		data += "userRoot=root;"
+		f = open("conf.dat", "w")
+		f.write(data)
+		f.close()
 
 if __name__ == '__main__':
 
 	import sys
 
 	app = QtGui.QApplication(sys.argv)
-
-	wizard = QtGui.QWizard()
-	
-	path = createInstallPathPage()
-
-	passwordExists = createOldRootPage(True, False)
-	passwordError = createOldRootPage(True, False)
-	passwordBasic = createOldRootPage(False, False)
-
-	progress = createProgressBarPage()
-
-	wizard.setPage(0, createIntroPage())
-	wizard.setPage(1, path)
-	wizard.setPage(2, passwordExists)
-	wizard.setPage(3, passwordError)
-	wizard.setPage(4, passwordBasic)
-	wizard.setPage(5, progress)
-	wizard.setPage(6, createConclusionPage())
-
-	wizard.setWindowTitle("Instalador de Conotels")
-	wizard.show()
-
+	wizard = Wizard()
 	ret = wizard.exec_()
-
-	print path.field("path").toString()
-	print getPassword(passwordExists, passwordError, passwordBasic)
-
 	sys.exit(ret)
