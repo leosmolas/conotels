@@ -74,6 +74,7 @@ class OldRootPage(QtGui.QWizardPage):
 			else:
 				self.ui.errorLabel.setVisible(True)
 				self.ui.passLine.setText("")
+				self.ui.passLine.setFocus()
 				ret = False
 
 		if ret:
