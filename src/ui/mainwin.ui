@@ -140,6 +140,8 @@ QToolButton:checked{
      <string>Herramientas</string>
     </property>
     <addaction name="actionPrereservas"/>
+    <addaction name="actionCrear_Backup"/>
+    <addaction name="actionCargar_Backup"/>
    </widget>
    <addaction name="menuAyuda"/>
    <addaction name="menuHerramientas"/>
@@ -184,9 +186,23 @@ QToolButton:checked{
     <string>Prereservas expiradas</string>
    </property>
   </action>
+  <action name="actionCrear_Backup">
+   <property name="text">
+    <string>Crear Backup</string>
+   </property>
+  </action>
+  <action name="actionCargar_Backup">
+   <property name="text">
+    <string>Cargar Backup</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../icons.qrc"/>
  </resources>
  <connections/>
+ <slots>
+  <slot>createBackup()</slot>
+  <slot>loadBackup()</slot>
+ </slots>
 </ui>
