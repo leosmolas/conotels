@@ -1,7 +1,5 @@
 create database conotels;
 create user userHoteles;
-grant all privileges on conotels.* to 'userHoteles'@'localhost' identified by 'userHoteles' with grant option;
-flush privileges;
 
 USE conotels;
 
@@ -193,3 +191,8 @@ CREATE VIEW reservasView AS
 	SELECT idReserva, apellido, dni, u.nombre, inicioPrereserva,finPrereserva, inicioReserva, finReserva, horaCheckIn, horaCheckOut, r.estado
 	FROM  reserva AS r, huesped AS h, unidad AS u
 	WHERE r.huesped = idHuesped AND idUnidad = unidad;
+	
+grant all on conotels.* to 'userHoteles'@'localhost' identified by 'userHoteles' with grant option;
+
+flush privileges;
+

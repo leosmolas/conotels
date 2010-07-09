@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mainwin.ui'
 #
-# Created: Mon Jun 28 10:35:21 2010
-#      by: PyQt4 UI code generator 4.7
+# Created: Fri Jul 09 01:42:22 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -106,9 +106,15 @@ class Ui_MainWindow(object):
         self.menuAcercade.setObjectName("menuAcercade")
         self.actionPrereservas = QtGui.QAction(MainWindow)
         self.actionPrereservas.setObjectName("actionPrereservas")
+        self.actionCrear_Backup = QtGui.QAction(MainWindow)
+        self.actionCrear_Backup.setObjectName("actionCrear_Backup")
+        self.actionCargar_Backup = QtGui.QAction(MainWindow)
+        self.actionCargar_Backup.setObjectName("actionCargar_Backup")
         self.menuAyuda.addSeparator()
         self.menuAyuda.addAction(self.menuAcercade)
         self.menuHerramientas.addAction(self.actionPrereservas)
+        self.menuHerramientas.addAction(self.actionCrear_Backup)
+        self.menuHerramientas.addAction(self.actionCargar_Backup)
         self.menuBar.addAction(self.menuAyuda.menuAction())
         self.menuBar.addAction(self.menuHerramientas.menuAction())
 
@@ -130,5 +136,7 @@ class Ui_MainWindow(object):
         self.menuAyuda_2.setText(QtGui.QApplication.translate("MainWindow", "Ayuda Conotels", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAcercade.setText(QtGui.QApplication.translate("MainWindow", "Acerca de", None, QtGui.QApplication.UnicodeUTF8))
         self.actionPrereservas.setText(QtGui.QApplication.translate("MainWindow", "Prereservas expiradas", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionCrear_Backup.setText(QtGui.QApplication.translate("MainWindow", "Crear Backup", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionCargar_Backup.setText(QtGui.QApplication.translate("MainWindow", "Cargar Backup", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc

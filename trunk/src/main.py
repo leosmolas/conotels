@@ -12,6 +12,8 @@ from admin import Admin
 from grilla import GrillaDialog
 from about import AboutDialog
 from models.reserva import Reserva
+import os
+import backup
 
 from connection.connection import Connection
 
@@ -97,6 +99,10 @@ class MainWindow(QtGui.QMainWindow):
 		QtCore.QObject.connect(self.ui.menuAcercade,QtCore.SIGNAL("activated()"),self.abrirAcercade)
 		
 		QtCore.QObject.connect(self.ui.actionPrereservas,QtCore.SIGNAL("activated()"),self.checkPrereservas)
+		
+		QtCore.QObject.connect(self.ui.actionCrear_Backup,QtCore.SIGNAL("triggered()"),self.createBackup)
+		
+		QtCore.QObject.connect(self.ui.actionCargar_Backup,QtCore.SIGNAL("triggered()"),self.loadBackup)
 		
 		self.butClicked(1)
 		
@@ -231,6 +237,24 @@ class MainWindow(QtGui.QMainWindow):
 		#diag.setWindowFlags(QtCore.Qt.MSWindowsFixedSizeDialogHint)
 		diag.exec_()
 		
+	@QtCore.pyqtSlot()
+	def createBackup(self):
+		fileDialog=QtGui.QFileDialog.getSaveFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
+		if(str(fileDialog)!=""):
+			backup.backupDatabase("conotels","userHoteles","userHoteles",os.path.normcase(str(fileDialog)))
+
+		
+
+	@QtCore.pyqtSlot()
+	def loadBackup(self):
+		fileDialog=QtGui.QFileDialog.getOpenFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
+		if(str(fileDialog)!=""):
+			msgBox=QtGui.QMessageBox(self);
+			msgBox.setText("Esta seguro de cargar los datos? Los datos anteriores se perderan.")
+			msgBox.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
+			if(msgBox.exec_()==QtGui.QMessageBox.Yes):
+				backup.loadDatabase("conotels","userHoteles","userHoteles",os.path.normcase(str(fileDialog)))
+ 
 	def checkPrereservas(self):
 		preExpDialog = Admin(self.conn, "PreExpiradas", self.ui)
 		preExpDialog.exec_()
