@@ -49,7 +49,11 @@ class ReservaDialog(QtGui.QDialog):
 		self.uiMain = mainWin #modif por Jona
 
 		self.modif = (id != -1)
+		
 		self.setup()
+		if self.modif:
+			print "modif"
+			self.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Editar reserva", None, QtGui.QApplication.UnicodeUTF8))
 		
 		self.huesped = Huesped(self.conn)
 		self.huesped.loadAll()
@@ -127,7 +131,8 @@ class ReservaDialog(QtGui.QDialog):
 					print i
 				else:
 					i+=1
-			self.ui.temporadaCombo.setCurrentIndex(i)	
+			self.ui.temporadaCombo.setCurrentIndex(i)
+			print "senia: "+str(senia)
 			self.ui.seniaSpin.setValue(senia)
 			
 			self.ui.huespedView.resizeColumnsToContents()
