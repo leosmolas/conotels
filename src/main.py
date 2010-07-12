@@ -145,15 +145,24 @@ class MainWindow(QtGui.QMainWindow):
 
 		#QtCore.QObject.connect(self.ui.menuAdministracion, QtCore.SIGNAL("triggered(QAction *)"),
 		#		self.changeToAction)
-
-	def __init__(self, parent = None):
-		super(MainWindow, self).__init__(parent)
-
+		
+	def openConn(self):
 		file = open("conf.dat")
 		user = file.readline()
 		password = file.readline()
 		self.conn = Connection(dbName="conotels", dbUser=user.replace('\n', ''), dbPass=password.replace('\n', ''))
 		self.conn.open()
+		
+
+	def __init__(self, parent = None):
+		super(MainWindow, self).__init__(parent)
+
+		'''file = open("conf.dat")
+		user = file.readline()
+		password = file.readline()
+		self.conn = Connection(dbName="conotels", dbUser=user.replace('\n', ''), dbPass=password.replace('\n', ''))
+		self.conn.open()'''
+		self.openConn()
 
 		self.setup()
 
@@ -240,6 +249,7 @@ class MainWindow(QtGui.QMainWindow):
 	@QtCore.pyqtSlot()
 	def createBackup(self):
 		fileDialog=QtGui.QFileDialog.getSaveFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
+		print str(fileDialog)
 		if(str(fileDialog)!=""):
 			backup.backupDatabase("conotels","userHoteles","userHoteles",os.path.normcase(str(fileDialog)))
 
@@ -248,6 +258,10 @@ class MainWindow(QtGui.QMainWindow):
 	@QtCore.pyqtSlot()
 	def loadBackup(self):
 		fileDialog=QtGui.QFileDialog.getOpenFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
+		self.conn.close()
+		self.openConn()
+
+
 		if(str(fileDialog)!=""):
 			msgBox=QtGui.QMessageBox(self);
 			msgBox.setText("Esta seguro de cargar los datos? Los datos anteriores se perderan.")

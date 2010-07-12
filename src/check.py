@@ -8,35 +8,34 @@ from connection.connection import Connection
 
 tmpPathConfFile = open("installerConf.dat", "r")
 tmpPath=os.path.expandvars(tmpPathConfFile.readline().split("=")[-1].split(";")[0])
+tmpPathConfFile.close()
 
 def isBDServiceInstalled():
 	res=0
-	subprocess.call('reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL',stderr=open(tmpPath+'\\tmp\\outReg.dat', 'w'),stdout=open(tmpPath+'\\tmp\\out.dat', 'w'))
-	file_stats = os.stat(tmpPath+'\\tmp\\outReg.dat')
+	subprocess.call('reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL',stderr=open(tmpPath+'\\outReg.dat', 'w'))
+	file_stats = os.stat(tmpPath+'\\outReg.dat')
 	if(file_stats [stat.ST_SIZE]==0):
 		res=1
-	
-	os.remove(os.path.normcase(tmpPath+"\\tmp\\outReg.dat"))
+	'''os.remove(os.path.normcase(tmpPath+"\\outReg.dat"))'''
 	return res
 	
 def findMysqlPath():
-	os.system('echo > '+tmpPath+'\\tmp\\outReg.dat')
-	os.system('reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL /v ImagePath > "'+tmpPath+'\\tmp\\outReg.dat"')
-	fout=open(tmpPath+'\\tmp\\outReg.dat','r')
-	out= fout.read().split('"')[1].split("bin")[0]
+	os.system('reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL /v ImagePath > "'+tmpPath+'\\outReg.dat"')
+	fout=open(tmpPath+'\\outReg.dat','r')
+	out= fout.read().split('"')[1].split('mysqld')[0]
 	fout.close()
-	os.system('del '+os.path.normcase(tmpPath+"\\tmp\\outReg.dat"))
-	return out
+	'''os.system('del '+os.path.normcase(tmpPath+"\\outReg.dat"))'''
+	return os.path.normcase(out)
 	
 	
 def isBDServiceRunning():
 	res=0
-	subprocess.call('NET STOP MySQL',stderr=open(os.path.expandvars("%HOMEDRIVE%")+'\\tmp\\outService.dat', "w"),stdout=open(tmpPath+'\\tmp\\out.dat', 'w'))
-	file_stats = os.stat(tmpPath+'\\tmp\\outService.dat')
+	subprocess.call('NET STOP MySQL',stderr=open(os.path.expandvars("%HOMEDRIVE%")+'\\outService.dat', "w"),stdout=open(tmpPath+'\\out.dat', 'w'))
+	file_stats = os.stat(tmpPath+'\\outService.dat')
 	if(file_stats [stat.ST_SIZE]==0):
 		os.system('NET START MySQL')
 		res=1
-	os.remove(os.path.normcase(tmpPath+"\\tmp\\outService.dat"))
+	'''os.remove(os.path.normcase(tmpPath+"\\outService.dat"))'''
 	return res
 	
 def checkRoot(passw):
