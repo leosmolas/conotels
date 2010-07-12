@@ -200,6 +200,7 @@ class GrillaDialog(QtGui.QWidget):
 				finPrereserva=unicode(m.getItem("finPrereserva").toString()), inicioReserva=unicode(m.getItem("inicioReserva").toString()), 
 				finReserva=unicode(m.getItem("finReserva").toString()), horaCheckIn=unicode(m.getItem("horaCheckIn").toString()), 
 				horaCheckOut=unicode(m.getItem("horaCheckOut").toString()), estado=unicode(m.getItem("estado").toString()), temporada=unicode(m.getItem("temporada").toString()),
+				senia = m.getItem("senia").toFloat()[0],
 				mainWin = self.uiMain, parent = self)
 
 		diag.exec_()
