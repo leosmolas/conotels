@@ -193,6 +193,6 @@ CREATE VIEW reservasView AS
 	WHERE r.huesped = idHuesped AND idUnidad = unidad;
 	
 grant all on conotels.* to 'userHoteles'@'localhost' identified by 'userHoteles' with grant option;
-
+grant super on *.* to 'userHoteles'@'localhost';
 flush privileges;
 
