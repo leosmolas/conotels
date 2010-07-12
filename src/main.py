@@ -249,9 +249,10 @@ class MainWindow(QtGui.QMainWindow):
 	@QtCore.pyqtSlot()
 	def createBackup(self):
 		fileDialog=QtGui.QFileDialog.getSaveFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
-		print str(fileDialog)
+		fileDialog=unicode(str(fileDialog))
+
 		if(str(fileDialog)!=""):
-			backup.backupDatabase("conotels","userHoteles","userHoteles",os.path.normcase(str(fileDialog)))
+			backup.backupDatabase("conotels","userHoteles","userHoteles",os.path.normcase(fileDialog))
 
 		
 
@@ -260,14 +261,14 @@ class MainWindow(QtGui.QMainWindow):
 		fileDialog=QtGui.QFileDialog.getOpenFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
 		self.conn.close()
 		self.openConn()
-
-
-		if(str(fileDialog)!=""):
+		fileDialog=unicode(str(fileDialog))
+		
+		if(fileDialog!=""):
 			msgBox=QtGui.QMessageBox(self);
 			msgBox.setText("Esta seguro de cargar los datos? Los datos anteriores se perderan.")
 			msgBox.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
 			if(msgBox.exec_()==QtGui.QMessageBox.Yes):
-				backup.loadDatabase("conotels","userHoteles","userHoteles",os.path.normcase(str(fileDialog)))
+				backup.loadDatabase("conotels","userHoteles","userHoteles",os.path.normcase(fileDialog))
  
 	def checkPrereservas(self):
 		preExpDialog = Admin(self.conn, "PreExpiradas", self.ui)
