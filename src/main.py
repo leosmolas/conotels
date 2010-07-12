@@ -207,7 +207,7 @@ class MainWindow(QtGui.QMainWindow):
 					self.ui.title.setTitle(u"Tipos de Unidad")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 				self.ui.widgets.setCurrentIndex(1)
-				self.lastButtonClicked = selected #Para volver a llamar después de Prereservas expiradas
+				self.lastButtonClicked = selected #Para volver a llamar después de algún diálogo.
 			else:	
 				ret = QtGui.QMessageBox.question(self, "Advertencia", u"¿Está seguro que desea salir?",
 				QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel)
@@ -248,13 +248,11 @@ class MainWindow(QtGui.QMainWindow):
 		
 	@QtCore.pyqtSlot()
 	def createBackup(self):
-		fileDialog=QtGui.QFileDialog.getSaveFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%"))
+		fileDialog=QtGui.QFileDialog.getSaveFileName(self, "Examinar", os.path.expandvars("%HOMEDRIVE%") + "\conotels_backup.sql")
 		fileDialog=unicode(str(fileDialog))
 
 		if(str(fileDialog)!=""):
-			backup.backupDatabase("conotels","userHoteles","userHoteles",os.path.normcase(fileDialog))
-
-		
+			backup.backupDatabase("conotels","userHoteles","userHoteles",os.path.normcase(fileDialog))		
 
 	@QtCore.pyqtSlot()
 	def loadBackup(self):
@@ -269,11 +267,12 @@ class MainWindow(QtGui.QMainWindow):
 			msgBox.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
 			if(msgBox.exec_()==QtGui.QMessageBox.Yes):
 				backup.loadDatabase("conotels","userHoteles","userHoteles",os.path.normcase(fileDialog))
+			self.butClicked(self.lastButtonClicked) #Para hacer repaint y mantener consistencia con los cambios que hubo
  
 	def checkPrereservas(self):
 		preExpDialog = Admin(self.conn, "PreExpiradas", self.ui)
 		preExpDialog.exec_()
-		self.butClicked(self.lastButtonClicked) #Para hacer reload y mantener consistencia con los cambios que hubo
+		self.butClicked(self.lastButtonClicked) #Para hacer repaint y mantener consistencia con los cambios que hubo
 
 import sys
 
