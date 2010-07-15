@@ -70,7 +70,7 @@ class HuespedDialog(QtGui.QDialog):
 
 	def save(self):
 		if self.ui.dniLine.text() != "" and self.ui.nombreLine.text() != "" and self.ui.apellidoLine.text() != "": 
-			if (self.modif and self.ui.dniLine.text() == self.dni) or self.model.checkdni(self.ui.dniLine.text()) == 0:
+			if (self.modif and self.ui.dniLine.text() == self.dni) or self.model.checkdni(self.escape(self.ui.dniLine.text())) == 0:
 				self.model.save(id=self.id,dni=self.escape(unicode(self.ui.dniLine.text())),
 					nombre      = self.escape(unicode(self.ui.nombreLine.text())),
 					apellido    = self.escape(unicode(self.ui.apellidoLine.text())),
@@ -155,6 +155,6 @@ class HuespedDialog(QtGui.QDialog):
 		return super(HuespedDialog, self).keyPressEvent(keyEvent)
 
 	def escape(self, str):
-		print str.replace('"', '\\"').replace("'", "\\'")
-		return str.replace('"', '\\"').replace("'", "\\'")
+		ns = str
+		return ns.replace('"', '\\"').replace("'", "\\'")
 

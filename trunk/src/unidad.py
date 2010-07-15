@@ -157,4 +157,5 @@ class UnidadDialog(QtGui.QDialog):
 		return super(UnidadDialog, self).keyPressEvent(keyEvent)
 
 	def escape(self, str):
-		return str.replace('"', '\\"').replace("'", "\\'")
+		ns = str
+		return ns.replace('"', '\\"').replace("'", "\\'")
