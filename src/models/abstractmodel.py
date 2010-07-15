@@ -57,4 +57,5 @@ class AbstractModel(object):
 		self.model = self.conn.query(s)
 
 	def escape(self, str):
-		return str.replace('"', '\\"').replace("'", "\\'")
+		ns = str
+		return ns.replace('"', '\\"').replace("'", "\\'")

@@ -183,4 +183,5 @@ class GastosDialog(QtGui.QWidget):
 			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para ser eliminado.",3000)
 
 	def escape(self, str):
-		return str.replace('"', '\\"').replace("'", "\\'")
+		ns = str
+		return ns.replace('"', '\\"').replace("'", "\\'")

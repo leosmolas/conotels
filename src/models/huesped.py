@@ -66,6 +66,7 @@ class Huesped(AbstractModel):
 		self.setHeaders()
 		
 	def checkdni(self, dni=""):
+		print "select * from huesped where dni = '" + dni + "'"
 		self.model = self.conn.query("select * from huesped where dni = '" + dni + "'")
 		return self.model.rowCount()
 
