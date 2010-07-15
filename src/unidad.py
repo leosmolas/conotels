@@ -88,9 +88,9 @@ class UnidadDialog(QtGui.QDialog):
 					estad = "Libre"
 					if self.ui.noDisponibleCheck.checkState() == QtCore.Qt.Checked:
 						estad = "No Disponible"
-					self.model.save(id=self.id,nombre=re.escape(unicode(self.ui.numeroLine.text())),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
+					self.model.save(id=self.id,nombre=self.escape(unicode(self.ui.numeroLine.text())),tipo=comboModel.data(comboModel.index(self.ui.tipoCombo.currentIndex(),0)).toInt()[0],
 						capacidad=self.ui.capacidadSpin.value(),
-						descripcion=re.escape(unicode(self.ui.descripcionText.toPlainText())),
+						descripcion=self.escape(unicode(self.ui.descripcionText.toPlainText())),
 						estado=estad)
 					self.uiMain.statusBar.showMessage(u"Los datos se han guardado con éxito!",3000)
 					return True
@@ -155,3 +155,6 @@ class UnidadDialog(QtGui.QDialog):
 			keyEvent.accept()
 			return
 		return super(UnidadDialog, self).keyPressEvent(keyEvent)
+
+	def escape(self, str):
+		return str.replace('"', '\\"').replace("'", "\\'")
