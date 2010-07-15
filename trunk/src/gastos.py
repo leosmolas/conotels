@@ -57,7 +57,7 @@ class GastosDialog(QtGui.QWidget):
 
 	def save(self,id = -1):
 		print "new gastos"
-		self.model.save(id,descripcion=re.escape(unicode(self.ui.descripcionLine.text())),
+		self.model.save(id,descripcion=self.escape(unicode(self.ui.descripcionLine.text())),
 				costo=self.ui.gastoSpin.value(),
 				reserva=self.reservaActual,
 				pendiente=self.ui.pendienteCheckBox.isChecked())
@@ -181,3 +181,6 @@ class GastosDialog(QtGui.QWidget):
 				self.uiMain.statusBar.showMessage("El gasto ha sido eliminado exitosamente.",3000)
 		else:
 			self.uiMain.statusBar.showMessage("No ha seleccionado ningun gasto para ser eliminado.",3000)
+
+	def escape(self, str):
+		return str.replace('"', '\\"').replace("'", "\\'")

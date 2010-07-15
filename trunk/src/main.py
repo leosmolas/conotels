@@ -271,6 +271,7 @@ class MainWindow(QtGui.QMainWindow):
  
 	def checkPrereservas(self):
 		preExpDialog = Admin(self.conn, "PreExpiradas", self.ui)
+		preExpDialog.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(":/house.png")))
 		preExpDialog.exec_()
 		self.butClicked(self.lastButtonClicked) #Para hacer repaint y mantener consistencia con los cambios que hubo
 

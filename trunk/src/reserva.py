@@ -266,4 +266,5 @@ class ReservaDialog(QtGui.QDialog):
 			keyEvent.accept()
 			return
 		return super(ReservaDialog, self).keyPressEvent(keyEvent)
-	
+
+

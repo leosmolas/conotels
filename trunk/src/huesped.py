@@ -53,6 +53,7 @@ class HuespedDialog(QtGui.QDialog):
 		self.setup()
 		
 		if self.modif:
+			self.setWindowTitle(QtGui.QApplication.translate("huespedDialog", u"Editar huésped", None, QtGui.QApplication.UnicodeUTF8))
 			self.ui.dniLine.setText(dni)
 			self.ui.apellidoLine.setText(apellido)
 			self.ui.nombreLine.setText(nombre)
@@ -70,17 +71,17 @@ class HuespedDialog(QtGui.QDialog):
 	def save(self):
 		if self.ui.dniLine.text() != "" and self.ui.nombreLine.text() != "" and self.ui.apellidoLine.text() != "": 
 			if (self.modif and self.ui.dniLine.text() == self.dni) or self.model.checkdni(self.ui.dniLine.text()) == 0:
-				self.model.save(id=self.id,dni=re.escape(unicode(self.ui.dniLine.text())),
-					nombre      = re.escape(unicode(self.ui.nombreLine.text())),
-					apellido    = re.escape(unicode(self.ui.apellidoLine.text())),
-					telefono    = re.escape(unicode(self.ui.telLine.text())),
-					celular     = re.escape(unicode(self.ui.celLine.text())),
-					direccion   = re.escape(unicode(self.ui.direccionLine.text())),
-					localidad   = re.escape(unicode(self.ui.localidadLine.text())),
-					email       = re.escape(unicode(self.ui.emailLine.text())),
-					autoPatente = re.escape(unicode(self.ui.patenteLine.text())),
-					autoModelo  = re.escape(unicode(self.ui.modeloLine.text())),
-					autoColor   = re.escape(unicode(self.ui.colorLine.text()))
+				self.model.save(id=self.id,dni=self.escape(unicode(self.ui.dniLine.text())),
+					nombre      = self.escape(unicode(self.ui.nombreLine.text())),
+					apellido    = self.escape(unicode(self.ui.apellidoLine.text())),
+					telefono    = self.escape(unicode(self.ui.telLine.text())),
+					celular     = self.escape(unicode(self.ui.celLine.text())),
+					direccion   = self.escape(unicode(self.ui.direccionLine.text())),
+					localidad   = self.escape(unicode(self.ui.localidadLine.text())),
+					email       = self.escape(unicode(self.ui.emailLine.text())),
+					autoPatente = self.escape(unicode(self.ui.patenteLine.text())),
+					autoModelo  = self.escape(unicode(self.ui.modeloLine.text())),
+					autoColor   = self.escape(unicode(self.ui.colorLine.text()))
 					)
 				#QtGui.QMessageBox.information(self, "Guardado con exito", "Los datos se han guardado con exito!")
 				if self.uiMain != None:
@@ -152,3 +153,8 @@ class HuespedDialog(QtGui.QDialog):
 			keyEvent.accept()
 			return
 		return super(HuespedDialog, self).keyPressEvent(keyEvent)
+
+	def escape(self, str):
+		print str.replace('"', '\\"').replace("'", "\\'")
+		return str.replace('"', '\\"').replace("'", "\\'")
+

@@ -42,7 +42,7 @@ class AbstractModel(object):
 	def filterModel(self, filter):
 		list = filter.split(' ')
 		for i in range(len(list)):
-			list[i] = re.escape(unicode(list[i]))
+			list[i] = self.escape(unicode(list[i]))
 		print list
 		s = "select * from " + self.tableName + " where "
 		for i in range(len(self.campos)):
@@ -56,3 +56,5 @@ class AbstractModel(object):
 		print "consulta: " + s
 		self.model = self.conn.query(s)
 
+	def escape(self, str):
+		return str.replace('"', '\\"').replace("'", "\\'")
