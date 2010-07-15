@@ -125,7 +125,7 @@ QToolButton:checked{
      <x>0</x>
      <y>0</y>
      <width>570</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAyuda">
@@ -183,7 +183,7 @@ QToolButton:checked{
   </action>
   <action name="actionPrereservas">
    <property name="text">
-    <string>Prereservas expiradas</string>
+    <string>Pre-reservas expiradas</string>
    </property>
   </action>
   <action name="actionCrear_Backup">

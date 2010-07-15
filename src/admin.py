@@ -37,7 +37,7 @@ class Admin(QtGui.QDialog):
 
 		#Si se usa Admin para mostrar prereservas expiradas
 		if self.preExpiradas:
-			self.setWindowTitle(QtGui.QApplication.translate("Admin", "Prereservas expiradas", None, QtGui.QApplication.UnicodeUTF8))
+			self.setWindowTitle(QtGui.QApplication.translate("Admin", "Pre-reservas expiradas", None, QtGui.QApplication.UnicodeUTF8))
 			self.backBut = self.ui.buttonBox.addButton("&Volver", QtGui.QDialogButtonBox.ActionRole)
 			self.backBut.setIcon(QtGui.QIcon(":/back.png"))
 			QtCore.QObject.connect(self.backBut, QtCore.SIGNAL("clicked()"), self.on_backBut_clicked)
