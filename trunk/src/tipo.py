@@ -48,6 +48,7 @@ class TipoDialog(QtGui.QDialog):
 		#        self.costoTempBaja = costoTempBaja
 		
 		if self.modif:
+			self.setWindowTitle(QtGui.QApplication.translate("tipoDialog", u"Editar Tipo de Unidad", None, QtGui.QApplication.UnicodeUTF8))
 			self.ui.nombreLine.setText(nombre)
 			self.ui.costoTempBajaSpin.setValue(costoTempBaja)
 			self.ui.costoTempAltaSpin.setValue(costoTempAlta)

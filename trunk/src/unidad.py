@@ -45,6 +45,10 @@ class UnidadDialog(QtGui.QDialog):
 		self.modif = (id != -1)
 
 		self.setup()
+		if self.modif:
+			print "modif"
+			self.setWindowTitle(QtGui.QApplication.translate("unidadDialog", "Editar Unidad", None, QtGui.QApplication.UnicodeUTF8))
+		
 
 		self.ui.numeroLine.setText(unicode(numero))
 		self.ui.tipoCombo.setCurrentIndex(0)
