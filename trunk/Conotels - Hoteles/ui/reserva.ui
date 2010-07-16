@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>reservaDialog</class>
+ <widget class="QDialog" name="reservaDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>701</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Nueva reserva</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Unidad:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="unidadCombo"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Filtrar huéspedes:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="9">
+      <widget class="QLineEdit" name="huespedLine"/>
+     </item>
+     <item row="2" column="1" rowspan="3" colspan="9">
+      <widget class="QTableView" name="huespedView"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Inicio Prereserva:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QDateEdit" name="inicioPreDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="9">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Huésped:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1" colspan="3">
+      <widget class="QPushButton" name="nuevoBut">
+       <property name="text">
+        <string>Crear nuevo huésped</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="20" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>Seña:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="1">
+      <widget class="QDoubleSpinBox" name="seniaSpin">
+       <property name="prefix">
+        <string>$ </string>
+       </property>
+       <property name="maximum">
+        <double>9999.989999999999782</double>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="4">
+      <widget class="QDateEdit" name="finDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="3">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Fin Reserva:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="5">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Hora CheckIn:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="6">
+      <widget class="QTimeEdit" name="inTime"/>
+     </item>
+     <item row="13" column="6">
+      <widget class="QTimeEdit" name="outTime"/>
+     </item>
+     <item row="13" column="5">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Hora CheckOut:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="7">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Estado:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="8">
+      <widget class="QComboBox" name="estadoCombo">
+       <item>
+        <property name="text">
+         <string>Pre Reservado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reservado</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reserva en curso</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reserva terminada</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reserva cancelada</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="13" column="7">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Temporada:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="8">
+      <widget class="QComboBox" name="temporadaCombo">
+       <item>
+        <property name="text">
+         <string>Alta</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Baja</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Fin Prereserva:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QDateEdit" name="finPreDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="3">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Inicio Reserva:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="4">
+      <widget class="QDateEdit" name="inicioDate">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::NoButton</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>unidadCombo</tabstop>
+  <tabstop>huespedLine</tabstop>
+  <tabstop>huespedView</tabstop>
+  <tabstop>nuevoBut</tabstop>
+  <tabstop>inicioPreDate</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

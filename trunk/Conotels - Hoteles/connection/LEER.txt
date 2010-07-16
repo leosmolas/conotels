@@ -1,0 +1,4 @@
+Modulos SOLLO para probar connection.py y error.py
+* GUI.py
+* GUI.ui
+* testConnection.py
