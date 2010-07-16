@@ -103,7 +103,7 @@ huesped.idHuesped
 from reserva,unidad,huesped 
 where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped""")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
+		self.model.setHeaderData(1, QtCore.Qt.Horizontal, u"Cabaña")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, u"Huésped")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Inicio de pre-reserva")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Fin de pre-reserva")
@@ -128,7 +128,7 @@ where unidad.idUnidad = reserva.unidad and huesped.idHuesped = reserva.huesped""
 		today = QtCore.QDate.currentDate().toString("yyyy-MM-dd")
 		self.model = self.conn.query("SELECT reserva.idReserva, unidad.nombre, huesped.apellido, reserva.inicioPrereserva, reserva.finPrereserva, reserva.inicioReserva, reserva.finReserva, reserva.horaCheckIn, reserva.horaCheckOut, reserva.estado, reserva.temporada, reserva.senia, unidad.idUnidad, huesped.idHuesped FROM reserva, unidad, huesped WHERE reserva.estado = \'Pre reservado\' AND reserva.finPrereserva < \'" + today + "\' AND unidad.idUnidad = reserva.unidad AND huesped.idHuesped = reserva.huesped")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
-		self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Unidad")
+		self.model.setHeaderData(1, QtCore.Qt.Horizontal, u"Cabaña")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, u"Huésped")
 		self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Inicio de pre-reserva")
 		self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Fin de pre-reserva")

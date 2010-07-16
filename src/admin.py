@@ -210,7 +210,7 @@ class Admin(QtGui.QDialog):
 				self.uiMain.widgets.insertWidget(2, ReservaDialog(self.conn,mainWin=self.uiMain)) #modif
 		
 		elif self.nombre == "Unidad":
-				self.uiMain.title.setTitle("Nueva Unidad")
+				self.uiMain.title.setTitle(u"Nueva Caba–a")
 				self.uiMain.widgets.insertWidget(2, UnidadDialog(self.conn,mainWin=self.uiMain)) #modif
 		
 		elif self.nombre == "Tipo":

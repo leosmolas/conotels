@@ -53,7 +53,7 @@ class HuespedDialog(QtGui.QDialog):
 		self.setup()
 		
 		if self.modif:
-			self.setWindowTitle(QtGui.QApplication.translate("huespedDialog", u"Editar huésped", None, QtGui.QApplication.UnicodeUTF8))
+			self.setWindowTitle(QtGui.QApplication.translate("huespedDialog", u"Editar Huésped", None, QtGui.QApplication.UnicodeUTF8))
 			self.ui.dniLine.setText(dni)
 			self.ui.apellidoLine.setText(apellido)
 			self.ui.nombreLine.setText(nombre)
