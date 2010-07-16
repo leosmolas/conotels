@@ -42,8 +42,8 @@ class GrillaDialog(QtGui.QWidget):
 		for i in range(0, self.cantUnidades):
 			# Armo un dict porque no siempre los ids son seguidos
 			self.uDict.update({self.unidades.model.getItem("idUnidad", i).toInt()[0]: i})
-			print self.unidades.model.getItem("nombre",i).toString()
-			self.names.append(self.unidades.model.getItem("nombre",i).toString())
+#            print self.unidades.model.getItem("nombre",i).toString()
+			self.names.append(unicode(self.unidades.model.getItem("nombre",i).toString()))
 			self.ui.tableWidget.insertRow(i)
 			j += 1
 
