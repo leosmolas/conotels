@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "inst.py", line 246, in <module>
+  File "inst.py", line 200, in install
+  File "check.pyc", line 15, in isBDServiceInstalled
+  File "subprocess.pyc", line 444, in call
+  File "subprocess.pyc", line 588, in __init__
+  File "subprocess.pyc", line 707, in _get_handles
+  File "subprocess.pyc", line 752, in _make_inheritable
+WindowsError: [Error 6] Controlador no válido
+Traceback (most recent call last):
+  File "inst.py", line 246, in <module>
+  File "inst.py", line 200, in install
+  File "check.pyc", line 15, in isBDServiceInstalled
+  File "subprocess.pyc", line 444, in call
+  File "subprocess.pyc", line 588, in __init__
+  File "subprocess.pyc", line 707, in _get_handles
+  File "subprocess.pyc", line 752, in _make_inheritable
+WindowsError: [Error 6] Controlador no válido
+Traceback (most recent call last):
+  File "inst.py", line 246, in <module>
+  File "inst.py", line 200, in install
+  File "check.pyc", line 15, in isBDServiceInstalled
+  File "subprocess.pyc", line 444, in call
+  File "subprocess.pyc", line 588, in __init__
+  File "subprocess.pyc", line 707, in _get_handles
+  File "subprocess.pyc", line 752, in _make_inheritable
+WindowsError: [Error 6] Controlador no válido
+Traceback (most recent call last):
+  File "inst.py", line 246, in <module>
+  File "inst.py", line 200, in install
+  File "check.pyc", line 15, in isBDServiceInstalled
+  File "subprocess.pyc", line 444, in call
+  File "subprocess.pyc", line 588, in __init__
+  File "subprocess.pyc", line 707, in _get_handles
+  File "subprocess.pyc", line 752, in _make_inheritable
+WindowsError: [Error 6] Controlador no válido
+Traceback (most recent call last):
+  File "inst.py", line 246, in <module>
+  File "inst.py", line 200, in install
+  File "check.pyc", line 15, in isBDServiceInstalled
+  File "subprocess.pyc", line 444, in call
+  File "subprocess.pyc", line 588, in __init__
+  File "subprocess.pyc", line 707, in _get_handles
+  File "subprocess.pyc", line 752, in _make_inheritable
+WindowsError: [Error 6] Controlador no válido
+Traceback (most recent call last):
+  File "inst.py", line 246, in <module>
+  File "inst.py", line 200, in install
+  File "check.pyc", line 15, in isBDServiceInstalled
+  File "subprocess.pyc", line 444, in call
+  File "subprocess.pyc", line 588, in __init__
+  File "subprocess.pyc", line 707, in _get_handles
+  File "subprocess.pyc", line 752, in _make_inheritable
+WindowsError: [Error 6] Controlador no válido
