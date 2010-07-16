@@ -69,7 +69,7 @@ class MainWindow(QtGui.QMainWindow):
 		
 		button = QtGui.QToolButton(self.ui.buttonsFrame)
 		button.setIcon(QtGui.QIcon(":/property.png"))
-		button.setText("Unidades")
+		button.setText(u"Cabañas")
 		button.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
 		button.setCheckable(True)
 		self.buttonGroup.addButton(button,5)
@@ -77,7 +77,7 @@ class MainWindow(QtGui.QMainWindow):
 		
 		button = QtGui.QToolButton(self.ui.buttonsFrame)
 		button.setIcon(QtGui.QIcon(":/tools.png"))
-		button.setText("Tipos de Unidad")
+		button.setText(u"Tipos de Cabaña")
 		button.setToolButtonStyle(QtCore.Qt.ToolButtonTextUnderIcon)
 		button.setCheckable(True)
 		self.buttonGroup.addButton(button,6)
@@ -201,10 +201,10 @@ class MainWindow(QtGui.QMainWindow):
 					self.ui.title.setTitle(u"Huéspedes")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Huesped",self.ui))
 				elif selected == 5:
-					self.ui.title.setTitle(u"Unidades")
+					self.ui.title.setTitle(u"Cabañas")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Unidad",self.ui))
 				elif selected == 6:
-					self.ui.title.setTitle(u"Tipos de Unidad")
+					self.ui.title.setTitle(u"Tipos de Cabaña")
 					self.ui.widgets.insertWidget(1, Admin(self.conn, "Tipo",self.ui))
 				self.ui.widgets.setCurrentIndex(1)
 				self.lastButtonClicked = selected #Para volver a llamar después de algún diálogo.
