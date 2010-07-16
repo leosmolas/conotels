@@ -53,7 +53,7 @@ class ReservaDialog(QtGui.QDialog):
 		self.setup()
 		if self.modif:
 			print "modif"
-			self.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Editar reserva", None, QtGui.QApplication.UnicodeUTF8))
+			self.setWindowTitle(QtGui.QApplication.translate("reservaDialog", "Editar Reserva", None, QtGui.QApplication.UnicodeUTF8))
 		
 		self.huesped = Huesped(self.conn)
 		self.huesped.loadAll()
@@ -251,7 +251,7 @@ class ReservaDialog(QtGui.QDialog):
 	@QtCore.pyqtSlot()
 	def on_backBut_clicked(self):
 		self.uiMain.widgets.removeWidget(self.uiMain.widgets.widget(2))
-		self.uiMain.title.setTitle("Administrar reservas")
+		self.uiMain.title.setTitle("Administrar Reservas")
 		self.uiMain.widgets.setCurrentIndex(1)
 		self.uiMain.widgets.widget(1).loadAll()
 		

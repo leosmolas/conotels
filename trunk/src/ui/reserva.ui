@@ -19,7 +19,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Unidad:</string>
+        <string>Cabaña:</string>
        </property>
       </widget>
      </item>
@@ -79,7 +79,7 @@
      <item row="5" column="1" colspan="3">
       <widget class="QPushButton" name="nuevoBut">
        <property name="text">
-        <string>Crear nuevo huesped</string>
+        <string>Crear nuevo huésped</string>
        </property>
       </widget>
      </item>

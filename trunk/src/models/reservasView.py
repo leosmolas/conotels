@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from abstractmodel import AbstractModel
 
 from PyQt4 import QtCore
@@ -27,7 +27,7 @@ class ReservasView(AbstractModel):
 		self.model.setHeaderData(0,  QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1,  QtCore.Qt.Horizontal, "Apellido")
 		self.model.setHeaderData(2,  QtCore.Qt.Horizontal, "DNI")
-		self.model.setHeaderData(3,  QtCore.Qt.Horizontal, "Unidad")
+		self.model.setHeaderData(3,  QtCore.Qt.Horizontal, u"Cabaña")
 		self.model.setHeaderData(4,  QtCore.Qt.Horizontal, "Inicio de prereserva")
 		self.model.setHeaderData(5,  QtCore.Qt.Horizontal, "Fin de prereserva")
 		self.model.setHeaderData(6,  QtCore.Qt.Horizontal, "Inicio de reserva")
