@@ -9,15 +9,28 @@ import commands
 from PyQt4 import QtCore,QtGui,QtSql
 
 def backupDatabase(db,user,password,fileOut):
-
-	backupQuery=os.path.normcase('"'+check.findMysqlPath()+'\\mysqldump.exe"')+ ' --opt --password='+password+' --user='+user+' '+db+' > auxFile.sql'
+	file= fileOut.split('\\')[-1]
+	path= fileOut.replace ( fileOut.split('\\')[-1], '' )[:-1]
+	mysqlPath=check.findMysqlPath()[:-1]
+	mysqldumpExe='"'+mysqlPath+'\\mysqldump.exe"'
+	oldCurrDir=os.getcwd()
+	os.chdir(path)
+	backupQuery=mysqldumpExe+' --opt --password='+password+' --user='+user+' '+db+' > '+file
 	os.system(backupQuery)
-	os.system('copy auxFile.sql "'+ fileOut+'"')
-	os.system('del auxFile.sql')
+	os.chdir(oldCurrDir)
+
 	
-def loadDatabase(db,user,password,fileOut):
-	os.system('copy "'+ fileOut+'" auxFile.sql')
-	os.system('"'+check.findMysqlPath()+'\\mysql.exe" '+ " --password="+password+" --user="+user+" "+db+' < auxFile.sql' )
-	os.system('del auxFile.sql')
+def loadDatabase(db,user,password,fileIn):
+
+	file= fileIn.split('\\')[-1]
+	path= fileIn.replace ( fileIn.split('\\')[-1], '' )[:-1]
+	mysqlPath=check.findMysqlPath()[:-1]
+	mysqldExe='"'+mysqlPath+'\\mysql.exe"'
+	oldCurrDir=os.getcwd()
+	os.chdir(path)
+	backupQuery=mysqldExe+" --password="+password+" --user="+user+" "+db+' < '+file
+	os.system(backupQuery)
+	os.chdir(oldCurrDir)
+
 	
 
