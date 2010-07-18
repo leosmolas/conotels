@@ -31,7 +31,7 @@ class Unidad(AbstractModel):
 				" values ('"+nombre+"',"+unicode(tipo)+","+unicode(capacidad)+",'"+descripcion+"','"+estado+"')")
 
 	def loadAll(self):
-		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo")
+		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo order by unidad.idUnidad asc")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, u"Número")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Tipo")
@@ -41,7 +41,7 @@ class Unidad(AbstractModel):
 		self.model.setHeaderData(6, QtCore.Qt.Horizontal, "unidad.Tipo") #no visible en el QtTableWidget
 
 	def loadDisponibles(self):
-		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo and unidad.estado != 'No Disponible'")
+		self.model = self.conn.query("select unidad.idUnidad,unidad.nombre,tipo.nombre,unidad.capacidad,unidad.descripcion,unidad.estado,unidad.tipo from unidad,tipo where unidad.tipo = tipo.idTipo and unidad.estado != 'No Disponible' order by unidad.idUnidad asc")
 		self.model.setHeaderData(0, QtCore.Qt.Horizontal, "ID")
 		self.model.setHeaderData(1, QtCore.Qt.Horizontal, u"Número")
 		self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Tipo")
