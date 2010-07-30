@@ -170,7 +170,11 @@ class GrillaDialog(QtGui.QWidget):
 			print "endDay: %d" % endDay
 
 			for i in range(initDay-1, endDay):
-				self.ui.tableWidget.setItem(self.uDict[unidad], i, TableItem(self.conn, reserva=res, tipo=estado,init=(i==(initDay-1))))
+				it = TableItem(self.conn, reserva=res, tipo=estado,init=(i==(initDay-1)))
+				try:
+					self.ui.tableWidget.setItem(self.uDict[unidad], i, it)
+				except:
+					return
 
 
 	@QtCore.pyqtSlot()
