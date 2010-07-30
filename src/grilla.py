@@ -174,7 +174,7 @@ class GrillaDialog(QtGui.QWidget):
 				try:
 					self.ui.tableWidget.setItem(self.uDict[unidad], i, it)
 				except:
-					return
+					continue
 
 
 	@QtCore.pyqtSlot()
